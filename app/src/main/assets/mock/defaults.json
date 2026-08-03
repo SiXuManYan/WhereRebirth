@@ -1,0 +1,10 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "text": "Local mock content for offline preview",
+  "name": "Where Rebirth Demo",
+  "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+  "latitude": 14.5995,
+  "longitude": 120.9842,
+  "login_token": "where-rebirth-local-token"
+}

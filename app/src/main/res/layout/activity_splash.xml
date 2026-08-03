@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/splash_container_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/first_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_flash_bg" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager_vp"
+        android:layout_width="match_parent"
+        tools:visibility="visible"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+
+    <com.jiechengsheng.city.widget.pager.IndicatorView2
+        android:id="@+id/point_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/start_tv"
+        android:layout_marginBottom="@dimen/dp_25"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+
+
+    <TextView
+        android:id="@+id/start_tv"
+        android:layout_width="@dimen/dp_260"
+        android:layout_height="@dimen/dp_44"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dp_90"
+        android:background="@drawable/shape_blue_radius_24"
+        android:gravity="center"
+        android:text="@string/splash_next"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_18"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+
+</RelativeLayout>

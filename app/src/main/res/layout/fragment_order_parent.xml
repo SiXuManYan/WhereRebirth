@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_377BFF">
+
+
+    <RelativeLayout
+        android:id="@+id/title_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44">
+
+
+        <ImageView
+            android:id="@+id/order_back_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_13"
+            android:src="@drawable/ic_back_white"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/main_tab_title_order"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_17" />
+
+
+    </RelativeLayout>
+
+
+    <com.jiechengsheng.city.widget.tabs.SlidingTabLayout
+        android:id="@+id/tabs_type"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:layout_below="@+id/title_rl"
+        android:background="@color/white"
+        app:tl_indicator_color="@color/blue_377BFF"
+        app:tl_indicator_corner_radius="@dimen/dp_2"
+        app:tl_indicator_height="@dimen/dp_4"
+        app:tl_indicator_width="@dimen/dp_25"
+        app:tl_textBold="SELECT"
+        app:tl_textSelectColor="@color/blue_377BFF"
+        app:tl_textUnselectColor="@color/black_333333"
+        app:tl_textsize="@dimen/sp_14"
+        app:tl_underline_color="@color/transplant"
+        app:tl_underline_height="1px" />
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tabs_type"
+        android:background="@color/white" />
+
+
+    <LinearLayout
+        android:id="@+id/login_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_400"
+        android:layout_below="@+id/title_rl"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_empty_un_login" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:text="@string/login_to_view_order"
+            android:textColor="@color/black_333333"
+            android:textSize="@dimen/sp_14" />
+
+
+        <TextView
+            android:id="@+id/login_tv"
+            android:layout_width="@dimen/dp_94"
+            android:layout_height="@dimen/dp_28"
+            android:background="@drawable/shape_blue_radius_16"
+            android:gravity="center"
+            android:text="@string/to_login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14" />
+
+    </LinearLayout>
+
+
+    <com.jiechengsheng.city.view.empty.EmptyView
+        android:id="@+id/order_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title_rl"
+        android:background="@color/white"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+</RelativeLayout>

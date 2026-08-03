@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.jiechengsheng.city.widget.JcsTitle
+        android:id="@+id/jcsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:middleTitle="@string/title_convenience_service"
+        app:rightFirstIcon="@mipmap/ic_search_black" />
+
+
+    <RelativeLayout
+        android:id="@+id/tab_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:layout_below="@+id/jcsTitle">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@+id/filer_iv"
+            app:tabBackground="@null"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/transplant"
+            app:tabIndicatorFullWidth="false"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/blue_377BFF"
+            app:tabTextColor="@color/grey_666666" />
+
+        <ImageView
+            android:id="@+id/shadow_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_filter_shadow" />
+
+        <ImageView
+            android:id="@+id/filer_iv"
+            android:layout_width="@dimen/dp_44"
+            android:layout_height="@dimen/dp_44"
+            style="@style/filterContentDescription"
+            android:layout_alignParentEnd="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_filter_gray" />
+    </RelativeLayout>
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tab_rl" />
+
+    <com.jiechengsheng.city.view.empty.EmptyView
+        android:id="@+id/service_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/jcsTitle"
+        android:background="@color/white"
+        android:visibility="gone"
+        tools:visibility="gone" />
+
+
+    <LinearLayout
+        android:id="@+id/filter_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tab_rl"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+
+        <RadioGroup
+            android:id="@+id/sort_rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/recommend_rb"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48"
+                android:background="@null"
+                android:button="@null"
+                android:checked="true"
+                android:paddingStart="@dimen/dp_16"
+                android:paddingEnd="@dimen/dp_16"
+                android:text="@string/news_recommend"
+                android:textColor="@color/selector_black_blue"
+                android:textSize="@dimen/sp_13" />
+
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/dp_16"
+                android:background="@drawable/shape_split"
+                android:backgroundTint="@null"
+                android:button="@null"
+                android:paddingStart="@dimen/dp_16"
+                android:paddingEnd="@dimen/dp_16" />
+
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/distance_rb"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48"
+                android:background="@null"
+                android:button="@null"
+                android:paddingStart="@dimen/dp_16"
+                android:paddingEnd="@dimen/dp_16"
+                android:text="@string/nearest"
+                android:textColor="@color/selector_black_blue"
+                android:textSize="@dimen/sp_13" />
+
+
+        </RadioGroup>
+
+        <View
+            android:id="@+id/dismiss_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:background="@color/grey_666666" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

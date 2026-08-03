@@ -1,0 +1,73 @@
+apply plugin: 'com.mob.sdk'
+
+
+MobSDK {
+    appKey "m323e22bbc612c"
+    appSecret "cd85d45317ccf5bb3f52746d8278de23"
+    ShareSDK {
+        gui false // 关闭 one key share
+        loopShare false
+        gpp true // GooglePlay专版更新  https://www.mob.com/wiki/detailed/?wiki=ShareSDK_Google&id=14
+        devInfo {
+            Facebook {
+                appKey "642165667008627"// facebook appid
+                appSecret "eba25826194279ccb7ee1b561dd9fb50"
+                callbackUri "https://mob.com"
+                officialVersion "default"
+                shareByAppClient true
+                enable true
+                faceBookLoginProtocolScheme "fb1412473428822331"
+            }
+
+            GooglePlus {
+                // com.jcs.where
+//                appId "953359706446-u7ss0g7jub2ojv5j48f73rkka74lve7s.apps.googleusercontent.com"
+                // com.jiechengsheng.city
+                appId "953359706446-nssinsoj3l9d537rj3jphiqrl3rr5h6p.apps.googleusercontent.com"
+                callbackUri "1"
+                officialVersion "default"
+                shareByAppClient true
+                enable true
+            }
+
+            /*
+            Wechat {
+                appId ""
+                appSecret ""
+                userName ""
+                path "p"
+                withShareTicket true
+                miniprogramType 2
+            }
+            QQ {
+                appId ""
+                appKey ""
+            }
+            SinaWeibo {
+                appKey ""
+                appSecret ""
+                callbackUri ""
+            }
+            WechatMoments {
+                appId ""
+                appSecret ""
+            }
+            WechatFavorite {
+                appId ""
+                appSecret ""
+            }
+            QZone {
+                appId ""
+                appKey ""
+            }
+            */
+
+        }
+    }
+
+    permissions {
+        // ShareSDK可选权限说明 https://www.mob.com/wiki/detailed?wiki=238&id=172
+        // 除Gradle自动加载的可选权限方法
+        exclude "android.permission.QUERY_ALL_PACKAGES", "android.permission.READ_PHONE_STATE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"
+    }
+}

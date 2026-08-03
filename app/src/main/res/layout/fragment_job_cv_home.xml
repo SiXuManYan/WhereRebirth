@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_1c1380"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44">
+
+        <ImageView
+            android:id="@+id/back_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingStart="@dimen/dp_15"
+            android:paddingTop="@dimen/dp_10"
+            android:paddingEnd="@dimen/dp_15"
+            android:paddingBottom="@dimen/dp_10"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_back_white" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/my_cv"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_17" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/profile_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/dp_131">
+
+
+        <TextView
+            android:id="@+id/refresh_time_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_28"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingStart="@dimen/dp_16"
+            android:paddingEnd="@dimen/dp_16"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_11"
+            android:visibility="gone"
+            app:drawableStartCompat="@mipmap/ic_cv_refresh_time"
+            tools:text="Generated Attached Resume: 2023-02-16 15:21:02"
+            tools:visibility="visible" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatar_iv"
+            android:layout_width="@dimen/dp_48"
+            android:layout_height="@dimen/dp_48"
+            android:layout_below="@+id/refresh_time_tv"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_8"
+            android:scaleType="centerCrop"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="@dimen/dp_1"
+            tools:src="@tools:sample/avatars" />
+
+
+        <RelativeLayout
+            android:id="@+id/create_cv_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/avatar_iv"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginBottom="@dimen/dp_28"
+            android:visibility="gone"
+            tools:visibility="gone">
+
+            <ImageView
+                android:id="@+id/create_cv_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:src="@mipmap/id_create_profile" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_cv_add_tag" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_8"
+                    android:text="@string/create_profile"
+                    android:textColor="@color/color_d2d0e6" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/info_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/avatar_iv"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/dp_16"
+            android:paddingTop="@dimen/dp_12"
+            android:paddingEnd="@dimen/dp_16"
+            android:paddingBottom="@dimen/dp_7"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+
+            <TextView
+                android:id="@+id/name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:drawablePadding="@dimen/dp_8"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_22"
+                app:drawableEndCompat="@mipmap/ic_edit_cv"
+                tools:text="锅一甩琴一弹这把我是真滴烦" />
+
+
+            <TextView
+                android:id="@+id/gender_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp_5"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_12"
+                tools:text="Female" />
+
+
+            <FrameLayout
+                android:id="@+id/check_resume_fl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingStart="@dimen/dp_5"
+                android:paddingTop="@dimen/dp_13"
+                android:paddingEnd="@dimen/dp_5"
+                android:paddingBottom="@dimen/dp_0">
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_24"
+                    android:background="@drawable/stock_white_radius_16"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingEnd="@dimen/dp_10">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_cv_eyes" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_4"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@string/generate_attached_resume"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_12" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:id="@+id/update_hint_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:alpha="0.95"
+                android:visibility="invisible"
+                tools:visibility="visible"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="@dimen/dp_13"
+                    android:src="@mipmap/ic_job_arrow" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_blue_radius_4_1ca1ff"
+                    android:padding="@dimen/dp_8"
+                    android:text="@string/please_update_resume"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_12" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/content_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" />
+
+
+</LinearLayout>
