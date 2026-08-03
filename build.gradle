@@ -31,7 +31,7 @@ allprojects {
         mavenCentral()
         maven { url "https://jitpack.io" }
         flatDir {
-            dirs 'libs'
+            dirs "$rootDir/app/libs"
         }
         maven { url "https://maven.rongcloud.cn/repository/maven-releases/" }
     }

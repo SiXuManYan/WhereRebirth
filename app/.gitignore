@@ -1,6 +1,7 @@
 # Built application files
 *.apk
 *.aar
+!libs/visitor-client-v1.0.aar
 *.ap_
 *.aab
 
