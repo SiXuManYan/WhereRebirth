@@ -156,8 +156,14 @@ class ComplexChildFragment : BaseMvpFragment<HomeChildPresenter>(), HomeChildVie
 
 
     override fun bindComplexRecommend(data: MutableList<HomeRecommendResponse>, lastPage: Boolean) {
+        // The API can return items whose module_type is missing/unknown (0).
+        // BaseMultiItemQuickAdapter throws while laying out an unregistered type,
+        // so ignore unsupported modules instead of crashing the home screen.
+        val supportedData = data.filterTo(mutableListOf()) {
+            it.itemType in HomeRecommendResponse.MODULE_TYPE_1_HOTEL..HomeRecommendResponse.MODULE_TYPE_4_TRAVEL
+        }
         val loadMoreModule = mAdapter.loadMoreModule
-        if (data.isEmpty()) {
+        if (supportedData.isEmpty()) {
             if (page == Constant.DEFAULT_FIRST_PAGE) {
                 mAdapter.setNewInstance(null)
                 emptyView.showEmptyContainer()
@@ -168,10 +174,10 @@ class ComplexChildFragment : BaseMvpFragment<HomeChildPresenter>(), HomeChildVie
             return
         }
         if (page == Constant.DEFAULT_FIRST_PAGE) {
-            mAdapter.setNewInstance(data)
+            mAdapter.setNewInstance(supportedData)
             loadMoreModule.checkDisableLoadMoreIfNotFullPage()
         } else {
-            mAdapter.addData(data)
+            mAdapter.addData(supportedData)
             if (lastPage) {
                 loadMoreModule.loadMoreEnd()
             } else {
