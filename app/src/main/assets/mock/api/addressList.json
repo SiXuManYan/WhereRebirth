@@ -1,0 +1,51 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": [
+    {
+      "id": 1,
+      "sex": 1,
+      "address": "Manila, Philippines",
+      "contact_name": "Where Rebirth Demo 1",
+      "contact_number": "Local mock 1",
+      "city_name": "Where Rebirth Demo 1",
+      "city_id": 1
+    },
+    {
+      "id": 2,
+      "sex": 2,
+      "address": "Manila, Philippines",
+      "contact_name": "Where Rebirth Demo 2",
+      "contact_number": "Local mock 2",
+      "city_name": "Where Rebirth Demo 2",
+      "city_id": 2
+    },
+    {
+      "id": 3,
+      "sex": 3,
+      "address": "Manila, Philippines",
+      "contact_name": "Where Rebirth Demo 3",
+      "contact_number": "Local mock 3",
+      "city_name": "Where Rebirth Demo 3",
+      "city_id": 3
+    },
+    {
+      "id": 4,
+      "sex": 4,
+      "address": "Manila, Philippines",
+      "contact_name": "Where Rebirth Demo 4",
+      "contact_number": "Local mock 4",
+      "city_name": "Where Rebirth Demo 4",
+      "city_id": 4
+    },
+    {
+      "id": 5,
+      "sex": 5,
+      "address": "Manila, Philippines",
+      "contact_name": "Where Rebirth Demo 5",
+      "contact_number": "Local mock 5",
+      "city_name": "Where Rebirth Demo 5",
+      "city_id": 5
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": [
+    {
+      "nativeIsSelected": false,
+      "title": "Where Rebirth Demo 1",
+      "type": 1
+    },
+    {
+      "nativeIsSelected": false,
+      "title": "Where Rebirth Demo 2",
+      "type": 2
+    },
+    {
+      "nativeIsSelected": false,
+      "title": "Where Rebirth Demo 3",
+      "type": 1
+    },
+    {
+      "nativeIsSelected": false,
+      "title": "Where Rebirth Demo 4",
+      "type": 2
+    },
+    {
+      "nativeIsSelected": false,
+      "title": "Where Rebirth Demo 5",
+      "type": 1
+    }
+  ]
+}

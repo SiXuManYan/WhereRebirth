@@ -1,0 +1,119 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "current_page": 1,
+    "first_page_url": "https://example.com/local/1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "https://example.com/local/1",
+    "next_page_url": {},
+    "path": "Local mock 1",
+    "per_page": 5,
+    "prev_page_url": {},
+    "to": 5,
+    "total": 5,
+    "data": [
+      {
+        "id": 1,
+        "company": "Local mock 1",
+        "job_title": "Where Rebirth Demo 1",
+        "salary": "Local mock 1",
+        "city": "Local mock 1",
+        "created_at": "2026-08-04 12:00:00",
+        "job_id": 1,
+        "logo": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "tag": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "status": 1,
+        "salary_type": 1,
+        "nativeListType": 1
+      },
+      {
+        "id": 2,
+        "company": "Local mock 2",
+        "job_title": "Where Rebirth Demo 2",
+        "salary": "Local mock 2",
+        "city": "Local mock 2",
+        "created_at": "2026-08-04 12:00:00",
+        "job_id": 2,
+        "logo": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "tag": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "status": 2,
+        "salary_type": 2,
+        "nativeListType": 2
+      },
+      {
+        "id": 3,
+        "company": "Local mock 3",
+        "job_title": "Where Rebirth Demo 3",
+        "salary": "Local mock 3",
+        "city": "Local mock 3",
+        "created_at": "2026-08-04 12:00:00",
+        "job_id": 3,
+        "logo": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "tag": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "status": 1,
+        "salary_type": 3,
+        "nativeListType": 3
+      },
+      {
+        "id": 4,
+        "company": "Local mock 4",
+        "job_title": "Where Rebirth Demo 4",
+        "salary": "Local mock 4",
+        "city": "Local mock 4",
+        "created_at": "2026-08-04 12:00:00",
+        "job_id": 4,
+        "logo": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "tag": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "status": 2,
+        "salary_type": 4,
+        "nativeListType": 4
+      },
+      {
+        "id": 5,
+        "company": "Local mock 5",
+        "job_title": "Where Rebirth Demo 5",
+        "salary": "Local mock 5",
+        "city": "Local mock 5",
+        "created_at": "2026-08-04 12:00:00",
+        "job_id": 5,
+        "logo": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "tag": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "status": 1,
+        "salary_type": 5,
+        "nativeListType": 5
+      }
+    ]
+  }
+}

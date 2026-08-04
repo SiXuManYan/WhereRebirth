@@ -1,0 +1,121 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": [
+    {
+      "id": 1,
+      "name": "Where Rebirth Demo 1",
+      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "dev_status": 1,
+      "categories": [
+        {
+          "value": 1
+        },
+        {
+          "value": 2
+        },
+        {
+          "value": 3
+        },
+        {
+          "value": 4
+        },
+        {
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Where Rebirth Demo 2",
+      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "dev_status": 2,
+      "categories": [
+        {
+          "value": 1
+        },
+        {
+          "value": 2
+        },
+        {
+          "value": 3
+        },
+        {
+          "value": 4
+        },
+        {
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Where Rebirth Demo 3",
+      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "dev_status": 1,
+      "categories": [
+        {
+          "value": 1
+        },
+        {
+          "value": 2
+        },
+        {
+          "value": 3
+        },
+        {
+          "value": 4
+        },
+        {
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Where Rebirth Demo 4",
+      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "dev_status": 2,
+      "categories": [
+        {
+          "value": 1
+        },
+        {
+          "value": 2
+        },
+        {
+          "value": 3
+        },
+        {
+          "value": 4
+        },
+        {
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Where Rebirth Demo 5",
+      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "dev_status": 1,
+      "categories": [
+        {
+          "value": 1
+        },
+        {
+          "value": 2
+        },
+        {
+          "value": 3
+        },
+        {
+          "value": 4
+        },
+        {
+          "value": 5
+        }
+      ]
+    }
+  ]
+}

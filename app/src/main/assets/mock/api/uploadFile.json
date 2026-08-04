@@ -1,0 +1,7 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "link": "https://example.com/local/1"
+  }
+}

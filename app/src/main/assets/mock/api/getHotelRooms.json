@@ -1,0 +1,196 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": [
+    {
+      "id": 1,
+      "images": [
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      ],
+      "name": "Where Rebirth Demo 1",
+      "hotel_room_type": "Local mock 1",
+      "breakfast_type": 1,
+      "room_area": "Local mock 1",
+      "room_num": 1,
+      "remain_room_num": 1,
+      "price": 19.90,
+      "original_cost": 19.90,
+      "is_cancel": 1,
+      "people": 1,
+      "tags": [
+        {
+          "zh_cn_name": "Where Rebirth Demo 1"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 2"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 3"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 4"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 5"
+        }
+      ],
+      "room_show_status": 1
+    },
+    {
+      "id": 2,
+      "images": [
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      ],
+      "name": "Where Rebirth Demo 2",
+      "hotel_room_type": "Local mock 2",
+      "breakfast_type": 2,
+      "room_area": "Local mock 2",
+      "room_num": 2,
+      "remain_room_num": 2,
+      "price": 29.90,
+      "original_cost": 29.90,
+      "is_cancel": 2,
+      "people": 2,
+      "tags": [
+        {
+          "zh_cn_name": "Where Rebirth Demo 1"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 2"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 3"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 4"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 5"
+        }
+      ],
+      "room_show_status": 2
+    },
+    {
+      "id": 3,
+      "images": [
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      ],
+      "name": "Where Rebirth Demo 3",
+      "hotel_room_type": "Local mock 3",
+      "breakfast_type": 3,
+      "room_area": "Local mock 3",
+      "room_num": 3,
+      "remain_room_num": 3,
+      "price": 39.90,
+      "original_cost": 39.90,
+      "is_cancel": 3,
+      "people": 3,
+      "tags": [
+        {
+          "zh_cn_name": "Where Rebirth Demo 1"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 2"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 3"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 4"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 5"
+        }
+      ],
+      "room_show_status": 1
+    },
+    {
+      "id": 4,
+      "images": [
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      ],
+      "name": "Where Rebirth Demo 4",
+      "hotel_room_type": "Local mock 4",
+      "breakfast_type": 4,
+      "room_area": "Local mock 4",
+      "room_num": 4,
+      "remain_room_num": 4,
+      "price": 49.90,
+      "original_cost": 49.90,
+      "is_cancel": 4,
+      "people": 4,
+      "tags": [
+        {
+          "zh_cn_name": "Where Rebirth Demo 1"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 2"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 3"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 4"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 5"
+        }
+      ],
+      "room_show_status": 2
+    },
+    {
+      "id": 5,
+      "images": [
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      ],
+      "name": "Where Rebirth Demo 5",
+      "hotel_room_type": "Local mock 5",
+      "breakfast_type": 5,
+      "room_area": "Local mock 5",
+      "room_num": 5,
+      "remain_room_num": 5,
+      "price": 59.90,
+      "original_cost": 59.90,
+      "is_cancel": 5,
+      "people": 5,
+      "tags": [
+        {
+          "zh_cn_name": "Where Rebirth Demo 1"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 2"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 3"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 4"
+        },
+        {
+          "zh_cn_name": "Where Rebirth Demo 5"
+        }
+      ],
+      "room_show_status": 1
+    }
+  ]
+}

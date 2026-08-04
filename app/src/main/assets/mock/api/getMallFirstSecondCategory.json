@@ -1,0 +1,71 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": [
+    {
+      "id": 1,
+      "name": "Where Rebirth Demo 1",
+      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "second_level": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "nativeIsSelected": false
+    },
+    {
+      "id": 2,
+      "name": "Where Rebirth Demo 2",
+      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "second_level": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "nativeIsSelected": false
+    },
+    {
+      "id": 3,
+      "name": "Where Rebirth Demo 3",
+      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "second_level": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "nativeIsSelected": false
+    },
+    {
+      "id": 4,
+      "name": "Where Rebirth Demo 4",
+      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "second_level": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "nativeIsSelected": false
+    },
+    {
+      "id": 5,
+      "name": "Where Rebirth Demo 5",
+      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "second_level": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "nativeIsSelected": false
+    }
+  ]
+}

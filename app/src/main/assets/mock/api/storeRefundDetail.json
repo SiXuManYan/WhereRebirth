@@ -1,0 +1,91 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "id": 1,
+    "status": 1,
+    "shop": {
+      "contact_cell_phone": "09171234561",
+      "contact_name": "Where Rebirth Demo 1",
+      "address": "Manila, Philippines"
+    },
+    "goods": [
+      {
+        "id": 1,
+        "title": "Where Rebirth Demo 1",
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "good_num": 1,
+        "price": 1.0
+      },
+      {
+        "id": 2,
+        "title": "Where Rebirth Demo 2",
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "good_num": 2,
+        "price": 2.0
+      },
+      {
+        "id": 3,
+        "title": "Where Rebirth Demo 3",
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "good_num": 3,
+        "price": 3.0
+      },
+      {
+        "id": 4,
+        "title": "Where Rebirth Demo 4",
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "good_num": 4,
+        "price": 4.0
+      },
+      {
+        "id": 5,
+        "title": "Where Rebirth Demo 5",
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "good_num": 5,
+        "price": 5.0
+      }
+    ],
+    "refund_price": 19.90,
+    "cancel_time": "2026-08-04 12:00:00",
+    "cancel_reason": "Local mock 1",
+    "trade_no": 1.0,
+    "cancel_images": [
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+    ]
+  }
+}

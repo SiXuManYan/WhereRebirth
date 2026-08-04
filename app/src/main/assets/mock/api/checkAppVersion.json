@@ -1,0 +1,11 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "new_version": "Local mock 1",
+    "download_url": "https://example.com/local/1",
+    "update_desc": "2026-08-04 12:00:00",
+    "is_force_install": false,
+    "status": 1
+  }
+}

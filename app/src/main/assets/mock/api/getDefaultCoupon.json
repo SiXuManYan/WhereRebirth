@@ -1,0 +1,38 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "shop_total_coupon": "Local mock 1",
+    "shop_coupon": [
+      {
+        "coupon_id": 1,
+        "money": "Local mock 1",
+        "shop_id": 1
+      },
+      {
+        "coupon_id": 2,
+        "money": "Local mock 2",
+        "shop_id": 2
+      },
+      {
+        "coupon_id": 3,
+        "money": "Local mock 3",
+        "shop_id": 3
+      },
+      {
+        "coupon_id": 4,
+        "money": "Local mock 4",
+        "shop_id": 4
+      },
+      {
+        "coupon_id": 5,
+        "money": "Local mock 5",
+        "shop_id": 5
+      }
+    ],
+    "order_coupon": {
+      "coupon_id": 1,
+      "money": "Local mock 1"
+    }
+  }
+}

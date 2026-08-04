@@ -1,0 +1,134 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "id": 1,
+    "im_status": 1,
+    "uuid": "Local mock 1",
+    "name": "Where Rebirth Demo 1",
+    "address": "Manila, Philippines",
+    "start_time": "2026-08-04 12:00:00",
+    "end_time": "2026-08-04 12:00:00",
+    "content": "Local mock 1",
+    "notice": "Local mock 1",
+    "phone": "09171234561",
+    "mer_uuid": "Local mock 1",
+    "mer_name": "Where Rebirth Demo 1",
+    "images": [
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+    ],
+    "lat": 14.6005,
+    "lng": 120.9852,
+    "grade": 1.0,
+    "comments_count": 1,
+    "video": "Local mock 1",
+    "video_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+    "comments": [
+      {
+        "id": 1,
+        "user_id": 1,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "created_at": "2026-08-04 12:00:00",
+        "comment_travel_type_id": 1,
+        "username": "Where Rebirth Demo 1",
+        "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "content": "Local mock 1",
+        "star": 1.0,
+        "star_level": 1.0,
+        "hotel_id": 1,
+        "merchant_review": "Local mock 1"
+      },
+      {
+        "id": 2,
+        "user_id": 2,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "created_at": "2026-08-04 12:00:00",
+        "comment_travel_type_id": 2,
+        "username": "Where Rebirth Demo 2",
+        "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "content": "Local mock 2",
+        "star": 2.0,
+        "star_level": 2.0,
+        "hotel_id": 2,
+        "merchant_review": "Local mock 2"
+      },
+      {
+        "id": 3,
+        "user_id": 3,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "created_at": "2026-08-04 12:00:00",
+        "comment_travel_type_id": 3,
+        "username": "Where Rebirth Demo 3",
+        "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "content": "Local mock 3",
+        "star": 3.0,
+        "star_level": 3.0,
+        "hotel_id": 3,
+        "merchant_review": "Local mock 3"
+      },
+      {
+        "id": 4,
+        "user_id": 4,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "created_at": "2026-08-04 12:00:00",
+        "comment_travel_type_id": 4,
+        "username": "Where Rebirth Demo 4",
+        "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "content": "Local mock 4",
+        "star": 4.0,
+        "star_level": 4.0,
+        "hotel_id": 4,
+        "merchant_review": "Local mock 4"
+      },
+      {
+        "id": 5,
+        "user_id": 5,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "created_at": "2026-08-04 12:00:00",
+        "comment_travel_type_id": 5,
+        "username": "Where Rebirth Demo 5",
+        "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "content": "Local mock 5",
+        "star": 5.0,
+        "star_level": 5.0,
+        "hotel_id": 5,
+        "merchant_review": "Local mock 5"
+      }
+    ],
+    "is_collect": 1
+  }
+}

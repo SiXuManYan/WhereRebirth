@@ -1,0 +1,31 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": [
+    {
+      "abbr": "Local mock 1",
+      "all": "Local mock 1",
+      "isSelected": false
+    },
+    {
+      "abbr": "Local mock 2",
+      "all": "Local mock 2",
+      "isSelected": false
+    },
+    {
+      "abbr": "Local mock 3",
+      "all": "Local mock 3",
+      "isSelected": false
+    },
+    {
+      "abbr": "Local mock 4",
+      "all": "Local mock 4",
+      "isSelected": false
+    },
+    {
+      "abbr": "Local mock 5",
+      "all": "Local mock 5",
+      "isSelected": false
+    }
+  ]
+}

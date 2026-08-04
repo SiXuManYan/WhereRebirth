@@ -1,0 +1,16 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "price": "Local mock 1",
+    "total_price": "Local mock 1",
+    "cancel_time": "2026-08-04 12:00:00",
+    "remit_info": {
+      "id": 1,
+      "user_name": "Where Rebirth Demo 1",
+      "account": "Local mock 1",
+      "channel_category": "Local mock 1",
+      "name": "Where Rebirth Demo 1"
+    }
+  }
+}

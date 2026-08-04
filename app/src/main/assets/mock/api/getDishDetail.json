@@ -1,0 +1,15 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "id": 1,
+    "title": "Where Rebirth Demo 1",
+    "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+    "sale_num": "Local mock 1",
+    "price": 19.90,
+    "original_price": 19.90,
+    "meals": "Local mock 1",
+    "rule": "Local mock 1",
+    "inventory": "Local mock 1"
+  }
+}

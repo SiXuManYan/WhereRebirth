@@ -1,0 +1,169 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "current_page": 1,
+    "first_page_url": "https://example.com/local/1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "https://example.com/local/1",
+    "next_page_url": {},
+    "path": "Local mock 1",
+    "per_page": 5,
+    "prev_page_url": {},
+    "to": 5,
+    "total": 5,
+    "data": [
+      {
+        "id": 1,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "name": "Where Rebirth Demo 1",
+        "grade": 1.0,
+        "comment_counts": "Local mock 1",
+        "address": "Manila, Philippines",
+        "lat": 14.6005,
+        "lng": 120.9852,
+        "price": 19.90,
+        "original_cost": 19.90,
+        "distance": "Local mock 1",
+        "remain_room_num": "Local mock 1",
+        "facebook_link": "https://example.com/local/1",
+        "star_level": "Local mock 1",
+        "tags": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "contentType": 1
+      },
+      {
+        "id": 2,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "name": "Where Rebirth Demo 2",
+        "grade": 2.0,
+        "comment_counts": "Local mock 2",
+        "address": "Manila, Philippines",
+        "lat": 14.601500000000001,
+        "lng": 120.9862,
+        "price": 29.90,
+        "original_cost": 29.90,
+        "distance": "Local mock 2",
+        "remain_room_num": "Local mock 2",
+        "facebook_link": "https://example.com/local/2",
+        "star_level": "Local mock 2",
+        "tags": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "contentType": 2
+      },
+      {
+        "id": 3,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "name": "Where Rebirth Demo 3",
+        "grade": 3.0,
+        "comment_counts": "Local mock 3",
+        "address": "Manila, Philippines",
+        "lat": 14.602500000000001,
+        "lng": 120.9872,
+        "price": 39.90,
+        "original_cost": 39.90,
+        "distance": "Local mock 3",
+        "remain_room_num": "Local mock 3",
+        "facebook_link": "https://example.com/local/3",
+        "star_level": "Local mock 3",
+        "tags": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "contentType": 3
+      },
+      {
+        "id": 4,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "name": "Where Rebirth Demo 4",
+        "grade": 4.0,
+        "comment_counts": "Local mock 4",
+        "address": "Manila, Philippines",
+        "lat": 14.6035,
+        "lng": 120.9882,
+        "price": 49.90,
+        "original_cost": 49.90,
+        "distance": "Local mock 4",
+        "remain_room_num": "Local mock 4",
+        "facebook_link": "https://example.com/local/4",
+        "star_level": "Local mock 4",
+        "tags": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "contentType": 4
+      },
+      {
+        "id": 5,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "name": "Where Rebirth Demo 5",
+        "grade": 5.0,
+        "comment_counts": "Local mock 5",
+        "address": "Manila, Philippines",
+        "lat": 14.604500000000002,
+        "lng": 120.9892,
+        "price": 59.90,
+        "original_cost": 59.90,
+        "distance": "Local mock 5",
+        "remain_room_num": "Local mock 5",
+        "facebook_link": "https://example.com/local/5",
+        "star_level": "Local mock 5",
+        "tags": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "contentType": 5
+      }
+    ]
+  }
+}

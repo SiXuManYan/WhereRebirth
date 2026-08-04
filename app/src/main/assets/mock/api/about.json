@@ -1,0 +1,9 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "contact_tell": "Local mock 1",
+    "contact_facebook": "Local mock 1",
+    "contact_email": "demo1@whererebirth.local"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "id": 1,
+    "images": [
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+    ],
+    "name": "Where Rebirth Demo 1",
+    "hotel_room_type": "Local mock 1",
+    "room_area": "Local mock 1",
+    "floor": "Local mock 1",
+    "policy": "Local mock 1",
+    "shower_room": "Local mock 1",
+    "facility": "Local mock 1",
+    "media": "Local mock 1",
+    "food": "Local mock 1",
+    "scene": "Local mock 1",
+    "other": "Local mock 1",
+    "cancel_time": "2026-08-04 12:00:00",
+    "breakfast_type": 1,
+    "window_type": 1,
+    "wifi_type": 1,
+    "people": 1,
+    "room_num": 1,
+    "remain_room_num": 1,
+    "is_cancel": 1,
+    "price": 19.90,
+    "facilities": [
+      {
+        "name": "Where Rebirth Demo 1",
+        "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      },
+      {
+        "name": "Where Rebirth Demo 2",
+        "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      },
+      {
+        "name": "Where Rebirth Demo 3",
+        "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      },
+      {
+        "name": "Where Rebirth Demo 4",
+        "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      },
+      {
+        "name": "Where Rebirth Demo 5",
+        "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      }
+    ]
+  }
+}

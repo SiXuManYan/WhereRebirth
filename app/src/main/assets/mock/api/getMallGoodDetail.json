@@ -1,0 +1,460 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "id": 1,
+    "title": "Where Rebirth Demo 1",
+    "main_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+    "sub_images": [
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+    ],
+    "stock": 1,
+    "sold": 1,
+    "category_id": 1,
+    "desc": "Local mock 1",
+    "attribute_list": [
+      {
+        "key": "Local mock 1",
+        "value": [
+          {
+            "key": "Local mock 1",
+            "name": "Where Rebirth Demo 1",
+            "nativeIsSelected": 1,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 2",
+            "name": "Where Rebirth Demo 2",
+            "nativeIsSelected": 2,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 3",
+            "name": "Where Rebirth Demo 3",
+            "nativeIsSelected": 3,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 4",
+            "name": "Where Rebirth Demo 4",
+            "nativeIsSelected": 4,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 5",
+            "name": "Where Rebirth Demo 5",
+            "nativeIsSelected": 5,
+            "nativeSelected": false,
+            "nativeEnable": false
+          }
+        ],
+        "nativeSelectedValue": "Local mock 1"
+      },
+      {
+        "key": "Local mock 2",
+        "value": [
+          {
+            "key": "Local mock 1",
+            "name": "Where Rebirth Demo 1",
+            "nativeIsSelected": 1,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 2",
+            "name": "Where Rebirth Demo 2",
+            "nativeIsSelected": 2,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 3",
+            "name": "Where Rebirth Demo 3",
+            "nativeIsSelected": 3,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 4",
+            "name": "Where Rebirth Demo 4",
+            "nativeIsSelected": 4,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 5",
+            "name": "Where Rebirth Demo 5",
+            "nativeIsSelected": 5,
+            "nativeSelected": false,
+            "nativeEnable": false
+          }
+        ],
+        "nativeSelectedValue": "Local mock 2"
+      },
+      {
+        "key": "Local mock 3",
+        "value": [
+          {
+            "key": "Local mock 1",
+            "name": "Where Rebirth Demo 1",
+            "nativeIsSelected": 1,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 2",
+            "name": "Where Rebirth Demo 2",
+            "nativeIsSelected": 2,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 3",
+            "name": "Where Rebirth Demo 3",
+            "nativeIsSelected": 3,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 4",
+            "name": "Where Rebirth Demo 4",
+            "nativeIsSelected": 4,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 5",
+            "name": "Where Rebirth Demo 5",
+            "nativeIsSelected": 5,
+            "nativeSelected": false,
+            "nativeEnable": false
+          }
+        ],
+        "nativeSelectedValue": "Local mock 3"
+      },
+      {
+        "key": "Local mock 4",
+        "value": [
+          {
+            "key": "Local mock 1",
+            "name": "Where Rebirth Demo 1",
+            "nativeIsSelected": 1,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 2",
+            "name": "Where Rebirth Demo 2",
+            "nativeIsSelected": 2,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 3",
+            "name": "Where Rebirth Demo 3",
+            "nativeIsSelected": 3,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 4",
+            "name": "Where Rebirth Demo 4",
+            "nativeIsSelected": 4,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 5",
+            "name": "Where Rebirth Demo 5",
+            "nativeIsSelected": 5,
+            "nativeSelected": false,
+            "nativeEnable": false
+          }
+        ],
+        "nativeSelectedValue": "Local mock 4"
+      },
+      {
+        "key": "Local mock 5",
+        "value": [
+          {
+            "key": "Local mock 1",
+            "name": "Where Rebirth Demo 1",
+            "nativeIsSelected": 1,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 2",
+            "name": "Where Rebirth Demo 2",
+            "nativeIsSelected": 2,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 3",
+            "name": "Where Rebirth Demo 3",
+            "nativeIsSelected": 3,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 4",
+            "name": "Where Rebirth Demo 4",
+            "nativeIsSelected": 4,
+            "nativeSelected": false,
+            "nativeEnable": false
+          },
+          {
+            "key": "Local mock 5",
+            "name": "Where Rebirth Demo 5",
+            "nativeIsSelected": 5,
+            "nativeSelected": false,
+            "nativeEnable": false
+          }
+        ],
+        "nativeSelectedValue": "Local mock 5"
+      }
+    ],
+    "specs": [
+      {
+        "id": 1,
+        "goods_id": 1,
+        "specs_id": 1,
+        "price": 19.90,
+        "stock": 1,
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "specs": {
+          "key_1": "Local mock 1",
+          "key_2": "Local mock 2",
+          "key_3": "Local mock 3",
+          "key_4": "Local mock 4",
+          "key_5": "Local mock 5"
+        },
+        "original_cost": 19.90,
+        "nativeSpecsValues": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ]
+      },
+      {
+        "id": 2,
+        "goods_id": 2,
+        "specs_id": 2,
+        "price": 29.90,
+        "stock": 2,
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "specs": {
+          "key_1": "Local mock 1",
+          "key_2": "Local mock 2",
+          "key_3": "Local mock 3",
+          "key_4": "Local mock 4",
+          "key_5": "Local mock 5"
+        },
+        "original_cost": 29.90,
+        "nativeSpecsValues": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ]
+      },
+      {
+        "id": 3,
+        "goods_id": 3,
+        "specs_id": 3,
+        "price": 39.90,
+        "stock": 3,
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "specs": {
+          "key_1": "Local mock 1",
+          "key_2": "Local mock 2",
+          "key_3": "Local mock 3",
+          "key_4": "Local mock 4",
+          "key_5": "Local mock 5"
+        },
+        "original_cost": 39.90,
+        "nativeSpecsValues": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ]
+      },
+      {
+        "id": 4,
+        "goods_id": 4,
+        "specs_id": 4,
+        "price": 49.90,
+        "stock": 4,
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "specs": {
+          "key_1": "Local mock 1",
+          "key_2": "Local mock 2",
+          "key_3": "Local mock 3",
+          "key_4": "Local mock 4",
+          "key_5": "Local mock 5"
+        },
+        "original_cost": 49.90,
+        "nativeSpecsValues": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ]
+      },
+      {
+        "id": 5,
+        "goods_id": 5,
+        "specs_id": 5,
+        "price": 59.90,
+        "stock": 5,
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "specs": {
+          "key_1": "Local mock 1",
+          "key_2": "Local mock 2",
+          "key_3": "Local mock 3",
+          "key_4": "Local mock 4",
+          "key_5": "Local mock 5"
+        },
+        "original_cost": 59.90,
+        "nativeSpecsValues": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ]
+      }
+    ],
+    "shop_id": 1,
+    "shop_name": "Where Rebirth Demo 1",
+    "collect_status": 1,
+    "delivery_fee": 19.90,
+    "website": "Local mock 1",
+    "mer_name": "Where Rebirth Demo 1",
+    "mer_uuid": "Local mock 1",
+    "im_status": 1,
+    "count": 1,
+    "comments": [
+      {
+        "id": 1,
+        "user_id": 1,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "created_at": "2026-08-04 12:00:00",
+        "comment_travel_type_id": 1,
+        "username": "Where Rebirth Demo 1",
+        "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "content": "Local mock 1",
+        "star": 1.0,
+        "star_level": 1.0,
+        "hotel_id": 1,
+        "merchant_review": "Local mock 1"
+      },
+      {
+        "id": 2,
+        "user_id": 2,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "created_at": "2026-08-04 12:00:00",
+        "comment_travel_type_id": 2,
+        "username": "Where Rebirth Demo 2",
+        "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "content": "Local mock 2",
+        "star": 2.0,
+        "star_level": 2.0,
+        "hotel_id": 2,
+        "merchant_review": "Local mock 2"
+      },
+      {
+        "id": 3,
+        "user_id": 3,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "created_at": "2026-08-04 12:00:00",
+        "comment_travel_type_id": 3,
+        "username": "Where Rebirth Demo 3",
+        "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "content": "Local mock 3",
+        "star": 3.0,
+        "star_level": 3.0,
+        "hotel_id": 3,
+        "merchant_review": "Local mock 3"
+      },
+      {
+        "id": 4,
+        "user_id": 4,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "created_at": "2026-08-04 12:00:00",
+        "comment_travel_type_id": 4,
+        "username": "Where Rebirth Demo 4",
+        "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "content": "Local mock 4",
+        "star": 4.0,
+        "star_level": 4.0,
+        "hotel_id": 4,
+        "merchant_review": "Local mock 4"
+      },
+      {
+        "id": 5,
+        "user_id": 5,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "created_at": "2026-08-04 12:00:00",
+        "comment_travel_type_id": 5,
+        "username": "Where Rebirth Demo 5",
+        "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "content": "Local mock 5",
+        "star": 5.0,
+        "star_level": 5.0,
+        "hotel_id": 5,
+        "merchant_review": "Local mock 5"
+      }
+    ],
+    "price": 19.90,
+    "original_cost": 19.90,
+    "estimated_delivery_fee": "Local mock 1",
+    "video": "Local mock 1",
+    "video_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+  }
+}

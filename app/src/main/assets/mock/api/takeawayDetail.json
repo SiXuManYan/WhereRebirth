@@ -1,0 +1,104 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "id": 1,
+    "restaurant_name": "Where Rebirth Demo 1",
+    "take_out_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+    "delivery_time": 1,
+    "delivery_cost": 19.90,
+    "packing_charges": 19.90,
+    "tel": "Local mock 1",
+    "mer_uuid": "Local mock 1",
+    "mer_name": "Where Rebirth Demo 1",
+    "collect_status": 1,
+    "im_status": 1,
+    "goods": [
+      {
+        "id": 1,
+        "title": "Where Rebirth Demo 1",
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "sale_num": "Local mock 1",
+        "inventory": "Local mock 1",
+        "price": 19.90,
+        "original_price": 19.90,
+        "tags": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "nativeSelectCount": 1
+      },
+      {
+        "id": 2,
+        "title": "Where Rebirth Demo 2",
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "sale_num": "Local mock 2",
+        "inventory": "Local mock 2",
+        "price": 29.90,
+        "original_price": 29.90,
+        "tags": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "nativeSelectCount": 2
+      },
+      {
+        "id": 3,
+        "title": "Where Rebirth Demo 3",
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "sale_num": "Local mock 3",
+        "inventory": "Local mock 3",
+        "price": 39.90,
+        "original_price": 39.90,
+        "tags": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "nativeSelectCount": 3
+      },
+      {
+        "id": 4,
+        "title": "Where Rebirth Demo 4",
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "sale_num": "Local mock 4",
+        "inventory": "Local mock 4",
+        "price": 49.90,
+        "original_price": 49.90,
+        "tags": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "nativeSelectCount": 4
+      },
+      {
+        "id": 5,
+        "title": "Where Rebirth Demo 5",
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "sale_num": "Local mock 5",
+        "inventory": "Local mock 5",
+        "price": 59.90,
+        "original_price": 59.90,
+        "tags": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "nativeSelectCount": 5
+      }
+    ]
+  }
+}

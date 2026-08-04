@@ -1,0 +1,461 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": [
+    {
+      "id": 1,
+      "name": "Where Rebirth Demo 1",
+      "type": 1,
+      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "has_children": {
+        "value": 1
+      },
+      "child_categories": [
+        {
+          "id": 1,
+          "name": "Where Rebirth Demo 1",
+          "parentCategory": {},
+          "has_children": 1,
+          "type": 1,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 2,
+          "name": "Where Rebirth Demo 2",
+          "parentCategory": {},
+          "has_children": 2,
+          "type": 2,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 3,
+          "name": "Where Rebirth Demo 3",
+          "parentCategory": {},
+          "has_children": 3,
+          "type": 1,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 4,
+          "name": "Where Rebirth Demo 4",
+          "parentCategory": {},
+          "has_children": 4,
+          "type": 2,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 5,
+          "name": "Where Rebirth Demo 5",
+          "parentCategory": {},
+          "has_children": 5,
+          "type": 1,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Where Rebirth Demo 2",
+      "type": 2,
+      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "has_children": {
+        "value": 2
+      },
+      "child_categories": [
+        {
+          "id": 1,
+          "name": "Where Rebirth Demo 1",
+          "parentCategory": {},
+          "has_children": 1,
+          "type": 1,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 2,
+          "name": "Where Rebirth Demo 2",
+          "parentCategory": {},
+          "has_children": 2,
+          "type": 2,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 3,
+          "name": "Where Rebirth Demo 3",
+          "parentCategory": {},
+          "has_children": 3,
+          "type": 1,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 4,
+          "name": "Where Rebirth Demo 4",
+          "parentCategory": {},
+          "has_children": 4,
+          "type": 2,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 5,
+          "name": "Where Rebirth Demo 5",
+          "parentCategory": {},
+          "has_children": 5,
+          "type": 1,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Where Rebirth Demo 3",
+      "type": 1,
+      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "has_children": {
+        "value": 3
+      },
+      "child_categories": [
+        {
+          "id": 1,
+          "name": "Where Rebirth Demo 1",
+          "parentCategory": {},
+          "has_children": 1,
+          "type": 1,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 2,
+          "name": "Where Rebirth Demo 2",
+          "parentCategory": {},
+          "has_children": 2,
+          "type": 2,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 3,
+          "name": "Where Rebirth Demo 3",
+          "parentCategory": {},
+          "has_children": 3,
+          "type": 1,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 4,
+          "name": "Where Rebirth Demo 4",
+          "parentCategory": {},
+          "has_children": 4,
+          "type": 2,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 5,
+          "name": "Where Rebirth Demo 5",
+          "parentCategory": {},
+          "has_children": 5,
+          "type": 1,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Where Rebirth Demo 4",
+      "type": 2,
+      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "has_children": {
+        "value": 4
+      },
+      "child_categories": [
+        {
+          "id": 1,
+          "name": "Where Rebirth Demo 1",
+          "parentCategory": {},
+          "has_children": 1,
+          "type": 1,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 2,
+          "name": "Where Rebirth Demo 2",
+          "parentCategory": {},
+          "has_children": 2,
+          "type": 2,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 3,
+          "name": "Where Rebirth Demo 3",
+          "parentCategory": {},
+          "has_children": 3,
+          "type": 1,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 4,
+          "name": "Where Rebirth Demo 4",
+          "parentCategory": {},
+          "has_children": 4,
+          "type": 2,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 5,
+          "name": "Where Rebirth Demo 5",
+          "parentCategory": {},
+          "has_children": 5,
+          "type": 1,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Where Rebirth Demo 5",
+      "type": 1,
+      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "has_children": {
+        "value": 5
+      },
+      "child_categories": [
+        {
+          "id": 1,
+          "name": "Where Rebirth Demo 1",
+          "parentCategory": {},
+          "has_children": 1,
+          "type": 1,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 2,
+          "name": "Where Rebirth Demo 2",
+          "parentCategory": {},
+          "has_children": 2,
+          "type": 2,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 3,
+          "name": "Where Rebirth Demo 3",
+          "parentCategory": {},
+          "has_children": 3,
+          "type": 1,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 4,
+          "name": "Where Rebirth Demo 4",
+          "parentCategory": {},
+          "has_children": 4,
+          "type": 2,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        },
+        {
+          "id": 5,
+          "name": "Where Rebirth Demo 5",
+          "parentCategory": {},
+          "has_children": 5,
+          "type": 1,
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "child_categories": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "isNativeWebType": false
+        }
+      ]
+    }
+  ]
+}

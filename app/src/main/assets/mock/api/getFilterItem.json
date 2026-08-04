@@ -1,0 +1,114 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "area": [
+      {
+        "id": 1,
+        "name": "Where Rebirth Demo 1",
+        "nativeSelected": false
+      },
+      {
+        "id": 2,
+        "name": "Where Rebirth Demo 2",
+        "nativeSelected": false
+      },
+      {
+        "id": 3,
+        "name": "Where Rebirth Demo 3",
+        "nativeSelected": false
+      },
+      {
+        "id": 4,
+        "name": "Where Rebirth Demo 4",
+        "nativeSelected": false
+      },
+      {
+        "id": 5,
+        "name": "Where Rebirth Demo 5",
+        "nativeSelected": false
+      }
+    ],
+    "companyType": [
+      {
+        "id": 1,
+        "name": "Where Rebirth Demo 1",
+        "nativeSelected": false
+      },
+      {
+        "id": 2,
+        "name": "Where Rebirth Demo 2",
+        "nativeSelected": false
+      },
+      {
+        "id": 3,
+        "name": "Where Rebirth Demo 3",
+        "nativeSelected": false
+      },
+      {
+        "id": 4,
+        "name": "Where Rebirth Demo 4",
+        "nativeSelected": false
+      },
+      {
+        "id": 5,
+        "name": "Where Rebirth Demo 5",
+        "nativeSelected": false
+      }
+    ],
+    "jobResumeEducationLevel": [
+      {
+        "id": 1,
+        "name": "Where Rebirth Demo 1",
+        "nativeSelected": false
+      },
+      {
+        "id": 2,
+        "name": "Where Rebirth Demo 2",
+        "nativeSelected": false
+      },
+      {
+        "id": 3,
+        "name": "Where Rebirth Demo 3",
+        "nativeSelected": false
+      },
+      {
+        "id": 4,
+        "name": "Where Rebirth Demo 4",
+        "nativeSelected": false
+      },
+      {
+        "id": 5,
+        "name": "Where Rebirth Demo 5",
+        "nativeSelected": false
+      }
+    ],
+    "experience": [
+      {
+        "id": 1,
+        "name": "Where Rebirth Demo 1",
+        "nativeSelected": false
+      },
+      {
+        "id": 2,
+        "name": "Where Rebirth Demo 2",
+        "nativeSelected": false
+      },
+      {
+        "id": 3,
+        "name": "Where Rebirth Demo 3",
+        "nativeSelected": false
+      },
+      {
+        "id": 4,
+        "name": "Where Rebirth Demo 4",
+        "nativeSelected": false
+      },
+      {
+        "id": 5,
+        "name": "Where Rebirth Demo 5",
+        "nativeSelected": false
+      }
+    ]
+  }
+}

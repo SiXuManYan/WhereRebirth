@@ -1,0 +1,8 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "name": "Where Rebirth Demo 1",
+    "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+  }
+}

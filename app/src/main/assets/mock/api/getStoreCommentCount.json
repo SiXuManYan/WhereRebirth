@@ -1,0 +1,9 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "all": 1,
+    "newest": 1,
+    "image": 1
+  }
+}

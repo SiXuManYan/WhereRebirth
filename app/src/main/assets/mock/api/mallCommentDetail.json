@@ -1,0 +1,25 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "id": 1,
+    "star": 1.0,
+    "content": "Local mock 1",
+    "merchant_review": "Local mock 1",
+    "shop_title": "Where Rebirth Demo 1",
+    "shop_images": [
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+    ],
+    "images": [
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+    ]
+  }
+}

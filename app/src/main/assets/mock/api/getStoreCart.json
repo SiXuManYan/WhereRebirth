@@ -1,0 +1,1040 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "take_carts": [
+      {
+        "shop_id": 1,
+        "shop_name": "Where Rebirth Demo 1",
+        "delivery_fee": 19.90,
+        "goods": [
+          {
+            "cart_id": 1,
+            "good_num": 1,
+            "good_data": {
+              "id": 1,
+              "title": "Where Rebirth Demo 1",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 19.90,
+              "original_price": 19.90,
+              "inventory": "Local mock 1"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 2,
+            "good_num": 2,
+            "good_data": {
+              "id": 2,
+              "title": "Where Rebirth Demo 2",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 29.90,
+              "original_price": 29.90,
+              "inventory": "Local mock 2"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 3,
+            "good_num": 3,
+            "good_data": {
+              "id": 3,
+              "title": "Where Rebirth Demo 3",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 39.90,
+              "original_price": 39.90,
+              "inventory": "Local mock 3"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 4,
+            "good_num": 4,
+            "good_data": {
+              "id": 4,
+              "title": "Where Rebirth Demo 4",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 49.90,
+              "original_price": 49.90,
+              "inventory": "Local mock 4"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 5,
+            "good_num": 5,
+            "good_data": {
+              "id": 5,
+              "title": "Where Rebirth Demo 5",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 59.90,
+              "original_price": 59.90,
+              "inventory": "Local mock 5"
+            },
+            "nativeIsSelect": false
+          }
+        ],
+        "nativeIsSelect": false
+      },
+      {
+        "shop_id": 2,
+        "shop_name": "Where Rebirth Demo 2",
+        "delivery_fee": 29.90,
+        "goods": [
+          {
+            "cart_id": 1,
+            "good_num": 1,
+            "good_data": {
+              "id": 1,
+              "title": "Where Rebirth Demo 1",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 19.90,
+              "original_price": 19.90,
+              "inventory": "Local mock 1"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 2,
+            "good_num": 2,
+            "good_data": {
+              "id": 2,
+              "title": "Where Rebirth Demo 2",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 29.90,
+              "original_price": 29.90,
+              "inventory": "Local mock 2"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 3,
+            "good_num": 3,
+            "good_data": {
+              "id": 3,
+              "title": "Where Rebirth Demo 3",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 39.90,
+              "original_price": 39.90,
+              "inventory": "Local mock 3"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 4,
+            "good_num": 4,
+            "good_data": {
+              "id": 4,
+              "title": "Where Rebirth Demo 4",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 49.90,
+              "original_price": 49.90,
+              "inventory": "Local mock 4"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 5,
+            "good_num": 5,
+            "good_data": {
+              "id": 5,
+              "title": "Where Rebirth Demo 5",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 59.90,
+              "original_price": 59.90,
+              "inventory": "Local mock 5"
+            },
+            "nativeIsSelect": false
+          }
+        ],
+        "nativeIsSelect": false
+      },
+      {
+        "shop_id": 3,
+        "shop_name": "Where Rebirth Demo 3",
+        "delivery_fee": 39.90,
+        "goods": [
+          {
+            "cart_id": 1,
+            "good_num": 1,
+            "good_data": {
+              "id": 1,
+              "title": "Where Rebirth Demo 1",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 19.90,
+              "original_price": 19.90,
+              "inventory": "Local mock 1"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 2,
+            "good_num": 2,
+            "good_data": {
+              "id": 2,
+              "title": "Where Rebirth Demo 2",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 29.90,
+              "original_price": 29.90,
+              "inventory": "Local mock 2"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 3,
+            "good_num": 3,
+            "good_data": {
+              "id": 3,
+              "title": "Where Rebirth Demo 3",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 39.90,
+              "original_price": 39.90,
+              "inventory": "Local mock 3"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 4,
+            "good_num": 4,
+            "good_data": {
+              "id": 4,
+              "title": "Where Rebirth Demo 4",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 49.90,
+              "original_price": 49.90,
+              "inventory": "Local mock 4"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 5,
+            "good_num": 5,
+            "good_data": {
+              "id": 5,
+              "title": "Where Rebirth Demo 5",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 59.90,
+              "original_price": 59.90,
+              "inventory": "Local mock 5"
+            },
+            "nativeIsSelect": false
+          }
+        ],
+        "nativeIsSelect": false
+      },
+      {
+        "shop_id": 4,
+        "shop_name": "Where Rebirth Demo 4",
+        "delivery_fee": 49.90,
+        "goods": [
+          {
+            "cart_id": 1,
+            "good_num": 1,
+            "good_data": {
+              "id": 1,
+              "title": "Where Rebirth Demo 1",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 19.90,
+              "original_price": 19.90,
+              "inventory": "Local mock 1"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 2,
+            "good_num": 2,
+            "good_data": {
+              "id": 2,
+              "title": "Where Rebirth Demo 2",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 29.90,
+              "original_price": 29.90,
+              "inventory": "Local mock 2"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 3,
+            "good_num": 3,
+            "good_data": {
+              "id": 3,
+              "title": "Where Rebirth Demo 3",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 39.90,
+              "original_price": 39.90,
+              "inventory": "Local mock 3"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 4,
+            "good_num": 4,
+            "good_data": {
+              "id": 4,
+              "title": "Where Rebirth Demo 4",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 49.90,
+              "original_price": 49.90,
+              "inventory": "Local mock 4"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 5,
+            "good_num": 5,
+            "good_data": {
+              "id": 5,
+              "title": "Where Rebirth Demo 5",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 59.90,
+              "original_price": 59.90,
+              "inventory": "Local mock 5"
+            },
+            "nativeIsSelect": false
+          }
+        ],
+        "nativeIsSelect": false
+      },
+      {
+        "shop_id": 5,
+        "shop_name": "Where Rebirth Demo 5",
+        "delivery_fee": 59.90,
+        "goods": [
+          {
+            "cart_id": 1,
+            "good_num": 1,
+            "good_data": {
+              "id": 1,
+              "title": "Where Rebirth Demo 1",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 19.90,
+              "original_price": 19.90,
+              "inventory": "Local mock 1"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 2,
+            "good_num": 2,
+            "good_data": {
+              "id": 2,
+              "title": "Where Rebirth Demo 2",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 29.90,
+              "original_price": 29.90,
+              "inventory": "Local mock 2"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 3,
+            "good_num": 3,
+            "good_data": {
+              "id": 3,
+              "title": "Where Rebirth Demo 3",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 39.90,
+              "original_price": 39.90,
+              "inventory": "Local mock 3"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 4,
+            "good_num": 4,
+            "good_data": {
+              "id": 4,
+              "title": "Where Rebirth Demo 4",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 49.90,
+              "original_price": 49.90,
+              "inventory": "Local mock 4"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 5,
+            "good_num": 5,
+            "good_data": {
+              "id": 5,
+              "title": "Where Rebirth Demo 5",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 59.90,
+              "original_price": 59.90,
+              "inventory": "Local mock 5"
+            },
+            "nativeIsSelect": false
+          }
+        ],
+        "nativeIsSelect": false
+      }
+    ],
+    "delivery_carts": [
+      {
+        "shop_id": 1,
+        "shop_name": "Where Rebirth Demo 1",
+        "delivery_fee": 19.90,
+        "goods": [
+          {
+            "cart_id": 1,
+            "good_num": 1,
+            "good_data": {
+              "id": 1,
+              "title": "Where Rebirth Demo 1",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 19.90,
+              "original_price": 19.90,
+              "inventory": "Local mock 1"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 2,
+            "good_num": 2,
+            "good_data": {
+              "id": 2,
+              "title": "Where Rebirth Demo 2",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 29.90,
+              "original_price": 29.90,
+              "inventory": "Local mock 2"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 3,
+            "good_num": 3,
+            "good_data": {
+              "id": 3,
+              "title": "Where Rebirth Demo 3",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 39.90,
+              "original_price": 39.90,
+              "inventory": "Local mock 3"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 4,
+            "good_num": 4,
+            "good_data": {
+              "id": 4,
+              "title": "Where Rebirth Demo 4",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 49.90,
+              "original_price": 49.90,
+              "inventory": "Local mock 4"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 5,
+            "good_num": 5,
+            "good_data": {
+              "id": 5,
+              "title": "Where Rebirth Demo 5",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 59.90,
+              "original_price": 59.90,
+              "inventory": "Local mock 5"
+            },
+            "nativeIsSelect": false
+          }
+        ],
+        "nativeIsSelect": false
+      },
+      {
+        "shop_id": 2,
+        "shop_name": "Where Rebirth Demo 2",
+        "delivery_fee": 29.90,
+        "goods": [
+          {
+            "cart_id": 1,
+            "good_num": 1,
+            "good_data": {
+              "id": 1,
+              "title": "Where Rebirth Demo 1",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 19.90,
+              "original_price": 19.90,
+              "inventory": "Local mock 1"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 2,
+            "good_num": 2,
+            "good_data": {
+              "id": 2,
+              "title": "Where Rebirth Demo 2",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 29.90,
+              "original_price": 29.90,
+              "inventory": "Local mock 2"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 3,
+            "good_num": 3,
+            "good_data": {
+              "id": 3,
+              "title": "Where Rebirth Demo 3",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 39.90,
+              "original_price": 39.90,
+              "inventory": "Local mock 3"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 4,
+            "good_num": 4,
+            "good_data": {
+              "id": 4,
+              "title": "Where Rebirth Demo 4",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 49.90,
+              "original_price": 49.90,
+              "inventory": "Local mock 4"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 5,
+            "good_num": 5,
+            "good_data": {
+              "id": 5,
+              "title": "Where Rebirth Demo 5",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 59.90,
+              "original_price": 59.90,
+              "inventory": "Local mock 5"
+            },
+            "nativeIsSelect": false
+          }
+        ],
+        "nativeIsSelect": false
+      },
+      {
+        "shop_id": 3,
+        "shop_name": "Where Rebirth Demo 3",
+        "delivery_fee": 39.90,
+        "goods": [
+          {
+            "cart_id": 1,
+            "good_num": 1,
+            "good_data": {
+              "id": 1,
+              "title": "Where Rebirth Demo 1",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 19.90,
+              "original_price": 19.90,
+              "inventory": "Local mock 1"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 2,
+            "good_num": 2,
+            "good_data": {
+              "id": 2,
+              "title": "Where Rebirth Demo 2",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 29.90,
+              "original_price": 29.90,
+              "inventory": "Local mock 2"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 3,
+            "good_num": 3,
+            "good_data": {
+              "id": 3,
+              "title": "Where Rebirth Demo 3",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 39.90,
+              "original_price": 39.90,
+              "inventory": "Local mock 3"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 4,
+            "good_num": 4,
+            "good_data": {
+              "id": 4,
+              "title": "Where Rebirth Demo 4",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 49.90,
+              "original_price": 49.90,
+              "inventory": "Local mock 4"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 5,
+            "good_num": 5,
+            "good_data": {
+              "id": 5,
+              "title": "Where Rebirth Demo 5",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 59.90,
+              "original_price": 59.90,
+              "inventory": "Local mock 5"
+            },
+            "nativeIsSelect": false
+          }
+        ],
+        "nativeIsSelect": false
+      },
+      {
+        "shop_id": 4,
+        "shop_name": "Where Rebirth Demo 4",
+        "delivery_fee": 49.90,
+        "goods": [
+          {
+            "cart_id": 1,
+            "good_num": 1,
+            "good_data": {
+              "id": 1,
+              "title": "Where Rebirth Demo 1",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 19.90,
+              "original_price": 19.90,
+              "inventory": "Local mock 1"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 2,
+            "good_num": 2,
+            "good_data": {
+              "id": 2,
+              "title": "Where Rebirth Demo 2",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 29.90,
+              "original_price": 29.90,
+              "inventory": "Local mock 2"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 3,
+            "good_num": 3,
+            "good_data": {
+              "id": 3,
+              "title": "Where Rebirth Demo 3",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 39.90,
+              "original_price": 39.90,
+              "inventory": "Local mock 3"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 4,
+            "good_num": 4,
+            "good_data": {
+              "id": 4,
+              "title": "Where Rebirth Demo 4",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 49.90,
+              "original_price": 49.90,
+              "inventory": "Local mock 4"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 5,
+            "good_num": 5,
+            "good_data": {
+              "id": 5,
+              "title": "Where Rebirth Demo 5",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 59.90,
+              "original_price": 59.90,
+              "inventory": "Local mock 5"
+            },
+            "nativeIsSelect": false
+          }
+        ],
+        "nativeIsSelect": false
+      },
+      {
+        "shop_id": 5,
+        "shop_name": "Where Rebirth Demo 5",
+        "delivery_fee": 59.90,
+        "goods": [
+          {
+            "cart_id": 1,
+            "good_num": 1,
+            "good_data": {
+              "id": 1,
+              "title": "Where Rebirth Demo 1",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 19.90,
+              "original_price": 19.90,
+              "inventory": "Local mock 1"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 2,
+            "good_num": 2,
+            "good_data": {
+              "id": 2,
+              "title": "Where Rebirth Demo 2",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 29.90,
+              "original_price": 29.90,
+              "inventory": "Local mock 2"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 3,
+            "good_num": 3,
+            "good_data": {
+              "id": 3,
+              "title": "Where Rebirth Demo 3",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 39.90,
+              "original_price": 39.90,
+              "inventory": "Local mock 3"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 4,
+            "good_num": 4,
+            "good_data": {
+              "id": 4,
+              "title": "Where Rebirth Demo 4",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 49.90,
+              "original_price": 49.90,
+              "inventory": "Local mock 4"
+            },
+            "nativeIsSelect": false
+          },
+          {
+            "cart_id": 5,
+            "good_num": 5,
+            "good_data": {
+              "id": 5,
+              "title": "Where Rebirth Demo 5",
+              "images": [
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+                "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              ],
+              "price": 59.90,
+              "original_price": 59.90,
+              "inventory": "Local mock 5"
+            },
+            "nativeIsSelect": false
+          }
+        ],
+        "nativeIsSelect": false
+      }
+    ]
+  }
+}

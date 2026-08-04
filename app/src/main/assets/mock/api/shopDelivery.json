@@ -1,0 +1,13 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "delivery_fee": {
+      "key_1": 19.90,
+      "key_2": 29.90,
+      "key_3": 39.90,
+      "key_4": 49.90,
+      "key_5": 59.90
+    }
+  }
+}

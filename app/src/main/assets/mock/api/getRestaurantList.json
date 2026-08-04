@@ -1,0 +1,159 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "current_page": 1,
+    "first_page_url": "https://example.com/local/1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "https://example.com/local/1",
+    "next_page_url": {},
+    "path": "Local mock 1",
+    "per_page": 5,
+    "prev_page_url": {},
+    "to": 5,
+    "total": 5,
+    "data": [
+      {
+        "id": 1,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "title": "Where Rebirth Demo 1",
+        "grade": 1.0,
+        "comment_num": 1,
+        "per_price": 19.90,
+        "distance": 1.0,
+        "type": 1,
+        "trading_area": "Local mock 1",
+        "tags": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "take_out_status": 1,
+        "lat": 14.6005,
+        "lng": 120.9852,
+        "contentType": 1
+      },
+      {
+        "id": 2,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "title": "Where Rebirth Demo 2",
+        "grade": 2.0,
+        "comment_num": 2,
+        "per_price": 29.90,
+        "distance": 2.0,
+        "type": 2,
+        "trading_area": "Local mock 2",
+        "tags": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "take_out_status": 2,
+        "lat": 14.601500000000001,
+        "lng": 120.9862,
+        "contentType": 2
+      },
+      {
+        "id": 3,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "title": "Where Rebirth Demo 3",
+        "grade": 3.0,
+        "comment_num": 3,
+        "per_price": 39.90,
+        "distance": 3.0,
+        "type": 1,
+        "trading_area": "Local mock 3",
+        "tags": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "take_out_status": 1,
+        "lat": 14.602500000000001,
+        "lng": 120.9872,
+        "contentType": 3
+      },
+      {
+        "id": 4,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "title": "Where Rebirth Demo 4",
+        "grade": 4.0,
+        "comment_num": 4,
+        "per_price": 49.90,
+        "distance": 4.0,
+        "type": 2,
+        "trading_area": "Local mock 4",
+        "tags": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "take_out_status": 2,
+        "lat": 14.6035,
+        "lng": 120.9882,
+        "contentType": 4
+      },
+      {
+        "id": 5,
+        "images": [
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        ],
+        "title": "Where Rebirth Demo 5",
+        "grade": 5.0,
+        "comment_num": 5,
+        "per_price": 59.90,
+        "distance": 5.0,
+        "type": 1,
+        "trading_area": "Local mock 5",
+        "tags": [
+          "Local mock 1",
+          "Local mock 2",
+          "Local mock 3",
+          "Local mock 4",
+          "Local mock 5"
+        ],
+        "take_out_status": 1,
+        "lat": 14.604500000000002,
+        "lng": 120.9892,
+        "contentType": 5
+      }
+    ]
+  }
+}

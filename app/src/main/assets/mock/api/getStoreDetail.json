@@ -1,0 +1,36 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "id": 1,
+    "collect_status": 1,
+    "im_status": 1,
+    "uuid": "Local mock 1",
+    "title": "Where Rebirth Demo 1",
+    "images": [
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+    ],
+    "week_start": 1,
+    "week_end": 1,
+    "start_time": "2026-08-04 12:00:00",
+    "end_time": "2026-08-04 12:00:00",
+    "address": "Manila, Philippines",
+    "abstract": "Local mock 1",
+    "extension_tel": "Local mock 1",
+    "web_site": "Local mock 1",
+    "email": "demo1@whererebirth.local",
+    "facebook": "Local mock 1",
+    "mer_uuid": "Local mock 1",
+    "mer_name": "Where Rebirth Demo 1",
+    "tel": "Local mock 1",
+    "lat": 14.6005,
+    "lng": 120.9852,
+    "delivery_fee": 1.0,
+    "delivery_times": "2026-08-04 12:00:00",
+    "take_times": "2026-08-04 12:00:00"
+  }
+}

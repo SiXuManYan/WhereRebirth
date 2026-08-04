@@ -1,0 +1,43 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "order_data": {
+      "id": 1,
+      "trade_no": "Local mock 1",
+      "phone": "09171234561",
+      "start_date": "2026-08-04 12:00:00",
+      "end_date": "2026-08-04 12:00:00",
+      "created_at": "2026-08-04 12:00:00",
+      "status": 1,
+      "coupon_no": "Local mock 1",
+      "coupon_expire": "Local mock 1",
+      "coupon_qr_code": "Local mock 1",
+      "comment_status": 1,
+      "error_reason": "Local mock 1",
+      "price": 19.90,
+      "complaint_status": 1
+    },
+    "restaurant_data": {
+      "id": 1,
+      "name": "Where Rebirth Demo 1",
+      "mer_uuid": "Local mock 1",
+      "mer_name": "Where Rebirth Demo 1",
+      "im_status": 1,
+      "tel": "Local mock 1",
+      "price": 19.90
+    },
+    "good_data": {
+      "id": 1,
+      "good_num": 1,
+      "name": "Where Rebirth Demo 1",
+      "good_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "price": 19.90
+    },
+    "payment_data": {
+      "payment_channel": "Local mock 1",
+      "bank_card_account": "Local mock 1",
+      "bank_card_number": "Local mock 1"
+    }
+  }
+}

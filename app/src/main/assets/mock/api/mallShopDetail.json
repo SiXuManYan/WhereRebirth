@@ -1,0 +1,17 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "id": 1,
+    "title": "Where Rebirth Demo 1",
+    "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+    "logo": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+    "desc": "Local mock 1",
+    "status": 1,
+    "collect_status": 1,
+    "address": "Manila, Philippines",
+    "qualification": "Local mock 1",
+    "nickname": "Where Rebirth Demo 1",
+    "collect_count": 1
+  }
+}

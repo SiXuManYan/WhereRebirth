@@ -1,0 +1,69 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "current_page": 1,
+    "first_page_url": "https://example.com/local/1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "https://example.com/local/1",
+    "next_page_url": {},
+    "path": "Local mock 1",
+    "per_page": 5,
+    "prev_page_url": {},
+    "to": 5,
+    "total": 5,
+    "data": [
+      {
+        "id": 1,
+        "good_id": 1,
+        "title": "Where Rebirth Demo 1",
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "price": 19.90,
+        "original_cost": 19.90,
+        "delete_status": 1,
+        "good_status": 1
+      },
+      {
+        "id": 2,
+        "good_id": 2,
+        "title": "Where Rebirth Demo 2",
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "price": 29.90,
+        "original_cost": 29.90,
+        "delete_status": 2,
+        "good_status": 2
+      },
+      {
+        "id": 3,
+        "good_id": 3,
+        "title": "Where Rebirth Demo 3",
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "price": 39.90,
+        "original_cost": 39.90,
+        "delete_status": 1,
+        "good_status": 1
+      },
+      {
+        "id": 4,
+        "good_id": 4,
+        "title": "Where Rebirth Demo 4",
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "price": 49.90,
+        "original_cost": 49.90,
+        "delete_status": 2,
+        "good_status": 2
+      },
+      {
+        "id": 5,
+        "good_id": 5,
+        "title": "Where Rebirth Demo 5",
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "price": 59.90,
+        "original_cost": 59.90,
+        "delete_status": 1,
+        "good_status": 1
+      }
+    ]
+  }
+}

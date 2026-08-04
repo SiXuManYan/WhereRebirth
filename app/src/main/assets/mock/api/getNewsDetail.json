@@ -1,0 +1,26 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "id": 1,
+    "uuid": "Local mock 1",
+    "content_type": {
+      "value": 1
+    },
+    "title": "Where Rebirth Demo 1",
+    "publisher": {
+      "id": 1,
+      "nickname": "Where Rebirth Demo 1",
+      "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+    },
+    "video_link": "https://example.com/local/1",
+    "video_time": "2026-08-04 12:00:00",
+    "article_link": "https://example.com/local/1",
+    "read_num": {
+      "value": 1
+    },
+    "follow_status": 1,
+    "collect_status": 1,
+    "created_at": "2026-08-04 12:00:00"
+  }
+}

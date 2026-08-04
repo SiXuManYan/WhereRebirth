@@ -1,0 +1,64 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "current_page": 1,
+    "first_page_url": "https://example.com/local/1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "https://example.com/local/1",
+    "next_page_url": {},
+    "path": "Local mock 1",
+    "per_page": 5,
+    "prev_page_url": {},
+    "to": 5,
+    "total": 5,
+    "data": [
+      {
+        "id": 1,
+        "is_read": 1,
+        "title": "Where Rebirth Demo 1",
+        "message": "Local mock 1",
+        "created_at": "2026-08-04 12:00:00",
+        "link": "https://example.com/local/1",
+        "detail_type": 1
+      },
+      {
+        "id": 2,
+        "is_read": 2,
+        "title": "Where Rebirth Demo 2",
+        "message": "Local mock 2",
+        "created_at": "2026-08-04 12:00:00",
+        "link": "https://example.com/local/2",
+        "detail_type": 2
+      },
+      {
+        "id": 3,
+        "is_read": 3,
+        "title": "Where Rebirth Demo 3",
+        "message": "Local mock 3",
+        "created_at": "2026-08-04 12:00:00",
+        "link": "https://example.com/local/3",
+        "detail_type": 3
+      },
+      {
+        "id": 4,
+        "is_read": 4,
+        "title": "Where Rebirth Demo 4",
+        "message": "Local mock 4",
+        "created_at": "2026-08-04 12:00:00",
+        "link": "https://example.com/local/4",
+        "detail_type": 4
+      },
+      {
+        "id": 5,
+        "is_read": 5,
+        "title": "Where Rebirth Demo 5",
+        "message": "Local mock 5",
+        "created_at": "2026-08-04 12:00:00",
+        "link": "https://example.com/local/5",
+        "detail_type": 5
+      }
+    ]
+  }
+}

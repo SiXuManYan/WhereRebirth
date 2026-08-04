@@ -1,0 +1,23 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "id": 1,
+    "title": "Where Rebirth Demo 1",
+    "delivery_times": "2026-08-04 12:00:00",
+    "take_times": "2026-08-04 12:00:00",
+    "desc": "Local mock 1",
+    "price": 19.90,
+    "original_price": 19.90,
+    "images": [
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+    ],
+    "sale_num": 1,
+    "delivery_type": 1,
+    "inventory": 1
+  }
+}

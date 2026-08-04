@@ -1,0 +1,7 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "message": "Local mock 1"
+  }
+}

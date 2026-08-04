@@ -1,0 +1,576 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": [
+    {
+      "id": 1,
+      "name": "Where Rebirth Demo 1",
+      "type": 1,
+      "banner": [
+        {
+          "id": 1,
+          "src": "Local mock 1",
+          "redirect_type": 1,
+          "target_type": 1,
+          "target_id": 1,
+          "h5_link": "https://example.com/local/1"
+        },
+        {
+          "id": 2,
+          "src": "Local mock 2",
+          "redirect_type": 2,
+          "target_type": 2,
+          "target_id": 2,
+          "h5_link": "https://example.com/local/2"
+        },
+        {
+          "id": 3,
+          "src": "Local mock 3",
+          "redirect_type": 3,
+          "target_type": 3,
+          "target_id": 3,
+          "h5_link": "https://example.com/local/3"
+        },
+        {
+          "id": 4,
+          "src": "Local mock 4",
+          "redirect_type": 4,
+          "target_type": 4,
+          "target_id": 4,
+          "h5_link": "https://example.com/local/4"
+        },
+        {
+          "id": 5,
+          "src": "Local mock 5",
+          "redirect_type": 5,
+          "target_type": 5,
+          "target_id": 5,
+          "h5_link": "https://example.com/local/5"
+        }
+      ],
+      "category": [
+        {
+          "id": 1,
+          "name": "Where Rebirth Demo 1",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 2,
+          "name": "Where Rebirth Demo 2",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 3,
+          "name": "Where Rebirth Demo 3",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 4,
+          "name": "Where Rebirth Demo 4",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 5,
+          "name": "Where Rebirth Demo 5",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Where Rebirth Demo 2",
+      "type": 2,
+      "banner": [
+        {
+          "id": 1,
+          "src": "Local mock 1",
+          "redirect_type": 1,
+          "target_type": 1,
+          "target_id": 1,
+          "h5_link": "https://example.com/local/1"
+        },
+        {
+          "id": 2,
+          "src": "Local mock 2",
+          "redirect_type": 2,
+          "target_type": 2,
+          "target_id": 2,
+          "h5_link": "https://example.com/local/2"
+        },
+        {
+          "id": 3,
+          "src": "Local mock 3",
+          "redirect_type": 3,
+          "target_type": 3,
+          "target_id": 3,
+          "h5_link": "https://example.com/local/3"
+        },
+        {
+          "id": 4,
+          "src": "Local mock 4",
+          "redirect_type": 4,
+          "target_type": 4,
+          "target_id": 4,
+          "h5_link": "https://example.com/local/4"
+        },
+        {
+          "id": 5,
+          "src": "Local mock 5",
+          "redirect_type": 5,
+          "target_type": 5,
+          "target_id": 5,
+          "h5_link": "https://example.com/local/5"
+        }
+      ],
+      "category": [
+        {
+          "id": 1,
+          "name": "Where Rebirth Demo 1",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 2,
+          "name": "Where Rebirth Demo 2",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 3,
+          "name": "Where Rebirth Demo 3",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 4,
+          "name": "Where Rebirth Demo 4",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 5,
+          "name": "Where Rebirth Demo 5",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Where Rebirth Demo 3",
+      "type": 1,
+      "banner": [
+        {
+          "id": 1,
+          "src": "Local mock 1",
+          "redirect_type": 1,
+          "target_type": 1,
+          "target_id": 1,
+          "h5_link": "https://example.com/local/1"
+        },
+        {
+          "id": 2,
+          "src": "Local mock 2",
+          "redirect_type": 2,
+          "target_type": 2,
+          "target_id": 2,
+          "h5_link": "https://example.com/local/2"
+        },
+        {
+          "id": 3,
+          "src": "Local mock 3",
+          "redirect_type": 3,
+          "target_type": 3,
+          "target_id": 3,
+          "h5_link": "https://example.com/local/3"
+        },
+        {
+          "id": 4,
+          "src": "Local mock 4",
+          "redirect_type": 4,
+          "target_type": 4,
+          "target_id": 4,
+          "h5_link": "https://example.com/local/4"
+        },
+        {
+          "id": 5,
+          "src": "Local mock 5",
+          "redirect_type": 5,
+          "target_type": 5,
+          "target_id": 5,
+          "h5_link": "https://example.com/local/5"
+        }
+      ],
+      "category": [
+        {
+          "id": 1,
+          "name": "Where Rebirth Demo 1",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 2,
+          "name": "Where Rebirth Demo 2",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 3,
+          "name": "Where Rebirth Demo 3",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 4,
+          "name": "Where Rebirth Demo 4",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 5,
+          "name": "Where Rebirth Demo 5",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Where Rebirth Demo 4",
+      "type": 2,
+      "banner": [
+        {
+          "id": 1,
+          "src": "Local mock 1",
+          "redirect_type": 1,
+          "target_type": 1,
+          "target_id": 1,
+          "h5_link": "https://example.com/local/1"
+        },
+        {
+          "id": 2,
+          "src": "Local mock 2",
+          "redirect_type": 2,
+          "target_type": 2,
+          "target_id": 2,
+          "h5_link": "https://example.com/local/2"
+        },
+        {
+          "id": 3,
+          "src": "Local mock 3",
+          "redirect_type": 3,
+          "target_type": 3,
+          "target_id": 3,
+          "h5_link": "https://example.com/local/3"
+        },
+        {
+          "id": 4,
+          "src": "Local mock 4",
+          "redirect_type": 4,
+          "target_type": 4,
+          "target_id": 4,
+          "h5_link": "https://example.com/local/4"
+        },
+        {
+          "id": 5,
+          "src": "Local mock 5",
+          "redirect_type": 5,
+          "target_type": 5,
+          "target_id": 5,
+          "h5_link": "https://example.com/local/5"
+        }
+      ],
+      "category": [
+        {
+          "id": 1,
+          "name": "Where Rebirth Demo 1",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 2,
+          "name": "Where Rebirth Demo 2",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 3,
+          "name": "Where Rebirth Demo 3",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 4,
+          "name": "Where Rebirth Demo 4",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 5,
+          "name": "Where Rebirth Demo 5",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Where Rebirth Demo 5",
+      "type": 1,
+      "banner": [
+        {
+          "id": 1,
+          "src": "Local mock 1",
+          "redirect_type": 1,
+          "target_type": 1,
+          "target_id": 1,
+          "h5_link": "https://example.com/local/1"
+        },
+        {
+          "id": 2,
+          "src": "Local mock 2",
+          "redirect_type": 2,
+          "target_type": 2,
+          "target_id": 2,
+          "h5_link": "https://example.com/local/2"
+        },
+        {
+          "id": 3,
+          "src": "Local mock 3",
+          "redirect_type": 3,
+          "target_type": 3,
+          "target_id": 3,
+          "h5_link": "https://example.com/local/3"
+        },
+        {
+          "id": 4,
+          "src": "Local mock 4",
+          "redirect_type": 4,
+          "target_type": 4,
+          "target_id": 4,
+          "h5_link": "https://example.com/local/4"
+        },
+        {
+          "id": 5,
+          "src": "Local mock 5",
+          "redirect_type": 5,
+          "target_type": 5,
+          "target_id": 5,
+          "h5_link": "https://example.com/local/5"
+        }
+      ],
+      "category": [
+        {
+          "id": 1,
+          "name": "Where Rebirth Demo 1",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 2,
+          "name": "Where Rebirth Demo 2",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 3,
+          "name": "Where Rebirth Demo 3",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 4,
+          "name": "Where Rebirth Demo 4",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        },
+        {
+          "id": 5,
+          "name": "Where Rebirth Demo 5",
+          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "second_level": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "nativeIsSelected": false
+        }
+      ]
+    }
+  ]
+}

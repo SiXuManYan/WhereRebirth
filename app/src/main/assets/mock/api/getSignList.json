@@ -1,0 +1,35 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "sign_days": "Local mock 1",
+    "total_sign_days": "Local mock 1",
+    "data": [
+      {
+        "sign_status": 1,
+        "date": "2026-08-04 12:00:00",
+        "integral": 1
+      },
+      {
+        "sign_status": 2,
+        "date": "2026-08-04 12:00:00",
+        "integral": 2
+      },
+      {
+        "sign_status": 1,
+        "date": "2026-08-04 12:00:00",
+        "integral": 3
+      },
+      {
+        "sign_status": 2,
+        "date": "2026-08-04 12:00:00",
+        "integral": 4
+      },
+      {
+        "sign_status": 1,
+        "date": "2026-08-04 12:00:00",
+        "integral": 5
+      }
+    ]
+  }
+}

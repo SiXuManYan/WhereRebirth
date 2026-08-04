@@ -1,0 +1,71 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": [
+    {
+      "isSelected": false,
+      "channel_code": "Local mock 1",
+      "channel_category": "Local mock 1",
+      "currency": "Local mock 1",
+      "name": "Where Rebirth Demo 1",
+      "amount_limits": {
+        "minimum": "Local mock 1",
+        "maximum": "Local mock 1",
+        "minimum_increment": "Local mock 1"
+      },
+      "type": 1
+    },
+    {
+      "isSelected": false,
+      "channel_code": "Local mock 2",
+      "channel_category": "Local mock 2",
+      "currency": "Local mock 2",
+      "name": "Where Rebirth Demo 2",
+      "amount_limits": {
+        "minimum": "Local mock 2",
+        "maximum": "Local mock 2",
+        "minimum_increment": "Local mock 2"
+      },
+      "type": 2
+    },
+    {
+      "isSelected": false,
+      "channel_code": "Local mock 3",
+      "channel_category": "Local mock 3",
+      "currency": "Local mock 3",
+      "name": "Where Rebirth Demo 3",
+      "amount_limits": {
+        "minimum": "Local mock 3",
+        "maximum": "Local mock 3",
+        "minimum_increment": "Local mock 3"
+      },
+      "type": 1
+    },
+    {
+      "isSelected": false,
+      "channel_code": "Local mock 4",
+      "channel_category": "Local mock 4",
+      "currency": "Local mock 4",
+      "name": "Where Rebirth Demo 4",
+      "amount_limits": {
+        "minimum": "Local mock 4",
+        "maximum": "Local mock 4",
+        "minimum_increment": "Local mock 4"
+      },
+      "type": 2
+    },
+    {
+      "isSelected": false,
+      "channel_code": "Local mock 5",
+      "channel_category": "Local mock 5",
+      "currency": "Local mock 5",
+      "name": "Where Rebirth Demo 5",
+      "amount_limits": {
+        "minimum": "Local mock 5",
+        "maximum": "Local mock 5",
+        "minimum_increment": "Local mock 5"
+      },
+      "type": 1
+    }
+  ]
+}

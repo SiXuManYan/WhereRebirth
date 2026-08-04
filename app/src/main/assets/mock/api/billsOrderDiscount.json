@@ -1,0 +1,12 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "price": "Local mock 1",
+    "discounts_price": "Local mock 1",
+    "discount": "Local mock 1",
+    "hint": "Local mock 1",
+    "coupon_id": 1,
+    "coupon_price": "Local mock 1"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "all": 1,
+    "newest": 1,
+    "photo": 1,
+    "low": 1,
+    "one": 1,
+    "two": 1,
+    "three": 1,
+    "four": 1,
+    "five": 1
+  }
+}

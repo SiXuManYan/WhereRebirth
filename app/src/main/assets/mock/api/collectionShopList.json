@@ -1,0 +1,49 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "current_page": 1,
+    "first_page_url": "https://example.com/local/1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "https://example.com/local/1",
+    "next_page_url": {},
+    "path": "Local mock 1",
+    "per_page": 5,
+    "prev_page_url": {},
+    "to": 5,
+    "total": 5,
+    "data": [
+      {
+        "id": 1,
+        "shop_id": 1,
+        "title": "Where Rebirth Demo 1",
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      },
+      {
+        "id": 2,
+        "shop_id": 2,
+        "title": "Where Rebirth Demo 2",
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      },
+      {
+        "id": 3,
+        "shop_id": 3,
+        "title": "Where Rebirth Demo 3",
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      },
+      {
+        "id": 4,
+        "shop_id": 4,
+        "title": "Where Rebirth Demo 4",
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      },
+      {
+        "id": 5,
+        "shop_id": 5,
+        "title": "Where Rebirth Demo 5",
+        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      }
+    ]
+  }
+}

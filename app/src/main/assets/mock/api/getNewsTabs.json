@@ -1,0 +1,36 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": [
+    {
+      "id": 1,
+      "name": "Where Rebirth Demo 1",
+      "follow_status": 1,
+      "isEditable": false
+    },
+    {
+      "id": 2,
+      "name": "Where Rebirth Demo 2",
+      "follow_status": 2,
+      "isEditable": false
+    },
+    {
+      "id": 3,
+      "name": "Where Rebirth Demo 3",
+      "follow_status": 1,
+      "isEditable": false
+    },
+    {
+      "id": 4,
+      "name": "Where Rebirth Demo 4",
+      "follow_status": 2,
+      "isEditable": false
+    },
+    {
+      "id": 5,
+      "name": "Where Rebirth Demo 5",
+      "follow_status": 1,
+      "isEditable": false
+    }
+  ]
+}

@@ -56,7 +56,7 @@ public class RetrofitManager {
 
         // The original backend has been retired. Keep the Retrofit call chain,
         // converters and observers, but satisfy API calls locally.
-        okBuilder.addInterceptor(new LocalMockInterceptor());
+        okBuilder.addInterceptor(new LocalMockInterceptor(context));
 
         // 连接超时
         okBuilder.connectTimeout(60,TimeUnit.SECONDS);

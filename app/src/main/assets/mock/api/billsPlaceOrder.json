@@ -1,0 +1,11 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "order": {
+      "id": 1,
+      "trade_no": "Local mock 1"
+    },
+    "total_price": 19.90
+  }
+}

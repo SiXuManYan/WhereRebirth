@@ -1,0 +1,74 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "lists": [
+      {
+        "id": 1,
+        "name": "Where Rebirth Demo 1",
+        "lat": {
+          "value": 1.0
+        },
+        "lng": {
+          "value": 1.0
+        },
+        "nativeIsSelected": false
+      },
+      {
+        "id": 2,
+        "name": "Where Rebirth Demo 2",
+        "lat": {
+          "value": 2.0
+        },
+        "lng": {
+          "value": 2.0
+        },
+        "nativeIsSelected": false
+      },
+      {
+        "id": 3,
+        "name": "Where Rebirth Demo 3",
+        "lat": {
+          "value": 3.0
+        },
+        "lng": {
+          "value": 3.0
+        },
+        "nativeIsSelected": false
+      },
+      {
+        "id": 4,
+        "name": "Where Rebirth Demo 4",
+        "lat": {
+          "value": 4.0
+        },
+        "lng": {
+          "value": 4.0
+        },
+        "nativeIsSelected": false
+      },
+      {
+        "id": 5,
+        "name": "Where Rebirth Demo 5",
+        "lat": {
+          "value": 5.0
+        },
+        "lng": {
+          "value": 5.0
+        },
+        "nativeIsSelected": false
+      }
+    ],
+    "default": {
+      "id": 1,
+      "name": "Where Rebirth Demo 1",
+      "lat": {
+        "value": 1.0
+      },
+      "lng": {
+        "value": 1.0
+      },
+      "nativeIsSelected": false
+    }
+  }
+}

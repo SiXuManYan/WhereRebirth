@@ -1,0 +1,281 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": [
+    {
+      "BillerTag": "Local mock 1",
+      "Description": "Local mock 1",
+      "Category": "Local mock 1",
+      "FieldDetails": [
+        {
+          "Tag": "Local mock 1",
+          "Caption": "Local mock 1",
+          "Format": "Local mock 1",
+          "Width": 1,
+          "nativeUserInput": "Local mock 1",
+          "nativeCache": "Local mock 1",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 2",
+          "Caption": "Local mock 2",
+          "Format": "Local mock 2",
+          "Width": 2,
+          "nativeUserInput": "Local mock 2",
+          "nativeCache": "Local mock 2",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 3",
+          "Caption": "Local mock 3",
+          "Format": "Local mock 3",
+          "Width": 3,
+          "nativeUserInput": "Local mock 3",
+          "nativeCache": "Local mock 3",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 4",
+          "Caption": "Local mock 4",
+          "Format": "Local mock 4",
+          "Width": 4,
+          "nativeUserInput": "Local mock 4",
+          "nativeCache": "Local mock 4",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 5",
+          "Caption": "Local mock 5",
+          "Format": "Local mock 5",
+          "Width": 5,
+          "nativeUserInput": "Local mock 5",
+          "nativeCache": "Local mock 5",
+          "lengthOver": false
+        }
+      ],
+      "Remarks": "Local mock 1",
+      "Status": 1,
+      "ServiceCharge": 19.90
+    },
+    {
+      "BillerTag": "Local mock 2",
+      "Description": "Local mock 2",
+      "Category": "Local mock 2",
+      "FieldDetails": [
+        {
+          "Tag": "Local mock 1",
+          "Caption": "Local mock 1",
+          "Format": "Local mock 1",
+          "Width": 1,
+          "nativeUserInput": "Local mock 1",
+          "nativeCache": "Local mock 1",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 2",
+          "Caption": "Local mock 2",
+          "Format": "Local mock 2",
+          "Width": 2,
+          "nativeUserInput": "Local mock 2",
+          "nativeCache": "Local mock 2",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 3",
+          "Caption": "Local mock 3",
+          "Format": "Local mock 3",
+          "Width": 3,
+          "nativeUserInput": "Local mock 3",
+          "nativeCache": "Local mock 3",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 4",
+          "Caption": "Local mock 4",
+          "Format": "Local mock 4",
+          "Width": 4,
+          "nativeUserInput": "Local mock 4",
+          "nativeCache": "Local mock 4",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 5",
+          "Caption": "Local mock 5",
+          "Format": "Local mock 5",
+          "Width": 5,
+          "nativeUserInput": "Local mock 5",
+          "nativeCache": "Local mock 5",
+          "lengthOver": false
+        }
+      ],
+      "Remarks": "Local mock 2",
+      "Status": 2,
+      "ServiceCharge": 29.90
+    },
+    {
+      "BillerTag": "Local mock 3",
+      "Description": "Local mock 3",
+      "Category": "Local mock 3",
+      "FieldDetails": [
+        {
+          "Tag": "Local mock 1",
+          "Caption": "Local mock 1",
+          "Format": "Local mock 1",
+          "Width": 1,
+          "nativeUserInput": "Local mock 1",
+          "nativeCache": "Local mock 1",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 2",
+          "Caption": "Local mock 2",
+          "Format": "Local mock 2",
+          "Width": 2,
+          "nativeUserInput": "Local mock 2",
+          "nativeCache": "Local mock 2",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 3",
+          "Caption": "Local mock 3",
+          "Format": "Local mock 3",
+          "Width": 3,
+          "nativeUserInput": "Local mock 3",
+          "nativeCache": "Local mock 3",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 4",
+          "Caption": "Local mock 4",
+          "Format": "Local mock 4",
+          "Width": 4,
+          "nativeUserInput": "Local mock 4",
+          "nativeCache": "Local mock 4",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 5",
+          "Caption": "Local mock 5",
+          "Format": "Local mock 5",
+          "Width": 5,
+          "nativeUserInput": "Local mock 5",
+          "nativeCache": "Local mock 5",
+          "lengthOver": false
+        }
+      ],
+      "Remarks": "Local mock 3",
+      "Status": 1,
+      "ServiceCharge": 39.90
+    },
+    {
+      "BillerTag": "Local mock 4",
+      "Description": "Local mock 4",
+      "Category": "Local mock 4",
+      "FieldDetails": [
+        {
+          "Tag": "Local mock 1",
+          "Caption": "Local mock 1",
+          "Format": "Local mock 1",
+          "Width": 1,
+          "nativeUserInput": "Local mock 1",
+          "nativeCache": "Local mock 1",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 2",
+          "Caption": "Local mock 2",
+          "Format": "Local mock 2",
+          "Width": 2,
+          "nativeUserInput": "Local mock 2",
+          "nativeCache": "Local mock 2",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 3",
+          "Caption": "Local mock 3",
+          "Format": "Local mock 3",
+          "Width": 3,
+          "nativeUserInput": "Local mock 3",
+          "nativeCache": "Local mock 3",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 4",
+          "Caption": "Local mock 4",
+          "Format": "Local mock 4",
+          "Width": 4,
+          "nativeUserInput": "Local mock 4",
+          "nativeCache": "Local mock 4",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 5",
+          "Caption": "Local mock 5",
+          "Format": "Local mock 5",
+          "Width": 5,
+          "nativeUserInput": "Local mock 5",
+          "nativeCache": "Local mock 5",
+          "lengthOver": false
+        }
+      ],
+      "Remarks": "Local mock 4",
+      "Status": 2,
+      "ServiceCharge": 49.90
+    },
+    {
+      "BillerTag": "Local mock 5",
+      "Description": "Local mock 5",
+      "Category": "Local mock 5",
+      "FieldDetails": [
+        {
+          "Tag": "Local mock 1",
+          "Caption": "Local mock 1",
+          "Format": "Local mock 1",
+          "Width": 1,
+          "nativeUserInput": "Local mock 1",
+          "nativeCache": "Local mock 1",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 2",
+          "Caption": "Local mock 2",
+          "Format": "Local mock 2",
+          "Width": 2,
+          "nativeUserInput": "Local mock 2",
+          "nativeCache": "Local mock 2",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 3",
+          "Caption": "Local mock 3",
+          "Format": "Local mock 3",
+          "Width": 3,
+          "nativeUserInput": "Local mock 3",
+          "nativeCache": "Local mock 3",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 4",
+          "Caption": "Local mock 4",
+          "Format": "Local mock 4",
+          "Width": 4,
+          "nativeUserInput": "Local mock 4",
+          "nativeCache": "Local mock 4",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Local mock 5",
+          "Caption": "Local mock 5",
+          "Format": "Local mock 5",
+          "Width": 5,
+          "nativeUserInput": "Local mock 5",
+          "nativeCache": "Local mock 5",
+          "lengthOver": false
+        }
+      ],
+      "Remarks": "Local mock 5",
+      "Status": 1,
+      "ServiceCharge": 59.90
+    }
+  ]
+}

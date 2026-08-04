@@ -1,0 +1,111 @@
+{
+  "code": 200,
+  "message": "local mock",
+  "data": {
+    "id": 1,
+    "trade_no": "Local mock 1",
+    "created_at": "2026-08-04 12:00:00",
+    "remark": "Local mock 1",
+    "is_cancel": 1,
+    "status": 1,
+    "price": 19.90,
+    "delivery_fee": 19.90,
+    "good_price": 19.90,
+    "delivery_type": 1,
+    "delivery_times": "2026-08-04 12:00:00",
+    "take_times": "2026-08-04 12:00:00",
+    "phone": "09171234561",
+    "address": {
+      "sex": 1,
+      "address": "Manila, Philippines",
+      "contact_name": "Where Rebirth Demo 1",
+      "contact_number": "Local mock 1"
+    },
+    "shop": {
+      "id": 1,
+      "title": "Where Rebirth Demo 1",
+      "images": [
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      ],
+      "goods": [
+        {
+          "id": 1,
+          "title": "Where Rebirth Demo 1",
+          "images": [
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          ],
+          "good_num": 1,
+          "price": 1.0
+        },
+        {
+          "id": 2,
+          "title": "Where Rebirth Demo 2",
+          "images": [
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          ],
+          "good_num": 2,
+          "price": 2.0
+        },
+        {
+          "id": 3,
+          "title": "Where Rebirth Demo 3",
+          "images": [
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          ],
+          "good_num": 3,
+          "price": 3.0
+        },
+        {
+          "id": 4,
+          "title": "Where Rebirth Demo 4",
+          "images": [
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          ],
+          "good_num": 4,
+          "price": 4.0
+        },
+        {
+          "id": 5,
+          "title": "Where Rebirth Demo 5",
+          "images": [
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          ],
+          "good_num": 5,
+          "price": 5.0
+        }
+      ],
+      "mer_uuid": "Local mock 1",
+      "mer_name": "Where Rebirth Demo 1",
+      "im_status": 1
+    },
+    "pay_channel": "Local mock 1",
+    "bank_card_account": "Local mock 1",
+    "bank_card_number": "Local mock 1",
+    "aftersale_status": 1,
+    "comment_status": 1
+  }
+}
