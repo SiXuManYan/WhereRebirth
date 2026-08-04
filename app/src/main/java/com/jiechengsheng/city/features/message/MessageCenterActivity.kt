@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.blankj.utilcode.util.ScreenUtils
-import com.blankj.utilcode.util.StringUtils
 import com.jiechengsheng.city.R
 import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.EventCode
@@ -19,7 +18,6 @@ import com.jiechengsheng.city.features.message.notice.SystemNoticeFragment
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import io.rong.imkit.conversationlist.ConversationListFragment
 import kotlinx.android.synthetic.main.activity_message_center.*
 
 /**
@@ -27,9 +25,6 @@ import kotlinx.android.synthetic.main.activity_message_center.*
  * 消息中心
  */
 class MessageCenterActivity : BaseMvpActivity<MessageCenterPresenter>(), MessageCenterView {
-
-    private val TAB_TITLES =
-        arrayOf(StringUtils.getString(R.string.business_conversation), StringUtils.getString(R.string.system_notification))
 
 
     private var systemUnReadMessageCount = 0
@@ -67,7 +62,7 @@ class MessageCenterActivity : BaseMvpActivity<MessageCenterPresenter>(), Message
 
     override fun initView() {
         systemUnReadMessageCount = intent.getIntExtra(Constant.PARAM_COUNT, 0)
-        pager.offscreenPageLimit = TAB_TITLES.size
+        pager.offscreenPageLimit = 1
 
     }
 
@@ -83,7 +78,7 @@ class MessageCenterActivity : BaseMvpActivity<MessageCenterPresenter>(), Message
         emptyView.setEmptyImage(R.mipmap.ic_empty_un_notice)
         emptyView.setEmptyHint(R.string.no_notice_yet)
         pager!!.adapter = adapter
-        tabs_type!!.setViewPager(pager, TAB_TITLES)
+        tabs_type!!.visibility = View.GONE
 
         handleCount()
 
@@ -104,18 +99,12 @@ class MessageCenterActivity : BaseMvpActivity<MessageCenterPresenter>(), Message
         var emptyView: EmptyView? = null
 
         override fun getItem(position: Int): Fragment {
-            return if (position == 0) {
-                emptyView!!.showEmptyContainer()
-                val listFragment = ConversationListFragment()
-                listFragment.setEmptyView(emptyView)
-                listFragment
-            } else {
-                SystemNoticeFragment()
-            }
+            emptyView!!.showEmptyContainer()
+            return SystemNoticeFragment()
         }
 
         override fun getCount(): Int {
-            return 2
+            return 1
         }
     }
 

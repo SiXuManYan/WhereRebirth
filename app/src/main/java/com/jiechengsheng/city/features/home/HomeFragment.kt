@@ -310,7 +310,6 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
         presenter.getNewsList()
         presenter.getHomeChild()
         presenter.checkAppVersion()
-        presenter.connectRongCloud()
 
 
     }

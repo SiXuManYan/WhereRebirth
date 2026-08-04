@@ -281,7 +281,7 @@ class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetail
         if (data.im_status == 1 && !TextUtils.isEmpty(data.mer_uuid)) {
             phone_value_iv.setImageResource(R.mipmap.ic_phone_bold)
             phone_ll.setOnClickListener {
-                BusinessUtils.startRongCloudConversationActivity(this, data.mer_uuid, data.mer_name ,data.tel )
+                BusinessUtils.showImUnavailableDialog(this)
             }
         } else {
             phone_value_iv.setImageResource(R.mipmap.ic_phone_bold)

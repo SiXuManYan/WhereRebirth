@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="im_unavailable_title">Chat unavailable</string>
+    <string name="im_unavailable_message">The IM SDK has been removed, so messages cannot be sent at this time.</string>
     <string name="app_name">Where</string>
 
     <string name="facebook_app_id">642165667008627</string>
@@ -406,8 +408,6 @@
     <string name="use_agreement_content_10">6. In order to realize the push function, we have introduced the [JPush] product of the third-party Jiguang SDK. For the privacy policy of this product, please refer to:</string>
     <string name="use_agreement_content_11">https://www.jiguang.cn/license/privacy \n\n</string>
 
-    <string name="use_agreement_content_12">7.In order to realize the data statistics function, we have introduced the [U-App] product of the third-party Umeng SDK. For the privacy policy of this product, please refer to:</string>
-    <string name="use_agreement_content_13">https://www.umeng.com/page/policy \n\n</string>
 
 
     <string name="use_agreement_content_last">8. The above permissions and sensitive permissions such as cameras, GPS, cameras, albums, microphones, storage space, etc. will not be enabled by default or forcibly to collect information. Only express authorization will be used for the realization of functions or services. You can refuse and Does not affect your continued use of Where.</string>

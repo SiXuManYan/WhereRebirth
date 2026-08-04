@@ -1,4 +1,6 @@
 <resources>
+    <string name="im_unavailable_title">聊天功能暂不可用</string>
+    <string name="im_unavailable_message">IM SDK 已经去除，暂时无法发送消息</string>
     <string name="app_name">Where</string>
 
     <!---->
@@ -411,8 +413,6 @@
     <string name="use_agreement_content_10">6.为了实现推送功能，我们引入了第三方 Jiguang SDK 的[JPush]产品，此产品的隐私策略请参阅：</string>
     <string name="use_agreement_content_11">https://www.jiguang.cn/license/privacy \n\n</string>
 
-    <string name="use_agreement_content_12">7.为了实现数据统计功能，我们引入了第三方 Umeng SDK 的[U-App]产品，此产品的隐私策略请参阅：</string>
-    <string name="use_agreement_content_13">https://www.umeng.com/page/policy \n\n</string>
 
     <string name="use_agreement_content_last">8. 上述权限以及摄像头、GPS、相机、相册、麦克风，存储空间、等敏感权限均不会默认或强制开启收集信息，只有经过明示授权才会为实现功能或服务时使用，您均可以拒绝且不影响你继续使用Where。</string>
     <string name="use_agreement_content_disclaimer">9. 免责声明\n\n

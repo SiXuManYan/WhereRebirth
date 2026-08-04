@@ -270,14 +270,6 @@ class LoginPresenter(private val mView: LoginView) : BaseMvpPresenter(mView) {
                 User.update()
 
                 // 刷新融云用户信息
-                whereApp.refreshRongUserInfoCache(User.getInstance().rongData.uuid)
-
-                // 连接融云
-                whereApp.connectRongCloud()
-
-                // 友盟
-                BusinessUtils.umengOnProfileSignIn(platformName, response.id)
-
                 // 登录成功
                 mView.LoginSuccess()
             }

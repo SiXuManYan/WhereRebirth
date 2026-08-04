@@ -159,7 +159,7 @@ class StoreOrderDetailActivity : BaseMvpActivity<StoreOrderDetailPresenter>(), S
             if (it.im_status == 1 && !TextUtils.isEmpty(it.mer_uuid)) {
                 im_ll.visibility = View.VISIBLE
                 im_ll.setOnClickListener { _ ->
-                    BusinessUtils.startRongCloudConversationActivity(this, it.mer_uuid, it.mer_name)
+                    BusinessUtils.showImUnavailableDialog(this)
                 }
             } else {
                 im_ll.visibility = View.GONE

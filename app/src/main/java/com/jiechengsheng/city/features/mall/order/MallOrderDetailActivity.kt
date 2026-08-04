@@ -145,7 +145,7 @@ class MallOrderDetailActivity : BaseMvpActivity<MallOrderDetailPresenter>(), Mal
         if (data.im_status == 1 && !TextUtils.isEmpty(data.mer_uuid)) {
             im_ll.visibility = View.VISIBLE
             im_ll.setOnClickListener {
-                BusinessUtils.startRongCloudConversationActivity(this, data.mer_uuid, data.mer_name, data.tel)
+                BusinessUtils.showImUnavailableDialog(this)
             }
         } else {
             im_ll.visibility = View.GONE

@@ -113,13 +113,6 @@ class RegisterPresenter(private val mView: RegisterView) : BaseMvpPresenter(mVie
                 User.update()
 
                 // 刷新融云用户信息
-                whereApp.refreshRongUserInfoCache(User.getInstance().rongData.uuid)
-
-                // 连接融云
-                whereApp.connectRongCloud()
-
-                // 友盟
-                BusinessUtils.umengOnProfileSignIn(userId = response.id)
 
                 // 注册成功
                 mView.registerSuccess()

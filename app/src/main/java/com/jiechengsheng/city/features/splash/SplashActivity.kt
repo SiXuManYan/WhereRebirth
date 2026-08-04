@@ -310,7 +310,6 @@ class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
             .setNegativeButton(getString(R.string.not_yet)) { dialog: DialogInterface, which: Int ->
 
                 // 友盟隐私合规授权结果上传
-//                UMConfigure.submitPolicyGrantResult(applicationContext, false);
 
                 // 极光推送隐私确认
                 JCollectionAuth.setAuth(this, false)
@@ -327,9 +326,7 @@ class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
         MobSDK.submitPolicyGrantResult(true)
 
         // 友盟隐私合规授权结果上传
-//        UMConfigure.submitPolicyGrantResult(applicationContext, true)
         // 友盟真正注册
-//        UMConfigure.init(this, BuildConfig.UMENG_APP_KEY, BusinessUtils.getUmengAppChannel(), UMConfigure.DEVICE_TYPE_PHONE, "")
 
         // 极光推送隐私确认
         JCollectionAuth.setAuth(this, true)

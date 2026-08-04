@@ -156,16 +156,6 @@
 
             </intent-filter>
 
-            <!-- 友盟集成测试，手机已注册的测试设备发送的日志，避免数据污染 -->
-            <!--            <intent-filter>
-                            <action android:name="android.intent.action.VIEW" />
-
-                            <category android:name="android.intent.category.DEFAULT" />
-                            <category android:name="android.intent.category.BROWSABLE" />
-
-                            <data android:scheme="um.62fb010b88ccdf4b7e049847" />
-                        </intent-filter>-->
-
         </activity>
 
 
@@ -437,18 +427,10 @@
             android:name=".features.setting.phone.ModifyPhoneActivity"
             android:configChanges="keyboardHidden|screenSize|orientation" />
 
-        <!-- 自定义融云会话列表 -->
         <activity
             android:name=".features.message.MessageCenterActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:launchMode="singleTop"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-
-
-        <!-- 自定义融云会话页面 -->
-        <activity
-            android:name=".features.message.cloud.ConversationActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
 

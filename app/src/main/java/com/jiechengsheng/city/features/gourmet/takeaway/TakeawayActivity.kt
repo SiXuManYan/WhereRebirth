@@ -184,7 +184,7 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
         service_iv.setOnClickListener {
             if (im_status == 1 && mer_uuid.isNotBlank()) {
 
-                BusinessUtils.startRongCloudConversationActivity(this,mer_uuid,restaurant_name)
+                BusinessUtils.showImUnavailableDialog(this)
 
             } else {
                 if (businessPhone.isNotBlank()) {

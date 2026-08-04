@@ -24,7 +24,6 @@ dependencyResolutionManagement {
         flatDir {
             dirs "$rootDir/app/libs"
         }
-        maven { url "https://maven.rongcloud.cn/repository/maven-releases/" }
         maven { url "https://mvn.mob.com/android" }
         maven { url "https://s01.oss.sonatype.org/content/groups/public" }
     }

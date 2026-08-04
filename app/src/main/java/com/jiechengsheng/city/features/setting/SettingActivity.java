@@ -135,7 +135,6 @@ public class SettingActivity extends BaseActivity {
                 .setCancelable(false)
                 .setPositiveButton(R.string.ensure, (dialogInterface, i) -> {
                     // 登出友盟
-//                    MobclickAgent.onProfileSignOff();
 
                     // 断开融云连接
                     BusinessUtils.INSTANCE.loginOut();

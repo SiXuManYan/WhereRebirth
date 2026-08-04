@@ -384,7 +384,7 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
             finish()
         }
         chat_iv.setOnClickListener {
-            BusinessUtils.startRongCloudConversationActivity(this, mMerUuid, mRestaurantName)
+            BusinessUtils.showImUnavailableDialog(this)
         }
         findViewById<View>(R.id.more_comment_tv).setOnClickListener {
             val bundle = Bundle()

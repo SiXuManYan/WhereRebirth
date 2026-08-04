@@ -35,7 +35,6 @@ import com.jiechengsheng.city.features.mall.shop.home.MallShopHomeActivity
 import com.jiechengsheng.city.features.mall.sku.bean.Sku
 import com.jiechengsheng.city.features.mall.sku.other.Product
 import com.jiechengsheng.city.features.mall.sku.other.SkuFragment
-import com.jiechengsheng.city.features.message.custom.CustomMessage
 import com.jiechengsheng.city.frames.common.Html5Url
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.BusinessUtils
@@ -308,14 +307,7 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
         if (response.im_status == 1 && !TextUtils.isEmpty(response.mer_uuid)) {
             mall_service_tv.setOnClickListener {
 
-                val customMessage = CustomMessage(goodId, response.main_image, response.title, nowPrice.toPlainString())
-
-                BusinessUtils.startRongCloudConversationActivity(this, response.mer_uuid, response.mer_name, null, Bundle().apply {
-                    putInt(Constant.PARAM_TYPE, 1)
-                    putParcelable(Constant.PARAM_GOOD_DATA, customMessage)
-                    putInt(Constant.PARAM_GOOD_ID , goodId)
-                    putInt(Constant.PARAM_SHOP_ID , shopId)
-                })
+                BusinessUtils.showImUnavailableDialog(this)
             }
         }
 

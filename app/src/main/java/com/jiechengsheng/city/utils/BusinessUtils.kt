@@ -51,9 +51,6 @@ import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.view.MyLayoutManager
 import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import io.rong.imkit.RongIM
-import io.rong.imkit.utils.RouteUtils
-import io.rong.imlib.model.Conversation
 import me.shaohui.bottomdialog.BottomDialog
 import org.greenrobot.eventbus.EventBus
 import java.math.BigDecimal
@@ -246,35 +243,13 @@ object BusinessUtils {
      * 启动融云会话页面(使用内置方法)
      * ConversationActivity
      */
-    fun startRongCloudConversationActivity(
-        context: Context,
-        targetId: String,
-        title: String? = null,
-        phone: String? = null,
-        bd: Bundle? = null,
-    ) {
-
-        if (!User.isLogon()) {
-            context.startActivity(Intent(context, LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-            return
-        }
-
-        if (targetId.isBlank()) {
-            return
-        }
-
-        val bundle = bd ?: Bundle()
-        bundle.apply {
-            title?.let {
-                putString(Constant.PARAM_TITLE, title)
-            }
-            phone?.let {
-                putString(Constant.PARAM_PHONE, it)
-            }
-        }
-        RouteUtils.routeToConversationActivity(context, Conversation.ConversationType.PRIVATE, targetId, bundle)
+    fun showImUnavailableDialog(context: Context) {
+        AlertDialog.Builder(context)
+            .setTitle(R.string.im_unavailable_title)
+            .setMessage(R.string.im_unavailable_message)
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
     }
-
 
     fun showRule(context: Context, rule: String) {
         val view = LayoutInflater.from(context).inflate(R.layout.dialog_coupon_rule, null, false)
@@ -323,12 +298,10 @@ object BusinessUtils {
         try {
 
             // 断开融云连接
-            RongIM.getInstance().logout()
             User.clearAllUser()
             CacheUtil.saveToken("")
 
             // 登出友盟
-//            MobclickAgent.onProfileSignOff()
 
             // 删除极光推送别名
             val sequence = SPUtils.getInstance().getInt(Constant.SP_PUSH_SEQUENCE, 0)
@@ -521,7 +494,7 @@ object BusinessUtils {
     /**
      * 获取友盟app渠道
      */
-    fun getUmengAppChannel(): String {
+    /* fun getUmengAppChannel(): String {
         val channel =
             if (BuildConfig.FLAVOR == "dev" || BuildConfig.VERSION_NAME.contains("beta") || BuildConfig.VERSION_NAME.contains("alpha")) {
                 BuildConfig.UMENG_APP_CHANNEL_DEV
@@ -530,7 +503,7 @@ object BusinessUtils {
             }
 
         return channel
-    }
+    } */
 
     private var sequence = 1
 
@@ -541,7 +514,7 @@ object BusinessUtils {
      *                      app本身登录 可传空
      *
      */
-    fun umengOnProfileSignIn(platformName: String? = null, userId: Long) {
+    /* fun umengOnProfileSignIn(platformName: String? = null, userId: Long) {
 
         try {
             // 友盟登录
@@ -584,7 +557,7 @@ object BusinessUtils {
 
         }
 
-    }
+    } */
 
 
     fun getDeepLinksTargetIntent(module: String?, moduleId: String?, context: Context): Intent? {

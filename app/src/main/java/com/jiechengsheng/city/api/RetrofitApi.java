@@ -170,7 +170,6 @@ import com.jiechengsheng.city.api.response.mall.request.MallOrderDefaultCoupon;
 import com.jiechengsheng.city.api.response.mall.request.MallShop;
 import com.jiechengsheng.city.api.response.mall.request.UnCollection;
 import com.jiechengsheng.city.api.response.merchant.MerchantApplyRecord;
-import com.jiechengsheng.city.api.response.message.RongCloudUserResponse;
 import com.jiechengsheng.city.api.response.message.SystemMessageResponse;
 import com.jiechengsheng.city.api.response.order.OrderListResponse;
 import com.jiechengsheng.city.api.response.order.RefundOrder;
@@ -618,9 +617,6 @@ public interface RetrofitApi {
     /**
      * 获取融云用户信息
      */
-    @GET("commonapi/v2/rong/users")
-    Observable<JcsResponse<RongCloudUserResponse>> getRongCloudUserInfo(@Query("user_id") String user_id);
-
     /**
      * 搜索接口
      */

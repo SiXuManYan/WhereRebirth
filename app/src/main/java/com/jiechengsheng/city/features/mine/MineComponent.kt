@@ -10,7 +10,6 @@ import com.jiechengsheng.city.api.response.UnReadMessage
 import com.jiechengsheng.city.api.response.UserInfoResponse
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.SPKey
-import io.rong.imlib.RongIMClient
 
 /**
  * Created by Wangsw  2021/8/13 14:14.
@@ -34,28 +33,7 @@ class MinePresenter(var view: MineView) : BaseMvpPresenter(view) {
             override fun onSuccess(response: UnReadMessage) {
                 val apiUnreadMessageCount = response.count
 
-                try {
-                    // 捕获融云SKD 5.2.3.3 获取消息数量时， 在Android 12 上出现的 UnsatisfiedLinkError 异常
-                    RongIMClient.getInstance().getTotalUnreadCount(object : RongIMClient.ResultCallback<Int?>() {
-                        override fun onSuccess(rongMessageCount: Int?) {
-
-                            var rongCount = 0
-                            rongMessageCount?.let {
-                                rongCount = it
-                            }
-
-                            val totalCount = apiUnreadMessageCount + rongCount
-                            view.bindUnreadMessageCount(totalCount,apiUnreadMessageCount)
-
-                        }
-
-                        override fun onError(errorCode: RongIMClient.ErrorCode) {
-                            view.bindUnreadMessageCount(apiUnreadMessageCount,apiUnreadMessageCount)
-                        }
-                    })
-                } catch (e: Exception) {
-                    view.bindUnreadMessageCount(apiUnreadMessageCount,apiUnreadMessageCount)
-                }
+                view.bindUnreadMessageCount(apiUnreadMessageCount, apiUnreadMessageCount)
 
 
             }
@@ -84,7 +62,6 @@ class MinePresenter(var view: MineView) : BaseMvpPresenter(view) {
         })
     }
 
-    var alreadyConnectRongCloud = false
 
 
     /**
@@ -121,7 +98,6 @@ class MinePresenter(var view: MineView) : BaseMvpPresenter(view) {
         User.update()
 
         // 刷新融云用户信息
-        whereApp.refreshRongUserInfoCache(User.getInstance().rongData.uuid)
 
     }
 

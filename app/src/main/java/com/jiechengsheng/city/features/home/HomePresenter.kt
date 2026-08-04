@@ -18,8 +18,6 @@ import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.CacheUtil
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.SPKey
-import io.rong.imkit.RongIM
-import io.rong.imlib.RongIMClient
 
 /**
  * Created by Wangsw  2021/4/12 13:53.
@@ -48,28 +46,7 @@ class HomePresenter(val view: HomeView) : BaseMvpPresenter(view) {
             override fun onSuccess(response: UnReadMessage) {
                 val apiUnreadMessageCount = response.count
 
-                try {
-                    // 捕获融云SKD 5.2.3.3 获取消息数量时， 在Android 12 上出现的 UnsatisfiedLinkError 异常
-                    RongIMClient.getInstance().getTotalUnreadCount(object : RongIMClient.ResultCallback<Int?>() {
-                        override fun onSuccess(rongMessageCount: Int?) {
-
-                            var rongCount = 0
-                            rongMessageCount?.let {
-                                rongCount = it
-                            }
-
-                            val totalCount = apiUnreadMessageCount + rongCount
-                            view.setMessageCount(totalCount,apiUnreadMessageCount)
-
-                        }
-
-                        override fun onError(errorCode: RongIMClient.ErrorCode) {
-                            view.setMessageCount(apiUnreadMessageCount,apiUnreadMessageCount)
-                        }
-                    })
-                } catch (e: Exception) {
-                    view.setMessageCount(apiUnreadMessageCount,apiUnreadMessageCount)
-                }
+                view.setMessageCount(apiUnreadMessageCount, apiUnreadMessageCount)
 
 
             }
@@ -160,27 +137,6 @@ class HomePresenter(val view: HomeView) : BaseMvpPresenter(view) {
     /**
      * 连接融云
      */
-    fun connectRongCloud() {
-
-        if (!User.isLogon()) {
-            return
-        }
-
-        val user = User.getInstance()
-        user.rongData
-
-        RongIM.connect(user.rongData.token, object : RongIMClient.ConnectCallback() {
-
-
-            override fun onError(p0: RongIMClient.ConnectionErrorCode?) = Unit
-
-            override fun onDatabaseOpened(p0: RongIMClient.DatabaseOpenStatus?) = Unit
-
-            override fun onSuccess(p0: String?) = Unit
-
-        })
-    }
-
     fun getHomeChild() {
 
         requestApi(mRetrofit.homeChild, object : BaseMvpObserver<ArrayList<HomeChild>>(view) {

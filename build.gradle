@@ -33,7 +33,6 @@ allprojects {
         flatDir {
             dirs "$rootDir/app/libs"
         }
-        maven { url "https://maven.rongcloud.cn/repository/maven-releases/" }
     }
 }
 

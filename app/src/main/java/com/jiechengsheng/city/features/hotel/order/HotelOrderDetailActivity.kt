@@ -94,7 +94,7 @@ class HotelOrderDetailActivity : BaseMvpActivity<HotelOrderDetailPresenter>(), H
             if (merUuid.isBlank()) {
                 return@setOnClickListener
             }
-            BusinessUtils.startRongCloudConversationActivity(this, merUuid, merName)
+            BusinessUtils.showImUnavailableDialog(this)
         }
 
         complaint_tv.setOnClickListener {

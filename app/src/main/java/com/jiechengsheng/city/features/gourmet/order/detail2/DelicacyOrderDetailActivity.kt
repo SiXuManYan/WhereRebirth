@@ -90,7 +90,7 @@ class DelicacyOrderDetailActivity : BaseMvpActivity<DelicacyOrderDetailPresenter
             if (merUuid.isBlank()) {
                 return@setOnClickListener
             }
-            BusinessUtils.startRongCloudConversationActivity(this, merUuid, restaurantName)
+            BusinessUtils.showImUnavailableDialog(this)
         }
         complaint_tv.setOnClickListener {
             // 投诉

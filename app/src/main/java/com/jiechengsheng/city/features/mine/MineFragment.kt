@@ -192,7 +192,6 @@ class MineFragment : BaseMvpFragment<MinePresenter>(), MineView {
             ->
                 presenter.getUserInfo()
             EventCode.EVENT_SIGN_OUT -> {
-                presenter.alreadyConnectRongCloud = false
                 initDefaultUi()
             }
             EventCode.EVENT_EMPLOYER_SUBMIT -> {

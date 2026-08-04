@@ -34,13 +34,8 @@
 
 -keepattributes Signature
 
--keep class io.rong.** {*;}
--keep class cn.rongcloud.** {*;}
--keep class * implements io.rong.imlib.model.MessageContent {*;}
--dontwarn io.rong.push.**
 -dontnote com.xiaomi.**
 -dontnote com.google.android.gms.gcm.**
--dontnote io.rong.**
 
 # 下方混淆使用了Location包时才需要配置, 可参考高德官网的混淆方式:https://lbs.amap.com/api/android-sdk/guide/create-project/dev-attention
 -keep class com.amap.api.**{*;}
@@ -52,8 +47,6 @@
 
 
 # 友盟
-# https://developer.umeng.com/docs/119267/detail/118584
--keep class com.umeng.** {*;}
 
 -keep class org.repackage.** {*;}
 
