@@ -1,21 +1,16 @@
 package com.jiechengsheng.city;
 
-import android.app.Activity;
 import android.app.Application;
 import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.os.Bundle;
 
 import androidx.multidex.MultiDex;
 
-import com.blankj.utilcode.util.LogUtils;
-import com.comm100.livechat.VisitorClientInterface;
 import com.facebook.FacebookSdk;
 import com.jiechengsheng.city.api.RetrofitManager;
 import com.jiechengsheng.city.features.account.login.LoginActivity;
-import com.jiechengsheng.city.frames.common.Html5Url;
 import com.jiechengsheng.city.storage.WhereDataBase;
 import com.jiechengsheng.city.utils.CacheUtil;
 import com.jiechengsheng.city.utils.CrashHandler;
@@ -35,8 +30,6 @@ public class BaseApplication extends Application {
     public WhereDataBase getDatabase() {
         return database;
     }
-
-    public int count = 0;
 
     private static Context mApplicationContext;
 
@@ -70,14 +63,8 @@ public class BaseApplication extends Application {
     }
 
 
-    /**
-     * 初始化 comm 100 客服
-     */
+    /** 初始化极光推送。 */
     private void initJpush() {
-
-        VisitorClientInterface.setChatUrl(Html5Url.COMM100_CHAT_URL);
-
-
         // 极光推送
         if (BuildConfig.DEBUG) {
             JPushInterface.setDebugMode(true);
@@ -123,49 +110,6 @@ public class BaseApplication extends Application {
         if (BuildConfig.DEBUG) {
             JPushInterface.getConnectionState(this);
         }
-
-        String regId = JPushInterface.getRegistrationID(this);
-        if (!regId.equals("")) {
-            VisitorClientInterface.setRemoteNotificationDeviceId(regId);
-        }
-
-        registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
-            @Override
-            public void onActivityStopped(Activity activity) {
-                count--;
-                if (count == 0) {
-                    VisitorClientInterface.activeRemoteNotification();
-                }
-            }
-
-            @Override
-            public void onActivityStarted(Activity activity) {
-                if (count == 0) {
-                    VisitorClientInterface.inactiveRemoteNotification();
-                }
-                count++;
-            }
-
-            @Override
-            public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-            }
-
-            @Override
-            public void onActivityResumed(Activity activity) {
-            }
-
-            @Override
-            public void onActivityPaused(Activity activity) {
-            }
-
-            @Override
-            public void onActivityDestroyed(Activity activity) {
-            }
-
-            @Override
-            public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-            }
-        });
 
     }
 

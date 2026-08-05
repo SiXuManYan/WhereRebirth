@@ -18,7 +18,6 @@ import com.jiechengsheng.city.api.response.gourmet.order.FoodOrderDetail
 import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
-import com.jiechengsheng.city.features.com100.ExtendChatActivity
 import com.jiechengsheng.city.features.gourmet.comment.post.FoodCommentPostActivity
 import com.jiechengsheng.city.features.gourmet.refund.ComplexRefundActivity
 import com.jiechengsheng.city.features.gourmet.refund.detail.FoodRefundInfoActivity
@@ -76,10 +75,6 @@ class DelicacyOrderDetailActivity : BaseMvpActivity<DelicacyOrderDetailPresenter
         back_iv.setOnClickListener {
             finish()
         }
-        service_iv.setOnClickListener {
-            startActivity(ExtendChatActivity::class.java)
-        }
-
         phone_ll.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL).apply {
                 data = Uri.parse("tel:$tel")
@@ -163,13 +158,7 @@ class DelicacyOrderDetailActivity : BaseMvpActivity<DelicacyOrderDetailPresenter
 
 
 
-        if (status == 10) {
-            service_iv.visibility = View.GONE
-            complaint_tv.visibility = View.VISIBLE
-        } else {
-            service_iv.visibility = View.VISIBLE
-            complaint_tv.visibility = View.GONE
-        }
+        complaint_tv.visibility = if (status == 10) View.VISIBLE else View.GONE
         // 退款失败
         if (status == 11) {
             fail_reason_rl.visibility = View.VISIBLE

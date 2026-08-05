@@ -183,7 +183,6 @@
     <string name="ic_task_register">注册积分</string>
     <string name="ic_task_register_content">注册成功后可获得500积分</string>
     <string name="news_more_recommend">更多推荐</string>
-    <string name="mine_customer_service">我的客服</string>
     <string name="title_setting">设置</string>
     <string name="sign_out">退出登录</string>
     <string name="personal_information">个人信息</string>
@@ -407,15 +406,12 @@
     <string name="use_agreement_content_5">4. 为了实现第三方登录以及信息分享功能，我们在使用了第三方 MobTech 的[ShareSdk]产品，此产品的隐私策略条款，请参阅：</string>
     <string name="use_agreement_content_6">https://www.mob.com/about/policy。\n\n</string>
 
-    <string name="use_agreement_content_8">5.为了更好的帮助您解决在使用过程中可能出现的问题，我们使用了第三方 Comm100 [Comm100 Live Chat]产品，此产品的隐私策略请参阅：</string>
-    <string name="use_agreement_content_9">https://www.comm100.com/platform/security \n\n</string>
-
-    <string name="use_agreement_content_10">6.为了实现推送功能，我们引入了第三方 Jiguang SDK 的[JPush]产品，此产品的隐私策略请参阅：</string>
+    <string name="use_agreement_content_10">5.为了实现推送功能，我们引入了第三方 Jiguang SDK 的[JPush]产品，此产品的隐私策略请参阅：</string>
     <string name="use_agreement_content_11">https://www.jiguang.cn/license/privacy \n\n</string>
 
 
-    <string name="use_agreement_content_last">8. 上述权限以及摄像头、GPS、相机、相册、麦克风，存储空间、等敏感权限均不会默认或强制开启收集信息，只有经过明示授权才会为实现功能或服务时使用，您均可以拒绝且不影响你继续使用Where。</string>
-    <string name="use_agreement_content_disclaimer">9. 免责声明\n\n
+    <string name="use_agreement_content_last">6. 上述权限以及摄像头、GPS、相机、相册、麦克风，存储空间、等敏感权限均不会默认或强制开启收集信息，只有经过明示授权才会为实现功能或服务时使用，您均可以拒绝且不影响你继续使用Where。</string>
+    <string name="use_agreement_content_disclaimer">7. 免责声明\n\n
 Where App 应用（以下简称“本应用”）所提供的信息来自政府公开渠道，旨在为用户提供方便获取政府信息的途径。\n\n
 政府新闻信息来源：\n
     Where应用传达的政府信息以及新闻信息，与总部位于菲律宾巴丹省的巴丹省新闻办公室政府组织有关，详细信息请访问在
@@ -427,10 +423,9 @@ Where App 应用（以下简称“本应用”）所提供的信息来自政府�
 2.为了基于您所在位置向你推荐内容、展示信息，我们可能会向您申请位置权限。\n\n
 3.为帮助您在APP中拨打投诉电话或其他咨询热线，我们可能会申请拨打电话权限。该权限不会收集隐私信息，且仅在你使用前述功能时使用。\n\n
 4.为了实现第三方登录以及信息分享功能，我们在使用了第三方 MobTech 的[ShareSdk]产品，此产品的隐私策略条款，请参阅：https://www.mob.com/about/policy。\n\n
-5.为了更好的帮助您解决在使用过程中可能出现的问题，我们使用了第三方 Comm100 [Comm100 Live Chat]产品，此产品的隐私策略请参阅：https://www.comm100.com/platform/security \n\n
-6.为了实现推送功能，我们引入了第三方 Jiguang SDK 的[JPush]产品，此产品的隐私策略请参阅：https://www.jiguang.cn/license/privacy \n\n
-7.上述权限以及摄像头、GPS、相机、相册、麦克风，存储空间、等敏感权限均不会默认或强制开启收集信息，只有经过明示授权才会为实现功能或服务时使用，您均可以拒绝且不影响你继续使用Where。\n\n
-8.免责声明\n\n
+5.为了实现推送功能，我们引入了第三方 Jiguang SDK 的[JPush]产品，此产品的隐私策略请参阅：https://www.jiguang.cn/license/privacy \n\n
+6.上述权限以及摄像头、GPS、相机、相册、麦克风，存储空间、等敏感权限均不会默认或强制开启收集信息，只有经过明示授权才会为实现功能或服务时使用，您均可以拒绝且不影响你继续使用Where。\n\n
+7.免责声明\n\n
 Where App 应用(以下简称 本应用)所提供的信息来自政府公开渠道，旨在为用户提供方便获取政府信息的途径。\n
 政府新闻信息来源: \n\n
 Where应用传达的政府信息以及新闻信息，与总部位于菲律宾巴丹省的巴丹省新闻办公室政府组织有关，详细信息请访问在 https://1bataan.com 网域注册的网址（由菲律宾巴丹省的巴丹省新闻办公室发布)\n\n
@@ -528,7 +523,6 @@ CLOUDTECH ADVERTISING INC.
     <string name="missed_orders">商家待接单</string>
     <string name="delivery_now">立即配送</string>
     <string name="chat">聊天</string>
-    <string name="service_hotline">客户服务热线</string>
     <string name="call_hotline">呼叫</string>
     <string name="view_all_desc">查看全部</string>
     <string name="surplus_format">剩余房间：%1$d</string>

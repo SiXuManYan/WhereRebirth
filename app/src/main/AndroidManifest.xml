@@ -25,7 +25,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
-    <!-- com 100 start ↓-->
     <!-- 极光推送 -->
 
 
@@ -65,8 +64,6 @@
         <package android:name="com.google.android.apps.maps" />
 
     </queries>
-
-    <!-- com 100 end ↑-->
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -397,13 +394,6 @@
             android:name="JPUSH_APPKEY"
             android:value="${JPUSH_APPKEY}" />
 
-
-        <activity
-            android:name=".features.com100.ExtendChatActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation" />
-
-
-        <!-- ######## comm 100 end ↑ #############-->
 
         <activity
             android:name=".mine.about.AboutActivity"

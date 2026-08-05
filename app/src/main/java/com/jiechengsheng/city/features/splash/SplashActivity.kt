@@ -160,7 +160,6 @@ class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
         val disclaimer = getString(R.string.disclaimer)
         val privacyPolicy = getString(R.string.privacy_policy)
         val shareSdkUrl = "https://www.mob.com/about/policy"
-        val comm100Url = "https://www.comm100.com/platform/security"
         val jpushUrl = "https://www.jiguang.cn/license/privacy"
         val badanNews = "https://1bataan.com"
 
@@ -220,20 +219,6 @@ class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
             }
 
         }, sb.indexOf(shareSdkUrl), sb.indexOf(shareSdkUrl) + shareSdkUrl.length,
-            SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-        // comm100
-        sb.setSpan(object : ClickableSpan() {
-            override fun onClick(p0: View) {
-                WebViewActivity.navigation(this@SplashActivity, comm100Url)
-            }
-
-            override fun updateDrawState(ds: TextPaint) {
-                ds.color = getColor(R.color.blue_4C9EF2)
-                ds.isUnderlineText = true
-            }
-
-        }, sb.indexOf(comm100Url), sb.indexOf(comm100Url) + comm100Url.length,
             SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE)
 
         // 极光

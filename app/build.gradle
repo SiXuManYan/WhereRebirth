@@ -150,10 +150,6 @@ dependencies {
     implementation 'cn.jiguang.sdk:jpush-google:4.8.5'
     implementation 'cn.jiguang.sdk:jcore-google:4.0.0'
 
-    // Local Comm100 SDK. Declaring it as an AAR module lets AGP create and
-    // expose the extracted artifact folder correctly during IDE sync.
-    implementation(name: 'visitor-client-v1.0', ext: 'aar')
-
     implementation 'com.zhihu.android:matisse:0.5.3-beta3'
 
     implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5'

@@ -184,7 +184,6 @@
     <string name="ic_task_register">Registration Points</string>
     <string name="ic_task_register_content">Register to earn 500 points</string>
     <string name="news_more_recommend">More recommend</string>
-    <string name="mine_customer_service">Service</string>
     <string name="title_setting">Settings</string>
     <string name="sign_out">Sign Out</string>
     <string name="personal_information">My Account</string>
@@ -402,15 +401,12 @@
 3. In order to help you call complaints or other consultation hotlines in the APP, we may apply for the call permission. This permission does not collect private information and is only used when you use the aforementioned functions.\n\n</string>
     <string name="use_agreement_content_5">4. In order to realize the third-party login and information sharing functions, we are using the third-party MobTech [ShareSdk] product. For the privacy policy terms of this product, please refer to:</string>
     <string name="use_agreement_content_6">https://www.mob.com/about/policy。\n\n</string>
-    <string name="use_agreement_content_8">5. In order to better help you solve the problems that may occur during use, we use a third-party Comm100 [Comm100 Live Chat] product. For the privacy policy of this product, please refer to:</string>
-    <string name="use_agreement_content_9">https://www.comm100.com/platform/security \n\n</string>
-
-    <string name="use_agreement_content_10">6. In order to realize the push function, we have introduced the [JPush] product of the third-party Jiguang SDK. For the privacy policy of this product, please refer to:</string>
+    <string name="use_agreement_content_10">5. In order to realize the push function, we have introduced the [JPush] product of the third-party Jiguang SDK. For the privacy policy of this product, please refer to:</string>
     <string name="use_agreement_content_11">https://www.jiguang.cn/license/privacy \n\n</string>
 
 
 
-    <string name="use_agreement_content_last">8. The above permissions and sensitive permissions such as cameras, GPS, cameras, albums, microphones, storage space, etc. will not be enabled by default or forcibly to collect information. Only express authorization will be used for the realization of functions or services. You can refuse and Does not affect your continued use of Where.</string>
+    <string name="use_agreement_content_last">6. The above permissions and sensitive permissions such as cameras, GPS, cameras, albums, microphones, storage space, etc. will not be enabled by default or forcibly to collect information. Only express authorization will be used for the realization of functions or services. You can refuse and Does not affect your continued use of Where.</string>
 
 
     <string name="personal_information_protection_guidelines_update">Dear user, thank you for trusting and using Where, we have formulated &#160;[User Agreement]&#160;[Disclaimer]&#160; and &#160;[Privacy Policy]&#160; in accordance with relevant laws , please read carefully and fully understand the relevant terms before you click to agree. \n\n
@@ -419,10 +415,9 @@ Clicking the Agree button means that you have agreed to the above agreement and 
 2. In order to recommend content and display information to you based on your location, we may apply for location permission from you. \n\n
 3. In order to help you make complaint calls or other consultation hotlines in the APP, we may apply for the right to make calls. This permission does not collect private information and is only used when you use the aforementioned functions. \n\n
 4. In order to realize the third-party login and information sharing functions, we are using the [ShareSdk] product of the third-party MobTech. For the privacy policy terms of this product, please refer to: https://www.mob.com/about/policy. \n\n
-5. In order to better help you solve problems that may arise during use, we use a third-party Comm100 [Comm100 Live Chat] product. For the privacy policy of this product, please refer to: https://www.comm100.com/platform/security \n\n
-6. In order to realize the push function, we have introduced the [JPush] product of the third-party Jiguang SDK. For the privacy policy of this product, please refer to: https://www.jiguang.cn/license/privacy \n\n
-7. The above permissions, as well as sensitive permissions such as camera, GPS, camera, photo album, microphone, storage space, etc., will not be enabled by default or forcibly to collect information, and will only be used to implement functions or services after express authorization, and you can refuse and It does not affect your continued use of Where. \n\n
-8. Disclaimer\n
+5. In order to realize the push function, we have introduced the [JPush] product of the third-party Jiguang SDK. For the privacy policy of this product, please refer to: https://www.jiguang.cn/license/privacy \n\n
+6. The above permissions, as well as sensitive permissions such as camera, GPS, camera, photo album, microphone, storage space, etc., will not be enabled by default or forcibly to collect information, and will only be used to implement functions or services after express authorization, and you can refuse and It does not affect your continued use of Where. \n\n
+7. Disclaimer\n
 The information provided by the Where App application (hereinafter referred to as "this application") comes from government public channels, and aims to provide users with a convenient way to obtain government information. \n\n
 Sources of government news and information: \n\n
 The government information and news information conveyed by the Where application is related to the government organization of the Bataan Provincial Information Office headquartered in Bataan Province, Philippines. For more information, please visit the website registered in the https://1bataan.com domain (provided by Bataan, Philippines Published by the Bataan Provincial Information Office of the province)\n\n
@@ -517,7 +512,6 @@ CLOUDTECH ADVERTISING INC.
     <string name="missed_orders">Pending order</string>
     <string name="delivery_now">Delivery now</string>
     <string name="chat">Chat</string>
-    <string name="service_hotline">Customer service hotline</string>
     <string name="call_hotline">Call</string>
     <string name="view_all_desc">View all</string>
     <string name="surplus_format">Inventory:%1$d</string>

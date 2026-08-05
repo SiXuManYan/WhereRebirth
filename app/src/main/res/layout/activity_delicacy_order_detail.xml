@@ -32,19 +32,6 @@
             android:textSize="@dimen/sp_17" />
 
 
-        <ImageView
-            android:id="@+id/service_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/dp_5"
-            android:padding="@dimen/dp_10"
-            android:src="@mipmap/ic_delicacy_service"
-            android:visibility="visible"
-            tools:visibility="visible" />
-
-
         <TextView
             android:id="@+id/complaint_tv"
             android:layout_width="wrap_content"

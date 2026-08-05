@@ -5,7 +5,6 @@ import android.content.Intent
 import android.util.Log
 import cn.jpush.android.api.*
 import cn.jpush.android.service.JPushMessageReceiver
-import com.comm100.livechat.VisitorClientInterface
 import com.google.gson.Gson
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
@@ -41,9 +40,6 @@ class WherePushMessageReceiver : JPushMessageReceiver() {
         if (isConnected) {
             val registrationID = JPushInterface.getRegistrationID(context)
             Log.e(TAG, "[onConnected ,  registrationID === ] $registrationID")
-
-            // 设置common 100 id
-            VisitorClientInterface.setRemoteNotificationDeviceId(registrationID)
         }
 
     }

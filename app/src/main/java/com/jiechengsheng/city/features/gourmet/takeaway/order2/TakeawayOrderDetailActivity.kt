@@ -17,7 +17,6 @@ import com.jiechengsheng.city.api.response.gourmet.order.TakeawayOrderDetail
 import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
-import com.jiechengsheng.city.features.com100.ExtendChatActivity
 import com.jiechengsheng.city.features.gourmet.comment.post.FoodCommentPostActivity
 import com.jiechengsheng.city.features.gourmet.refund.ComplexRefundActivity
 import com.jiechengsheng.city.features.gourmet.refund.ComplexRefundPresenter
@@ -95,9 +94,6 @@ class TakeawayOrderDetailActivity : BaseMvpActivity<TakeawayOrderDetailPresenter
     override fun bindListener() {
         back_iv.setOnClickListener {
             finish()
-        }
-        service_iv.setOnClickListener {
-            startActivity(ExtendChatActivity::class.java)
         }
         phone_ll.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL).apply {
@@ -287,13 +283,7 @@ class TakeawayOrderDetailActivity : BaseMvpActivity<TakeawayOrderDetailPresenter
 
 
         // 投诉
-        if (status == 12) {
-            service_iv.visibility = View.GONE
-            complaint_tv.visibility = View.VISIBLE
-        } else {
-            service_iv.visibility = View.VISIBLE
-            complaint_tv.visibility = View.GONE
-        }
+        complaint_tv.visibility = if (status == 12) View.VISIBLE else View.GONE
 
         // 退款失败
         if (status == 13) {

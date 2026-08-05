@@ -21,7 +21,6 @@ import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.features.account.login.LoginActivity
 import com.jiechengsheng.city.features.address.AddressActivity
 import com.jiechengsheng.city.features.collection.CollectionActivity
-import com.jiechengsheng.city.features.com100.ExtendChatActivity
 import com.jiechengsheng.city.features.coupon.user.MyCouponActivity
 import com.jiechengsheng.city.features.daily.scoe.ScoreActivity
 import com.jiechengsheng.city.features.daily.sign.SignInActivity
@@ -121,9 +120,6 @@ class MineFragment : BaseMvpFragment<MinePresenter>(), MineView {
             startActivityAfterLogin(AddressActivity::class.java)
         }
 
-        service_rl.setOnClickListener {
-            startActivityAfterLogin(ExtendChatActivity::class.java)
-        }
         about_rl.setOnClickListener {
             startActivity(AboutActivity::class.java)
         }

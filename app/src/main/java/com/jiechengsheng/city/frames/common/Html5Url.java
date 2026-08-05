@@ -29,10 +29,6 @@ public class Html5Url {
      */
     public static final String CONDITION_AGREEMENT = BuildConfig.SERVER_HOST + "term_condition/agreement?lang=%1$s";
 
-    /**
-     * comm100 客服聊天地址
-     */
-    public static final String COMM100_CHAT_URL = "https://vue.comm100.com/visitorside/html/chatwindow.300e735de7efe4da16c20ea2575fedab59802d7e.html?siteId=60001617&planId=6c962659-16b9-41ac-8fc3-2c0a2ce92452";
     public static final String MODEL_HOTEL = "hotel";
     public static final String MODEL_NEWS = "news";
     public static final String MODEL_TRAVEL = "travel";

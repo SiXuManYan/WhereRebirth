@@ -18,7 +18,6 @@ import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.EventCode.EVENT_REFRESH_ORDER_LIST
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
-import com.jiechengsheng.city.features.com100.ExtendChatActivity
 import com.jiechengsheng.city.features.payment.counter.PayCounterActivity
 import com.jiechengsheng.city.features.store.comment.detail.StoreCommentDetailActivity
 import com.jiechengsheng.city.features.store.comment.post.StoreCommentPostActivity
@@ -79,9 +78,6 @@ class StoreOrderDetailActivity : BaseMvpActivity<StoreOrderDetailPresenter>(), S
     }
 
     override fun bindListener() {
-        service_ll.setOnClickListener {
-            startActivityAfterLogin(ExtendChatActivity::class.java)
-        }
         phone_ll.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL).apply {
                 data = Uri.parse("tel:$tel")
@@ -139,12 +135,6 @@ class StoreOrderDetailActivity : BaseMvpActivity<StoreOrderDetailPresenter>(), S
             pay_container_ll.visibility = View.VISIBLE
         } else {
             pay_container_ll.visibility = View.GONE
-        }
-
-        if (data.status == 12) {
-            service_ll.visibility = View.INVISIBLE
-        } else {
-            service_ll.visibility = View.GONE
         }
 
         var shopName = ""

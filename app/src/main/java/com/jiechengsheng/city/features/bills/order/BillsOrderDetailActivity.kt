@@ -11,7 +11,6 @@ import com.jiechengsheng.city.R
 import com.jiechengsheng.city.api.response.order.bill.BillOrderDetails
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.bills.record.result.BillsRecommitResultActivity
-import com.jiechengsheng.city.features.com100.ExtendChatActivity
 import com.jiechengsheng.city.features.gourmet.refund.ComplexRefundActivity
 import com.jiechengsheng.city.features.gourmet.refund.ComplexRefundPresenter
 import com.jiechengsheng.city.features.gourmet.refund.detail.FoodRefundInfoActivity
@@ -64,9 +63,6 @@ class BillsOrderDetailActivity : BaseMvpActivity<BillsDetailPresenter>(), BillsD
         back_iv.setOnClickListener {
             finish()
         }
-        service_ll.setOnClickListener {
-            startActivityAfterLogin(ExtendChatActivity::class.java)
-        }
     }
 
     override fun bindDetail(data: BillOrderDetails) {
@@ -98,14 +94,6 @@ class BillsOrderDetailActivity : BaseMvpActivity<BillsDetailPresenter>(), BillsD
             payment_container_ll.visibility = View.VISIBLE
             pay_way_tv.text = data.payment_method
         }
-
-        // 联系客服
-        if (orderStatus == 3) {
-            service_ll.visibility = View.VISIBLE
-        } else {
-            service_ll.visibility = View.GONE
-        }
-
 
         // 字段
         val billsParams = data.bills_params
