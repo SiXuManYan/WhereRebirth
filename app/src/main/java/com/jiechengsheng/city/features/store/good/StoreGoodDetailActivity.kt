@@ -21,8 +21,7 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.view.XBanner.AbstractUrlLoader
 import com.jiechengsheng.city.view.XBanner.XBanner
-import kotlinx.android.synthetic.main.activity_store_good_detail.*
-import kotlinx.android.synthetic.main.layout_store_good_detail_cart.*
+import com.jiechengsheng.city.legacyviews.*
 import pl.droidsonroids.gif.GifImageView
 import java.math.BigDecimal
 

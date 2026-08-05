@@ -17,7 +17,7 @@ import com.jiechengsheng.city.features.mall.sku.bean.SkuAttribute
 import com.jiechengsheng.city.features.mall.sku.view.OnSkuListener
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.GlideUtil
-import kotlinx.android.synthetic.main.dialog_product_sku.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/7/26 15:46.

@@ -11,7 +11,7 @@ import com.jiechengsheng.city.api.response.feedback.About
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.web.WebViewActivity
 import com.jiechengsheng.city.utils.FeaturesUtil
-import kotlinx.android.synthetic.main.activity_about.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/2/3 16:48.

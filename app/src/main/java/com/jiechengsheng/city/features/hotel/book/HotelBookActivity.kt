@@ -23,7 +23,7 @@ import com.jiechengsheng.city.utils.FeaturesUtil
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.widget.NumberView2
 import com.jiechengsheng.city.widget.calendar.JcsCalendarAdapter
-import kotlinx.android.synthetic.main.activity_hotel_boolk.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import java.math.BigDecimal

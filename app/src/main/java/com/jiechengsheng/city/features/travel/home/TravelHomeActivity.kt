@@ -34,7 +34,7 @@ import com.jiechengsheng.city.view.XBanner.XBanner
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_travel_home.*
+import com.jiechengsheng.city.legacyviews.*
 import pl.droidsonroids.gif.GifImageView
 
 /**

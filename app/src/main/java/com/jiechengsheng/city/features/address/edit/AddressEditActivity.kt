@@ -16,7 +16,7 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.home.watcher.AfterTextChangeWatcher
 import com.jiechengsheng.city.features.city.CityPickerActivity
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_address_edit.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

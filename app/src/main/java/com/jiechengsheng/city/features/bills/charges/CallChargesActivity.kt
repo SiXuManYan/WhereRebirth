@@ -23,7 +23,7 @@ import com.jiechengsheng.city.utils.CacheUtil
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.PermissionUtils
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_call_charges.*
+import com.jiechengsheng.city.legacyviews.*
 
 
 /**

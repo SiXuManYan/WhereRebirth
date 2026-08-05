@@ -8,7 +8,7 @@ import com.jiechengsheng.city.R
 import com.jiechengsheng.city.base.BaseActivity
 import com.jiechengsheng.city.features.coupon.center.CouponCenterActivity
 import com.jiechengsheng.city.features.coupon.user.child.MyCouponFragment
-import kotlinx.android.synthetic.main.activity_card_coupon.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/8/16 11:19.

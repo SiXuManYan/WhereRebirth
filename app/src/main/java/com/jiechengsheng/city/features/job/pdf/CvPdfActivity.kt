@@ -20,7 +20,7 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.utils.time.TimeUtil
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_job_cv_pdf_preview.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

@@ -23,7 +23,7 @@ import com.jiechengsheng.city.features.hotel.detail.media.MediaData
 import com.jiechengsheng.city.utils.BigDecimalUtil
 import com.jiechengsheng.city.utils.Constant
 import com.shuyu.gsyvideoplayer.GSYVideoManager
-import kotlinx.android.synthetic.main.activity_set_meal_2.*
+import com.jiechengsheng.city.legacyviews.*
 import java.math.BigDecimal
 
 /**

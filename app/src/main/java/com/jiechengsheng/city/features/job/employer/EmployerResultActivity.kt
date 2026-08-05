@@ -2,7 +2,7 @@ package com.jiechengsheng.city.features.job.employer
 
 import com.jiechengsheng.city.R
 import com.jiechengsheng.city.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_employer_result.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/10/27 15:30.

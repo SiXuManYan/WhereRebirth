@@ -18,7 +18,7 @@ import com.jiechengsheng.city.features.payment.counter.PayCounterView
 import com.jiechengsheng.city.features.payment.result.PayResultActivity
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_web_pay.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2023/3/15 9:51.

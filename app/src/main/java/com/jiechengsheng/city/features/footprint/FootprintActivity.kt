@@ -7,7 +7,7 @@ import com.blankj.utilcode.util.StringUtils
 import com.jiechengsheng.city.R
 import com.jiechengsheng.city.base.BaseActivity
 import com.jiechengsheng.city.features.footprint.child.CityFootprintFragment
-import kotlinx.android.synthetic.main.actitiy_collection.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/11/16 15:48.

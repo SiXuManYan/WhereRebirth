@@ -14,7 +14,7 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.merchant.form.SettledFormFragment
 import com.jiechengsheng.city.features.merchant.record.MerchantRecordActivity
 import com.jiechengsheng.city.features.merchant.recult.SettledResultFragment
-import kotlinx.android.synthetic.main.activity_merchant_settled_home.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**
@@ -22,6 +22,9 @@ import org.greenrobot.eventbus.EventBus
  * 商家入住
  */
 class MerchantSettledActivity : BaseMvpActivity<MerchantSettledPresenter>(), MerchantSettledView {
+
+    private val pager_vp: com.jiechengsheng.city.widget.NoScrollViewPager
+        get() = findViewById(R.id.pager_vp)
 
 
     override fun isStatusDark() = true

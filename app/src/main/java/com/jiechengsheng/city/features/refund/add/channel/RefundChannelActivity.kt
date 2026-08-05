@@ -14,7 +14,7 @@ import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.refund.add.form.third.ThirdChannelFormActivity
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_refund_channel_selected.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/4/25 19:03.

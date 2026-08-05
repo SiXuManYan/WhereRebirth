@@ -21,7 +21,7 @@ import com.jiechengsheng.city.features.job.form.CvFormView
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.OnWorkTimeSelected
-import kotlinx.android.synthetic.main.activity_job_cv_experience.*
+import com.jiechengsheng.city.legacyviews.*
 import me.shaohui.bottomdialog.BottomDialog
 import org.greenrobot.eventbus.EventBus
 import java.util.*

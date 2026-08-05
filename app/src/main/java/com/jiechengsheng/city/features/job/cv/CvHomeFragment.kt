@@ -32,7 +32,7 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.widget.list.DividerDecoration
 import de.hdodenhof.circleimageview.CircleImageView
-import kotlinx.android.synthetic.main.fragment_job_cv_home.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/12/15 11:18.

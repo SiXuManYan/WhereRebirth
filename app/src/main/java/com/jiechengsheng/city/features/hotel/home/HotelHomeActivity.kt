@@ -24,7 +24,7 @@ import com.jiechengsheng.city.widget.NumberView2
 import com.jiechengsheng.city.widget.calendar.JcsCalendarAdapter
 import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_hotel_home.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/9/13 14:47.

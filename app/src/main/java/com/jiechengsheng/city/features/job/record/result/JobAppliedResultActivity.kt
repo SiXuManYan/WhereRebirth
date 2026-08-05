@@ -10,7 +10,7 @@ import com.jiechengsheng.city.R
 import com.jiechengsheng.city.api.response.job.Job
 import com.jiechengsheng.city.base.BaseActivity
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_job_applied_result.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/12/19 15:05.

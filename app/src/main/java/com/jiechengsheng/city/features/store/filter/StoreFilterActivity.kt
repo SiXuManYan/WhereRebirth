@@ -29,8 +29,7 @@ import com.jiechengsheng.city.features.store.recommend.StoreRecommendAdapter
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_store_filer.*
-import kotlinx.android.synthetic.main.layout_filter_store.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/6/9 10:24.

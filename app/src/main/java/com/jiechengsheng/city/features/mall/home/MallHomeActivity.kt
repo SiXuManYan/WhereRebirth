@@ -14,7 +14,7 @@ import com.jiechengsheng.city.features.mall.cart.MallCartActivity
 import com.jiechengsheng.city.features.mall.home.child.MallHomeChildFragment
 import com.jiechengsheng.city.features.search.SearchAllActivity
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_mall_home.*
+import com.jiechengsheng.city.legacyviews.*
 
 
 /**

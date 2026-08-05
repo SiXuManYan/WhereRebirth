@@ -11,7 +11,7 @@ import com.google.android.material.radiobutton.MaterialRadioButton
 import com.jiechengsheng.city.R
 import com.jiechengsheng.city.base.BaseActivity
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_food_comment.*
+import com.jiechengsheng.city.legacyviews.*
 
 
 /**

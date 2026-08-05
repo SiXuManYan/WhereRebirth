@@ -20,7 +20,7 @@ import com.jiechengsheng.city.features.feedback.question.det.QuestionDetActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_feedback_question_and_search_result.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/10/12 17:03.

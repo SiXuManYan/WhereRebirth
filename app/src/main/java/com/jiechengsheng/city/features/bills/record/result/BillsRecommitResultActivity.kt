@@ -5,7 +5,7 @@ import com.jiechengsheng.city.api.response.bills.BillStatus
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.LocalLanguageUtil
-import kotlinx.android.synthetic.main.activity_bills_result.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/6/11 15:00.

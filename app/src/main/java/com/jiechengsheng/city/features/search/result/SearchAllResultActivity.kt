@@ -18,7 +18,7 @@ import com.jiechengsheng.city.features.travel.detail.TravelDetailActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
-import kotlinx.android.synthetic.main.activity_search_all_result.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/8/23 15:15.
@@ -44,7 +44,7 @@ class SearchAllResultActivity : BaseMvpActivity<SearchAllResultPresenter>(), Sea
         }
         name = bundle.getString(Constant.PARAM_NAME, "")
 
-        search_aet.text = name
+        search_aet.setText(name)
 
         initList()
     }

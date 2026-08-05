@@ -3,7 +3,7 @@ package com.jiechengsheng.city.features.integral.result
 import com.jiechengsheng.city.R
 import com.jiechengsheng.city.base.BaseActivity
 import com.jiechengsheng.city.features.coupon.user.MyCouponActivity
-import kotlinx.android.synthetic.main.activity_exchange_result.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2023/2/10 16:03.

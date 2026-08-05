@@ -14,13 +14,16 @@ import com.jiechengsheng.city.features.account.login.LoginActivity
 import com.jiechengsheng.city.features.order.OrderChildFragment
 import com.jiechengsheng.city.features.order.refund.RefundOrderFragment
 import com.jiechengsheng.city.storage.entity.User
-import kotlinx.android.synthetic.main.fragment_order_parent.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/7/30 10:57.
  *
  */
 class OrderFragment : BaseMvpFragment<OrderPresenter>(), OrderView {
+
+    private val tabs_type: com.jiechengsheng.city.widget.tabs.SlidingTabLayout
+        get() = requireView().findViewById(R.id.tabs_type)
 
     var needBack = false
 

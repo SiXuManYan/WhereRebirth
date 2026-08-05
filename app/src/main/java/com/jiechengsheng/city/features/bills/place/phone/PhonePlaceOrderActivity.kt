@@ -27,7 +27,7 @@ import com.jiechengsheng.city.features.bills.place.coupon.BillCouponHome
 import com.jiechengsheng.city.features.payment.counter.PayCounterActivity
 import com.jiechengsheng.city.utils.CacheUtil
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_bills_place_order_charges.*
+import com.jiechengsheng.city.legacyviews.*
 import java.math.BigDecimal
 
 /**

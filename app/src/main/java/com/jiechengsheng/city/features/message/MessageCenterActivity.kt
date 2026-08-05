@@ -18,7 +18,7 @@ import com.jiechengsheng.city.features.message.notice.SystemNoticeFragment
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import kotlinx.android.synthetic.main.activity_message_center.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/2/19 17:07.

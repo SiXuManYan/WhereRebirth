@@ -2,7 +2,7 @@ package com.jiechengsheng.city.features.comment
 
 import com.jiechengsheng.city.R
 import com.jiechengsheng.city.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_comment_success.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/12/23 15:33.

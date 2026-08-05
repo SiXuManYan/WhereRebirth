@@ -12,8 +12,7 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.hotel.comment.child.HotelCommentAdapter
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import kotlinx.android.synthetic.main.activity_travel_comment.recycler
-import kotlinx.android.synthetic.main.activity_travel_comment.swipe_layout
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/10/19 14:35.

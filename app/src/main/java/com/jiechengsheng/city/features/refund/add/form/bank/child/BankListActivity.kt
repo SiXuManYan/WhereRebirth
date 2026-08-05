@@ -9,7 +9,7 @@ import com.jiechengsheng.city.api.response.mall.RefundBankSelected
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import kotlinx.android.synthetic.main.activity_bank_list.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/4/26 10:25.

@@ -15,7 +15,7 @@ import com.jiechengsheng.city.features.store.order.detail.StoreOrderDetailAdapte
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
 import com.zhihu.matisse.Matisse
-import kotlinx.android.synthetic.main.activity_store_refund.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

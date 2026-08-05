@@ -37,7 +37,7 @@ import com.jiechengsheng.city.widget.calendar.JcsCalendarAdapter.CalendarBean
 import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
 import com.jiechengsheng.city.widget.list.DividerDecoration
 import com.shuyu.gsyvideoplayer.GSYVideoManager
-import kotlinx.android.synthetic.main.activity_hotel_detail_new_2.*
+import com.jiechengsheng.city.legacyviews.*
 
 
 /**

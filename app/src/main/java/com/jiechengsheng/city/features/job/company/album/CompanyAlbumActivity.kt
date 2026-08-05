@@ -11,7 +11,7 @@ import com.jiechengsheng.city.features.job.company.CompanyPresenter
 import com.jiechengsheng.city.features.job.company.CompanyView
 import com.jiechengsheng.city.features.media.MediaDetailActivity
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_no_refresh_list.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/11/3 13:45.

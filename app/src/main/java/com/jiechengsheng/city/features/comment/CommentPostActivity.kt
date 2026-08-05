@@ -19,7 +19,7 @@ import com.jiechengsheng.city.utils.FeaturesUtil
 import com.jiechengsheng.city.utils.GlideUtil
 import com.zhihu.matisse.Matisse
 
-import kotlinx.android.synthetic.main.activity_comment_post_2.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 

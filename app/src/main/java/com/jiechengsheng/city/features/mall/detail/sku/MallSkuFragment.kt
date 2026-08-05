@@ -17,7 +17,7 @@ import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.view.MyLayoutManager
 import com.jiechengsheng.city.widget.NumberView2
-import kotlinx.android.synthetic.main.fragment_mall_sku.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/12/13 14:45.

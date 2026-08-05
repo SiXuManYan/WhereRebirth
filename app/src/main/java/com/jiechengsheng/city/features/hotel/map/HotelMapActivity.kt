@@ -41,7 +41,7 @@ import com.jiechengsheng.city.utils.LocationUtil
 import com.jiechengsheng.city.utils.PermissionUtils
 import com.jiechengsheng.city.widget.calendar.JcsCalendarAdapter
 import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
-import kotlinx.android.synthetic.main.activity_map_hotel.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

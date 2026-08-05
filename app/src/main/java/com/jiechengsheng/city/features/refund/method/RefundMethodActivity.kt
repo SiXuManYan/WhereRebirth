@@ -18,7 +18,7 @@ import com.jiechengsheng.city.features.refund.add.channel.RefundChannelActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_refund_method_list.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/4/25 16:11.

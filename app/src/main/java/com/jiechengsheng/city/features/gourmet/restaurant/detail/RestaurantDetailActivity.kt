@@ -46,7 +46,7 @@ import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.NumberView2
 import com.jiechengsheng.city.widget.list.DividerDecoration
 import com.shuyu.gsyvideoplayer.GSYVideoManager
-import kotlinx.android.synthetic.main.activity_restaurant_detail_2.*
+import com.jiechengsheng.city.legacyviews.*
 import java.math.BigDecimal
 
 /**

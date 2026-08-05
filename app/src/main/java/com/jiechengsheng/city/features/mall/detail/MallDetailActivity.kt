@@ -42,7 +42,7 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.MobUtil
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.shuyu.gsyvideoplayer.GSYVideoManager
-import kotlinx.android.synthetic.main.activity_mall_good_detail.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 

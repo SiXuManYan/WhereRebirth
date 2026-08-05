@@ -32,7 +32,7 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.utils.MobUtil
 import com.jiechengsheng.city.utils.image.GlideRoundedCornersTransform
-import kotlinx.android.synthetic.main.activity_job_detail.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

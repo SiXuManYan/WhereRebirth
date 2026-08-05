@@ -20,7 +20,7 @@ import com.jiechengsheng.city.features.main.MainActivity
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.LocalLanguageUtil
-import kotlinx.android.synthetic.main.activity_pay_result.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

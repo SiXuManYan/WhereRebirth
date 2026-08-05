@@ -38,7 +38,7 @@ import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.*
 import com.jiechengsheng.city.utils.image.GlideRoundedCornersTransform
 import com.jiechengsheng.city.utils.zxing.ZxingUtil
-import kotlinx.android.synthetic.main.fragment_mine_2.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/8/13 14:14.

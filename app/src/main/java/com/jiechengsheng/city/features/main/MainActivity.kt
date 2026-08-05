@@ -20,7 +20,7 @@ import com.jiechengsheng.city.features.mine.MineFragment
 import com.jiechengsheng.city.features.order.parent.OrderFragment
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.SPKey
-import kotlinx.android.synthetic.main.activity_main.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 

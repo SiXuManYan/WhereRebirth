@@ -26,7 +26,7 @@ import com.jiechengsheng.city.features.store.refund.detail.StoreRefundDetailActi
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_store_order_detail.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 import java.math.BigDecimal
 

@@ -18,7 +18,7 @@ import com.jiechengsheng.city.features.mall.shop.home.MallShopHomePresenter
 import com.jiechengsheng.city.features.mall.shop.home.MallShopHomeView
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
-import kotlinx.android.synthetic.main.activity_mall_shop_info.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

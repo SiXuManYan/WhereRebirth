@@ -14,7 +14,7 @@ import com.jiechengsheng.city.api.response.job.JobFilter
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.MyLayoutManager
-import kotlinx.android.synthetic.main.activity_job_filter.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/12/1 14:58.

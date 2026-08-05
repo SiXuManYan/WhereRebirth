@@ -25,7 +25,7 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
 import com.jiechengsheng.city.utils.MobUtil
 import com.jiechengsheng.city.widget.JcsBanner
-import kotlinx.android.synthetic.main.activity_mechanism.*
+import com.jiechengsheng.city.legacyviews.*
 
 
 /**

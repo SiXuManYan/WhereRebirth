@@ -30,7 +30,7 @@ import com.jiechengsheng.city.features.web.WebViewActivity
 import com.jiechengsheng.city.utils.*
 import com.jiechengsheng.city.widget.pager.OnIndicatorClickListener
 import com.mob.MobSDK
-import kotlinx.android.synthetic.main.activity_splash.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/3/18 15:36.

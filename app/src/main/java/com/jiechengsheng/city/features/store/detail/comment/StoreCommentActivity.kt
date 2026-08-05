@@ -11,7 +11,7 @@ import com.jiechengsheng.city.api.response.store.comment.StoreCommentCount
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.store.detail.comment.chiild.StoreCommentChildFragment
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_store_comment.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/7/17 15:54.

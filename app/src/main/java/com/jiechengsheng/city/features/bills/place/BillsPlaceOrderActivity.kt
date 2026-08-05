@@ -27,7 +27,7 @@ import com.jiechengsheng.city.utils.BigDecimalUtil
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_bills_place_order.*
+import com.jiechengsheng.city.legacyviews.*
 import java.math.BigDecimal
 
 /**

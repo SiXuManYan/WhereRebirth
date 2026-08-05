@@ -30,8 +30,7 @@ import com.jiechengsheng.city.frames.common.Html5Url
 import com.jiechengsheng.city.utils.*
 import com.jiechengsheng.city.view.XBanner.AbstractUrlLoader
 import com.jiechengsheng.city.view.XBanner.XBanner
-import kotlinx.android.synthetic.main.activity_store_detail.*
-import kotlinx.android.synthetic.main.layout_store_good_detail_cart.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 import pl.droidsonroids.gif.GifImageView
 import java.math.BigDecimal
@@ -41,6 +40,9 @@ import java.math.BigDecimal
  * 商城店铺详情
  */
 class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetailView {
+
+    private val pager: com.jiechengsheng.city.widget.NoScrollViewPager
+        get() = findViewById(R.id.pager)
 
     var shop_id: Int = 0
     var shop_name: String = ""

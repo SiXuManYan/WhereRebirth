@@ -21,7 +21,7 @@ import com.jiechengsheng.city.features.store.order.StoreOrderCommitActivity
 import com.jiechengsheng.city.features.store.pay.info.PayInfoActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_store_pay.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

@@ -29,7 +29,7 @@ import com.jiechengsheng.city.utils.AnimationUtils
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_bills_form.*
+import com.jiechengsheng.city.legacyviews.*
 import java.math.BigDecimal
 
 /**

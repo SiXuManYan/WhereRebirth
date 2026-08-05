@@ -29,7 +29,7 @@ import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.OnWorkTimeSelected
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_job_cv_edu.*
+import com.jiechengsheng.city.legacyviews.*
 
 import me.shaohui.bottomdialog.BottomDialog
 import org.greenrobot.eventbus.EventBus

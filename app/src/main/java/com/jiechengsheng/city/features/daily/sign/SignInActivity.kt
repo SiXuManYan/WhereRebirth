@@ -12,7 +12,7 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.utils.LocalLanguageUtil
 import com.jiechengsheng.city.utils.MobUtil
 import com.jiechengsheng.city.utils.SPKey
-import kotlinx.android.synthetic.main.sign_in.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/11/24 16:32.

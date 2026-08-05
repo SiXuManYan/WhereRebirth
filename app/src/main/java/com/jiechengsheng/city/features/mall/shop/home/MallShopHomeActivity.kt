@@ -24,7 +24,7 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.utils.MobUtil
 
-import kotlinx.android.synthetic.main.activity_mall_shop_home.*
+import com.jiechengsheng.city.legacyviews.*
 
 
 /**

@@ -15,7 +15,7 @@ import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.features.store.order.StoreOrderCommitActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import kotlinx.android.synthetic.main.fragemnt_store_cart.*
+import com.jiechengsheng.city.legacyviews.*
 
 
 /**

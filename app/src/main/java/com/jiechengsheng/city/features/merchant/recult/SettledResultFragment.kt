@@ -8,7 +8,7 @@ import com.jiechengsheng.city.api.request.merchant.MerchantSettledData
 import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpFragment
-import kotlinx.android.synthetic.main.fragemnt_settled_result.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

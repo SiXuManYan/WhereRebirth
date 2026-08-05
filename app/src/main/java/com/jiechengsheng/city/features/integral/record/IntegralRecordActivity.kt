@@ -18,7 +18,7 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.integral.order.IntegralOrderDetailActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import kotlinx.android.synthetic.main.activity_refresh_list.*
+import com.jiechengsheng.city.legacyviews.*
 
 
 /**

@@ -11,7 +11,7 @@ import com.jiechengsheng.city.base.BaseActivity
 import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.features.store.cart.child.StoreCartFragment
-import kotlinx.android.synthetic.main.activity_store_cart.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

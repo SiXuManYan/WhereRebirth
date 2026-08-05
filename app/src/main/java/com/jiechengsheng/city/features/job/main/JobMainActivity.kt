@@ -17,7 +17,7 @@ import com.jiechengsheng.city.features.job.home.JobHomeFragment
 import com.jiechengsheng.city.features.job.record.JobRecordFragment
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_job_main.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

@@ -12,7 +12,7 @@ import com.jiechengsheng.city.api.response.merchant.MerchantApplyRecord
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import kotlinx.android.synthetic.main.activity_refresh_list.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/1/11 15:02.

@@ -16,7 +16,7 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.integral.activitys.child.IntegralChildFragment
 import com.jiechengsheng.city.features.integral.record.IntegralRecordActivity
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_activity_center.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/9/21 10:10.

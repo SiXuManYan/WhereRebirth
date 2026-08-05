@@ -11,7 +11,7 @@ import com.jiechengsheng.city.features.coupon.good.child.CouponGoodFragment
 import com.jiechengsheng.city.features.mall.home.MallHomePresenter
 import com.jiechengsheng.city.features.mall.home.MallHomeView
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_mall_home.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/3/4 14:29.

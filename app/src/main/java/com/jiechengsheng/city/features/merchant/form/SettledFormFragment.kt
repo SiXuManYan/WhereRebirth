@@ -20,7 +20,7 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
 import com.jiechengsheng.city.utils.RequestResultCode
 import com.zhihu.matisse.Matisse
-import kotlinx.android.synthetic.main.fragment_form_settled.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

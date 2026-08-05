@@ -18,7 +18,7 @@ import com.jiechengsheng.city.features.gourmet.refund.detail.FoodRefundInfoPrese
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_bills_detail.*
+import com.jiechengsheng.city.legacyviews.*
 import java.math.BigDecimal
 
 

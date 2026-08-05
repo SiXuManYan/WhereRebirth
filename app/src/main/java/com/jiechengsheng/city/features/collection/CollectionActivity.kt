@@ -9,7 +9,7 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.collection.city.CollectionFragment
 import com.jiechengsheng.city.features.collection.good.CollectionGoodFragment
 import com.jiechengsheng.city.features.collection.shop.CollectionShopFragment
-import kotlinx.android.synthetic.main.actitiy_collection.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/11/16 15:48.

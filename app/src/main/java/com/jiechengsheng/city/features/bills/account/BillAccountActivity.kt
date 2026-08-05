@@ -19,7 +19,7 @@ import com.jiechengsheng.city.features.bills.account.edit.BillAccountEditActivit
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_bills_account.*
+import com.jiechengsheng.city.legacyviews.*
 import java.util.ArrayList
 
 /**

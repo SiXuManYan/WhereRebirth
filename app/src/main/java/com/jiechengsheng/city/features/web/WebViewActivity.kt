@@ -17,7 +17,7 @@ import com.just.agentweb.AgentWeb
 import com.just.agentweb.DefaultWebClient
 import com.just.agentweb.WebChromeClient
 import com.just.agentweb.WebViewClient
-import kotlinx.android.synthetic.main.activtiy_webview.*
+import com.jiechengsheng.city.legacyviews.*
 
 class WebViewActivity : BaseActivity() {
 

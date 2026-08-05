@@ -13,7 +13,7 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
 import com.jiechengsheng.city.widget.ratingstar.OnChangeRatingByClickListener
 import com.zhihu.matisse.Matisse
-import kotlinx.android.synthetic.main.activity_comment_post.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 

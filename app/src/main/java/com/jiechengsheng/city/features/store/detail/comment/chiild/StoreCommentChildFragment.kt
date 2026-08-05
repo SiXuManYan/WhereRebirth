@@ -13,7 +13,7 @@ import com.jiechengsheng.city.features.hotel.comment.child.HotelCommentAdapter
 import com.jiechengsheng.city.features.store.detail.comment.StoreCommentActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import kotlinx.android.synthetic.main.fragment_refresh_list.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/7/16 15:24.

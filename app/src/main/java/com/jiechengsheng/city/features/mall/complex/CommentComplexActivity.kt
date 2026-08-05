@@ -14,7 +14,7 @@ import com.jiechengsheng.city.features.hotel.comment.child.HotelCommentAdapter
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import kotlinx.android.synthetic.main.activity_refresh_list.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/5/19 15:43.

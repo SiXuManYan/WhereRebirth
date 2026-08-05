@@ -15,7 +15,7 @@ import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.refund.method.RefundMethodActivity
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_refund_complex.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**
@@ -129,7 +129,7 @@ class ComplexRefundActivity : BaseMvpActivity<ComplexRefundPresenter>(), Complex
         refund_name_tv.text = refundMethod.name
         refund_user_name_tv.text = refundMethod.user_name
         refund_account_tv.text = refundMethod.account
-        refund_method_ll.visibility = View.VISIBLE
+        refund_method_info_ll.visibility = View.VISIBLE
     }
 
     override fun refundSuccess() {

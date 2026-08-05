@@ -17,7 +17,7 @@ import com.jiechengsheng.city.features.store.detail.StoreDetailActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_search_store.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/6/4 15:58.
@@ -40,7 +40,7 @@ class StoreSearchActivity : BaseMvpActivity<StoreSearchPresenter>(), StoreSearch
         BarUtils.setStatusBarColor(this, Color.WHITE)
         intent.getStringExtra(Constant.PARAM_NAME)?.let {
             title = it
-            search_aet.text = it
+            search_aet.setText(it)
         }
         emptyView = EmptyView(this).apply {
             showEmptyDefault()

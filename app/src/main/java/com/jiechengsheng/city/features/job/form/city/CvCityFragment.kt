@@ -18,7 +18,7 @@ import com.jiechengsheng.city.base.mvp.BaseBottomSheetDialogFragment
 import com.jiechengsheng.city.base.mvp.FixedHeightBottomSheetDialog
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.dialog_cv_city.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/9/29 16:49.

@@ -24,7 +24,7 @@ import com.jiechengsheng.city.features.store.search.StoreSearchActivity
 import com.jiechengsheng.city.government.activity.ConvenienceServiceSearchActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.MyLayoutManager
-import kotlinx.android.synthetic.main.activity_search_all.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/2/25 10:25.

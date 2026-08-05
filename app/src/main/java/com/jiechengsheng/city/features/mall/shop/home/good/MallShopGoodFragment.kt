@@ -14,7 +14,7 @@ import com.jiechengsheng.city.features.mall.home.child.MallRecommendAdapter
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.fragment_mall_shop_good.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/1/24 10:22.
@@ -22,6 +22,13 @@ import kotlinx.android.synthetic.main.fragment_mall_shop_good.*
  * 销量、最新、价格 三种排序互斥
  */
 class MallShopGoodFragment : BaseMvpFragment<MallShopGoodPresenter>(), MallShopGoodView {
+
+    private val sales_tv: android.widget.CheckedTextView
+        get() = requireView().findViewById(R.id.sales_tv)
+    private val newest_tv: android.widget.CheckedTextView
+        get() = requireView().findViewById(R.id.newest_tv)
+    private val price_tv: android.widget.CheckedTextView
+        get() = requireView().findViewById(R.id.price_tv)
 
 
     /** 店铺分类ID */

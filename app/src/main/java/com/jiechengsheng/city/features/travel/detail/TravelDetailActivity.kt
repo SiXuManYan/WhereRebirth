@@ -32,7 +32,7 @@ import com.jiechengsheng.city.utils.FeaturesUtil
 import com.jiechengsheng.city.utils.MobUtil
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.shuyu.gsyvideoplayer.GSYVideoManager
-import kotlinx.android.synthetic.main.activity_travel_detail.*
+import com.jiechengsheng.city.legacyviews.*
 
 
 /**

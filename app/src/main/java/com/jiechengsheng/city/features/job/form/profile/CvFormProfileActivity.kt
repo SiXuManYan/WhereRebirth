@@ -28,7 +28,7 @@ import com.jiechengsheng.city.features.job.form.CvFormView
 import com.jiechengsheng.city.features.job.form.city.CvCityFragment
 import com.jiechengsheng.city.features.job.form.city.OnSelectedCity
 import com.jiechengsheng.city.utils.*
-import kotlinx.android.synthetic.main.activity_job_cv_profile.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 import java.util.*
 

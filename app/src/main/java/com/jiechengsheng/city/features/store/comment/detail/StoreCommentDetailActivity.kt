@@ -12,7 +12,7 @@ import com.jiechengsheng.city.features.store.refund.StoreRefundAdapter
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
-import kotlinx.android.synthetic.main.activity_store_comment_detail.*
+import com.jiechengsheng.city.legacyviews.*
 
 
 /**

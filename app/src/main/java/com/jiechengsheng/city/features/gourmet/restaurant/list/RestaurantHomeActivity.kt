@@ -50,8 +50,7 @@ import com.jiechengsheng.city.utils.LocationUtil
 import com.jiechengsheng.city.utils.PermissionUtils
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_gourmet_list.*
-import kotlinx.android.synthetic.main.layout_filter.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 

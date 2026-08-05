@@ -14,7 +14,7 @@ import com.jiechengsheng.city.features.account.login.LoginActivity
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.verify.VerificationCodeView
-import kotlinx.android.synthetic.main.activity_verify_by_code_4_refund.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

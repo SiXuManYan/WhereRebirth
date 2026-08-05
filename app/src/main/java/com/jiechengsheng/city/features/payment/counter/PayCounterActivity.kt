@@ -29,7 +29,7 @@ import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_pay_counter.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2023/3/7 16:07.

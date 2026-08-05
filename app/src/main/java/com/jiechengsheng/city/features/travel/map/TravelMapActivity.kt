@@ -42,8 +42,7 @@ import com.jiechengsheng.city.utils.LocationUtil
 import com.jiechengsheng.city.utils.PermissionUtils
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_travel_map.*
-import kotlinx.android.synthetic.main.layout_travel_filter_content.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/10/18 9:37.

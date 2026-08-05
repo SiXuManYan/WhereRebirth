@@ -13,7 +13,7 @@ import com.jiechengsheng.city.features.store.refund.StoreRefundAdapter
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
 import com.zhihu.matisse.Matisse
-import kotlinx.android.synthetic.main.activity_feedback_post.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/10/13 16:33.

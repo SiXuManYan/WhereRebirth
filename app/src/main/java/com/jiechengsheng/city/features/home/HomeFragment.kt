@@ -55,7 +55,7 @@ import com.jiechengsheng.city.news.NewsVideoActivity
 import com.jiechengsheng.city.utils.*
 import com.jiechengsheng.city.view.XBanner.AbstractUrlLoader
 import com.jiechengsheng.city.view.XBanner.XBanner
-import kotlinx.android.synthetic.main.fragment_home4.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 import pl.droidsonroids.gif.GifImageView
 
@@ -66,6 +66,9 @@ import pl.droidsonroids.gif.GifImageView
  *
  */
 class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLayout.OnRefreshListener {
+
+    private val tabs_type: com.flyco.tablayout.CommonTabLayout
+        get() = requireView().findViewById(R.id.tabs_type)
 
 
     /** 选择城市 */

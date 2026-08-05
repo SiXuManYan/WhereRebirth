@@ -16,7 +16,7 @@ import com.jiechengsheng.city.features.store.order.detail.StoreOrderDetailAdapte
 import com.jiechengsheng.city.features.store.refund.StoreRefundActivity
 import com.jiechengsheng.city.features.store.refund.StoreRefundAdapter
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_store_refund_detail.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

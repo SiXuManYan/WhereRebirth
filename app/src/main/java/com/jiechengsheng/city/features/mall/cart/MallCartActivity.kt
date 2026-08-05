@@ -21,7 +21,7 @@ import com.jiechengsheng.city.features.mall.detail.sku.MallSkuFragment
 import com.jiechengsheng.city.features.mall.detail.sku.MallSkuSelectResult
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import kotlinx.android.synthetic.main.activity_mall_cart.*
+import com.jiechengsheng.city.legacyviews.*
 
 
 /**

@@ -15,7 +15,7 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.NumberView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_shopping_cart.*
+import com.jiechengsheng.city.legacyviews.*
 import java.math.BigDecimal
 
 /**

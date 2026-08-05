@@ -13,7 +13,7 @@ import com.jiechengsheng.city.api.network.BaseMvpView
 import com.jiechengsheng.city.api.response.mall.FoodRefundInfo
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_refund_info_food.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  *

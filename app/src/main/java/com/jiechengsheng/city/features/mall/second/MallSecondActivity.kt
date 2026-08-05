@@ -29,8 +29,7 @@ import com.jiechengsheng.city.features.search.SearchAllActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_mall_second.*
-import kotlinx.android.synthetic.main.layout_mall_filter.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/12/3 15:30.

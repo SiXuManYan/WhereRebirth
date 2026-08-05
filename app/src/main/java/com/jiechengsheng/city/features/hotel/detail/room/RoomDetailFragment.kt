@@ -20,7 +20,7 @@ import com.jiechengsheng.city.features.hotel.detail.media.MediaData
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.calendar.JcsCalendarAdapter
 import com.shuyu.gsyvideoplayer.GSYVideoManager
-import kotlinx.android.synthetic.main.fragment_hotel_room.*
+import com.jiechengsheng.city.legacyviews.*
 import java.math.BigDecimal
 import java.util.*
 

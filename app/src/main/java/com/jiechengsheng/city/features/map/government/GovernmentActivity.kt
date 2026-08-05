@@ -45,7 +45,7 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.LocationUtil
 import com.jiechengsheng.city.utils.PermissionUtils
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_government.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

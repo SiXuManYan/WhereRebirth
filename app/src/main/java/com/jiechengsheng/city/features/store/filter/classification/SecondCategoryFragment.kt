@@ -9,7 +9,7 @@ import com.jiechengsheng.city.api.response.category.Category
 import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.single_recycler_view.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 import java.util.*
 

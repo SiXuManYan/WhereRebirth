@@ -16,7 +16,7 @@ import com.jiechengsheng.city.features.store.cart.StoreCartActivity
 import com.jiechengsheng.city.features.store.detail.StoreDetailActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_store_list.*
+import com.jiechengsheng.city.legacyviews.*
 import java.util.*
 
 /**

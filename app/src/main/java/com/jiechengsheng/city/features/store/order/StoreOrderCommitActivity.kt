@@ -20,7 +20,7 @@ import com.jiechengsheng.city.features.address.AddressActivity
 import com.jiechengsheng.city.features.payment.counter.PayCounterActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_store_order_commit.*
+import com.jiechengsheng.city.legacyviews.*
 import java.math.BigDecimal
 
 /**

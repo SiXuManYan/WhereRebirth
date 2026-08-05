@@ -24,7 +24,7 @@ import com.zhihu.matisse.Matisse
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_comment_post_batch.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 import top.zibin.luban.Luban
 

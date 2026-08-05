@@ -15,8 +15,7 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.calendar.JcsCalendarAdapter
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.single_recycler_view.content_rv
-import kotlinx.android.synthetic.main.single_recycler_view_with_refresh.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2021/9/27 15:48.

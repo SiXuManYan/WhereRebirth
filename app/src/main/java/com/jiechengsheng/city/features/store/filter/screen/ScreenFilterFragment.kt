@@ -4,7 +4,7 @@ import android.view.View
 import com.jiechengsheng.city.R
 import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_filter_more.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

@@ -15,7 +15,7 @@ import com.jiechengsheng.city.features.bills.account.BillAccountPresenter
 import com.jiechengsheng.city.features.bills.account.BillAccountView
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_bills_account_edit.*
+import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
 
 /**

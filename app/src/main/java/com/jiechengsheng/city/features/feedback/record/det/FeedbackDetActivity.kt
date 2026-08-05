@@ -11,7 +11,7 @@ import com.jiechengsheng.city.features.feedback.form.FeedBackPostPresenter
 import com.jiechengsheng.city.features.feedback.form.FeedBackPostView
 import com.jiechengsheng.city.features.store.refund.StoreRefundAdapter
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_feedback_detail.*
+import com.jiechengsheng.city.legacyviews.*
 
 /**
  * Created by Wangsw  2022/10/14 13:47.

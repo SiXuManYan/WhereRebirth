@@ -23,7 +23,7 @@ import com.jiechengsheng.city.view.XBanner.AbstractUrlLoader
 import com.jiechengsheng.city.view.XBanner.XBanner
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.fragment_mall_home_child.*
+import com.jiechengsheng.city.legacyviews.*
 import pl.droidsonroids.gif.GifImageView
 
 /**
