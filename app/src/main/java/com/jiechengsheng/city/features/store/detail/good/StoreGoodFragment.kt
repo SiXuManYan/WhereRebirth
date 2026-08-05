@@ -18,14 +18,17 @@ import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.FragmentRefreshListNoRefreshBinding
 
 /**
  * Created by Wangsw  2021/6/16 15:27.
  * 商城 商品列表
  */
 class StoreGoodFragment : BaseMvpFragment<StoreGoodPresenter>(), StoreGoodView, OnLoadMoreListener, OnItemClickListener {
+
+    private var _binding: FragmentRefreshListNoRefreshBinding? = null
+    private val binding get() = _binding!!
 
 
     /** 商家id */
@@ -64,6 +67,7 @@ class StoreGoodFragment : BaseMvpFragment<StoreGoodPresenter>(), StoreGoodView, 
     override fun getLayoutId() = R.layout.fragment_refresh_list_no_refresh
 
     override fun initView(view: View) {
+        _binding = FragmentRefreshListNoRefreshBinding.bind(requireNotNull(view))
 
         arguments?.let {
             shop_id = it.getInt(Constant.PARAM_SHOP_ID)
@@ -93,7 +97,7 @@ class StoreGoodFragment : BaseMvpFragment<StoreGoodPresenter>(), StoreGoodView, 
                 EventBus.getDefault().post(BaseEvent(storeGoods))
             }
         }
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             addItemDecoration(DividerDecoration(Color.TRANSPARENT, SizeUtils.dp2px(15f), 0, 0))
 
@@ -105,6 +109,13 @@ class StoreGoodFragment : BaseMvpFragment<StoreGoodPresenter>(), StoreGoodView, 
     override fun initData() {
         presenter = StoreGoodPresenter(this)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
 
     override fun bindListener() {
 

@@ -20,14 +20,17 @@ import com.jiechengsheng.city.features.hotel.detail.media.MediaData
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.shuyu.gsyvideoplayer.GSYVideoManager
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityMediaDetailBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/8/23 14:13.
  * 媒体详情页
  */
 class MediaDetailActivity : BaseMvpActivity<MediaDetailPresenter>(), MediaDetailView {
+
+    private lateinit var binding: ActivityMediaDetailBinding
 
     private var selectedPosition = 0
     private var source = ArrayList<MediaData>()
@@ -141,6 +144,7 @@ class MediaDetailActivity : BaseMvpActivity<MediaDetailPresenter>(), MediaDetail
     }
 
     override fun initView() {
+        binding = ActivityMediaDetailBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         overridePendingTransition(R.anim.bottom_in, R.anim.bottom_silent)
         BarUtils.setStatusBarVisibility(this, false)
         BarUtils.setNavBarColor(this, ColorUtils.getColor(R.color.black_000000))
@@ -166,11 +170,11 @@ class MediaDetailActivity : BaseMvpActivity<MediaDetailPresenter>(), MediaDetail
 
             numberType = bundle.getBoolean(Constant.PARAM_TYPE, false)
             if (numberType) {
-                number_position_tv.visibility = View.VISIBLE
-                point_view.visibility = View.GONE
+                binding.numberPositionTv.visibility = View.VISIBLE
+                binding.pointView.visibility = View.GONE
             } else {
-                number_position_tv.visibility = View.GONE
-                point_view.visibility = View.VISIBLE
+                binding.numberPositionTv.visibility = View.GONE
+                binding.pointView.visibility = View.VISIBLE
             }
 
         }
@@ -184,14 +188,14 @@ class MediaDetailActivity : BaseMvpActivity<MediaDetailPresenter>(), MediaDetail
 
     private fun initMedia() {
         mMediaAdapter = DetailMediaAdapter()
-        PagerSnapHelper().attachToRecyclerView(media_rv)
+        PagerSnapHelper().attachToRecyclerView(binding.mediaRv)
 
-        media_rv.apply {
+        binding.mediaRv.apply {
             layoutManager = LinearLayoutManager(this@MediaDetailActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = mMediaAdapter
         }
 
-        media_rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.mediaRv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             @SuppressLint("NotifyDataSetChanged")
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
 
@@ -211,8 +215,8 @@ class MediaDetailActivity : BaseMvpActivity<MediaDetailPresenter>(), MediaDetail
                     }
                 }
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    point_view.onPageSelected(firstItemPosition)
-                    number_position_tv.text = getString(R.string.image_index, firstItemPosition+1, source.size)
+                    binding.pointView.onPageSelected(firstItemPosition)
+                    binding.numberPositionTv.text = getString(R.string.image_index, firstItemPosition+1, source.size)
 
                     selectedPosition = firstItemPosition
                 }
@@ -221,14 +225,14 @@ class MediaDetailActivity : BaseMvpActivity<MediaDetailPresenter>(), MediaDetail
 
         mMediaAdapter.setNewInstance(source)
 
-        point_view.apply {
+        binding.pointView.apply {
             commonDrawableResId = R.drawable.shape_point_normal_e7e7e7
             selectedDrawableResId = R.drawable.shape_point_selected_377bff
             setPointCount(source.size)
         }
-        media_rv.scrollToPosition(selectedPosition)
-        point_view.onPageSelected(selectedPosition)
-        number_position_tv.text = getString(R.string.image_index, selectedPosition + 1, source.size)
+        binding.mediaRv.scrollToPosition(selectedPosition)
+        binding.pointView.onPageSelected(selectedPosition)
+        binding.numberPositionTv.text = getString(R.string.image_index, selectedPosition + 1, source.size)
 
     }
 

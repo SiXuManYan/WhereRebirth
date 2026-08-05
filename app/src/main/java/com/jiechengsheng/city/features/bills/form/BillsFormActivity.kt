@@ -29,14 +29,17 @@ import com.jiechengsheng.city.utils.AnimationUtils
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivityBillsFormBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/6/8 17:33.
  * 水电表单
  */
 class BillsFormActivity : BaseMvpActivity<BillsFormPresenter>(), BillsFormView, AfterEditChanged {
+
+    private lateinit var binding: ActivityBillsFormBinding
 
 
     /** 渠道名称 */
@@ -104,12 +107,13 @@ class BillsFormActivity : BaseMvpActivity<BillsFormPresenter>(), BillsFormView, 
     override fun getLayoutId() = R.layout.activity_bills_form
 
     override fun initView() {
+        binding = ActivityBillsFormBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         initExtra()
         initList()
 
         val alphaAnimation = AnimationUtils.getAlphaAnimation(0.5f, 0.9f, 1000)
-        hint_ll.startAnimation(alphaAnimation)
+        binding.hintLl.startAnimation(alphaAnimation)
 
 
         Handler(mainLooper).postDelayed({
@@ -119,11 +123,11 @@ class BillsFormActivity : BaseMvpActivity<BillsFormPresenter>(), BillsFormView, 
                 override fun onAnimationRepeat(animation: Animation?) = Unit
 
                 override fun onAnimationEnd(animation: Animation?) {
-                    hint_ll.visibility = View.GONE
+                    binding.hintLl.visibility = View.GONE
                 }
 
             })
-            hint_ll.startAnimation(animation)
+            binding.hintLl.startAnimation(animation)
         }, 4500)
 
     }
@@ -140,14 +144,14 @@ class BillsFormActivity : BaseMvpActivity<BillsFormPresenter>(), BillsFormView, 
             fieldDetail.addAll(parcelableArrayList!!)
             serviceCharge = BigDecimal(it.getDouble(Constant.PARAM_SERVICE_CHARGE, 0.0))
         }
-        rule_tv.text = getString(R.string.service_charge_format, serviceCharge)
+        binding.ruleTv.text = getString(R.string.service_charge_format, serviceCharge)
     }
 
 
     private fun initList() {
 
-        channel_tv.text = billerTag
-        desc_tv.text = description
+        binding.channelTv.text = billerTag
+        binding.descTv.text = description
 
         mAdapter = BillsFormAdapter().apply {
             setNewInstance(fieldDetail)
@@ -162,7 +166,7 @@ class BillsFormActivity : BaseMvpActivity<BillsFormPresenter>(), BillsFormView, 
             }
         }
 
-        channel_rv.apply {
+        binding.channelRv.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(this@BillsFormActivity, LinearLayoutManager.VERTICAL, false)
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.colorPrimary),
@@ -173,7 +177,7 @@ class BillsFormActivity : BaseMvpActivity<BillsFormPresenter>(), BillsFormView, 
 
         // 折扣
         mDiscountAdapter = BillsDiscountAdapter()
-        discount_rv.apply {
+        binding.discountRv.apply {
             adapter = mDiscountAdapter
             layoutManager = LinearLayoutManager(this@BillsFormActivity, LinearLayoutManager.HORIZONTAL, false)
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.transparency),
@@ -203,7 +207,7 @@ class BillsFormActivity : BaseMvpActivity<BillsFormPresenter>(), BillsFormView, 
 
         mAdapter.data.forEachIndexed { index, fieldDetail ->
             if (first.length > fieldDetail.Width || second.length > fieldDetail.Width) {
-                next_tv.alpha = 0.6f
+                binding.nextTv.alpha = 0.6f
             }
             if (index == 0) {
                 fieldDetail.nativeCache = first
@@ -219,7 +223,7 @@ class BillsFormActivity : BaseMvpActivity<BillsFormPresenter>(), BillsFormView, 
     override fun bindListener() {
 
 
-        amount_et.addTextChangedListener(
+        binding.amountEt.addTextChangedListener(
             afterTextChanged = {
                 val input = it.toString()
                 checkAlpha(input)
@@ -227,11 +231,11 @@ class BillsFormActivity : BaseMvpActivity<BillsFormPresenter>(), BillsFormView, 
             }
         )
 
-//        amount_et.setText(BusinessUtils.formatPrice(userInputMoney))
+//        binding.amountEt.setText(BusinessUtils.formatPrice(userInputMoney))
 
-        next_tv.setOnClickListener {
+        binding.nextTv.setOnClickListener {
 
-            val text = amount_et.text.toString().trim()
+            val text = binding.amountEt.text.toString().trim()
             if (text.isNullOrBlank()) {
                 ToastUtils.showShort("Please enter the amount.")
                 return@setOnClickListener
@@ -283,7 +287,7 @@ class BillsFormActivity : BaseMvpActivity<BillsFormPresenter>(), BillsFormView, 
                 billsType)
         }
 
-        account_tv.setOnClickListener {
+        binding.accountTv.setOnClickListener {
             searchLauncher.launch(Intent(this, BillAccountActivity::class.java).putExtras(Bundle().apply {
                 putInt(Constant.PARAM_TYPE, billsType)
             }))
@@ -300,9 +304,9 @@ class BillsFormActivity : BaseMvpActivity<BillsFormPresenter>(), BillsFormView, 
         }
 
         if (input.isNotBlank() && lengthOverCount == 0) {
-            BusinessUtils.setViewClickable(true, next_tv)
+            BusinessUtils.setViewClickable(true, binding.nextTv)
         } else {
-            BusinessUtils.setViewClickable(false, next_tv)
+            BusinessUtils.setViewClickable(false, binding.nextTv)
         }
     }
 
@@ -341,7 +345,7 @@ class BillsFormActivity : BaseMvpActivity<BillsFormPresenter>(), BillsFormView, 
     }
 
     override fun afterTextChanged(trim: String) {
-        checkAlpha(amount_et.text.toString().trim())
+        checkAlpha(binding.amountEt.text.toString().trim())
     }
 
 }

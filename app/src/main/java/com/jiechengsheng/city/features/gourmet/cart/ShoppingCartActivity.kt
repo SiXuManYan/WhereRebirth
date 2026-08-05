@@ -15,8 +15,9 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.NumberView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivityShoppingCartBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/4/7 14:49.
@@ -29,6 +30,8 @@ class ShoppingCartActivity : BaseMvpActivity<ShoppingCartPresenter>(), ShoppingC
     NumberView.OnValueChangerListener,
     ShoppingCartAdapter.OnUserSelectListener {
 
+    private lateinit var binding: ActivityShoppingCartBinding
+
     private lateinit var mAdapter: ShoppingCartAdapter
     private var page = Constant.DEFAULT_FIRST_PAGE
     private var isEditMode = false
@@ -39,6 +42,7 @@ class ShoppingCartActivity : BaseMvpActivity<ShoppingCartPresenter>(), ShoppingC
     private lateinit var emptyView: EmptyView
 
     override fun initView() {
+        binding = ActivityShoppingCartBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, getColor(R.color.white))
 
         emptyView = EmptyView(this).apply {
@@ -56,8 +60,8 @@ class ShoppingCartActivity : BaseMvpActivity<ShoppingCartPresenter>(), ShoppingC
             onUserSelectListener = this@ShoppingCartActivity
         }
 
-        recycler_view.adapter = mAdapter
-        recycler_view.addItemDecoration(DividerDecoration(
+        binding.recyclerView.adapter = mAdapter
+        binding.recyclerView.addItemDecoration(DividerDecoration(
             ColorUtils.getColor(R.color.grey_F5F5F5), 1, 0, 0
         ).apply { setDrawHeaderFooter(true) })
 
@@ -67,7 +71,7 @@ class ShoppingCartActivity : BaseMvpActivity<ShoppingCartPresenter>(), ShoppingC
     override fun isStatusDark() = true
 
     override fun initData() {
-        swipe_layout.setOnRefreshListener(this)
+        binding.swipeLayout.setOnRefreshListener(this)
         presenter = ShoppingCartPresenter(this)
         presenter.getData(page)
     }
@@ -75,39 +79,39 @@ class ShoppingCartActivity : BaseMvpActivity<ShoppingCartPresenter>(), ShoppingC
     var totalPrice: BigDecimal = BigDecimal.ZERO
 
     override fun bindListener() {
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             finish()
         }
 
-        edit_tv.setOnClickListener {
+        binding.editTv.setOnClickListener {
             isEditMode = true
-            right_vs.displayedChild = 1
-            bottom_vs.displayedChild = 1
-            total_price_title_tv.visibility = View.GONE
-            total_price_tv.visibility = View.GONE
+            binding.rightVs.displayedChild = 1
+            binding.bottomVs.displayedChild = 1
+            binding.totalPriceTitleTv.visibility = View.GONE
+            binding.totalPriceTv.visibility = View.GONE
         }
 
-        cancel_tv.setOnClickListener {
+        binding.cancelTv.setOnClickListener {
             isEditMode = false
-            right_vs.displayedChild = 0
-            bottom_vs.displayedChild = 0
-            total_price_title_tv.visibility = View.VISIBLE
-            total_price_tv.visibility = View.VISIBLE
+            binding.rightVs.displayedChild = 0
+            binding.bottomVs.displayedChild = 0
+            binding.totalPriceTitleTv.visibility = View.VISIBLE
+            binding.totalPriceTv.visibility = View.VISIBLE
         }
 
-        select_all_ll.setOnClickListener {
+        binding.selectAllLl.setOnClickListener {
             isSelectAll = !isSelectAll
 
             if (isSelectAll) {
                 VibrateUtils.vibrate(10)
                 presenter.handleSelectAll(mAdapter, true)
                 val handlePrice = presenter.handlePrice(mAdapter)
-                total_price_tv.text =
+                binding.totalPriceTv.text =
                     StringUtils.getString(R.string.price_unit_format, handlePrice.toPlainString())
             } else {
                 presenter.handleSelectAll(mAdapter, false)
                 totalPrice = BigDecimal.ZERO
-                total_price_tv.text = getString(R.string.price_unit_format, totalPrice.toPlainString())
+                binding.totalPriceTv.text = getString(R.string.price_unit_format, totalPrice.toPlainString())
             }
 
             changeSelectImage(isSelectAll)
@@ -117,7 +121,7 @@ class ShoppingCartActivity : BaseMvpActivity<ShoppingCartPresenter>(), ShoppingC
         val delete = ArrayList<Int>()
         val deleteItem = ArrayList<Products>()
         val deleteParent = ArrayList<ShoppingCartResponse>()
-        delete_tv.setOnClickListener {
+        binding.deleteTv.setOnClickListener {
             delete.clear()
             deleteItem.clear()
             deleteParent.clear()
@@ -148,7 +152,7 @@ class ShoppingCartActivity : BaseMvpActivity<ShoppingCartPresenter>(), ShoppingC
         }
 
         // 提交订单
-        buy_after_tv.setOnClickListener {
+        binding.buyAfterTv.setOnClickListener {
             if (mAdapter.data.isEmpty()) {
                 return@setOnClickListener
             }
@@ -173,9 +177,9 @@ class ShoppingCartActivity : BaseMvpActivity<ShoppingCartPresenter>(), ShoppingC
 
     private fun changeSelectImage(selected: Boolean) {
         if (selected) {
-            all_iv.setImageResource(R.mipmap.ic_checked_blue)
+            binding.allIv.setImageResource(R.mipmap.ic_checked_blue)
         } else {
-            all_iv.setImageResource(R.mipmap.ic_un_checked)
+            binding.allIv.setImageResource(R.mipmap.ic_un_checked)
         }
 
     }
@@ -192,8 +196,8 @@ class ShoppingCartActivity : BaseMvpActivity<ShoppingCartPresenter>(), ShoppingC
 
 
     override fun bindList(data: MutableList<ShoppingCartResponse>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
 
         val loadMoreModule = mAdapter.loadMoreModule
@@ -246,7 +250,7 @@ class ShoppingCartActivity : BaseMvpActivity<ShoppingCartPresenter>(), ShoppingC
     private fun getNowPrice() {
         val handlePrice = presenter.handlePrice(mAdapter)
         val toPlainString = handlePrice.toPlainString()
-        total_price_tv.text = StringUtils.getString(R.string.price_unit_format, toPlainString)
+        binding.totalPriceTv.text = StringUtils.getString(R.string.price_unit_format, toPlainString)
     }
 
 

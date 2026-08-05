@@ -17,14 +17,16 @@ import com.jiechengsheng.city.features.account.login.LoginActivity
 import com.jiechengsheng.city.features.message.notice.SystemNoticeFragment
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.view.empty.EmptyView
+import com.jiechengsheng.city.databinding.ActivityMessageCenterBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/2/19 17:07.
  * 消息中心
  */
 class MessageCenterActivity : BaseMvpActivity<MessageCenterPresenter>(), MessageCenterView {
+
+    private lateinit var binding: ActivityMessageCenterBinding
 
 
     private var systemUnReadMessageCount = 0
@@ -61,8 +63,9 @@ class MessageCenterActivity : BaseMvpActivity<MessageCenterPresenter>(), Message
     }
 
     override fun initView() {
+        binding = ActivityMessageCenterBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         systemUnReadMessageCount = intent.getIntExtra(Constant.PARAM_COUNT, 0)
-        pager.offscreenPageLimit = 1
+        binding.pager.offscreenPageLimit = 1
 
     }
 
@@ -77,8 +80,8 @@ class MessageCenterActivity : BaseMvpActivity<MessageCenterPresenter>(), Message
         adapter.emptyView = emptyView
         emptyView.setEmptyImage(R.mipmap.ic_empty_un_notice)
         emptyView.setEmptyHint(R.string.no_notice_yet)
-        pager!!.adapter = adapter
-        tabs_type!!.visibility = View.GONE
+        binding.pager!!.adapter = adapter
+        binding.tabsType!!.visibility = View.GONE
 
         handleCount()
 
@@ -86,9 +89,9 @@ class MessageCenterActivity : BaseMvpActivity<MessageCenterPresenter>(), Message
 
     private fun handleCount() {
         if (systemUnReadMessageCount > 0) {
-            is_read_iv.visibility = View.VISIBLE
+            binding.isReadIv.visibility = View.VISIBLE
         } else {
-            is_read_iv.visibility = View.GONE
+            binding.isReadIv.visibility = View.GONE
         }
     }
 

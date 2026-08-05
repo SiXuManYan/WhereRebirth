@@ -16,14 +16,16 @@ import com.jiechengsheng.city.base.mvp.FixedHeightBottomSheetDialog
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.view.MyLayoutManager
-import com.jiechengsheng.city.widget.NumberView2
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.NumberView2
+import com.jiechengsheng.city.databinding.FragmentMallSkuBinding
 /**
  * Created by Wangsw  2021/12/13 14:45.
  *
  */
 class MallSkuFragment : BaseBottomSheetDialogFragment<MallSkuPresenter>(), MallSkuView, TargetGoodItemClickCallBack {
+
+    private var _binding: FragmentMallSkuBinding? = null
+    private val binding get() = _binding!!
 
     var selectResult: MallSkuSelectResult? = null
     var result: MallSpecs? = null
@@ -44,6 +46,7 @@ class MallSkuFragment : BaseBottomSheetDialogFragment<MallSkuPresenter>(), MallS
         FixedHeightBottomSheetDialog(requireContext(), theme, ScreenUtils.getScreenHeight() * 8 / 10)
 
     override fun initView(parent: View) {
+        _binding = FragmentMallSkuBinding.bind(requireNotNull(view))
 
         // content
         initSkuLayout()
@@ -55,11 +58,11 @@ class MallSkuFragment : BaseBottomSheetDialogFragment<MallSkuPresenter>(), MallS
         // 原价
         val minPrice = data.min_price
         val originalCost = data.original_cost
-        BusinessUtils.setNowPriceAndOldPrice(minPrice, originalCost, price_tv, original_price_tv)
+        BusinessUtils.setNowPriceAndOldPrice(minPrice, originalCost, binding.priceTv, binding.originalPriceTv)
 
-        GlideUtil.load(requireContext(), data.main_image, good_iv, 4)
+        GlideUtil.load(requireContext(), data.main_image, binding.goodIv, 4)
 
-        number_view.apply {
+        binding.numberView.apply {
             alwaysEnableCut = true
             MIN_GOOD_NUM = 1
 
@@ -96,7 +99,7 @@ class MallSkuFragment : BaseBottomSheetDialogFragment<MallSkuPresenter>(), MallS
 
             }
         }
-        stock_tv.text = StringUtils.getString(R.string.stock_format, data.stock)
+        binding.stockTv.text = StringUtils.getString(R.string.stock_format, data.stock)
 
 
 
@@ -106,7 +109,7 @@ class MallSkuFragment : BaseBottomSheetDialogFragment<MallSkuPresenter>(), MallS
         mAdapter = SkuFirstAdapter().apply {
             targetGoodItemClickCallBack = this@MallSkuFragment
         }
-        content_rv.apply {
+        binding.contentRv.apply {
             adapter = mAdapter
             layoutManager = MyLayoutManager()
             isNestedScrollingEnabled = true
@@ -125,12 +128,19 @@ class MallSkuFragment : BaseBottomSheetDialogFragment<MallSkuPresenter>(), MallS
         initDefault(null)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun bindListener() {
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             dismiss()
         }
 
-        confirm_tv.setOnClickListener {
+        binding.confirmTv.setOnClickListener {
             if (result == null) {
                 ToastUtils.showShort(R.string.please_selected)
                 return@setOnClickListener
@@ -149,11 +159,11 @@ class MallSkuFragment : BaseBottomSheetDialogFragment<MallSkuPresenter>(), MallS
                 }
 
             }
-            if (number_view.goodNum == 0) {
+            if (binding.numberView.goodNum == 0) {
                 ToastUtils.showShort(getString(R.string.inventory_shortage_select))
                 return@setOnClickListener
             }
-            selectResult?.selectResult(result!!, number_view.goodNum)
+            selectResult?.selectResult(result!!, binding.numberView.goodNum)
             dismissAllowingStateLoss()
         }
     }
@@ -231,12 +241,12 @@ class MallSkuFragment : BaseBottomSheetDialogFragment<MallSkuPresenter>(), MallS
         if (matchSpecsList.size == 1) {
             val mallSpecs = matchSpecsList[0]
             result = mallSpecs
-            BusinessUtils.setNowPriceAndOldPrice(mallSpecs.price, mallSpecs.original_cost, price_tv, original_price_tv)
+            BusinessUtils.setNowPriceAndOldPrice(mallSpecs.price, mallSpecs.original_cost, binding.priceTv, binding.originalPriceTv)
             val stock = mallSpecs.stock
 
-            stock_tv.text = StringUtils.getString(R.string.stock_format, stock)
+            binding.stockTv.text = StringUtils.getString(R.string.stock_format, stock)
 
-            number_view.apply {
+            binding.numberView.apply {
                 if (stock <= 0) {
                     MIN_GOOD_NUM = 0
                 }
@@ -259,13 +269,13 @@ class MallSkuFragment : BaseBottomSheetDialogFragment<MallSkuPresenter>(), MallS
         if (resultSkuList.size == 1) {
             val mallSpecs = resultSkuList[0]
             result = mallSpecs
-            BusinessUtils.setNowPriceAndOldPrice(mallSpecs.price, mallSpecs.original_cost, price_tv, original_price_tv)
+            BusinessUtils.setNowPriceAndOldPrice(mallSpecs.price, mallSpecs.original_cost, binding.priceTv, binding.originalPriceTv)
 
             val stock = mallSpecs.stock
 
-            stock_tv.text = StringUtils.getString(R.string.stock_format, stock)
+            binding.stockTv.text = StringUtils.getString(R.string.stock_format, stock)
 
-            number_view.apply {
+            binding.numberView.apply {
                 if (stock <= 0) {
                     MIN_GOOD_NUM = 0
                 }

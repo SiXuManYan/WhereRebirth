@@ -9,14 +9,16 @@ import com.blankj.utilcode.util.BarUtils
 import com.jiechengsheng.city.R
 import com.jiechengsheng.city.api.response.job.Job
 import com.jiechengsheng.city.base.BaseActivity
-import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.utils.Constant
+import com.jiechengsheng.city.databinding.ActivityJobAppliedResultBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/12/19 15:05.
  * 申请结果
  */
 class JobAppliedResultActivity  :BaseActivity(){
+
+    private lateinit var binding: ActivityJobAppliedResultBinding
 
     /**
      *  1已申请 2申请失败 3待面试 4面试成功 5面试失败
@@ -48,6 +50,7 @@ class JobAppliedResultActivity  :BaseActivity(){
     override fun getLayoutId()= R.layout.activity_job_applied_result
 
     override fun initView() {
+        binding = ActivityJobAppliedResultBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this,Color.WHITE)
         status = intent.getIntExtra(Constant.PARAM_STATUS , 0)
 
@@ -56,27 +59,27 @@ class JobAppliedResultActivity  :BaseActivity(){
     override fun initData() {
         when (status) {
             Job.STATUS_APPLIED -> {
-                status_iv.setImageResource(R.mipmap.ic_status_applied)
-                message_tv.setText(R.string.status_applied_message)
-                hint_tv.setText(R.string.status_applied_hint)
+                binding.statusIv.setImageResource(R.mipmap.ic_status_applied)
+                binding.messageTv.setText(R.string.status_applied_message)
+                binding.hintTv.setText(R.string.status_applied_hint)
             }
             Job.STATUS_APPLIED_FAILED -> {
-                status_iv.setImageResource(R.mipmap.ic_status_applied_failed)
-                message_tv.setText(R.string.status_applied_failed_message)
+                binding.statusIv.setImageResource(R.mipmap.ic_status_applied_failed)
+                binding.messageTv.setText(R.string.status_applied_failed_message)
             }
             Job.STATUS_TO_INTERVIEWS -> {
-                status_iv.setImageResource(R.mipmap.ic_status_to_interviews)
-                message_tv.setText(R.string.status_to_interviews_message)
-                hint_tv.setText(R.string.status_to_interviews_hint)
+                binding.statusIv.setImageResource(R.mipmap.ic_status_to_interviews)
+                binding.messageTv.setText(R.string.status_to_interviews_message)
+                binding.hintTv.setText(R.string.status_to_interviews_hint)
             }
             Job.STATUS_INTERVIEWS_SUCCEED -> {
-                status_iv.setImageResource(R.mipmap.ic_status_interviews_succeed)
-                message_tv.setText(R.string.status_interviews_succeed_message)
-                hint_tv.setText(R.string.status_interviews_succeed_hint)
+                binding.statusIv.setImageResource(R.mipmap.ic_status_interviews_succeed)
+                binding.messageTv.setText(R.string.status_interviews_succeed_message)
+                binding.hintTv.setText(R.string.status_interviews_succeed_hint)
             }
             Job.STATUS_INTERVIEWS_FAILED -> {
-                status_iv.setImageResource(R.mipmap.ic_status_interviews_failed)
-                message_tv.setText(R.string.status_interviews_failed)
+                binding.statusIv.setImageResource(R.mipmap.ic_status_interviews_failed)
+                binding.messageTv.setText(R.string.status_interviews_failed)
             }
         }
 

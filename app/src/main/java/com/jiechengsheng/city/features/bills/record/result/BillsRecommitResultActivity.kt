@@ -4,14 +4,16 @@ import com.jiechengsheng.city.R
 import com.jiechengsheng.city.api.response.bills.BillStatus
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.utils.LocalLanguageUtil
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.utils.LocalLanguageUtil
+import com.jiechengsheng.city.databinding.ActivityBillsResultBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/6/11 15:00.
  * 缴费状态
  */
 class BillsRecommitResultActivity : BaseMvpActivity<BillsRecommitResultPresenter>(), BillsRecommitResultView {
+
+    private lateinit var binding: ActivityBillsResultBinding
 
     var orderId = 0
 
@@ -20,6 +22,7 @@ class BillsRecommitResultActivity : BaseMvpActivity<BillsRecommitResultPresenter
     override fun getLayoutId() = R.layout.activity_bills_result
 
     override fun initView() {
+        binding = ActivityBillsResultBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initDefaultUI()
         intent.extras?.let {
             orderId = it.getInt(Constant.PARAM_ORDER_ID, 0)
@@ -29,9 +32,9 @@ class BillsRecommitResultActivity : BaseMvpActivity<BillsRecommitResultPresenter
     private fun initDefaultUI() {
         val languageLocale = LocalLanguageUtil.getInstance().getSetLanguageLocale(this)
         if (languageLocale.language == "zh") {
-            pay_status_title_iv.setImageResource(R.mipmap.ic_paying_bill_fail)
+            binding.payStatusTitleIv.setImageResource(R.mipmap.ic_paying_bill_fail)
         } else {
-            pay_status_title_iv.setImageResource(R.mipmap.ic_paying_bill_fail_en)
+            binding.payStatusTitleIv.setImageResource(R.mipmap.ic_paying_bill_fail_en)
         }
 
     }
@@ -42,11 +45,11 @@ class BillsRecommitResultActivity : BaseMvpActivity<BillsRecommitResultPresenter
     }
 
     override fun bindListener() {
-        finish_tv.setOnClickListener {
+        binding.finishTv.setOnClickListener {
             finish()
         }
 
-        view_order_tv.setOnClickListener {
+        binding.viewOrderTv.setOnClickListener {
             finish()
         }
     }
@@ -59,18 +62,18 @@ class BillsRecommitResultActivity : BaseMvpActivity<BillsRecommitResultPresenter
 
         if (status) {
             if (languageLocale.language == "zh") {
-                pay_status_title_iv.setImageResource(R.mipmap.ic_pay_success_bill)
+                binding.payStatusTitleIv.setImageResource(R.mipmap.ic_pay_success_bill)
             } else {
-                pay_status_title_iv.setImageResource(R.mipmap.ic_pay_success_bill_en)
+                binding.payStatusTitleIv.setImageResource(R.mipmap.ic_pay_success_bill_en)
             }
-            pay_info_iv.setImageResource(R.mipmap.ic_pay_success_bill2)
+            binding.payInfoIv.setImageResource(R.mipmap.ic_pay_success_bill2)
         } else {
             if (languageLocale.language == "zh") {
-                pay_status_title_iv.setImageResource(R.mipmap.ic_paying_bill_fail)
+                binding.payStatusTitleIv.setImageResource(R.mipmap.ic_paying_bill_fail)
             } else {
-                pay_status_title_iv.setImageResource(R.mipmap.ic_paying_bill_fail_en)
+                binding.payStatusTitleIv.setImageResource(R.mipmap.ic_paying_bill_fail_en)
             }
-            pay_info_iv.setImageResource(R.mipmap.ic_pay_fail_bill)
+            binding.payInfoIv.setImageResource(R.mipmap.ic_pay_fail_bill)
         }
 
     }

@@ -16,14 +16,17 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.home.watcher.AfterTextChangeWatcher
 import com.jiechengsheng.city.features.city.CityPickerActivity
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityAddressEditBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/3/22 14:19.
  * 收货地址编辑
  */
 class AddressEditActivity : BaseMvpActivity<AddressEditPresenter>(), AddressEditView {
+
+    private lateinit var binding: ActivityAddressEditBinding
 
     private var mAddress: String? = null
     private var mRecipient: String? = null
@@ -41,6 +44,7 @@ class AddressEditActivity : BaseMvpActivity<AddressEditPresenter>(), AddressEdit
     override fun getLayoutId() = R.layout.activity_address_edit
 
     override fun initView() {
+        binding = ActivityAddressEditBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
     }
 
@@ -51,7 +55,7 @@ class AddressEditActivity : BaseMvpActivity<AddressEditPresenter>(), AddressEdit
         val bundle = intent.extras
         if (bundle != null) {
             isChange = true
-            delete_tv.visibility = View.VISIBLE
+            binding.deleteTv.visibility = View.VISIBLE
             mAddressId = bundle.getString(Constant.PARAM_ADDRESS_ID, "")
             mAddress = bundle.getString(Constant.PARAM_ADDRESS, "")
             mRecipient = bundle.getString(Constant.PARAM_RECIPIENT, "")
@@ -59,42 +63,42 @@ class AddressEditActivity : BaseMvpActivity<AddressEditPresenter>(), AddressEdit
             mPhone = bundle.getString(Constant.PARAM_PHONE, "")
             mAreaId = bundle.getInt(Constant.PARAM_AREA_ID, 0)
             mAreaName = bundle.getString(Constant.PARAM_AREA_NAME, "")
-            city_tv.text = mAreaName
+            binding.cityTv.text = mAreaName
 
-            address_et.setText(mAddress)
-            recipient_et.setText(mRecipient)
+            binding.addressEt.setText(mAddress)
+            binding.recipientEt.setText(mRecipient)
             if (mSex == 1) {
-                man_rb.isChecked = true
+                binding.manRb.isChecked = true
             } else {
-                woman_rb.isChecked = true
+                binding.womanRb.isChecked = true
             }
-            phone_et.setText(mPhone)
-            title_tv.setText(R.string.edit_address)
+            binding.phoneEt.setText(mPhone)
+            binding.titleTv.setText(R.string.edit_address)
             return
         }
-        delete_tv.visibility = View.GONE
-        title_tv.setText(R.string.add_address)
+        binding.deleteTv.visibility = View.GONE
+        binding.titleTv.setText(R.string.add_address)
     }
 
     override fun bindListener() {
-        address_et.addTextChangedListener(object : AfterTextChangeWatcher() {
+        binding.addressEt.addTextChangedListener(object : AfterTextChangeWatcher() {
             override fun onAfterTextChanged(editable: Editable) {
                 checkEnable()
             }
         })
-        recipient_et.addTextChangedListener(object : AfterTextChangeWatcher() {
+        binding.recipientEt.addTextChangedListener(object : AfterTextChangeWatcher() {
             override fun onAfterTextChanged(editable: Editable) {
                 checkEnable()
             }
         })
-        phone_et.addTextChangedListener(object : AfterTextChangeWatcher() {
+        binding.phoneEt.addTextChangedListener(object : AfterTextChangeWatcher() {
             override fun onAfterTextChanged(editable: Editable) {
                 checkEnable()
             }
         })
-        save_tv.setOnClickListener { handleSave() }
-        delete_tv.setOnClickListener { deleteAddress() }
-        city_tv.setOnClickListener {
+        binding.saveTv.setOnClickListener { handleSave() }
+        binding.deleteTv.setOnClickListener { deleteAddress() }
+        binding.cityTv.setOnClickListener {
             launcher.launch(Intent(this, CityPickerActivity::class.java).putExtra(Constant.PARAM_HIDE_CURRENT_LOCATION,true))
         }
     }
@@ -107,7 +111,7 @@ class AddressEditActivity : BaseMvpActivity<AddressEditPresenter>(), AddressEdit
                 mAreaName = bundle.getString(Constant.PARAM_SELECT_AREA_NAME,"")
                 val areaId = bundle.getString(Constant.PARAM_SELECT_AREA_ID, "0")
                 mAreaId = areaId.toInt()
-                city_tv.text = mAreaName
+                binding.cityTv.text = mAreaName
             }
 
         }
@@ -115,21 +119,21 @@ class AddressEditActivity : BaseMvpActivity<AddressEditPresenter>(), AddressEdit
     }
 
     private fun checkEnable() {
-        val address = address_et.text.toString().trim()
-        val recipient = recipient_et.text.toString().trim()
-        val phone = phone_et.text.toString().trim()
+        val address = binding.addressEt.text.toString().trim()
+        val recipient = binding.recipientEt.text.toString().trim()
+        val phone = binding.phoneEt.text.toString().trim()
         if (!TextUtils.isEmpty(address) && !TextUtils.isEmpty(recipient) && !TextUtils.isEmpty(phone)) {
-            save_tv.alpha = 1.0f
+            binding.saveTv.alpha = 1.0f
         } else {
-            save_tv.alpha = 0.5f
+            binding.saveTv.alpha = 0.5f
         }
     }
 
     private fun handleSave() {
-        val address = address_et.text.toString().trim()
-        val recipient = recipient_et.text.toString().trim()
-        val phone = phone_et.text.toString().trim()
-        mSex = if (man_rb.isChecked) {
+        val address = binding.addressEt.text.toString().trim()
+        val recipient = binding.recipientEt.text.toString().trim()
+        val phone = binding.phoneEt.text.toString().trim()
+        mSex = if (binding.manRb.isChecked) {
             1
         } else {
             2

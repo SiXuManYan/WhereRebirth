@@ -20,14 +20,17 @@ import com.jiechengsheng.city.features.main.MainActivity
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.LocalLanguageUtil
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityPayResultBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2023/3/14 17:11.
  * 支付结果页面
  */
 class PayResultActivity : BaseMvpActivity<WebPayResultPresenter>(), WebPayResultView {
+
+    private lateinit var binding: ActivityPayResultBinding
 
 
     /** 订单 Id */
@@ -75,6 +78,7 @@ class PayResultActivity : BaseMvpActivity<WebPayResultPresenter>(), WebPayResult
     override fun getLayoutId() = R.layout.activity_pay_result
 
     override fun initView() {
+        binding = ActivityPayResultBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initExtra()
         initDefaultUI()
     }
@@ -98,17 +102,17 @@ class PayResultActivity : BaseMvpActivity<WebPayResultPresenter>(), WebPayResult
         when (moduleType) {
             PayUrlGet.BILL_PAY -> {
                 if (languageLocale.language == "zh") {
-                    pay_status_title_iv.setImageResource(R.mipmap.ic_paying_bill)
+                    binding.payStatusTitleIv.setImageResource(R.mipmap.ic_paying_bill)
                 } else {
-                    pay_status_title_iv.setImageResource(R.mipmap.ic_paying_bill_en)
+                    binding.payStatusTitleIv.setImageResource(R.mipmap.ic_paying_bill_en)
                 }
-                payment_hint.visibility = View.GONE
+                binding.paymentHint.visibility = View.GONE
             }
             else -> {
                 if (languageLocale.language == "zh") {
-                    pay_status_title_iv.setImageResource(R.mipmap.ic_pay_complete)
+                    binding.payStatusTitleIv.setImageResource(R.mipmap.ic_pay_complete)
                 } else {
-                    pay_status_title_iv.setImageResource(R.mipmap.ic_pay_complete_en)
+                    binding.payStatusTitleIv.setImageResource(R.mipmap.ic_pay_complete_en)
                 }
             }
         }
@@ -128,7 +132,7 @@ class PayResultActivity : BaseMvpActivity<WebPayResultPresenter>(), WebPayResult
 
 
     override fun bindListener() {
-        finish_tv.setOnClickListener {
+        binding.finishTv.setOnClickListener {
             when (moduleType) {
                 PayUrlGet.BILL_PAY -> {
                     // 跳转至水电列表
@@ -142,11 +146,11 @@ class PayResultActivity : BaseMvpActivity<WebPayResultPresenter>(), WebPayResult
             }
             finish()
         }
-        view_order_tv.setOnClickListener {
-            finish_tv.performClick()
+        binding.viewOrderTv.setOnClickListener {
+            binding.finishTv.performClick()
         }
-        back_iv.setOnClickListener {
-            finish_tv.performClick()
+        binding.backIv.setOnClickListener {
+            binding.finishTv.performClick()
         }
     }
 
@@ -154,19 +158,19 @@ class PayResultActivity : BaseMvpActivity<WebPayResultPresenter>(), WebPayResult
     override fun onBackPressed() = Unit
 
     override fun bindPayStatus(response: PayStatus) {
-        container_ll.visibility = View.VISIBLE
+        binding.containerLl.visibility = View.VISIBLE
         val payStatus = response.pay_status
 
         if (!payStatus) {
 
             // 支付失败
-            pay_status_title_iv.setImageResource(R.mipmap.ic_pay_complete)
-            payment_hint.visibility = View.VISIBLE
-            pay_info_iv.setImageResource(R.mipmap.ic_paying_loading)
-            view_order_tv.visibility = View.VISIBLE
+            binding.payStatusTitleIv.setImageResource(R.mipmap.ic_pay_complete)
+            binding.paymentHint.visibility = View.VISIBLE
+            binding.payInfoIv.setImageResource(R.mipmap.ic_paying_loading)
+            binding.viewOrderTv.visibility = View.VISIBLE
             return
         }
-        pay_status_title_iv.visibility = View.VISIBLE
+        binding.payStatusTitleIv.visibility = View.VISIBLE
 
 
         val languageLocale = LocalLanguageUtil.getInstance().getSetLanguageLocale(this)
@@ -175,20 +179,20 @@ class PayResultActivity : BaseMvpActivity<WebPayResultPresenter>(), WebPayResult
             PayUrlGet.BILL_PAY -> {
                 // 缴费中
                 if (languageLocale.language == "zh") {
-                    pay_status_title_iv.setImageResource(R.mipmap.ic_paying_bill)
+                    binding.payStatusTitleIv.setImageResource(R.mipmap.ic_paying_bill)
                 } else {
-                    pay_status_title_iv.setImageResource(R.mipmap.ic_paying_bill_en)
+                    binding.payStatusTitleIv.setImageResource(R.mipmap.ic_paying_bill_en)
                 }
-                pay_info_iv.setImageResource(R.mipmap.ic_paying_bills)
+                binding.payInfoIv.setImageResource(R.mipmap.ic_paying_bills)
             }
             else -> {
                 // 支付成功
                 if (languageLocale.language == "zh") {
-                    pay_status_title_iv.setImageResource(R.mipmap.ic_pay_success)
+                    binding.payStatusTitleIv.setImageResource(R.mipmap.ic_pay_success)
                 } else {
-                    pay_status_title_iv.setImageResource(R.mipmap.ic_pay_success_en)
+                    binding.payStatusTitleIv.setImageResource(R.mipmap.ic_pay_success_en)
                 }
-                pay_info_iv.setImageResource(R.mipmap.ic_pay_success_common)
+                binding.payInfoIv.setImageResource(R.mipmap.ic_pay_success_common)
             }
 
         }
@@ -199,7 +203,7 @@ class PayResultActivity : BaseMvpActivity<WebPayResultPresenter>(), WebPayResult
 
     override fun onError(errorResponse: ErrorResponse?) {
         super.onError(errorResponse)
-        container_ll.visibility = View.VISIBLE
+        binding.containerLl.visibility = View.VISIBLE
     }
 
 }

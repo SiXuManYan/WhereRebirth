@@ -42,8 +42,9 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.MobUtil
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.shuyu.gsyvideoplayer.GSYVideoManager
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityMallGoodDetailBinding
+import android.view.ViewGroup
 
 
 /**
@@ -51,6 +52,8 @@ import org.greenrobot.eventbus.EventBus
  * 商品详情
  */
 class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailView, SkuFragment.Callback {
+
+    private lateinit var binding: ActivityMallGoodDetailBinding
 
 
     private var goodId = 0
@@ -104,6 +107,7 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
     override fun getLayoutId() = R.layout.activity_mall_good_detail
 
     override fun initView() {
+        binding = ActivityMallGoodDetailBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         goodId = intent.getIntExtra(Constant.PARAM_ID, 0)
         skuDialog = SkuFragment().apply {
             callback = this@MallDetailActivity
@@ -126,27 +130,27 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
         mCommentAdapter = HotelCommentAdapter().apply {
             setEmptyView(emptyView)
         }
-        comment_rv.isNestedScrollingEnabled = true
-        comment_rv.layoutManager = object : LinearLayoutManager(this, VERTICAL, false) {
+        binding.commentRv.isNestedScrollingEnabled = true
+        binding.commentRv.layoutManager = object : LinearLayoutManager(this, VERTICAL, false) {
             override fun canScrollVertically(): Boolean = false
         }
-        comment_rv.adapter = mCommentAdapter
+        binding.commentRv.adapter = mCommentAdapter
     }
 
 
     private fun initMedia() {
-        point_view.apply {
+        binding.pointView.apply {
             selectedDrawableResId = R.drawable.shape_point_selected_377bff
             commonDrawableResId = R.drawable.shape_point_selected_d8d8d8
         }
         mMediaAdapter = DetailMediaAdapter()
 
-        PagerSnapHelper().attachToRecyclerView(media_rv)
-        media_rv.apply {
+        PagerSnapHelper().attachToRecyclerView(binding.mediaRv)
+        binding.mediaRv.apply {
             layoutManager = LinearLayoutManager(this@MallDetailActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = mMediaAdapter
         }
-        media_rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.mediaRv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             @SuppressLint("NotifyDataSetChanged")
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
 
@@ -166,12 +170,12 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
                     }
                 }
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    point_view.onPageSelected(firstItemPosition)
+                    binding.pointView.onPageSelected(firstItemPosition)
                 }
             }
         })
 
-        shopping_cart.apply {
+        binding.shoppingCart.apply {
             setMessageImageResource(R.mipmap.ic_shopping_cart)
             changeContainerSize(50f, 50f)
             changeMessageCountSize(14f, 14f)
@@ -191,21 +195,21 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
 
 
     override fun bindListener() {
-        share_iv.setOnClickListener {
+        binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_MALL, goodId)
             MobUtil.shareFacebookWebPage(url, this@MallDetailActivity)
         }
-        sku_rl.setOnClickListener {
+        binding.skuRl.setOnClickListener {
             dialogHandle = 0
             skuDialog.selectedSku = lastSelectedSku
             skuDialog.show(supportFragmentManager, skuDialog.tag)
 
 
         }
-        mall_shop_tv.setOnClickListener {
+        binding.mallShopTv.setOnClickListener {
             MallShopHomeActivity.navigation(this, shopId)
         }
-        like_iv.setOnClickListener {
+        binding.likeIv.setOnClickListener {
             if (collect_status == 0) {
                 presenter.collection(goodId)
             } else {
@@ -214,7 +218,7 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
 
         }
 
-        buy_after_tv.setOnClickListener {
+        binding.buyAfterTv.setOnClickListener {
             if (!User.isLogon()) {
                 startActivity(LoginActivity::class.java)
                 return@setOnClickListener
@@ -227,7 +231,7 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
             skuDialog.show(supportFragmentManager, skuDialog.tag)
         }
 
-        buy_now_tv.setOnClickListener {
+        binding.buyNowTv.setOnClickListener {
             if (!User.isLogon()) {
                 startActivity(LoginActivity::class.java)
                 return@setOnClickListener
@@ -240,11 +244,11 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
             skuDialog.show(supportFragmentManager, skuDialog.tag)
         }
 
-        shopping_cart.setOnClickListener {
+        binding.shoppingCart.setOnClickListener {
             startActivityAfterLogin(MallCartActivity::class.java)
         }
 
-        more_comment_tv.setOnClickListener {
+        binding.moreCommentTv.setOnClickListener {
             CommentComplexActivity.navigation(this, goodId, CommentComplexActivity.USE_TYPE_STORE)
         }
     }
@@ -284,14 +288,14 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
         }
 
         mMediaAdapter.setNewInstance(mediaList)
-        point_view.setPointCount(mediaList.size)
+        binding.pointView.setPointCount(mediaList.size)
 
         val nowPrice = response.price
         val originalPrice = response.original_cost
-        BusinessUtils.setNowPriceAndOldPrice(nowPrice, originalPrice, price_tv, original_price_tv)
+        BusinessUtils.setNowPriceAndOldPrice(nowPrice, originalPrice, binding.priceTv, binding.originalPriceTv)
 
 
-        title_tv.text = response.title
+        binding.titleTv.text = response.title
 
 
         response.desc?.let {
@@ -305,14 +309,14 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
         collect_status = response.collect_status
         setLikeImage()
         if (response.im_status == 1 && !TextUtils.isEmpty(response.mer_uuid)) {
-            mall_service_tv.setOnClickListener {
+            binding.mallServiceTv.setOnClickListener {
 
                 BusinessUtils.showImUnavailableDialog(this)
             }
         }
 
         // 评价
-        comment_count_tv.text = getString(R.string.comment_format, response.count)
+        binding.commentCountTv.text = getString(R.string.comment_format, response.count)
 
         val list = response.comments
         if (list.isNullOrEmpty()) {
@@ -321,7 +325,7 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
         mCommentAdapter.setNewInstance(list)
 
         // 预估配送费
-        estimated_shipping_tv.text = getString(R.string.price_unit_format, response.estimated_delivery_fee)
+        binding.estimatedShippingTv.text = getString(R.string.price_unit_format, response.estimated_delivery_fee)
     }
 
 
@@ -329,16 +333,16 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
 
         if (html.isNotBlank()) {
 
-            val imageGetter = ImageGetter2(this, resources, html_tv)
+            val imageGetter = ImageGetter2(this, resources, binding.htmlTv)
             val styledText = fromHtml(html, HtmlCompat.FROM_HTML_MODE_LEGACY, imageGetter, null)
-            html_tv.text = styledText
+            binding.htmlTv.text = styledText
 
             // 图片链接可点击
-            html_tv.movementMethod = LinkMovementMethod.getInstance()
+            binding.htmlTv.movementMethod = LinkMovementMethod.getInstance()
 
         } else {
-            html_tv.setText(R.string.no_content)
-            html_tv.gravity = Gravity.CENTER
+            binding.htmlTv.setText(R.string.no_content)
+            binding.htmlTv.gravity = Gravity.CENTER
         }
 
     }
@@ -366,7 +370,7 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
 
     private fun setLikeImage() {
 
-        like_iv.setImageResource(
+        binding.likeIv.setImageResource(
             if (collect_status == 0) {
                 R.mipmap.ic_like_normal_night
             } else {
@@ -389,7 +393,7 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
     }
 
     override fun bindCartCount(nums: Int) {
-        shopping_cart.setMessageCount(nums)
+        binding.shoppingCart.setMessageCount(nums)
     }
 
     override fun bindSkuProduct(product: Product, attributeList: ArrayList<MallAttribute>) {
@@ -421,7 +425,7 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
                 buff.append("$it, ")
             }
             buff.append(" " + getString(R.string.quantity_format, goodNumber))
-            select_attr_tv.text = buff
+            binding.selectAttrTv.text = buff
         }
 
         if (!User.isLogon()) {
@@ -439,8 +443,8 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
         when (baseEvent.code) {
             EventCode.EVENT_POSITION -> {
                 val position = baseEvent.data as Int
-                media_rv.scrollToPosition(position)
-                point_view.onPageSelected(position)
+                binding.mediaRv.scrollToPosition(position)
+                binding.pointView.onPageSelected(position)
             }
             else -> {}
         }

@@ -15,14 +15,17 @@ import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.refund.method.RefundMethodActivity
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityRefundComplexBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/5/10 15:44.
  * 美食、外卖、酒店、账单申请退款
  */
 class ComplexRefundActivity : BaseMvpActivity<ComplexRefundPresenter>(), ComplexRefundView {
+
+    private lateinit var binding: ActivityRefundComplexBinding
 
 
     /** 商品订单id */
@@ -80,6 +83,7 @@ class ComplexRefundActivity : BaseMvpActivity<ComplexRefundPresenter>(), Complex
 
 
     override fun initView() {
+        binding = ActivityRefundComplexBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initExtra()
     }
 
@@ -91,15 +95,15 @@ class ComplexRefundActivity : BaseMvpActivity<ComplexRefundPresenter>(), Complex
             val refundPrice = it.getString(Constant.PARAM_REFUND_PRICE, "")
             val totalPrice = it.getString(Constant.PARAM_TOTAL_PRICE, "")
 
-            refund_price_tv.text = StringUtils.getString(R.string.price_unit_format, refundPrice)
-            total_price_tv.text = StringUtils.getString(R.string.price_unit_format, totalPrice)
+            binding.refundPriceTv.text = StringUtils.getString(R.string.price_unit_format, refundPrice)
+            binding.totalPriceTv.text = StringUtils.getString(R.string.price_unit_format, totalPrice)
 
         }
 
         if (type == ComplexRefundPresenter.TYPE_TAKEAWAY) {
-            refund_method_ll.visibility = View.VISIBLE
+            binding.refundMethodLl.visibility = View.VISIBLE
         } else {
-            refund_method_ll.visibility = View.GONE
+            binding.refundMethodLl.visibility = View.GONE
         }
     }
 
@@ -109,11 +113,11 @@ class ComplexRefundActivity : BaseMvpActivity<ComplexRefundPresenter>(), Complex
 
     override fun bindListener() {
 
-        refund_method_tv.setOnClickListener {
+        binding.refundMethodTv.setOnClickListener {
             launcher.launch(Intent(this, RefundMethodActivity::class.java)
                 .putExtra(Constant.PARAM_HANDLE_SELECT, true))
         }
-        confirm_tv.setOnClickListener {
+        binding.confirmTv.setOnClickListener {
             if (remitId == 0 && type == ComplexRefundPresenter.TYPE_TAKEAWAY) {
                 ToastUtils.showShort(R.string.please_add_refund_methods)
                 return@setOnClickListener
@@ -126,10 +130,10 @@ class ComplexRefundActivity : BaseMvpActivity<ComplexRefundPresenter>(), Complex
     private fun loadRefundMethod(refundMethod: RefundMethod) {
         remitId = refundMethod.id
 
-        refund_name_tv.text = refundMethod.name
-        refund_user_name_tv.text = refundMethod.user_name
-        refund_account_tv.text = refundMethod.account
-        refund_method_info_ll.visibility = View.VISIBLE
+        binding.refundNameTv.text = refundMethod.name
+        binding.refundUserNameTv.text = refundMethod.user_name
+        binding.refundAccountTv.text = refundMethod.account
+        binding.refundMethodInfoLl.visibility = View.VISIBLE
     }
 
     override fun refundSuccess() {

@@ -15,14 +15,17 @@ import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityRefreshListBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/3/5 14:42.
  * 领券中心
  */
 class CouponCenterActivity : BaseMvpActivity<CouponCenterPresenter>(), CouponCenterView {
+
+    private lateinit var binding: ActivityRefreshListBinding
 
 
     private var page = Constant.DEFAULT_FIRST_PAGE
@@ -34,10 +37,11 @@ class CouponCenterActivity : BaseMvpActivity<CouponCenterPresenter>(), CouponCen
     override fun getLayoutId() = R.layout.activity_refresh_list
 
     override fun initView() {
+        binding = ActivityRefreshListBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         mJcsTitle.setMiddleTitle(getString(R.string.coupon_center))
 
-        swipe_layout.apply {
+        binding.swipeLayout.apply {
             setOnRefreshListener {
                 page = Constant.DEFAULT_FIRST_PAGE
                 loadData()
@@ -60,7 +64,7 @@ class CouponCenterActivity : BaseMvpActivity<CouponCenterPresenter>(), CouponCen
             setOnItemChildClickListener(this@CouponCenterActivity)
         }
 
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             addItemDecoration(DividerDecoration(Color.TRANSPARENT, SizeUtils.dp2px(15f), 0, 0))
         }
@@ -79,8 +83,8 @@ class CouponCenterActivity : BaseMvpActivity<CouponCenterPresenter>(), CouponCen
     override fun bindListener() = Unit
 
     override fun bindData(data: MutableList<Coupon>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
 
         val loadMoreModule = mAdapter.loadMoreModule

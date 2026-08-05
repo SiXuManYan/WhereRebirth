@@ -18,14 +18,16 @@ import com.jiechengsheng.city.features.feedback.record.FeedbackRecordActivity
 import com.jiechengsheng.city.features.search.SearchAllActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityFeedBackHomeBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/10/12 16:07.
  * 意见反馈首页（分类列表）
  */
 class FeedbackHomeActivity : BaseMvpActivity<FeedbackHomePresenter>(), FeedbackHomeView, OnItemClickListener {
+
+    private lateinit var binding: ActivityFeedBackHomeBinding
 
     private lateinit var mAdapter: CategoryQuestionAdapter
     private lateinit var emptyView: EmptyView
@@ -37,6 +39,7 @@ class FeedbackHomeActivity : BaseMvpActivity<FeedbackHomePresenter>(), FeedbackH
 
 
     override fun initView() {
+        binding = ActivityFeedBackHomeBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         initContent()
     }
@@ -54,7 +57,7 @@ class FeedbackHomeActivity : BaseMvpActivity<FeedbackHomePresenter>(), FeedbackH
 
         val gridLayoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         val decoration = DividerDecoration(ColorUtils.getColor(R.color.colorPrimary), 1, SizeUtils.dp2px(15f), 0)
-        recycler_view.apply {
+        binding.recyclerView.apply {
             adapter = mAdapter
             layoutManager = gridLayoutManager
             addItemDecoration(decoration)
@@ -67,23 +70,21 @@ class FeedbackHomeActivity : BaseMvpActivity<FeedbackHomePresenter>(), FeedbackH
     }
 
     override fun bindListener() {
-        record_tv.setOnClickListener {
+        binding.recordTv.setOnClickListener {
             startActivity(FeedbackRecordActivity::class.java)
         }
 
-        search_ll.setOnClickListener {
+        binding.searchLl.setOnClickListener {
             startActivity(SearchAllActivity::class.java, Bundle().apply {
                 putInt(Constant.PARAM_TYPE, 10)
             })
         }
-        bottom_rl.setOnClickListener {
+        binding.bottomRl.setOnClickListener {
             startActivity(FeedBackPostActivity::class.java)
         }
 
 
-    }
-
-    override fun onItemClick(adapter: BaseQuickAdapter<*, *>, view: View, position: Int) {
+    } override fun onItemClick(adapter: BaseQuickAdapter<*, *>, view: View, position: Int) {
 
         val item = mAdapter.data[position]
         QuestionActivity.navigation(this,item.id,item.name)

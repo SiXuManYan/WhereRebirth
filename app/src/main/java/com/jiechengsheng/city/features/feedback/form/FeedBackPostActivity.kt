@@ -12,14 +12,16 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.store.refund.StoreRefundAdapter
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
-import com.zhihu.matisse.Matisse
-import com.jiechengsheng.city.legacyviews.*
-
+import com.zhihu.matisse.Matisse
+import com.jiechengsheng.city.databinding.ActivityFeedbackPostBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/10/13 16:33.
  * 意见反馈表单
  */
 class FeedBackPostActivity : BaseMvpActivity<FeedBackPostPresenter>(), FeedBackPostView {
+
+    private lateinit var binding: ActivityFeedbackPostBinding
 
     private lateinit var mImageAdapter: StoreRefundAdapter
 
@@ -29,6 +31,7 @@ class FeedBackPostActivity : BaseMvpActivity<FeedBackPostPresenter>(), FeedBackP
     override fun getLayoutId() = R.layout.activity_feedback_post
 
     override fun initView() {
+        binding = ActivityFeedbackPostBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         initImage()
 
@@ -46,19 +49,19 @@ class FeedBackPostActivity : BaseMvpActivity<FeedBackPostPresenter>(), FeedBackP
             }
         }
 
-        image_rv.apply {
+        binding.imageRv.apply {
             adapter = mImageAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
 
-        content_et.addTextChangedListener (afterTextChanged = {
+        binding.contentEt.addTextChangedListener (afterTextChanged = {
             val trim = it.toString().trim()
             if (trim.isBlank()) {
-                commit_tv.isClickable = false
-                commit_tv.alpha = 0.5f
+                binding.commitTv.isClickable = false
+                binding.commitTv.alpha = 0.5f
             }else {
-                commit_tv.isClickable = true
-                commit_tv.alpha = 1.0f
+                binding.commitTv.isClickable = true
+                binding.commitTv.alpha = 1.0f
             }
 
         })
@@ -70,7 +73,7 @@ class FeedBackPostActivity : BaseMvpActivity<FeedBackPostPresenter>(), FeedBackP
     }
 
     override fun bindListener() {
-        select_iv.setOnClickListener {
+        binding.selectIv.setOnClickListener {
             val size = mImageAdapter.data.size
             if (size == 4) {
                 ToastUtils.showShort(R.string.up_to_4)
@@ -80,15 +83,15 @@ class FeedBackPostActivity : BaseMvpActivity<FeedBackPostPresenter>(), FeedBackP
             FeaturesUtil.handleMediaSelect(this, Constant.IMG, max)
         }
 
-        commit_tv.setOnClickListener {
+        binding.commitTv.setOnClickListener {
 
-            val content = content_et.text.toString().trim()
-            val phone = phone_et.text.toString().trim()
+            val content = binding.contentEt.text.toString().trim()
+            val phone = binding.phoneEt.text.toString().trim()
 
             if (content.isBlank()) {
                 return@setOnClickListener
             }
-            commit_tv.isClickable = false
+            binding.commitTv.isClickable = false
             if (mImageAdapter.data.isNotEmpty()) {
                 presenter.upLoadImage(content, phone, ArrayList(mImageAdapter.data))
                 return@setOnClickListener
@@ -117,7 +120,7 @@ class FeedBackPostActivity : BaseMvpActivity<FeedBackPostPresenter>(), FeedBackP
 
     override fun onError(errorResponse: ErrorResponse?) {
         super.onError(errorResponse)
-        commit_tv.isClickable = true
+        binding.commitTv.isClickable = true
     }
 
 

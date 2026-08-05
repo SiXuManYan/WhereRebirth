@@ -10,15 +10,16 @@ import com.blankj.utilcode.util.StringUtils
 import com.google.android.material.radiobutton.MaterialRadioButton
 import com.jiechengsheng.city.R
 import com.jiechengsheng.city.base.BaseActivity
-import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.legacyviews.*
-
-
+import com.jiechengsheng.city.utils.Constant
+import com.jiechengsheng.city.databinding.ActivityFoodCommentBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/5/27 16:10.
  * 美食评论
  */
 class FoodCommentActivity : BaseActivity() {
+
+    private lateinit var binding: ActivityFoodCommentBinding
 
     val TAB_TITLES =
             arrayOf(
@@ -35,20 +36,21 @@ class FoodCommentActivity : BaseActivity() {
     override fun isStatusDark(): Boolean = true
 
     override fun initView() {
+        binding = ActivityFoodCommentBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, ColorUtils.getColor(R.color.white))
 
         intent.getStringExtra(Constant.PARAM_ID)?.let {
             restaurantId = it
         }
-        pager.offscreenPageLimit = TAB_TITLES.size
-        pager.adapter = InnerPagerAdapter(supportFragmentManager, 0)
-        pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding.pager.offscreenPageLimit = TAB_TITLES.size
+        binding.pager.adapter = InnerPagerAdapter(supportFragmentManager, 0)
+        binding.pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
 
             override fun onPageScrollStateChanged(state: Int) = Unit
 
             override fun onPageSelected(position: Int) {
-                val rb = sort_rg.getChildAt(position) as MaterialRadioButton
+                val rb = binding.sortRg.getChildAt(position) as MaterialRadioButton
                 rb.isChecked = true
             }
 
@@ -60,19 +62,19 @@ class FoodCommentActivity : BaseActivity() {
     override fun initData() = Unit
 
     override fun bindListener() {
-        sort_rg.setOnCheckedChangeListener { group, checkedId ->
+        binding.sortRg.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.all_rb -> {
-                    pager.currentItem = 0
+                    binding.pager.currentItem = 0
                 }
                 R.id.picture_rb -> {
-                    pager.currentItem = 1
+                    binding.pager.currentItem = 1
                 }
                 R.id.bad_reviews_rb -> {
-                    pager.currentItem = 2
+                    binding.pager.currentItem = 2
                 }
                 R.id.high_option_rb -> {
-                    pager.currentItem = 3
+                    binding.pager.currentItem = 3
                 }
                 else -> {
                 }

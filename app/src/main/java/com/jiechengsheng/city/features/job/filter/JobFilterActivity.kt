@@ -13,14 +13,16 @@ import com.jiechengsheng.city.api.response.job.FilterItem
 import com.jiechengsheng.city.api.response.job.JobFilter
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.view.MyLayoutManager
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.view.MyLayoutManager
+import com.jiechengsheng.city.databinding.ActivityJobFilterBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/12/1 14:58.
  *  职位筛选
  */
 class JobFilterActivity : BaseMvpActivity<JobFilterPresenter>(), JobFilterView {
+
+    private lateinit var binding: ActivityJobFilterBinding
 
 
     /** 薪资类型 0不限 1月薪 2年薪 3时薪 */
@@ -70,6 +72,7 @@ class JobFilterActivity : BaseMvpActivity<JobFilterPresenter>(), JobFilterView {
     }
 
     override fun initView() {
+        binding = ActivityJobFilterBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initFilter()
     }
 
@@ -83,7 +86,7 @@ class JobFilterActivity : BaseMvpActivity<JobFilterPresenter>(), JobFilterView {
                 handleSalaryClick(position)
             }
         }
-        salary_rv.apply {
+        binding.salaryRv.apply {
             adapter = salaryAdapter
             layoutManager = MyLayoutManager()
             isNestedScrollingEnabled = true
@@ -95,7 +98,7 @@ class JobFilterActivity : BaseMvpActivity<JobFilterPresenter>(), JobFilterView {
                 presenter.handleMultipleChoice(position, areaAdapter, areas)
             }
         }
-        city_rv.apply {
+        binding.cityRv.apply {
             adapter = areaAdapter
             layoutManager = MyLayoutManager()
             isNestedScrollingEnabled = true
@@ -107,7 +110,7 @@ class JobFilterActivity : BaseMvpActivity<JobFilterPresenter>(), JobFilterView {
                 presenter.handleMultipleChoice(position, companyTypeAdapter, companyTypes)
             }
         }
-        type_rv.apply {
+        binding.typeRv.apply {
             adapter = companyTypeAdapter
             layoutManager = MyLayoutManager()
             isNestedScrollingEnabled = true
@@ -119,7 +122,7 @@ class JobFilterActivity : BaseMvpActivity<JobFilterPresenter>(), JobFilterView {
                 presenter.handleMultipleChoice(position, eduAdapter, eduLevel)
             }
         }
-        edu_level_rv.apply {
+        binding.eduLevelRv.apply {
             adapter = eduAdapter
             layoutManager = MyLayoutManager()
             isNestedScrollingEnabled = true
@@ -131,7 +134,7 @@ class JobFilterActivity : BaseMvpActivity<JobFilterPresenter>(), JobFilterView {
                 presenter.handleMultipleChoice(position, experienceAdapter, experienceLevel)
             }
         }
-        experience_rv.apply {
+        binding.experienceRv.apply {
             adapter = experienceAdapter
             layoutManager = MyLayoutManager()
             isNestedScrollingEnabled = true
@@ -154,13 +157,13 @@ class JobFilterActivity : BaseMvpActivity<JobFilterPresenter>(), JobFilterView {
 
     private fun handleSalaryValue(itemId: Int) {
         if (itemId == 0) {
-            presenter.setEditAble(min_salary_et, false)
-            presenter.setEditAble(max_salary_et, false)
+            presenter.setEditAble(binding.minSalaryEt, false)
+            presenter.setEditAble(binding.maxSalaryEt, false)
             minSalary = ""
             maxSalary = ""
         } else {
-            presenter.setEditAble(min_salary_et, true)
-            presenter.setEditAble(max_salary_et, true)
+            presenter.setEditAble(binding.minSalaryEt, true)
+            presenter.setEditAble(binding.maxSalaryEt, true)
         }
     }
 
@@ -190,12 +193,12 @@ class JobFilterActivity : BaseMvpActivity<JobFilterPresenter>(), JobFilterView {
             eduAdapter.setNewInstance(cache.eduData)
             experienceAdapter.setNewInstance(cache.experienceData)
 
-            min_salary_et.setText(minSalary)
-            max_salary_et.setText(maxSalary)
+            binding.minSalaryEt.setText(minSalary)
+            binding.maxSalaryEt.setText(maxSalary)
             handleSalaryValue(salaryType)
 
 
-            type_rv.post { companyTypeHeight = type_rv.measuredHeight }
+            binding.typeRv.post { companyTypeHeight = binding.typeRv.measuredHeight }
         }
 
     }
@@ -214,16 +217,16 @@ class JobFilterActivity : BaseMvpActivity<JobFilterPresenter>(), JobFilterView {
 
     override fun bindListener() {
 
-        min_salary_et.addTextChangedListener(afterTextChanged = {
+        binding.minSalaryEt.addTextChangedListener(afterTextChanged = {
             minSalary = it.toString().trim()
         })
 
-        max_salary_et.addTextChangedListener(afterTextChanged = {
+        binding.maxSalaryEt.addTextChangedListener(afterTextChanged = {
             maxSalary = it.toString().trim()
         })
 
-        more_company_type.setOnClickListener {
-            val layoutParams = type_rv.layoutParams as LinearLayout.LayoutParams
+        binding.moreCompanyType.setOnClickListener {
+            val layoutParams = binding.typeRv.layoutParams as LinearLayout.LayoutParams
             if (isUp) {
                 // 收起
                 isUp = false
@@ -231,17 +234,17 @@ class JobFilterActivity : BaseMvpActivity<JobFilterPresenter>(), JobFilterView {
                 if (companyTypeHeight > SizeUtils.dp2px(112f)) {
                     layoutParams.height = SizeUtils.dp2px(112f)
                 }
-                more_company_type.setText(R.string.down)
+                binding.moreCompanyType.setText(R.string.down)
             } else {
                 isUp = true
                 layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
-                more_company_type.setText(R.string.up)
+                binding.moreCompanyType.setText(R.string.up)
             }
-            type_rv.layoutParams = layoutParams
+            binding.typeRv.layoutParams = layoutParams
 
         }
 
-        reset_tv.setOnClickListener {
+        binding.resetTv.setOnClickListener {
             handleSalaryClick(0)
             areas.clear()
             companyTypes.clear()
@@ -256,7 +259,7 @@ class JobFilterActivity : BaseMvpActivity<JobFilterPresenter>(), JobFilterView {
             setFilterData()
         }
 
-        confirm_tv.setOnClickListener {
+        binding.confirmTv.setOnClickListener {
             setFilterData()
             finish()
         }
@@ -287,12 +290,12 @@ class JobFilterActivity : BaseMvpActivity<JobFilterPresenter>(), JobFilterView {
 
     private fun setSingle() {
 
-        type_rv.post {
-            companyTypeHeight = type_rv.measuredHeight
+        binding.typeRv.post {
+            companyTypeHeight = binding.typeRv.measuredHeight
             if (companyTypeHeight > SizeUtils.dp2px(112f)) {
-                val layoutParams = type_rv.layoutParams as LinearLayout.LayoutParams
+                val layoutParams = binding.typeRv.layoutParams as LinearLayout.LayoutParams
                 layoutParams.height = SizeUtils.dp2px(112f)
-                type_rv.layoutParams = layoutParams
+                binding.typeRv.layoutParams = layoutParams
             }
         }
 

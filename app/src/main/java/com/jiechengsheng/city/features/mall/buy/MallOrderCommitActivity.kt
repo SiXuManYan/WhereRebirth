@@ -22,43 +22,45 @@ import com.jiechengsheng.city.features.mall.buy.coupon.OrderCouponHomeFragment
 import com.jiechengsheng.city.features.payment.counter.PayCounterActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivityMallOrderCommitBinding
 
 /**
  * Created by Wangsw  2021/12/15 13:56.
- * 商城下单
+ * 鍟嗗煄涓嬪崟
  */
 class MallOrderCommitActivity : BaseMvpActivity<MallOrderCommitPresenter>(), MallOrderCommitView {
+
+    private lateinit var binding: ActivityMallOrderCommitBinding
 
 
     private var totalPrice: BigDecimal = BigDecimal.ZERO
 
     private var data: ArrayList<MallCartGroup> = ArrayList()
 
-    /** 收货地址 */
+    /** 鏀惰揣鍦板潃 */
     var mSelectAddressData: AddressResponse? = null
 
-    /** 总配送费 */
+    /** 鎬婚厤閫佽垂 */
     var mTotalServiceDeliveryFee: BigDecimal? = BigDecimal.ZERO
 
-    /** 平台优惠券总金额 */
+    /** 骞冲彴浼樻儬鍒告€婚噾棰?*/
     private var mPlatformCouponTotalMoney: BigDecimal = BigDecimal.ZERO
 
-    /** 店铺优惠券总金额 */
+    /** 搴楅摵浼樻儬鍒告€婚噾棰?*/
     private var mShopCouponTotalMoney: BigDecimal = BigDecimal.ZERO
 
     /**
-     * 当前平台优惠券id
-     * 包含以下来源
-     *      1.进入页面，请求到默认优惠券
-     *      2.从当前页弹窗选择优惠券
-     *  值：
-     *  0：未选择或没有匹配到优惠券
+     * 褰撳墠骞冲彴浼樻儬鍒竔d
+     * 鍖呭惈浠ヤ笅鏉ユ簮
+     *      1.杩涘叆椤甸潰锛岃姹傚埌榛樿浼樻儬鍒?
+     *      2.浠庡綋鍓嶉〉寮圭獥閫夋嫨浼樻儬鍒?
+     *  鍊硷細
+     *  0锛氭湭閫夋嫨鎴栨病鏈夊尮閰嶅埌浼樻儬鍒?
      */
     private var currentPlatformCouponId = 0
 
-    /** 当前进行更改店铺券的 店铺id */
+    /** 褰撳墠杩涜鏇存敼搴楅摵鍒哥殑 搴楅摵id */
     private var currentHandleShopId = 0
 
 
@@ -71,6 +73,7 @@ class MallOrderCommitActivity : BaseMvpActivity<MallOrderCommitPresenter>(), Mal
     override fun getLayoutId() = R.layout.activity_mall_order_commit
 
     override fun initView() {
+        binding = ActivityMallOrderCommitBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         val bundle = intent.extras
         bundle?.let {
             data = it.getSerializable(Constant.PARAM_DATA) as ArrayList<MallCartGroup>
@@ -89,7 +92,7 @@ class MallOrderCommitActivity : BaseMvpActivity<MallOrderCommitPresenter>(), Mal
 
                 if (view.id == R.id.select_shop_coupon_rl) {
 
-                    // 选择店铺优惠券 需要额外传 shop_goods shop_id
+                    // 閫夋嫨搴楅摵浼樻儬鍒?闇€瑕侀澶栦紶 shop_goods shop_id
                     mSelectedCouponDialog.apply {
 
                         alreadySelectedCouponId = mallCartGroup.nativeShopCouponId
@@ -111,7 +114,7 @@ class MallOrderCommitActivity : BaseMvpActivity<MallOrderCommitPresenter>(), Mal
             }
 
         }
-        content_rv.apply {
+        binding.contentRv.apply {
             adapter = mAdapter
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.white), SizeUtils.dp2px(10f), 0, 0))
         }
@@ -120,22 +123,22 @@ class MallOrderCommitActivity : BaseMvpActivity<MallOrderCommitPresenter>(), Mal
 
     }
 
-    /** 处理选择地址 */
+    /** 澶勭悊閫夋嫨鍦板潃 */
     private val searchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == Activity.RESULT_OK) {
             val bundle = it.data?.extras ?: return@registerForActivityResult
 
             val selectData = bundle.getSerializable(Constant.PARAM_DATA) as AddressResponse
             mSelectAddressData = selectData
-            select_address_tv.text = selectData.address
-            address_value_ll.visibility = ViewGroup.VISIBLE
+            binding.selectAddressTv.text = selectData.address
+            binding.addressValueLl.visibility = ViewGroup.VISIBLE
             val sex = if (selectData.sex == 1) {
                 getString(R.string.sir)
             } else {
                 getString(R.string.lady)
             }
-            address_name_tv.text = getString(R.string.recipient_format, selectData.contact_name, sex, selectData.contact_number)
-            phone_tv.text = selectData.contact_number
+            binding.addressNameTv.text = getString(R.string.recipient_format, selectData.contact_name, sex, selectData.contact_number)
+            binding.phoneTv.text = selectData.contact_number
 
             presenter.getDelivery(mAdapter, selectData.city_id)
 
@@ -153,48 +156,48 @@ class MallOrderCommitActivity : BaseMvpActivity<MallOrderCommitPresenter>(), Mal
 
     private fun handleTotalPrice() {
 
-        // 最终支付价格
+        // 鏈€缁堟敮浠樹环鏍?
         totalPrice = presenter.handlePrice(mAdapter, mTotalServiceDeliveryFee, mPlatformCouponTotalMoney, mShopCouponTotalMoney)
 
 
-        // 支付价格
-        total_price_tv.text = getString(R.string.price_unit_format, totalPrice.toPlainString())
+        // 鏀粯浠锋牸
+        binding.totalPriceTv.text = getString(R.string.price_unit_format, totalPrice.toPlainString())
 
-        // ## 价格明细 ##
-        // 商品价格
+        // ## 浠锋牸鏄庣粏 ##
+        // 鍟嗗搧浠锋牸
         val oldPrice = presenter.getAllGoodPrice(mAdapter)
-        total_price_old_tv.text = getString(R.string.price_unit_format, oldPrice.toPlainString())
+        binding.totalPriceOldTv.text = getString(R.string.price_unit_format, oldPrice.toPlainString())
 
-        // 总运费
+        // 鎬昏繍璐?
         val totalDeliveryFee = presenter.getTotalDeliveryFee(mAdapter)
-        total_delivery_fee_tv.text = getString(R.string.price_unit_format, totalDeliveryFee.toPlainString())
+        binding.totalDeliveryFeeTv.text = getString(R.string.price_unit_format, totalDeliveryFee.toPlainString())
 
-        // 商家优惠券金额
-        shop_offers_tv.text = getString(R.string.price_unit_format, mShopCouponTotalMoney.toPlainString())
+        // 鍟嗗浼樻儬鍒搁噾棰?
+        binding.shopOffersTv.text = getString(R.string.price_unit_format, mShopCouponTotalMoney.toPlainString())
 
-        // 平台优惠券金额
+        // 骞冲彴浼樻儬鍒搁噾棰?
         if (mPlatformCouponTotalMoney == BigDecimal.ZERO) {
-            coupon_tv.text = ""
+            binding.couponTv.text = ""
         } else {
-            coupon_tv.text = getString(R.string.price_unit_format, mPlatformCouponTotalMoney.toPlainString())
+            binding.couponTv.text = getString(R.string.price_unit_format, mPlatformCouponTotalMoney.toPlainString())
         }
-        // 合计
-        total_price_copy_tv.text = getString(R.string.price_unit_format, totalPrice.toPlainString())
+        // 鍚堣
+        binding.totalPriceCopyTv.text = getString(R.string.price_unit_format, totalPrice.toPlainString())
     }
 
     override fun bindListener() {
-        address_ll.setOnClickListener {
+        binding.addressLl.setOnClickListener {
             searchLauncher.launch(Intent(this, AddressActivity::class.java)
                 .putExtra(Constant.PARAM_HANDLE_SELECT, true))
         }
-        submit_tv.setOnClickListener {
+        binding.submitTv.setOnClickListener {
             if (mSelectAddressData == null) {
                 ToastUtils.showShort(R.string.address_edit_hint)
                 return@setOnClickListener
             }
             presenter.orderCommit(data, mSelectAddressData?.id, currentPlatformCouponId)
         }
-        selected_coupon.setOnClickListener {
+        binding.selectedCoupon.setOnClickListener {
             mSelectedCouponDialog.apply {
                 shopGoodsJson = null
                 shopId = null
@@ -203,9 +206,9 @@ class MallOrderCommitActivity : BaseMvpActivity<MallOrderCommitPresenter>(), Mal
                 alreadySelectedCouponId = currentPlatformCouponId
             }
             mSelectedCouponDialog.show(supportFragmentManager, mSelectedCouponDialog.tag)
-            selected_coupon.isClickable = false
+            binding.selectedCoupon.isClickable = false
             Handler(mainLooper).postDelayed({
-                selected_coupon.isClickable = true
+                binding.selectedCoupon.isClickable = true
             }, 1000)
         }
     }
@@ -249,11 +252,11 @@ class MallOrderCommitActivity : BaseMvpActivity<MallOrderCommitPresenter>(), Mal
             }
             EventCode.EVENT_SELECTED_SHOP_COUPON -> {
                 val selectedShopCouponId = baseEvent.data as Int
-                // 更换店铺优惠券后，将平台券置空
+                // 鏇存崲搴楅摵浼樻儬鍒稿悗锛屽皢骞冲彴鍒哥疆绌?
                 currentPlatformCouponId = 0
-                // 更新店铺item中的 nativeShopCouponId
+                // 鏇存柊搴楅摵item涓殑 nativeShopCouponId
                 presenter.updateItemShopCouponId(mAdapter, currentHandleShopId, selectedShopCouponId)
-                // 获取默认优惠券
+                // 鑾峰彇榛樿浼樻儬鍒?
                 presenter.getDefaultCoupon(mAdapter, data, currentPlatformCouponId)
             }
 

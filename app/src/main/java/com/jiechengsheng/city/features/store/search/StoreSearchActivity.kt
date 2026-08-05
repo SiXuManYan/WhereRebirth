@@ -16,14 +16,16 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.store.detail.StoreDetailActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivitySearchStoreBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/6/4 15:58.
  * 商城搜索
  */
 class StoreSearchActivity : BaseMvpActivity<StoreSearchPresenter>(), StoreSearchView, OnLoadMoreListener, OnItemChildClickListener {
+
+    private lateinit var binding: ActivitySearchStoreBinding
 
     lateinit var mAdapter: StoreSearchAdapter
 
@@ -37,10 +39,11 @@ class StoreSearchActivity : BaseMvpActivity<StoreSearchPresenter>(), StoreSearch
     override fun isStatusDark() = true
 
     override fun initView() {
+        binding = ActivitySearchStoreBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         intent.getStringExtra(Constant.PARAM_NAME)?.let {
             title = it
-            search_aet.setText(it)
+            binding.searchAet.setText(it)
         }
         emptyView = EmptyView(this).apply {
             showEmptyDefault()
@@ -59,7 +62,7 @@ class StoreSearchActivity : BaseMvpActivity<StoreSearchPresenter>(), StoreSearch
 
         }
 
-        recycler_view.apply {
+        binding.recyclerView.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.colorPrimary),
@@ -75,8 +78,8 @@ class StoreSearchActivity : BaseMvpActivity<StoreSearchPresenter>(), StoreSearch
     }
 
     override fun bindListener() {
-        back_iv.setOnClickListener { finish() }
-        search_aet.setOnClickListener { finish() }
+        binding.backIv.setOnClickListener { finish() }
+        binding.searchAet.setOnClickListener { finish() }
     }
 
     override fun bindData(data: MutableList<StoreRecommend>, lastPage: Boolean) {

@@ -316,7 +316,7 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
-    <include layout="@layout/layout_store_good_detail_cart" />
+    <include layout="@layout/layout_store_good_detail_cart"  android:id="@+id/store_cart"/>
 
 </RelativeLayout>
 

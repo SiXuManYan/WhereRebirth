@@ -4,8 +4,8 @@ import android.view.View
 import com.jiechengsheng.city.R
 import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.BaseFragment
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.FragmentFilterMoreBinding
 
 /**
  * Created by Wangsw  2021/6/10 14:41.
@@ -13,38 +13,50 @@ import org.greenrobot.eventbus.EventBus
  */
 class ScreenFilterFragment : BaseFragment() {
 
+    private var _binding: FragmentFilterMoreBinding? = null
+    private val binding get() = _binding!!
+
     override fun getLayoutId() = R.layout.fragment_filter_more
 
     private lateinit var moreFilter: ScreenMoreFilter
 
-    override fun initView(view: View) = Unit
+    override fun initView(view: View) {
+        _binding = FragmentFilterMoreBinding.bind(requireNotNull(view))
+    }
 
     override fun initData() {
         moreFilter = ScreenMoreFilter()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun bindListener() {
 
-        business_service_rg.setOnCheckedChangeListener { group, checkedId ->
+        binding.businessServiceRg.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.self_rb -> moreFilter.delivery_type = 1
                 R.id.express_rb -> moreFilter.delivery_type = 2
             }
         }
 
-        sort_rg.setOnCheckedChangeListener { group, checkedId ->
+        binding.sortRg.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.distance_rb -> moreFilter.sort_type = 1
                 R.id.favourable_rb -> moreFilter.sort_type = 2
             }
         }
 
-        reset_tv.setOnClickListener {
+        binding.resetTv.setOnClickListener {
             moreFilter.delivery_type = null
             moreFilter.sort_type = null
         }
 
-        confirm_tv.setOnClickListener {
+        binding.confirmTv.setOnClickListener {
             EventBus.getDefault().post(BaseEvent(moreFilter))
         }
 

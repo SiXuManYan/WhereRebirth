@@ -21,14 +21,17 @@ import com.zhihu.matisse.Matisse
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import com.jiechengsheng.city.legacyviews.*
-import top.zibin.luban.Luban
+import top.zibin.luban.Luban
+import com.jiechengsheng.city.databinding.ActivityComplaintBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/3/29 14:45.
  * 申诉
  */
 class ComplaintActivity : BaseMvpActivity<ComplaintPresenter>(), ComplaintView, OnItemChildClickListener {
+
+    private lateinit var binding: ActivityComplaintBinding
 
 
     /** 商品订单id */
@@ -44,6 +47,7 @@ class ComplaintActivity : BaseMvpActivity<ComplaintPresenter>(), ComplaintView, 
     override fun getLayoutId() = R.layout.activity_complaint
 
     override fun initView() {
+        binding = ActivityComplaintBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initExtra()
         initContent()
     }
@@ -66,7 +70,7 @@ class ComplaintActivity : BaseMvpActivity<ComplaintPresenter>(), ComplaintView, 
             setOnItemChildClickListener(this@ComplaintActivity)
         }
 
-        image_rv.apply {
+        binding.imageRv.apply {
             isNestedScrollingEnabled = true
             adapter = mImageAdapter
             layoutManager = GridLayoutManager(context, 4, GridLayoutManager.VERTICAL, false)
@@ -147,8 +151,8 @@ class ComplaintActivity : BaseMvpActivity<ComplaintPresenter>(), ComplaintView, 
 
 
     override fun bindListener() {
-        commit_tv.setOnClickListener {
-            val desc = desc_et.text.toString().trim()
+        binding.commitTv.setOnClickListener {
+            val desc = binding.descEt.text.toString().trim()
             if (desc.isEmpty()) {
                 ToastUtils.showShort(R.string.refund_reason_input_hint)
                 return@setOnClickListener

@@ -19,14 +19,16 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.address.edit.AddressEditActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityAddressBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/3/22 10:33.
  * 收货地址
  */
 class AddressActivity : BaseMvpActivity<AddressPresenter>(), AddressView, OnItemChildClickListener, OnItemClickListener {
+
+    private lateinit var binding: ActivityAddressBinding
 
     var handleItemClick = false
 
@@ -36,6 +38,7 @@ class AddressActivity : BaseMvpActivity<AddressPresenter>(), AddressView, OnItem
     override fun getLayoutId() = R.layout.activity_address
 
     override fun initView() {
+        binding = ActivityAddressBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         handleItemClick = intent.getBooleanExtra(Constant.PARAM_HANDLE_SELECT, false)
 
@@ -54,8 +57,8 @@ class AddressActivity : BaseMvpActivity<AddressPresenter>(), AddressView, OnItem
         }
 
 
-        recycler_view.adapter = mAdapter
-        recycler_view.addItemDecoration(itemDecoration)
+        binding.recyclerView.adapter = mAdapter
+        binding.recyclerView.addItemDecoration(itemDecoration)
     }
 
     override fun isStatusDark(): Boolean {
@@ -75,7 +78,7 @@ class AddressActivity : BaseMvpActivity<AddressPresenter>(), AddressView, OnItem
     }
 
     override fun bindListener() {
-        add_tv.setOnClickListener {
+        binding.addTv.setOnClickListener {
             startActivity(AddressEditActivity::class.java)
         }
     }

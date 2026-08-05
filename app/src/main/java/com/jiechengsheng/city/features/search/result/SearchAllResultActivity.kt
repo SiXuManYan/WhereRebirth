@@ -17,14 +17,16 @@ import com.jiechengsheng.city.features.mechanism.MechanismActivity
 import com.jiechengsheng.city.features.travel.detail.TravelDetailActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
+import com.jiechengsheng.city.databinding.ActivitySearchAllResultBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/8/23 15:15.
  * 搜索结果页
  */
 class SearchAllResultActivity : BaseMvpActivity<SearchAllResultPresenter>(), SearchAllResultView, OnItemClickListener {
+
+    private lateinit var binding: ActivitySearchAllResultBinding
 
     var name = ""
 
@@ -36,6 +38,7 @@ class SearchAllResultActivity : BaseMvpActivity<SearchAllResultPresenter>(), Sea
     override fun isStatusDark() = true
 
     override fun initView() {
+        binding = ActivitySearchAllResultBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, ColorUtils.getColor(R.color.white))
         val bundle = intent.extras
         if (bundle == null) {
@@ -44,7 +47,7 @@ class SearchAllResultActivity : BaseMvpActivity<SearchAllResultPresenter>(), Sea
         }
         name = bundle.getString(Constant.PARAM_NAME, "")
 
-        search_aet.setText(name)
+        binding.searchAet.setText(name)
 
         initList()
     }
@@ -69,7 +72,7 @@ class SearchAllResultActivity : BaseMvpActivity<SearchAllResultPresenter>(), Sea
         }
 
 
-        recycler.adapter = mAdapter
+        binding.recycler.adapter = mAdapter
     }
 
     override fun initData() {

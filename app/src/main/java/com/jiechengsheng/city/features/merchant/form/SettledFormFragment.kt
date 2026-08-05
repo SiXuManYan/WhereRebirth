@@ -20,14 +20,17 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
 import com.jiechengsheng.city.utils.RequestResultCode
 import com.zhihu.matisse.Matisse
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.FragmentFormSettledBinding
 
 /**
  * Created by Wangsw  2021/11/19 15:43.
  * 商家入住表单
  */
 class SettledFormFragment : BaseMvpFragment<SettledFormPresenter>(), SettledFormView {
+
+    private var _binding: FragmentFormSettledBinding? = null
+    private val binding get() = _binding!!
 
 
     private var merTypeId = 0
@@ -49,12 +52,12 @@ class SettledFormFragment : BaseMvpFragment<SettledFormPresenter>(), SettledForm
         val bundle = it.data?.extras ?: return@registerForActivityResult
         when (it.resultCode) {
             Activity.RESULT_OK -> {
-                area_tv.text = bundle.getString(Constant.PARAM_SELECT_AREA_NAME)
+                binding.areaTv.text = bundle.getString(Constant.PARAM_SELECT_AREA_NAME)
                 val area = bundle.getString(Constant.PARAM_SELECT_AREA_ID, "0")
                 areaId = area.toInt()
             }
             RequestResultCode.RESULT_SETTLED_TYPE_TO_MERCHANT_SETTLED -> {
-                mer_type_tv.text = bundle.getString("typeName", "")
+                binding.merTypeTv.text = bundle.getString("typeName", "")
                 merTypeId = bundle.getInt("typeId", 0)
             }
         }
@@ -62,6 +65,7 @@ class SettledFormFragment : BaseMvpFragment<SettledFormPresenter>(), SettledForm
     }
 
     override fun initView(view: View) {
+        _binding = FragmentFormSettledBinding.bind(requireNotNull(view))
 
         mImageAdapter = StoreRefundAdapter().apply {
             addChildClickViewIds(R.id.delete_iv)
@@ -72,7 +76,7 @@ class SettledFormFragment : BaseMvpFragment<SettledFormPresenter>(), SettledForm
             }
         }
 
-        image_rv.apply {
+        binding.imageRv.apply {
             adapter = mImageAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
@@ -82,8 +86,15 @@ class SettledFormFragment : BaseMvpFragment<SettledFormPresenter>(), SettledForm
         presenter = SettledFormPresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun bindListener() {
-        select_iv.setOnClickListener {
+        binding.selectIv.setOnClickListener {
             val size = mImageAdapter.data.size
             if (size == 2) {
                 ToastUtils.showShort(R.string.refund_image_max_2)
@@ -93,14 +104,14 @@ class SettledFormFragment : BaseMvpFragment<SettledFormPresenter>(), SettledForm
             FeaturesUtil.handleMediaSelect4Fragment(this, Constant.IMG, max)
         }
 
-        area_tv.setOnClickListener {
+        binding.areaTv.setOnClickListener {
             launcher.launch(Intent(requireContext(), CityPickerActivity::class.java))
         }
-        mer_type_tv.setOnClickListener {
+        binding.merTypeTv.setOnClickListener {
             launcher.launch(Intent(requireContext(), SettledTypeActivity::class.java))
         }
 
-        physical_store_rg.setOnCheckedChangeListener { group, checkedId ->
+        binding.physicalStoreRg.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.yes_rb -> {
                     hasPhysicalStore = 1
@@ -117,17 +128,17 @@ class SettledFormFragment : BaseMvpFragment<SettledFormPresenter>(), SettledForm
         }
 
 
-        commit_tv.setOnClickListener {
+        binding.commitTv.setOnClickListener {
 
             val apply = MerchantSettledPost().apply {
-                first_name = first_name_et.text.toString()
-                middle_name = middle_name_et.text.toString()
-                last_name = last_name_et.text.toString()
-                contact_number = contact_number_et.text.toString()
-                email = email_et.text.toString()
-                mer_name = mer_name_et.text.toString().trim()
-                mer_address = mer_address_et.text.toString()
-                mer_tel = mer_tel_et.text.toString()
+                first_name = binding.firstNameEt.text.toString()
+                middle_name = binding.middleNameEt.text.toString()
+                last_name = binding.lastNameEt.text.toString()
+                contact_number = binding.contactNumberEt.text.toString()
+                email = binding.emailEt.text.toString()
+                mer_name = binding.merNameEt.text.toString().trim()
+                mer_address = binding.merAddressEt.text.toString()
+                mer_tel = binding.merTelEt.text.toString()
 
                 mer_type_id = merTypeId
                 area_id = areaId
@@ -152,8 +163,8 @@ class SettledFormFragment : BaseMvpFragment<SettledFormPresenter>(), SettledForm
                 ToastUtils.showShort(getString(R.string.please_upload))
                 return@setOnClickListener
             }
-            commit_tv.isClickable = false
-            commit_tv.postDelayed(Runnable { commit_tv.isClickable = true }, 2000)
+            binding.commitTv.isClickable = false
+            binding.commitTv.postDelayed(Runnable { binding.commitTv.isClickable = true }, 2000)
             presenter.upLoadImage(apply, ArrayList(mImageAdapter.data), isReCommit, reCommitMerchantId)
         }
 
@@ -174,7 +185,7 @@ class SettledFormFragment : BaseMvpFragment<SettledFormPresenter>(), SettledForm
     }
 
     override fun postResult(result: Boolean) {
-        commit_tv.isClickable = true
+        binding.commitTv.isClickable = true
         EventBus.getDefault().post(BaseEvent<Boolean>(EventCode.EVENT_MERCHANT_POST_SUCCESS))
         clearCache()
     }
@@ -191,14 +202,14 @@ class SettledFormFragment : BaseMvpFragment<SettledFormPresenter>(), SettledForm
                 isReCommit = true
                 response.apply {
                     reCommitMerchantId = id
-                    first_name_et.setText(first_name)
-                    middle_name_et.setText(middle_name)
-                    last_name_et.setText(last_name)
-                    contact_number_et.setText(contact_number)
-                    email_et.setText(email)
-                    mer_name_et.setText(mer_name)
-                    mer_address_et.setText(mer_address)
-                    mer_tel_et.setText(mer_tel)
+                    binding.firstNameEt.setText(first_name)
+                    binding.middleNameEt.setText(middle_name)
+                    binding.lastNameEt.setText(last_name)
+                    binding.contactNumberEt.setText(contact_number)
+                    binding.emailEt.setText(email)
+                    binding.merNameEt.setText(mer_name)
+                    binding.merAddressEt.setText(mer_address)
+                    binding.merTelEt.setText(mer_tel)
                 }
             }
             else -> {
@@ -208,17 +219,17 @@ class SettledFormFragment : BaseMvpFragment<SettledFormPresenter>(), SettledForm
     }
 
     private fun clearCache() {
-        for (index in 0 until container_ll.childCount) {
+        for (index in 0 until binding.containerLl.childCount) {
 
-            val childView = container_ll.getChildAt(index)
+            val childView = binding.containerLl.getChildAt(index)
             if (childView is AppCompatEditText) {
                 childView.setText("")
             }
         }
-        mer_type_tv.text = ""
-        area_tv.text = ""
-        yes_rb.isChecked = false
-        no_rb.isChecked = false
+        binding.merTypeTv.text = ""
+        binding.areaTv.text = ""
+        binding.yesRb.isChecked = false
+        binding.noRb.isChecked = false
         merTypeId = 0
         areaId = 0
         hasPhysicalStore = 0

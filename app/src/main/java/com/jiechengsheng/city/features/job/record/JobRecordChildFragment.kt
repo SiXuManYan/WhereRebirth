@@ -16,14 +16,16 @@ import com.jiechengsheng.city.features.job.home.JobHomeView
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentRefreshListBinding
 /**
  * Created by Wangsw  2022/12/16 15:49.
  * 投递列表、面试列表
  */
 class JobRecordChildFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView, SwipeRefreshLayout.OnRefreshListener {
+
+    private var _binding: FragmentRefreshListBinding? = null
+    private val binding get() = _binding!!
 
     /** 0 默认列表 1 面试列表 */
     var type = 0
@@ -34,6 +36,7 @@ class JobRecordChildFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView,
     override fun getLayoutId() = R.layout.fragment_refresh_list
 
     override fun initView(view: View?) {
+        _binding = FragmentRefreshListBinding.bind(requireNotNull(view))
         arguments?.let {
             type = it.getInt(Constant.PARAM_TYPE, 0)
         }
@@ -42,9 +45,9 @@ class JobRecordChildFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView,
     }
 
     private fun initContent() {
-        swipe_layout.setOnRefreshListener(this)
-        swipe_layout.setColorSchemeColors(ColorUtils.getColor(R.color.color_1c1380))
-        swipe_layout.setBackgroundColor(ColorUtils.getColor(R.color.grey_F5F5F5))
+        binding.swipeLayout.setOnRefreshListener(this)
+        binding.swipeLayout.setColorSchemeColors(ColorUtils.getColor(R.color.color_1c1380))
+        binding.swipeLayout.setBackgroundColor(ColorUtils.getColor(R.color.grey_F5F5F5))
         emptyView = EmptyView(requireContext()).apply {
            setEmptyImage(R.mipmap.ic_empty_job_applied)
             if (type == 0) {
@@ -69,7 +72,7 @@ class JobRecordChildFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView,
 
 
         val manager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             layoutManager = manager
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.grey_F5F5F5), SizeUtils.dp2px(4f), 0, 0))
@@ -80,6 +83,13 @@ class JobRecordChildFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView,
     override fun initData() {
         presenter = JobHomePresenter(this)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
 
     override fun loadOnVisible() = onRefresh()
 
@@ -94,8 +104,8 @@ class JobRecordChildFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView,
     }
 
     override fun bindAppliedOrInterviews(toMutableList: MutableList<Job>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
         val loadMoreModule = mAdapter.loadMoreModule
         if (toMutableList.isEmpty()) {

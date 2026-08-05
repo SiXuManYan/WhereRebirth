@@ -14,14 +14,17 @@ import com.jiechengsheng.city.features.account.login.LoginActivity
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.verify.VerificationCodeView
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityVerifyByCode4RefundBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/4/26 14:46.
  * 短信验证后， 直接绑定绑定退款方式
  */
 class RefundBindVerifyActivity : BaseMvpActivity<RefundBindVerifyPresenter>(), RefundBindVerifyView {
+
+    private lateinit var binding: ActivityVerifyByCode4RefundBinding
 
     /** 渠道名 */
     private var channelName = ""
@@ -74,8 +77,9 @@ class RefundBindVerifyActivity : BaseMvpActivity<RefundBindVerifyPresenter>(), R
     override fun getLayoutId() = R.layout.activity_verify_by_code_4_refund
 
     override fun initView() {
+        binding = ActivityVerifyByCode4RefundBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initExtra()
-        captcha_view.onCodeFinishListener = object : VerificationCodeView.OnCodeFinishListener {
+        binding.captchaView.onCodeFinishListener = object : VerificationCodeView.OnCodeFinishListener {
             override fun onTextChange(view: View?, content: String) = Unit
 
             override fun onComplete(view: View?, content: String) {
@@ -98,12 +102,12 @@ class RefundBindVerifyActivity : BaseMvpActivity<RefundBindVerifyPresenter>(), R
 
     override fun initData() {
         presenter = RefundBindVerifyPresenter(this)
-        presenter.getVerifyCode(resend_tv, target_tv)
+        presenter.getVerifyCode(binding.resendTv, binding.targetTv)
     }
 
 
     override fun bindListener() {
-        confirm_tv.setOnClickListener {
+        binding.confirmTv.setOnClickListener {
             if (verifyCode.isBlank()) {
                 ToastUtils.showShort(R.string.verify_code_hint)
                 return@setOnClickListener

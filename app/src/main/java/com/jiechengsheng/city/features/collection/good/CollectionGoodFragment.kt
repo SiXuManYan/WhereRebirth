@@ -15,14 +15,16 @@ import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.features.mall.detail.MallDetailActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentRefreshListBinding
 /**
  * Created by Wangsw  2021/12/28 10:58.
  * 商品收藏
  */
 class CollectionGoodFragment : BaseMvpFragment<CollectionGoodPresenter>(), CollectionGoodView, OnItemClickListener {
+
+    private var _binding: FragmentRefreshListBinding? = null
+    private val binding get() = _binding!!
 
     private var page = Constant.DEFAULT_FIRST_PAGE
     private lateinit var mAdapter: CollectionGoodAdapter
@@ -32,7 +34,8 @@ class CollectionGoodFragment : BaseMvpFragment<CollectionGoodPresenter>(), Colle
     override fun getLayoutId() = R.layout.fragment_refresh_list
 
     override fun initView(view: View) {
-        swipe_layout.apply {
+        _binding = FragmentRefreshListBinding.bind(requireNotNull(view))
+        binding.swipeLayout.apply {
             setBackgroundColor(Color.WHITE)
             setOnRefreshListener {
                 page = Constant.DEFAULT_FIRST_PAGE
@@ -54,7 +57,7 @@ class CollectionGoodFragment : BaseMvpFragment<CollectionGoodPresenter>(), Colle
                 loadOnVisible()
             }
         }
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             addItemDecoration(DividerDecoration(Color.WHITE, SizeUtils.dp2px(15f), 0, 0))
         }
@@ -64,6 +67,13 @@ class CollectionGoodFragment : BaseMvpFragment<CollectionGoodPresenter>(), Colle
         presenter = CollectionGoodPresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun loadOnVisible() {
         presenter.getData(page)
     }
@@ -71,8 +81,8 @@ class CollectionGoodFragment : BaseMvpFragment<CollectionGoodPresenter>(), Colle
     override fun bindListener() = Unit
 
     override fun bindData(data: MutableList<MallGoodCollection>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
 
         val loadMoreModule = mAdapter.loadMoreModule

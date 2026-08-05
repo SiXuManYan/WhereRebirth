@@ -31,14 +31,16 @@ import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import de.hdodenhof.circleimageview.CircleImageView
-import com.jiechengsheng.city.legacyviews.*
-
+import de.hdodenhof.circleimageview.CircleImageView
+import com.jiechengsheng.city.databinding.FragmentJobCvHomeBinding
 /**
  * Created by Wangsw  2022/12/15 11:18.
  * 个人简历
  */
 class CvHomeFragment : BaseMvpFragment<CvHomePresenter>(), CvHomeView, OnItemClickListener {
+
+    private var _binding: FragmentJobCvHomeBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var mAdapter: JobExperienceEduAdapter
 
@@ -50,6 +52,7 @@ class CvHomeFragment : BaseMvpFragment<CvHomePresenter>(), CvHomeView, OnItemCli
     override fun getLayoutId() = R.layout.fragment_job_cv_home
 
     override fun initView(view: View) {
+        _binding = FragmentJobCvHomeBinding.bind(requireNotNull(view))
         initContent(view)
     }
 
@@ -61,7 +64,7 @@ class CvHomeFragment : BaseMvpFragment<CvHomePresenter>(), CvHomeView, OnItemCli
         }
 
         val manager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        content_rv.apply {
+        binding.contentRv.apply {
             adapter = mAdapter
             layoutManager = manager
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.grey_F5F5F5),
@@ -76,6 +79,13 @@ class CvHomeFragment : BaseMvpFragment<CvHomePresenter>(), CvHomeView, OnItemCli
         presenter = CvHomePresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun loadOnVisible() {
         if (!User.isLogon()) {
             return
@@ -86,15 +96,15 @@ class CvHomeFragment : BaseMvpFragment<CvHomePresenter>(), CvHomeView, OnItemCli
     }
 
     override fun bindListener() {
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             activity?.finish()
         }
-        profile_rl.setOnClickListener {
+        binding.profileRl.setOnClickListener {
             startActivityAfterLogin(CvFormProfileActivity::class.java, Bundle().apply {
                 putParcelable(Constant.PARAM_DATA, profileDetail)
             })
         }
-        check_resume_fl.setOnClickListener {
+        binding.checkResumeFl.setOnClickListener {
             presenter.checkResumeComplete()
         }
     }
@@ -104,25 +114,25 @@ class CvHomeFragment : BaseMvpFragment<CvHomePresenter>(), CvHomeView, OnItemCli
         response?.let {
             GlideUtil.load(requireContext(), response.avatar, avatarIv, 24)
             if (it.pdf_time.isNullOrBlank()) {
-                refresh_time_tv.visibility = View.GONE
+                binding.refreshTimeTv.visibility = View.GONE
             } else {
-                refresh_time_tv.text = getString(R.string.refresh_time_format, it.pdf_time)
-                refresh_time_tv.visibility = View.VISIBLE
+                binding.refreshTimeTv.text = getString(R.string.refresh_time_format, it.pdf_time)
+                binding.refreshTimeTv.visibility = View.VISIBLE
             }
 
         }
         profileDetail = response
 
         if (response == null || response.id == 0) {
-            create_cv_rl.visibility = View.VISIBLE
-            info_ll.visibility = View.GONE
+            binding.createCvRl.visibility = View.VISIBLE
+            binding.infoLl.visibility = View.GONE
             return
         }
 
-        create_cv_rl.visibility = View.GONE
-        info_ll.visibility = View.VISIBLE
+        binding.createCvRl.visibility = View.GONE
+        binding.infoLl.visibility = View.VISIBLE
 
-        (response.first_name + " " + response.last_name).also { name_tv.text = it }
+        (response.first_name + " " + response.last_name).also { binding.nameTv.text = it }
 
         val gender = when (response.gender) {
             1 -> getString(R.string.male)
@@ -130,7 +140,7 @@ class CvHomeFragment : BaseMvpFragment<CvHomePresenter>(), CvHomeView, OnItemCli
             else -> ""
         }
 
-        (gender + " | " + response.city).also { gender_tv.text = it }
+        (gender + " | " + response.city).also { binding.genderTv.text = it }
     }
 
     override fun bindJobExperience(toMutableList: MutableList<JobExperience>) {
@@ -246,9 +256,9 @@ class CvHomeFragment : BaseMvpFragment<CvHomePresenter>(), CvHomeView, OnItemCli
     override fun checkIsNeedUpdatePdf(isUpdate: Boolean) {
 
         if (isUpdate) {
-            update_hint_ll.visibility = View.VISIBLE
+            binding.updateHintLl.visibility = View.VISIBLE
         } else {
-            update_hint_ll.visibility = View.INVISIBLE
+            binding.updateHintLl.visibility = View.INVISIBLE
         }
     }
 

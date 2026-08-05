@@ -8,15 +8,17 @@ import com.jiechengsheng.city.api.network.BaseMvpView
 import com.jiechengsheng.city.api.response.mall.RefundBankSelected
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.view.empty.EmptyView
+import com.jiechengsheng.city.databinding.ActivityBankListBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/4/26 10:25.
  * 选择银行卡
  */
 @Deprecated("新版绑定退款渠道不必区分银行和第三方")
 class BankListActivity : BaseMvpActivity<BankListPresenter>(), BankListView {
+
+    private lateinit var binding: ActivityBankListBinding
 
 
     private var lastSelectedBankShortName = ""
@@ -28,6 +30,7 @@ class BankListActivity : BaseMvpActivity<BankListPresenter>(), BankListView {
     override fun getLayoutId() = R.layout.activity_bank_list
 
     override fun initView() {
+        binding = ActivityBankListBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         overridePendingTransition(R.anim.bottom_in, R.anim.bottom_silent)
 
         initExtra()
@@ -59,7 +62,7 @@ class BankListActivity : BaseMvpActivity<BankListPresenter>(), BankListView {
 
             }
         }
-        bank_rv.adapter = mAdapter
+        binding.bankRv.adapter = mAdapter
     }
 
     override fun initData() {

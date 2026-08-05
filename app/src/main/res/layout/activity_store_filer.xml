@@ -150,7 +150,7 @@
 
     </LinearLayout>
 
-    <!-- 三级分类 -->
+    <!-- 涓夌骇鍒嗙被 -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/three_category_rv"
         android:layout_width="match_parent"
@@ -161,7 +161,7 @@
         tools:visibility="visible" />
 
 
-    <!-- 内容 -->
+    <!-- 鍐呭 -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
@@ -170,8 +170,8 @@
         tools:itemCount="2"
         tools:listitem="@layout/item_store_recommend" />
 
-    <!-- 二级分类 和具体筛选项 -->
-    <include layout="@layout/layout_filter_store" />
+    <!-- 浜岀骇鍒嗙被 鍜屽叿浣撶瓫閫夐」 -->
+    <include layout="@layout/layout_filter_store"  android:id="@+id/filter_store"/>
 
 
 </RelativeLayout>

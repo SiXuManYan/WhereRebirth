@@ -11,15 +11,16 @@ import com.jiechengsheng.city.features.feedback.form.FeedBackPostView
 import com.jiechengsheng.city.features.feedback.record.det.FeedbackDetActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityRefreshListBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/10/14 14:16.
  * 反馈记录
  */
 class FeedbackRecordActivity : BaseMvpActivity<FeedBackPostPresenter>(), FeedBackPostView {
+
+    private lateinit var binding: ActivityRefreshListBinding
 
 
     private var page = Constant.DEFAULT_FIRST_PAGE
@@ -30,6 +31,7 @@ class FeedbackRecordActivity : BaseMvpActivity<FeedBackPostPresenter>(), FeedBac
     override fun getLayoutId() = R.layout.activity_refresh_list
 
     override fun initView() {
+        binding = ActivityRefreshListBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         mJcsTitle.setMiddleTitle(R.string.feedback_record)
 
         initList()
@@ -57,7 +59,7 @@ class FeedbackRecordActivity : BaseMvpActivity<FeedBackPostPresenter>(), FeedBac
 
         val gridLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         val decoration = DividerDecoration(ColorUtils.getColor(R.color.colorPrimary), 1, SizeUtils.dp2px(8f), 0)
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             layoutManager = gridLayoutManager
             addItemDecoration(decoration)
@@ -70,15 +72,15 @@ class FeedbackRecordActivity : BaseMvpActivity<FeedBackPostPresenter>(), FeedBac
     }
 
     override fun bindListener() {
-        swipe_layout.setOnRefreshListener {
+        binding.swipeLayout.setOnRefreshListener {
             page = Constant.DEFAULT_FIRST_PAGE
             presenter.getRecord(page)
         }
     }
 
     override fun bindRecord(toMutableList: MutableList<FeedbackRecord>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
         val loadMoreModule = mAdapter.loadMoreModule
         if (toMutableList.isEmpty()) {

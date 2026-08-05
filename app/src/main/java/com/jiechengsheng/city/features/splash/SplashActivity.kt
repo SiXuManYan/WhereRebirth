@@ -29,9 +29,9 @@ import com.jiechengsheng.city.features.main.MainActivity
 import com.jiechengsheng.city.features.web.WebViewActivity
 import com.jiechengsheng.city.utils.*
 import com.jiechengsheng.city.widget.pager.OnIndicatorClickListener
-import com.mob.MobSDK
-import com.jiechengsheng.city.legacyviews.*
-
+import com.mob.MobSDK
+import com.jiechengsheng.city.databinding.ActivitySplashBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/3/18 15:36.
  *
@@ -40,12 +40,15 @@ import com.jiechengsheng.city.legacyviews.*
  */
 class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
 
+    private lateinit var binding: ActivitySplashBinding
+
 
     private var facebookIntent: Intent? = null
 
     override fun getLayoutId() = R.layout.activity_splash
 
     override fun initView() {
+        binding = ActivitySplashBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         // 状态栏透明
         BarUtils.setStatusBarColor(this, Color.TRANSPARENT, true)
@@ -64,13 +67,13 @@ class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
             finish()
             return
         }
-        point_view.apply {
+        binding.pointView.apply {
             commonDrawableResId = R.drawable.shape_point_normal_e7e7e7
             selectedDrawableResId = R.drawable.shape_point_selected_377bff
             setPointCount(4, 12, 12, 12)
             onClickListener = object : OnIndicatorClickListener {
                 override fun onIndicatorClick(index: Int) {
-                    pager_vp.setCurrentItem(index, true)
+                    binding.pagerVp.setCurrentItem(index, true)
                 }
             }
         }
@@ -122,8 +125,8 @@ class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
 
     private fun initPager() {
         val adapter = SplashAdapter()
-        pager_vp.adapter = adapter
-        pager_vp.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding.pagerVp.adapter = adapter
+        binding.pagerVp.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
 
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
 
@@ -131,12 +134,12 @@ class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
 
             override fun onPageSelected(position: Int) {
                 if (position < 3) {
-                    start_tv.text = getString(R.string.splash_next)
+                    binding.startTv.text = getString(R.string.splash_next)
                 } else {
-                    start_tv.text = getString(R.string.start_now)
+                    binding.startTv.text = getString(R.string.start_now)
                 }
 
-                point_view.onPageSelected(position)
+                binding.pointView.onPageSelected(position)
 
             }
         })
@@ -150,7 +153,7 @@ class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
             override fun onAnimationRepeat(animation: Animation) = Unit
             override fun onAnimationEnd(animation: Animation) = initUserAgreement()
         })
-        splash_container_rl.startAnimation(animation)
+        binding.splashContainerRl.startAnimation(animation)
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -320,10 +323,10 @@ class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
 
         val isFirstOpen = CacheUtil.getShareDefault().getBoolean(Constant.SP_IS_FIRST_OPEN, true)
         if (isFirstOpen) {
-            pager_vp.visibility = View.VISIBLE
-            point_view.visibility = View.VISIBLE
-            start_tv.visibility = View.VISIBLE
-            first_iv.visibility = View.GONE
+            binding.pagerVp.visibility = View.VISIBLE
+            binding.pointView.visibility = View.VISIBLE
+            binding.startTv.visibility = View.VISIBLE
+            binding.firstIv.visibility = View.GONE
             CacheUtil.getShareDefault().put(Constant.SP_IS_FIRST_OPEN, false)
         } else {
             toHome()
@@ -349,10 +352,10 @@ class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
     }
 
     override fun bindListener() {
-        start_tv.setOnClickListener {
-            val currentItem = pager_vp.currentItem
+        binding.startTv.setOnClickListener {
+            val currentItem = binding.pagerVp.currentItem
             if (currentItem < 3) {
-                pager_vp.currentItem = currentItem + 1
+                binding.pagerVp.currentItem = currentItem + 1
             } else {
                 toHome()
             }

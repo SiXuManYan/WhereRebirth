@@ -11,15 +11,18 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.category.CategoryAdapter2
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
-import java.util.*
+import java.util.*
+import com.jiechengsheng.city.databinding.ActivityCategoryEditBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/4/15 18:02.
  * 分类编辑页
  */
 class CategoryEditActivity : BaseMvpActivity<CategoryEditPresenter>(), CategoryEditView {
+
+    private lateinit var binding: ActivityCategoryEditBinding
 
 
     private lateinit var mSelectedAdapter: CategoryAdapter2
@@ -40,10 +43,11 @@ class CategoryEditActivity : BaseMvpActivity<CategoryEditPresenter>(), CategoryE
 
 
     override fun initView() {
+        binding = ActivityCategoryEditBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         BarUtils.setStatusBarColor(this, ColorUtils.getColor(R.color.blue_377BFF))
 
-        swipe_layout.setOnRefreshListener {
+        binding.swipeLayout.setOnRefreshListener {
             presenter.getEditableCategory()
         }
 
@@ -97,7 +101,7 @@ class CategoryEditActivity : BaseMvpActivity<CategoryEditPresenter>(), CategoryE
             }
         }
 
-        selected_rv.apply {
+        binding.selectedRv.apply {
             adapter = mSelectedAdapter
             addItemDecoration(getItemDecoration())
             isNestedScrollingEnabled = true
@@ -108,7 +112,7 @@ class CategoryEditActivity : BaseMvpActivity<CategoryEditPresenter>(), CategoryE
             }
         }
 
-        unselected_rv.apply {
+        binding.unselectedRv.apply {
             adapter = mUnSelectedAdapter
             addItemDecoration(getItemDecoration())
             isNestedScrollingEnabled = true
@@ -130,11 +134,11 @@ class CategoryEditActivity : BaseMvpActivity<CategoryEditPresenter>(), CategoryE
     }
 
     override fun bindListener() {
-        close_tv.setOnClickListener {
+        binding.closeTv.setOnClickListener {
             VibrateUtils.vibrate(20)
             finish()
         }
-        finish_tv.setOnClickListener {
+        binding.finishTv.setOnClickListener {
             VibrateUtils.vibrate(20)
             presenter.followCategory(mSelectedAdapter.data)
         }
@@ -148,13 +152,13 @@ class CategoryEditActivity : BaseMvpActivity<CategoryEditPresenter>(), CategoryE
 
     override fun bindFollowData(follow: ArrayList<Category>){
         mSelectedAdapter.setNewInstance(follow)
-        swipe_layout.isRefreshing = false
+        binding.swipeLayout.isRefreshing = false
     }
 
 
     override fun bindUnFollowData(unFollow: ArrayList<Category>) {
         mUnSelectedAdapter.setNewInstance(unFollow)
-        swipe_layout.isRefreshing = false
+        binding.swipeLayout.isRefreshing = false
     }
 
     override fun followSuccess() {
@@ -170,7 +174,7 @@ class CategoryEditActivity : BaseMvpActivity<CategoryEditPresenter>(), CategoryE
     }
 
     override fun onError(errorResponse: ErrorResponse?) {
-        swipe_layout.isRefreshing = false
+        binding.swipeLayout.isRefreshing = false
         super.onError(errorResponse)
     }
 

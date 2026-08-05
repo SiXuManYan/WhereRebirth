@@ -13,15 +13,17 @@ import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.features.integral.detail.IntegralDetailActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentRefreshListBinding
 /**
  * Created by Wangsw  2022/9/21 14:40.
  *
  */
 class IntegralChildFragment : BaseMvpFragment<IntegralChildPresenter>(), IntegralChildView, SwipeRefreshLayout.OnRefreshListener,
     OnItemClickListener {
+
+    private var _binding: FragmentRefreshListBinding? = null
+    private val binding get() = _binding!!
 
     var type = 0
 
@@ -33,6 +35,7 @@ class IntegralChildFragment : BaseMvpFragment<IntegralChildPresenter>(), Integra
     override fun getLayoutId() = R.layout.fragment_refresh_list
 
     override fun initView(view: View) {
+        _binding = FragmentRefreshListBinding.bind(requireNotNull(view))
         initContent()
     }
 
@@ -40,8 +43,15 @@ class IntegralChildFragment : BaseMvpFragment<IntegralChildPresenter>(), Integra
         presenter = IntegralChildPresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     private fun initContent() {
-        swipe_layout.setOnRefreshListener(this)
+        binding.swipeLayout.setOnRefreshListener(this)
 
         emptyView = EmptyView(requireContext())
         emptyView.showEmptyDefault()
@@ -59,7 +69,7 @@ class IntegralChildFragment : BaseMvpFragment<IntegralChildPresenter>(), Integra
 
         val gridLayoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
         val decoration = DividerDecoration(ColorUtils.getColor(R.color.transplant), SizeUtils.dp2px(16f), 0, 0)
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             layoutManager = gridLayoutManager
             addItemDecoration(decoration)
@@ -78,8 +88,8 @@ class IntegralChildFragment : BaseMvpFragment<IntegralChildPresenter>(), Integra
     }
 
     override fun bindData(toMutableList: MutableList<IntegralGood>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
         val loadMoreModule = mAdapter.loadMoreModule
         if (toMutableList.isEmpty()) {

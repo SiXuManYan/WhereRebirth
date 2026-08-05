@@ -7,14 +7,16 @@ import com.jiechengsheng.city.R
 import com.jiechengsheng.city.api.response.integral.IntegralOrderDetail
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.utils.GlideUtil
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.utils.GlideUtil
+import com.jiechengsheng.city.databinding.ActivityIntegralOrderDetailBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/9/26 17:10.
  * 积分订单详情
  */
 class IntegralOrderDetailActivity : BaseMvpActivity<IntegralOrderDetailPresenter>(), IntegralOrderDetailView {
+
+    private lateinit var binding: ActivityIntegralOrderDetailBinding
 
     var orderId = 0
 
@@ -23,6 +25,7 @@ class IntegralOrderDetailActivity : BaseMvpActivity<IntegralOrderDetailPresenter
     override fun getLayoutId() = R.layout.activity_integral_order_detail
 
     override fun initView() {
+        binding = ActivityIntegralOrderDetailBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this,Color.WHITE)
         orderId = intent.getIntExtra(Constant.PARAM_ID , 0)
     }
@@ -41,27 +44,27 @@ class IntegralOrderDetailActivity : BaseMvpActivity<IntegralOrderDetailPresenter
 
         when (response.order_status) {
             1 ->{
-                status_tv.text = getString(R.string.store_status_3)
-                recipient_info_ll.visibility = View.VISIBLE
+                binding.statusTv.text = getString(R.string.store_status_3)
+                binding.recipientInfoLl.visibility = View.VISIBLE
 
                 response.address?.let {
-                    address_name_tv.text = it.address
-                    recipient_tv.text = getString(R.string.star_text_format, it.contact_name, it.contact_number)
+                    binding.addressNameTv.text = it.address
+                    binding.recipientTv.text = getString(R.string.star_text_format, it.contact_name, it.contact_number)
                 }
 
             }
             2 ->{
-                status_tv.text = getString(R.string.store_status_5)
-                recipient_info_ll.visibility = View.GONE
+                binding.statusTv.text = getString(R.string.store_status_5)
+                binding.recipientInfoLl.visibility = View.GONE
             }
         }
-        price_tv.text = getString(R.string.points_format, response.price)
-        order_number_tv.text = response.trade_no
-        created_date_tv.text = response.created_at
+        binding.priceTv.text = getString(R.string.points_format, response.price)
+        binding.orderNumberTv.text = response.trade_no
+        binding.createdDateTv.text = response.created_at
 
-        GlideUtil.load(this,response.image,image_iv)
-        title_tv.text = response.title
-        points_tv.text = getString(R.string.points_format , response.price)
+        GlideUtil.load(this,response.image,binding.imageIv)
+        binding.titleTv.text = response.title
+        binding.pointsTv.text = getString(R.string.points_format , response.price)
 
     }
 

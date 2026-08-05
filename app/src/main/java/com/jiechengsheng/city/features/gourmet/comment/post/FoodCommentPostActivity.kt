@@ -13,8 +13,9 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
 import com.jiechengsheng.city.widget.ratingstar.OnChangeRatingByClickListener
 import com.zhihu.matisse.Matisse
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityCommentPostBinding
+import android.view.ViewGroup
 
 
 /**
@@ -22,6 +23,8 @@ import org.greenrobot.eventbus.EventBus
  * 美食评价
  */
 class FoodCommentPostActivity : BaseMvpActivity<FoodCommentPostPresenter>(), FoodCommentPostView {
+
+    private lateinit var binding: ActivityCommentPostBinding
 
 
     private var orderId = 0
@@ -36,6 +39,7 @@ class FoodCommentPostActivity : BaseMvpActivity<FoodCommentPostPresenter>(), Foo
     override fun isStatusDark(): Boolean = true
 
     override fun initView() {
+        binding = ActivityCommentPostBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         intent.extras?.let {
             orderId = it.getInt(Constant.PARAM_ORDER_ID)
             restaurantId = it.getInt(Constant.PARAM_RESTAURANT_ID)
@@ -56,7 +60,7 @@ class FoodCommentPostActivity : BaseMvpActivity<FoodCommentPostPresenter>(), Foo
             }
         }
 
-        image_rv.apply {
+        binding.imageRv.apply {
             adapter = mImageAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
@@ -71,7 +75,7 @@ class FoodCommentPostActivity : BaseMvpActivity<FoodCommentPostPresenter>(), Foo
     }
 
     override fun bindListener() {
-        select_iv.setOnClickListener {
+        binding.selectIv.setOnClickListener {
             val size = mImageAdapter.data.size
             if (size == 6) {
                 ToastUtils.showShort(R.string.refund_image_max_6)
@@ -80,10 +84,10 @@ class FoodCommentPostActivity : BaseMvpActivity<FoodCommentPostPresenter>(), Foo
             val max = 6 - size
             FeaturesUtil.handleMediaSelect(this, Constant.IMG, max)
         }
-        commit_tv.setOnClickListener {
+        binding.commitTv.setOnClickListener {
 
-            val rating = star_view.rating.toInt()
-            val content = content_et.text.toString().trim()
+            val rating = binding.starView.rating.toInt()
+            val content = binding.contentEt.text.toString().trim()
 
             if (mImageAdapter.data.isNotEmpty()) {
                 presenter.upLoadImage(orderId, rating, content, ArrayList(mImageAdapter.data))
@@ -92,9 +96,9 @@ class FoodCommentPostActivity : BaseMvpActivity<FoodCommentPostPresenter>(), Foo
             }
         }
 
-        star_view.onChangeRatingByClickListener = object : OnChangeRatingByClickListener {
+        binding.starView.onChangeRatingByClickListener = object : OnChangeRatingByClickListener {
             override fun clickRatingResult(rating: Int) {
-                comment_value_tv.text = BusinessUtils.getCommentRatingText(rating)
+                binding.commentValueTv.text = BusinessUtils.getCommentRatingText(rating)
             }
 
         }

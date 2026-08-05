@@ -22,14 +22,16 @@ import com.jiechengsheng.city.features.web.WebViewActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.utils.image.GlideRoundedCornersTransform
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityCompanyBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/11/1 16:16.
  * 公司详情
  */
 class CompanyActivity : BaseMvpActivity<CompanyPresenter>(), CompanyView {
+
+    private lateinit var binding: ActivityCompanyBinding
 
     private var jobId = 0
     private var companyId = 0
@@ -57,6 +59,7 @@ class CompanyActivity : BaseMvpActivity<CompanyPresenter>(), CompanyView {
     }
 
     override fun initView() {
+        binding = ActivityCompanyBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         jobId = intent.getIntExtra(Constant.PARAM_ID, 0)
         initPhoto()
@@ -82,7 +85,7 @@ class CompanyActivity : BaseMvpActivity<CompanyPresenter>(), CompanyView {
 
             }
         }
-        photo_rv.apply {
+        binding.photoRv.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(this@CompanyActivity, LinearLayoutManager.HORIZONTAL, false)
             addItemDecoration(DividerDecoration(Color.WHITE, SizeUtils.dp2px(16f)))
@@ -96,13 +99,13 @@ class CompanyActivity : BaseMvpActivity<CompanyPresenter>(), CompanyView {
     }
 
     override fun bindListener() {
-        more_introduce_tv.setOnClickListener {
+        binding.moreIntroduceTv.setOnClickListener {
             startActivity(CompanyInfoActivity::class.java, Bundle().apply {
                 putString(Constant.PARAM_DATA, introduce)
             })
         }
 
-        more_photo_tv.setOnClickListener {
+        binding.morePhotoTv.setOnClickListener {
             viewMore()
         }
     }
@@ -115,45 +118,45 @@ class CompanyActivity : BaseMvpActivity<CompanyPresenter>(), CompanyView {
 
     override fun bindCompanyDetail(response: CompanyInfo, media: ArrayList<CompanyPhoto>) {
         companyId = response.id
-        GlideUtil.load(this, response.logo, logo_iv, 24, GlideRoundedCornersTransform.CornerType.ALL, R.mipmap.ic_company_default_logo)
-        company_name_tv.text = response.company_title
-        company_type_tv.text = response.company_type
-        company_size_tv.text = getString(R.string.company_size_format , response.company_size)
-        address_tv.text = response.address
+        GlideUtil.load(this, response.logo, binding.logoIv, 24, GlideRoundedCornersTransform.CornerType.ALL, R.mipmap.ic_company_default_logo)
+        binding.companyNameTv.text = response.company_title
+        binding.companyTypeTv.text = response.company_type
+        binding.companySizeTv.text = getString(R.string.company_size_format , response.company_size)
+        binding.addressTv.text = response.address
 
 
         // 公司简介
         introduce = response.profile
 
         if (introduce.isNullOrBlank()) {
-            introduce_rl.visibility = View.GONE
-            company_introduce_tv.visibility = View.GONE
-            introduce_line.visibility = View.GONE
+            binding.introduceRl.visibility = View.GONE
+            binding.companyIntroduceTv.visibility = View.GONE
+            binding.introduceLine.visibility = View.GONE
         } else {
-            company_introduce_tv.text = introduce
-            introduce_rl.visibility = View.VISIBLE
-            company_introduce_tv.visibility = View.VISIBLE
-            introduce_line.visibility = View.VISIBLE
+            binding.companyIntroduceTv.text = introduce
+            binding.introduceRl.visibility = View.VISIBLE
+            binding.companyIntroduceTv.visibility = View.VISIBLE
+            binding.introduceLine.visibility = View.VISIBLE
         }
 
         // 公司图片
         if (response.images.isNullOrEmpty()) {
-            photo_rl.visibility = View.GONE
-            photo_rv.visibility = View.GONE
-            photos_line.visibility = View.GONE
+            binding.photoRl.visibility = View.GONE
+            binding.photoRv.visibility = View.GONE
+            binding.photosLine.visibility = View.GONE
         } else {
-            photo_rl.visibility = View.VISIBLE
-            photo_rv.visibility = View.VISIBLE
-            photos_line.visibility = View.VISIBLE
+            binding.photoRl.visibility = View.VISIBLE
+            binding.photoRv.visibility = View.VISIBLE
+            binding.photosLine.visibility = View.VISIBLE
             mAdapter.setNewInstance(media)
         }
 
         // 媒介
         val website = response.website
         if (!website.isNullOrBlank()) {
-            media_ll.visibility = View.VISIBLE
+            binding.mediaLl.visibility = View.VISIBLE
 
-            SpanUtils.with(media_tv).append(website).setClickSpan(object :ClickableSpan(){
+            SpanUtils.with(binding.mediaTv).append(website).setClickSpan(object :ClickableSpan(){
                 override fun onClick(widget: View) = WebViewActivity.navigation(this@CompanyActivity, website)
                 override fun updateDrawState(ds: TextPaint) {
                     ds.color = getColor(R.color.blue_4C9EF2)
@@ -161,7 +164,7 @@ class CompanyActivity : BaseMvpActivity<CompanyPresenter>(), CompanyView {
                 }
             }).create()
         }else {
-            media_ll.visibility = View.GONE
+            binding.mediaLl.visibility = View.GONE
         }
 
     }

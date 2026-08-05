@@ -20,15 +20,16 @@ import com.jiechengsheng.city.features.mall.buy.MallOrderCommitActivity
 import com.jiechengsheng.city.features.mall.detail.sku.MallSkuFragment
 import com.jiechengsheng.city.features.mall.detail.sku.MallSkuSelectResult
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.legacyviews.*
-
-
+import com.jiechengsheng.city.view.empty.EmptyView
+import com.jiechengsheng.city.databinding.ActivityMallCartBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/12/14 17:49.
  * 商城购物车
  */
 class MallCartActivity : BaseMvpActivity<MallCartPresenter>(), MallCartView, MallSkuSelectResult {
+
+    private lateinit var binding: ActivityMallCartBinding
 
     private var page = Constant.DEFAULT_FIRST_PAGE
     private lateinit var emptyView: EmptyView
@@ -40,9 +41,10 @@ class MallCartActivity : BaseMvpActivity<MallCartPresenter>(), MallCartView, Mal
     override fun getLayoutId() = R.layout.activity_mall_cart
 
     override fun initView() {
-        swipe_layout.apply {
+        binding = ActivityMallCartBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
+        binding.swipeLayout.apply {
             setOnRefreshListener(this@MallCartActivity)
-            swipe_layout.isEnabled = false
+            binding.swipeLayout.isEnabled = false
             setColorSchemeColors(ColorUtils.getColor(R.color.blue_4C9EF2))
         }
         emptyView = EmptyView(this).apply {
@@ -62,7 +64,7 @@ class MallCartActivity : BaseMvpActivity<MallCartPresenter>(), MallCartView, Mal
             }
 
         }
-        recycler_view.apply {
+        binding.recyclerView.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
@@ -80,8 +82,8 @@ class MallCartActivity : BaseMvpActivity<MallCartPresenter>(), MallCartView, Mal
 
     @SuppressLint("NotifyDataSetChanged")
     override fun bindListener() {
-        select_all_tv.setOnClickListener {
-            var isSelectAll = select_all_tv.isChecked
+        binding.selectAllTv.setOnClickListener {
+            var isSelectAll = binding.selectAllTv.isChecked
             isSelectAll = !isSelectAll
 
             // data
@@ -91,22 +93,22 @@ class MallCartActivity : BaseMvpActivity<MallCartPresenter>(), MallCartView, Mal
             if (isSelectAll) {
                 VibrateUtils.vibrate(10)
                 val handlePrice = presenter.handlePrice(mAdapter)
-                total_price_tv.text =
+                binding.totalPriceTv.text =
                     StringUtils.getString(R.string.price_unit_format, handlePrice.stripTrailingZeros().toPlainString())
                 // 数量
                 // select_count_tv.text = getString(R.string.total_format, presenter.getSelectedCount(mAdapter))
             } else {
-                total_price_tv.text = getString(R.string.price_unit_format, "0.00")
+                binding.totalPriceTv.text = getString(R.string.price_unit_format, "0.00")
                 // 数量
                 // select_count_tv.text = getString(R.string.total_format, 0)
             }
 
-            select_all_tv.isChecked = isSelectAll
+            binding.selectAllTv.isChecked = isSelectAll
         }
 
-        delete_tv.setOnClickListener {
+        binding.deleteTv.setOnClickListener {
 
-            if (select_all_tv.isChecked) {
+            if (binding.selectAllTv.isChecked) {
                 presenter.clearStoreCart(0)
 //                mAdapter.setNewInstance(null)
 //                emptyView.showEmptyDefault()
@@ -120,26 +122,26 @@ class MallCartActivity : BaseMvpActivity<MallCartPresenter>(), MallCartView, Mal
         }
 
 
-        edit_tv.setOnClickListener {
-            right_vs.displayedChild = 1
-            bottom_vs.displayedChild = 1
-            total_price_ll.visibility = View.GONE
+        binding.editTv.setOnClickListener {
+            binding.rightVs.displayedChild = 1
+            binding.bottomVs.displayedChild = 1
+            binding.totalPriceLl.visibility = View.GONE
             mAdapter.isEditMode = true
             mAdapter.notifyDataSetChanged()
-            select_all_tv.isChecked = presenter.checkSelectAll(mAdapter)
+            binding.selectAllTv.isChecked = presenter.checkSelectAll(mAdapter)
         }
 
-        cancel_tv.setOnClickListener {
-            right_vs.displayedChild = 0
-            bottom_vs.displayedChild = 0
-            total_price_ll.visibility = View.VISIBLE
+        binding.cancelTv.setOnClickListener {
+            binding.rightVs.displayedChild = 0
+            binding.bottomVs.displayedChild = 0
+            binding.totalPriceLl.visibility = View.VISIBLE
             mAdapter.isEditMode = false
             mAdapter.notifyDataSetChanged()
-            select_all_tv.isChecked = presenter.checkSelectAll(mAdapter)
+            binding.selectAllTv.isChecked = presenter.checkSelectAll(mAdapter)
         }
 
 
-        settlement_tv.setOnClickListener {
+        binding.settlementTv.setOnClickListener {
 
             val selectedCount = presenter.getSelectedCount(mAdapter)
             if (selectedCount <= 0) {
@@ -158,8 +160,8 @@ class MallCartActivity : BaseMvpActivity<MallCartPresenter>(), MallCartView, Mal
     }
 
     override fun bindData(data: MutableList<MallCartGroup>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
 
         val loadMoreModule = mAdapter.loadMoreModule
@@ -168,10 +170,10 @@ class MallCartActivity : BaseMvpActivity<MallCartPresenter>(), MallCartView, Mal
                 mAdapter.setNewInstance(null)
                 loadMoreModule.loadMoreComplete()
                 emptyView.showEmptyContainer()
-                select_all_tv.visibility = View.GONE
-                bottom_rl.visibility = View.GONE
-                bottom_v.visibility = View.GONE
-                right_vs.visibility = View.GONE
+                binding.selectAllTv.visibility = View.GONE
+                binding.bottomRl.visibility = View.GONE
+                binding.bottomV.visibility = View.GONE
+                binding.rightVs.visibility = View.GONE
 
             } else {
                 loadMoreModule.loadMoreEnd()
@@ -179,10 +181,10 @@ class MallCartActivity : BaseMvpActivity<MallCartPresenter>(), MallCartView, Mal
             presenter.getExpiredGoods()
             return
         }
-        select_all_tv.visibility = View.VISIBLE
-        bottom_rl.visibility = View.VISIBLE
-        bottom_v.visibility = View.VISIBLE
-        right_vs.visibility = View.VISIBLE
+        binding.selectAllTv.visibility = View.VISIBLE
+        binding.bottomRl.visibility = View.VISIBLE
+        binding.bottomV.visibility = View.VISIBLE
+        binding.rightVs.visibility = View.VISIBLE
         if (page == Constant.DEFAULT_FIRST_PAGE) {
             mAdapter.setNewInstance(data)
             loadMoreModule.checkDisableLoadMoreIfNotFullPage()
@@ -212,7 +214,7 @@ class MallCartActivity : BaseMvpActivity<MallCartPresenter>(), MallCartView, Mal
 
     override fun onChildSelected(checked: Boolean) {
         getNowPrice()
-        select_all_tv.isChecked = if (checked) {
+        binding.selectAllTv.isChecked = if (checked) {
             presenter.checkSelectAll(mAdapter)
         } else {
             false
@@ -222,7 +224,7 @@ class MallCartActivity : BaseMvpActivity<MallCartPresenter>(), MallCartView, Mal
 
     override fun onGroupSelected(nativeIsSelect: Boolean) {
 
-        select_all_tv.isChecked = if (nativeIsSelect) {
+        binding.selectAllTv.isChecked = if (nativeIsSelect) {
             presenter.checkSelectAll(mAdapter)
         } else {
             false
@@ -237,13 +239,13 @@ class MallCartActivity : BaseMvpActivity<MallCartPresenter>(), MallCartView, Mal
 
     override fun deleteSuccess() {
         onRefresh()
-        select_all_tv.isChecked = presenter.checkSelectAll(mAdapter)
+        binding.selectAllTv.isChecked = presenter.checkSelectAll(mAdapter)
     }
 
     private fun getNowPrice() {
         val handlePrice = presenter.handlePrice(mAdapter)
         val toPlainString = handlePrice.toPlainString()
-        total_price_tv.text = StringUtils.getString(R.string.price_unit_format, toPlainString)
+        binding.totalPriceTv.text = StringUtils.getString(R.string.price_unit_format, toPlainString)
     }
 
 

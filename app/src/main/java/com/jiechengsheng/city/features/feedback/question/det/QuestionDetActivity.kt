@@ -24,14 +24,16 @@ import com.jiechengsheng.city.view.WebLayout
 import com.just.agentweb.AgentWeb
 import com.just.agentweb.DefaultWebClient
 import com.just.agentweb.WebChromeClient
-import com.just.agentweb.WebViewClient
-import com.jiechengsheng.city.legacyviews.*
-
+import com.just.agentweb.WebViewClient
+import com.jiechengsheng.city.databinding.ActivityFeedbackQuestionDetailBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/10/13 10:50.
  * 问题详情
  */
 class QuestionDetActivity : BaseMvpActivity<QuestionPresenter>(), QuestionView, OnItemClickListener {
+
+    private lateinit var binding: ActivityFeedbackQuestionDetailBinding
 
     private var url = ""
 
@@ -46,6 +48,7 @@ class QuestionDetActivity : BaseMvpActivity<QuestionPresenter>(), QuestionView, 
     override fun getLayoutId() = R.layout.activity_feedback_question_detail
 
     override fun initView() {
+        binding = ActivityFeedbackQuestionDetailBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initWeb()
         initBottom()
     }
@@ -81,7 +84,7 @@ class QuestionDetActivity : BaseMvpActivity<QuestionPresenter>(), QuestionView, 
         mAdapter = QuestionDetAdapter().apply {
             setOnItemClickListener(this@QuestionDetActivity)
         }
-        handle_rv.apply {
+        binding.handleRv.apply {
             val gridLayoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
             layoutManager = gridLayoutManager
             adapter = mAdapter
@@ -103,8 +106,8 @@ class QuestionDetActivity : BaseMvpActivity<QuestionPresenter>(), QuestionView, 
                    startActivity(FeedBackPostActivity::class.java)
                 }
             }).create()
-        feedback_tv.movementMethod = LinkMovementMethod.getInstance()
-        feedback_tv.text = span
+        binding.feedbackTv.movementMethod = LinkMovementMethod.getInstance()
+        binding.feedbackTv.text = span
 
     }
 

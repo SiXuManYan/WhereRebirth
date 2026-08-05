@@ -23,14 +23,17 @@ import com.jiechengsheng.city.features.hotel.detail.media.MediaData
 import com.jiechengsheng.city.utils.BigDecimalUtil
 import com.jiechengsheng.city.utils.Constant
 import com.shuyu.gsyvideoplayer.GSYVideoManager
-import com.jiechengsheng.city.legacyviews.*
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivitySetMeal2Binding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/4/6 14:38.
  * 菜品详情
  */
 class SetMealActivity : BaseMvpActivity<SetMealPresenter>(), SetMealView {
+
+    private lateinit var binding: ActivitySetMeal2Binding
 
 
     private var isToolbarDark = false
@@ -50,10 +53,11 @@ class SetMealActivity : BaseMvpActivity<SetMealPresenter>(), SetMealView {
     override fun getLayoutId() = R.layout.activity_set_meal_2
 
     override fun initView() {
+        binding = ActivitySetMeal2Binding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initExtra()
         initMedia()
         initScroll()
-        number_view.apply {
+        binding.numberView.apply {
             alwaysEnableCut = true
             MIN_GOOD_NUM = 1
             MAX_GOOD_NUM = 20
@@ -69,14 +73,14 @@ class SetMealActivity : BaseMvpActivity<SetMealPresenter>(), SetMealView {
             valueChangeListener = this@SetMealActivity
         }
 
-        shopping_cart.apply {
+        binding.shoppingCart.apply {
             setMessageImageResource(R.mipmap.ic_shopping_cart)
             changeContainerSize(50f, 50f)
             changeMessageCountSize(14f, 14f)
         }
 
         if (BuildConfig.FLAVOR == "dev"){
-            pay_ll.visibility = View.VISIBLE
+            binding.payLl.visibility = View.VISIBLE
         }
 
     }
@@ -94,12 +98,12 @@ class SetMealActivity : BaseMvpActivity<SetMealPresenter>(), SetMealView {
 
     private fun initMedia() {
         mMediaAdapter = DetailMediaAdapter()
-        PagerSnapHelper().attachToRecyclerView(media_rv)
-        media_rv.apply {
+        PagerSnapHelper().attachToRecyclerView(binding.mediaRv)
+        binding.mediaRv.apply {
             layoutManager = LinearLayoutManager(this@SetMealActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = mMediaAdapter
         }
-        media_rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.mediaRv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             @SuppressLint("NotifyDataSetChanged")
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
 
@@ -119,19 +123,19 @@ class SetMealActivity : BaseMvpActivity<SetMealPresenter>(), SetMealView {
                     }
                 }
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    point_view.onPageSelected(firstItemPosition)
+                    binding.pointView.onPageSelected(firstItemPosition)
                 }
             }
         })
     }
 
     private fun initScroll() {
-        useView.setBackgroundColor(getColor(R.color.white))
-        toolbar.setBackgroundColor(getColor(R.color.white))
-        useView.background.alpha = 0
-        toolbar.background.alpha = 0
-        scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
-            val headHeight = media_fl.measuredHeight - toolbar.measuredHeight
+        binding.useView.setBackgroundColor(getColor(R.color.white))
+        binding.toolbar.setBackgroundColor(getColor(R.color.white))
+        binding.useView.background.alpha = 0
+        binding.toolbar.background.alpha = 0
+        binding.scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
+            val headHeight = binding.mediaFl.measuredHeight - binding.toolbar.measuredHeight
             var alpha = (y.toFloat() / headHeight * 255).toInt()
             if (alpha >= 255) {
                 alpha = 255
@@ -140,8 +144,8 @@ class SetMealActivity : BaseMvpActivity<SetMealPresenter>(), SetMealView {
                 alpha = 0
             }
             isToolbarDark = alpha > 130
-            useView.background.alpha = alpha
-            toolbar.background.alpha = alpha
+            binding.useView.background.alpha = alpha
+            binding.toolbar.background.alpha = alpha
             changeStatusTextColor()
         }
     }
@@ -154,9 +158,9 @@ class SetMealActivity : BaseMvpActivity<SetMealPresenter>(), SetMealView {
     }
 
     override fun bindListener() {
-        shopping_cart.setOnClickListener { startActivityAfterLogin(ShoppingCartActivity::class.java) }
-        buy_after_tv.setOnClickListener { onBuyAfter() }
-        buy_now_tv.setOnClickListener { onBuyNow() }
+        binding.shoppingCart.setOnClickListener { startActivityAfterLogin(ShoppingCartActivity::class.java) }
+        binding.buyAfterTv.setOnClickListener { onBuyAfter() }
+        binding.buyNowTv.setOnClickListener { onBuyNow() }
     }
 
     override fun onBackPressed() {
@@ -192,45 +196,45 @@ class SetMealActivity : BaseMvpActivity<SetMealPresenter>(), SetMealView {
         }
         mediaList.add(media)
         mMediaAdapter.setNewInstance(mediaList)
-        point_view.setPointCount(1)
+        binding.pointView.setPointCount(1)
         mInventory = inventoryValue
-        number_view.MAX_GOOD_NUM = inventoryValue
-        number_view.updateNumber(goodNumber)
-        number_view.checkMax()
+        binding.numberView.MAX_GOOD_NUM = inventoryValue
+        binding.numberView.updateNumber(goodNumber)
+        binding.numberView.checkMax()
 
         val price = data.price
         singlePrice = price
-        now_price_tv.text = getString(R.string.price_unit_format, price.toPlainString())
+        binding.nowPriceTv.text = getString(R.string.price_unit_format, price.toPlainString())
         val oldPrice = getString(R.string.price_unit_format, data.original_price)
         val builder = SpanUtils().append(oldPrice).setStrikethrough().create()
-        old_price_tv.text = builder
-        sales_tv.text = getString(R.string.sale_format, data.sale_num)
+        binding.oldPriceTv.text = builder
+        binding.salesTv.text = getString(R.string.sale_format, data.sale_num)
         data.meals.apply {
             if (isNotBlank()) {
-                set_meal_content_tv.text = this
+                binding.setMealContentTv.text = this
             } else {
-                set_meal_content_tv.gravity = Gravity.CENTER
+                binding.setMealContentTv.gravity = Gravity.CENTER
             }
         }
         data.rule.apply {
             if (isNotBlank()) {
-                rule_tv.text = this
+                binding.ruleTv.text = this
             } else {
-                rule_tv.gravity = Gravity.CENTER
+                binding.ruleTv.gravity = Gravity.CENTER
             }
         }
         mData = data
 
         if (data.inventory.isNotBlank()) {
-            stock_tv.text = getString(R.string.stock_format_2, data.inventory)
+            binding.stockTv.text = getString(R.string.stock_format_2, data.inventory)
         }
 
-        name_tv.text = data.title
+        binding.nameTv.text = data.title
         handlePrice()
     }
 
     override fun bindCartCount(nums: Int) {
-        shopping_cart.setMessageCount(nums)
+        binding.shoppingCart.setMessageCount(nums)
     }
 
     private fun onBuyNow() {
@@ -283,7 +287,7 @@ class SetMealActivity : BaseMvpActivity<SetMealPresenter>(), SetMealView {
 
     private fun handlePrice() {
         totalPrice = BigDecimalUtil.mul(singlePrice, BigDecimal(goodNumber))
-        total_price_tv.text = getString(R.string.price_unit_format, totalPrice.toPlainString())
+        binding.totalPriceTv.text = getString(R.string.price_unit_format, totalPrice.toPlainString())
     }
 
 

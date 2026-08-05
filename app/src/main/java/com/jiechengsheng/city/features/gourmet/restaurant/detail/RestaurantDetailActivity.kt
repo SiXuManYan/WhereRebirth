@@ -46,32 +46,34 @@ import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.NumberView2
 import com.jiechengsheng.city.widget.list.DividerDecoration
 import com.shuyu.gsyvideoplayer.GSYVideoManager
-import com.jiechengsheng.city.legacyviews.*
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivityRestaurantDetail2Binding
 
 /**
  * Created by Wangsw  2021/4/1 10:28.
- * 餐厅详情
+ * 椁愬巺璇︽儏
  */
 class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), RestaurantDetailView {
 
+    private lateinit var binding: ActivityRestaurantDetail2Binding
+
 
     /**
-     * 餐厅id
+     * 椁愬巺id
      */
     private var mRestaurantId = 0
 
     private var goodNumber = 1
 
     /**
-     * 餐厅名称
+     * 椁愬巺鍚嶇О
      */
     private var mRestaurantName = ""
     private var mLat = 0.0
     private var mLng = 0.0
 
     /**
-     * 收藏状态（1：未收藏，2：已收藏）
+     * 鏀惰棌鐘舵€侊紙1锛氭湭鏀惰棌锛?锛氬凡鏀惰棌锛?
      */
     private var collect_status = 0
 
@@ -82,12 +84,12 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
     private var facebook = ""
 
     /**
-     * 商家融云id
+     * 鍟嗗铻嶄簯id
      */
     private var mMerUuid: String = ""
 
     /**
-     * 商家融云聊天名字
+     * 鍟嗗铻嶄簯鑱婂ぉ鍚嶅瓧
      */
     private var mMerName: String? = null
 
@@ -122,25 +124,26 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
     override fun getLayoutId() = R.layout.activity_restaurant_detail_2
 
     override fun initView() {
+        binding = ActivityRestaurantDetail2Binding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         mRestaurantId = intent.getIntExtra(Constant.PARAM_ID, 0)
         initMedia()
         initScroll()
         initComment()
         initDish()
         if (BuildConfig.FLAVOR == "dev") {
-            shopping_cart.visibility = View.VISIBLE
+            binding.shoppingCart.visibility = View.VISIBLE
         }
     }
 
 
     private fun initMedia() {
         mMediaAdapter = DetailMediaAdapter()
-        PagerSnapHelper().attachToRecyclerView(media_rv)
-        media_rv.apply {
+        PagerSnapHelper().attachToRecyclerView(binding.mediaRv)
+        binding.mediaRv.apply {
             layoutManager = LinearLayoutManager(this@RestaurantDetailActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = mMediaAdapter
         }
-        media_rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.mediaRv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             @SuppressLint("NotifyDataSetChanged")
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
 
@@ -160,12 +163,12 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
                     }
                 }
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    point_view.onPageSelected(firstItemPosition)
+                    binding.pointView.onPageSelected(firstItemPosition)
                 }
             }
         })
 
-        shopping_cart.apply {
+        binding.shoppingCart.apply {
             setMessageImageResource(R.mipmap.ic_shopping_cart)
             changeContainerSize(50f, 50f)
             changeMessageCountSize(14f, 14f)
@@ -174,12 +177,12 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
 
 
     private fun initScroll() {
-        useView.setBackgroundColor(getColor(R.color.white))
-        toolbar.setBackgroundColor(getColor(R.color.white))
-        useView.background.alpha = 0
-        toolbar.background.alpha = 0
-        scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
-            val headHeight = media_fl.measuredHeight - toolbar.measuredHeight
+        binding.useView.setBackgroundColor(getColor(R.color.white))
+        binding.toolbar.setBackgroundColor(getColor(R.color.white))
+        binding.useView.background.alpha = 0
+        binding.toolbar.background.alpha = 0
+        binding.scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
+            val headHeight = binding.mediaFl.measuredHeight - binding.toolbar.measuredHeight
             var alpha = (y.toFloat() / headHeight * 255).toInt()
             if (alpha >= 255) {
                 alpha = 255
@@ -192,8 +195,8 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
             setBackImage()
             setShareImage()
 
-            useView.background.alpha = alpha
-            toolbar.background.alpha = alpha
+            binding.useView.background.alpha = alpha
+            binding.toolbar.background.alpha = alpha
 
             changeStatusTextColor()
         }
@@ -219,7 +222,7 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
             setEmptyView(emptyView)
         }
 
-        comment_rv.apply {
+        binding.commentRv.apply {
             isNestedScrollingEnabled = true
             adapter = mCommentAdapter
             layoutManager = object : LinearLayoutManager(this@RestaurantDetailActivity) {
@@ -237,7 +240,7 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
             setEmptyView(emptyView2)
             addChildClickViewIds(R.id.buy_tv)
             setOnItemChildClickListener { _, _, position ->
-                // 直接购买
+                // 鐩存帴璐拱
                 /*      val dish = mDishAdapter.data[position]
                       val price = dish.price
                       val product = Products().apply {
@@ -294,7 +297,7 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
 
             }
         }
-        dish_rv.apply {
+        binding.dishRv.apply {
             isNestedScrollingEnabled = true
             adapter = mDishAdapter
             layoutManager = object : LinearLayoutManager(this@RestaurantDetailActivity) {
@@ -338,10 +341,10 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
     }
 
     override fun bindListener() {
-        back_iv.setOnClickListener { finish() }
-        shopping_cart.setOnClickListener { startActivityAfterLogin(ShoppingCartActivity::class.java) }
-        phone_tv.setOnClickListener { tel_iv.performClick() }
-        tel_iv.setOnClickListener {
+        binding.backIv.setOnClickListener { finish() }
+        binding.shoppingCart.setOnClickListener { startActivityAfterLogin(ShoppingCartActivity::class.java) }
+        binding.phoneTv.setOnClickListener { binding.telIv.performClick() }
+        binding.telIv.setOnClickListener {
             if (!TextUtils.isEmpty(mPhone)) {
                 val intent = Intent(Intent.ACTION_DIAL)
                 val data = Uri.parse("tel:$mPhone")
@@ -351,25 +354,25 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
                 ToastUtils.showShort(R.string.no_contact_information)
             }
         }
-        support_takeaway_tv.setOnClickListener {
+        binding.supportTakeawayTv.setOnClickListener {
             val bundle = Bundle()
             bundle.putString(Constant.PARAM_ID, mRestaurantId.toString())
             startActivity(TakeawayActivity::class.java, bundle)
         }
-        navigation_iv.setOnClickListener {
+        binding.navigationIv.setOnClickListener {
             if (mLat != 0.0 && mLng != 0.0) {
                 FeaturesUtil.startNaviGoogle(this, mLat.toFloat(), mLng.toFloat())
             }
         }
 
-        facebook_tv.setOnClickListener {
+        binding.facebookTv.setOnClickListener {
             WebViewActivity.navigation(this, facebook)
         }
-        share_iv.setOnClickListener {
+        binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_RESTAURANT, mRestaurantId)
             MobUtil.shareFacebookWebPage(url, this@RestaurantDetailActivity)
         }
-        like_iv.setOnClickListener {
+        binding.likeIv.setOnClickListener {
             if (!User.isLogon()) {
                 startActivity(LoginActivity::class.java)
                 return@setOnClickListener
@@ -380,10 +383,10 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
                 presenter.unCollection(mRestaurantId)
             }
         }
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             finish()
         }
-        chat_iv.setOnClickListener {
+        binding.chatIv.setOnClickListener {
             BusinessUtils.showImUnavailableDialog(this)
         }
         findViewById<View>(R.id.more_comment_tv).setOnClickListener {
@@ -412,31 +415,31 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
             mediaList.add(media)
         }
         mMediaAdapter.setNewInstance(mediaList)
-        point_view.setPointCount(mediaList.size)
+        binding.pointView.setPointCount(mediaList.size)
         mRestaurantName = data.title
-        name_tv.text = mRestaurantName
-        score_tv.text = data.grade.toString()
-        star_view.rating = data.grade
+        binding.nameTv.text = mRestaurantName
+        binding.scoreTv.text = data.grade.toString()
+        binding.starView.rating = data.grade
         val perPrice = data.per_price
         if (perPrice.isNullOrBlank() || BusinessUtils.getSafeBigDecimal(perPrice) == BigDecimal.ZERO) {
-            per_price_tv.visibility = View.GONE
+            binding.perPriceTv.visibility = View.GONE
         } else {
-            per_price_tv.visibility = View.VISIBLE
-            per_price_tv.text = getString(R.string.per_price_format, perPrice)
+            binding.perPriceTv.visibility = View.VISIBLE
+            binding.perPriceTv.text = getString(R.string.per_price_format, perPrice)
         }
 
-        address_name_tv.text = data.address
-        time_tv.text = getString(R.string.time_format, data.start_time, data.end_time)
+        binding.addressNameTv.text = data.address
+        binding.timeTv.text = getString(R.string.time_format, data.start_time, data.end_time)
         if (data.take_out_status == 2) {
-            support_takeaway_tv.visibility = View.VISIBLE
+            binding.supportTakeawayTv.visibility = View.VISIBLE
         } else {
-            support_takeaway_tv.visibility = View.GONE
+            binding.supportTakeawayTv.visibility = View.GONE
         }
 
         if (data.im_status == 1 && mMerUuid.isNotBlank()) {
-            contact_sw.displayedChild = 0
+            binding.contactSw.displayedChild = 0
         } else {
-            contact_sw.displayedChild = 1
+            binding.contactSw.displayedChild = 1
         }
         mLat = data.lat
         mLng = data.lng
@@ -446,10 +449,10 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
         data.tel.apply {
             if (isNotBlank()) {
                 mPhone = this
-                phone_tv.text = this
-                phone_tv.visibility = View.VISIBLE
+                binding.phoneTv.text = this
+                binding.phoneTv.visibility = View.VISIBLE
             } else {
-                phone_tv.visibility = View.GONE
+                binding.phoneTv.visibility = View.GONE
             }
         }
 
@@ -457,36 +460,36 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
 
         data.introduction.apply {
             if (isNotBlank()) {
-                desc_tv.text = this
+                binding.descTv.text = this
             } else {
-                desc_tv.gravity = Gravity.CENTER
+                binding.descTv.gravity = Gravity.CENTER
             }
         }
         data.email.apply {
             if (isNotBlank()) {
-                mail_tv.text = this
-                mail_tv.visibility = View.VISIBLE
+                binding.mailTv.text = this
+                binding.mailTv.visibility = View.VISIBLE
             } else {
-                mail_tv.visibility = View.GONE
+                binding.mailTv.visibility = View.GONE
             }
         }
 
         data.website.apply {
             if (isNotBlank()) {
                 webUrl = this
-                web_tv.text = this
-                web_tv.visibility = View.VISIBLE
+                binding.webTv.text = this
+                binding.webTv.visibility = View.VISIBLE
             } else {
-                web_tv.visibility = View.GONE
+                binding.webTv.visibility = View.GONE
             }
         }
         data.facebook.apply {
             if (isNotBlank()) {
                 facebook = this
-                facebook_tv.text = this
-                facebook_tv.visibility = View.VISIBLE
+                binding.facebookTv.text = this
+                binding.facebookTv.visibility = View.VISIBLE
             } else {
-                facebook_tv.visibility = View.GONE
+                binding.facebookTv.visibility = View.GONE
             }
         }
         val comments = data.comments
@@ -517,7 +520,7 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
 
     private fun setLikeImage() {
 
-        like_iv.setImageResource(
+        binding.likeIv.setImageResource(
             if (collect_status == 1) {
                 if (isToolbarDark) {
                     R.mipmap.ic_like_normal_night
@@ -535,7 +538,7 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
     }
 
     private fun setBackImage() {
-        back_iv.setImageResource(
+        binding.backIv.setImageResource(
             if (isToolbarDark) {
                 R.mipmap.ic_back_black
             } else {
@@ -545,7 +548,7 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
     }
 
     private fun setShareImage() {
-        share_iv.setImageResource(
+        binding.shareIv.setImageResource(
             if (isToolbarDark) {
                 R.mipmap.ic_share_night
             } else {
@@ -606,7 +609,7 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
 //                putString(Constant.PARAM_RESTAURANT_NAME, mRestaurantName)
 //            })
 
-            // 直接购买
+            // 鐩存帴璐拱
             val price = dish.price
             val product = Products().apply {
                 good_data.id = dish.id
@@ -640,7 +643,7 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
     }
 
     override fun bindCartCount(nums: Int) {
-        shopping_cart.setMessageCount(nums)
+        binding.shoppingCart.setMessageCount(nums)
     }
 
 
@@ -649,8 +652,8 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
         when (baseEvent.code) {
             EventCode.EVENT_POSITION -> {
                 val position = baseEvent.data as Int
-                media_rv.scrollToPosition(position)
-                point_view.onPageSelected(position)
+                binding.mediaRv.scrollToPosition(position)
+                binding.pointView.onPageSelected(position)
             }
             else -> {}
         }

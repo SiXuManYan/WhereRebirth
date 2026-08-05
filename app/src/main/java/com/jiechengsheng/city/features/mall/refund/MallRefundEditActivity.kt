@@ -35,9 +35,10 @@ import com.zhihu.matisse.Matisse
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
-import top.zibin.luban.Luban
+import top.zibin.luban.Luban
+import com.jiechengsheng.city.databinding.ActivityMallRefundBinding
+import android.view.ViewGroup
 
 
 /**
@@ -45,6 +46,8 @@ import top.zibin.luban.Luban
  * 售后表单
  */
 class MallRefundEditActivity : BaseMvpActivity<MallRefundEditPresenter>(), MallRefundEditView, OnItemChildClickListener {
+
+    private lateinit var binding: ActivityMallRefundBinding
 
     /** 商品订单id */
     private var orderId = 0
@@ -103,6 +106,7 @@ class MallRefundEditActivity : BaseMvpActivity<MallRefundEditPresenter>(), MallR
 
 
     override fun initView() {
+        binding = ActivityMallRefundBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         initExtra()
         initContent()
@@ -121,7 +125,7 @@ class MallRefundEditActivity : BaseMvpActivity<MallRefundEditPresenter>(), MallR
 
         // 商品
         mAdapter = MallOrderDetailAdapter()
-        good_rv.apply {
+        binding.goodRv.apply {
             adapter = mAdapter
             isNestedScrollingEnabled = true
             layoutManager = object : LinearLayoutManager(context, VERTICAL, false) {
@@ -136,7 +140,7 @@ class MallRefundEditActivity : BaseMvpActivity<MallRefundEditPresenter>(), MallR
             setOnItemChildClickListener(this@MallRefundEditActivity)
         }
 
-        image_rv.apply {
+        binding.imageRv.apply {
             isNestedScrollingEnabled = true
             adapter = mImageAdapter
             layoutManager = GridLayoutManager(context, 4, GridLayoutManager.VERTICAL, false)
@@ -149,9 +153,9 @@ class MallRefundEditActivity : BaseMvpActivity<MallRefundEditPresenter>(), MallR
 
         // 判断表单类型
         if (isChange) {
-            refund_tv.setText(R.string.modify_application)
+            binding.refundTv.setText(R.string.modify_application)
         } else {
-            refund_tv.setText(R.string.submit_application)
+            binding.refundTv.setText(R.string.submit_application)
         }
 
 
@@ -233,13 +237,13 @@ class MallRefundEditActivity : BaseMvpActivity<MallRefundEditPresenter>(), MallR
         mAdapter.setNewInstance(goods)
 
         response.money_info.let {
-            amount_tv.text = getString(R.string.price_unit_format, it.refund_money)
-            good_price_tv.text = getString(R.string.price_unit_format, it.goods_total)
-            shop_offers_tv.text = getString(R.string.price_unit_format, it.shop_coupon_money)
-            platform_offers_tv.text = getString(R.string.price_unit_format, it.order_coupon_money)
+            binding.amountTv.text = getString(R.string.price_unit_format, it.refund_money)
+            binding.goodPriceTv.text = getString(R.string.price_unit_format, it.goods_total)
+            binding.shopOffersTv.text = getString(R.string.price_unit_format, it.shop_coupon_money)
+            binding.platformOffersTv.text = getString(R.string.price_unit_format, it.order_coupon_money)
         }
 
-        desc_et.setText(response.cancel_reason)
+        binding.descEt.setText(response.cancel_reason)
 
         response.cancel_images.forEach {
             val apply = RefundImage().apply {
@@ -260,20 +264,20 @@ class MallRefundEditActivity : BaseMvpActivity<MallRefundEditPresenter>(), MallR
     private fun loadRefundMethod(refundMethod: RefundMethod) {
         remitId = refundMethod.id
 
-        refund_name_tv.text = refundMethod.name
-        refund_user_name_tv.text = refundMethod.user_name
-        refund_account_tv.text = refundMethod.account
-        refund_method_ll.visibility = View.VISIBLE
+        binding.refundNameTv.text = refundMethod.name
+        binding.refundUserNameTv.text = refundMethod.user_name
+        binding.refundAccountTv.text = refundMethod.account
+        binding.refundMethodLl.visibility = View.VISIBLE
     }
 
     override fun bindListener() {
 
-        refund_tv.setOnClickListener {
+        binding.refundTv.setOnClickListener {
             if (remitId == 0) {
                 ToastUtils.showShort(R.string.please_add_refund_methods)
                 return@setOnClickListener
             }
-            val desc = desc_et.text.toString().trim()
+            val desc = binding.descEt.text.toString().trim()
             if (desc.isEmpty()) {
                 ToastUtils.showShort(R.string.refund_reason_input_hint)
                 return@setOnClickListener
@@ -286,7 +290,7 @@ class MallRefundEditActivity : BaseMvpActivity<MallRefundEditPresenter>(), MallR
             }
         }
 
-        refund_method_tv.setOnClickListener {
+        binding.refundMethodTv.setOnClickListener {
             launcher.launch(Intent(this, RefundMethodActivity::class.java)
                 .putExtra(Constant.PARAM_HANDLE_SELECT, true))
         }

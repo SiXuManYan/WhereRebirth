@@ -27,14 +27,17 @@ import com.jiechengsheng.city.utils.BigDecimalUtil
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivityBillsPlaceOrderBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/6/9 14:53.
  * 统一下单
  */
 class BillsPlaceOrderActivity : BaseMvpActivity<BillsPlaceOrderPresenter>(), BillsPlaceOrderView {
+
+    private lateinit var binding: ActivityBillsPlaceOrderBinding
 
 
     /** 账单类型   1-话费，2-水费，3-电费，4-网费 */
@@ -97,6 +100,7 @@ class BillsPlaceOrderActivity : BaseMvpActivity<BillsPlaceOrderPresenter>(), Bil
     override fun getLayoutId() = R.layout.activity_bills_place_order
 
     override fun initView() {
+        binding = ActivityBillsPlaceOrderBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         initExtra()
         initList()
@@ -116,12 +120,12 @@ class BillsPlaceOrderActivity : BaseMvpActivity<BillsPlaceOrderPresenter>(), Bil
 
     private fun initList() {
 //        val totalMoney = BigDecimalUtil.addUnNecessary(userInputMoney, serviceCharge)
-//        total_money_tv.text = totalMoney.toPlainString()
+//        binding.totalMoneyTv.text = totalMoney.toPlainString()
 
         mAdapter = BillsPlaceOrderAdapter().apply {
             setNewInstance(fieldDetail)
         }
-        content_rv.apply {
+        binding.contentRv.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(this@BillsPlaceOrderActivity, LinearLayoutManager.VERTICAL, false)
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.colorPrimary),
@@ -144,39 +148,39 @@ class BillsPlaceOrderActivity : BaseMvpActivity<BillsPlaceOrderPresenter>(), Bil
 
         totalMoney =
             BigDecimalUtil.addUnNecessary(BusinessUtils.getSafeBigDecimal(userInputMoneyAfterDiscount), BigDecimal(serviceCharge))
-        total_money_tv.text = totalMoney.toPlainString()
+        binding.totalMoneyTv.text = totalMoney.toPlainString()
 
         if (BigDecimal(response.discounts_price).compareTo(BigDecimal.ZERO) == 1) {
-            discount_rl.visibility = View.VISIBLE
-            discount_tv.text = response.discount
-            discount_price_tv.text = StringUtils.getString(R.string.price_unit_discount_format, response.discounts_price)
+            binding.discountRl.visibility = View.VISIBLE
+            binding.discountTv.text = response.discount
+            binding.discountPriceTv.text = StringUtils.getString(R.string.price_unit_discount_format, response.discounts_price)
         } else {
-            discount_rl.visibility = View.GONE
+            binding.discountRl.visibility = View.GONE
         }
 
         // 用户提示
         val hint = response.hint
         if (hint.isNullOrBlank()) {
-            user_hint_tv.visibility = View.GONE
+            binding.userHintTv.visibility = View.GONE
         } else {
-            user_hint_tv.visibility = View.VISIBLE
-            user_hint_tv.text = hint
+            binding.userHintTv.visibility = View.VISIBLE
+            binding.userHintTv.text = hint
         }
 
         // 优惠券
         val couponId = response.coupon_id
         if (couponId != 0) {
             currentCouponId = couponId
-            coupon_rl.visibility = View.VISIBLE
-            coupon_price_tv.text = getString(R.string.price_unit_discount_format, response.coupon_price)
+            binding.couponRl.visibility = View.VISIBLE
+            binding.couponPriceTv.text = getString(R.string.price_unit_discount_format, response.coupon_price)
         } else {
-            coupon_rl.visibility = View.GONE
+            binding.couponRl.visibility = View.GONE
         }
 
     }
 
     override fun bindListener() {
-        confirm_tv.setOnClickListener {
+        binding.confirmTv.setOnClickListener {
             showLoadingDialog(false)
             mAdapter.data.forEachIndexed { index, fieldDetail ->
                 when (index) {
@@ -187,7 +191,7 @@ class BillsPlaceOrderActivity : BaseMvpActivity<BillsPlaceOrderPresenter>(), Bil
             presenter.placeOrder(billerTag, firstField, secondField, userInputMoney.toString(), billsType, currentCouponId)
         }
 
-        coupon_rl.setOnClickListener {
+        binding.couponRl.setOnClickListener {
 
             mSelectedCouponDialog.apply {
                 alreadySelectedCouponId = currentCouponId

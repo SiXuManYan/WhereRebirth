@@ -26,9 +26,10 @@ import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
 import com.jiechengsheng.city.utils.GlideUtil
-import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivityOrderDetailBinding
+import android.view.ViewGroup
 
 
 /**
@@ -36,6 +37,8 @@ import java.math.BigDecimal
  * 酒店订单详情
  */
 class HotelOrderDetailActivity : BaseMvpActivity<HotelOrderDetailPresenter>(), HotelOrderDetailView {
+
+    private lateinit var binding: ActivityOrderDetailBinding
 
     var order_id = 0
     var lat = 0f
@@ -57,6 +60,7 @@ class HotelOrderDetailActivity : BaseMvpActivity<HotelOrderDetailPresenter>(), H
     override fun getLayoutId() = R.layout.activity_order_detail
 
     override fun initView() {
+        binding = ActivityOrderDetailBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         findViewById<View>(android.R.id.content).background = ResourceUtils.getDrawable(R.drawable.shape_gradient_hotel_detail)
         val bundle = intent.extras
         if (bundle == null) {
@@ -76,11 +80,11 @@ class HotelOrderDetailActivity : BaseMvpActivity<HotelOrderDetailPresenter>(), H
 
     override fun bindListener() {
 
-        nav_ll.setOnClickListener {
+        binding.navLl.setOnClickListener {
             FeaturesUtil.startNaviGoogle(this, lat, lng)
         }
 
-        call_ll.setOnClickListener {
+        binding.callLl.setOnClickListener {
             if (contactNumber.isBlank()) {
                 return@setOnClickListener
             }
@@ -90,14 +94,14 @@ class HotelOrderDetailActivity : BaseMvpActivity<HotelOrderDetailPresenter>(), H
             startActivity(intent)
         }
 
-        chat_ll.setOnClickListener {
+        binding.chatLl.setOnClickListener {
             if (merUuid.isBlank()) {
                 return@setOnClickListener
             }
             BusinessUtils.showImUnavailableDialog(this)
         }
 
-        complaint_tv.setOnClickListener {
+        binding.complaintTv.setOnClickListener {
             // 投诉
             if (alreadyComplaint) {
                 ToastUtils.showShort(R.string.complained_success)
@@ -128,33 +132,33 @@ class HotelOrderDetailActivity : BaseMvpActivity<HotelOrderDetailPresenter>(), H
         merName = hotelData.mer_name
 
         if (hotelData.im_status == 1 && merUuid.isNotBlank()) {
-            chat_v.visibility = View.VISIBLE
-            chat_ll.visibility = View.VISIBLE
+            binding.chatV.visibility = View.VISIBLE
+            binding.chatLl.visibility = View.VISIBLE
         } else {
-            chat_v.visibility = View.GONE
-            chat_ll.visibility = View.GONE
+            binding.chatV.visibility = View.GONE
+            binding.chatLl.visibility = View.GONE
         }
 
-        status_tv.text = BusinessUtils.getHotelStatusText(status)
+        binding.statusTv.text = BusinessUtils.getHotelStatusText(status)
         val price = order_data.price
-        amount_tv.text = getString(R.string.price_unit_format, price.toPlainString())
+        binding.amountTv.text = getString(R.string.price_unit_format, price.toPlainString())
 
         if (status != 1) {
-            pay_way_ll.visibility = View.VISIBLE
-            payment_method_tv.text = paymentData.payment_channel
+            binding.payWayLl.visibility = View.VISIBLE
+            binding.paymentMethodTv.text = paymentData.payment_channel
         } else {
-            pay_way_ll.visibility = View.GONE
+            binding.payWayLl.visibility = View.GONE
         }
 
         val images = hotelData.images
         if (images.isNotEmpty()) {
-            GlideUtil.load(this, images[0], image_iv, 5)
+            GlideUtil.load(this, images[0], binding.imageIv, 5)
         }
-        hotel_name_tv.text = hotelData.name
-        location_tv.text = hotelData.address.replace("\n", "")
-        room_name_tv.text = getString(R.string.room_name_format, roomData.name, roomData.room_num)
+        binding.hotelNameTv.text = hotelData.name
+        binding.locationTv.text = hotelData.address.replace("\n", "")
+        binding.roomNameTv.text = getString(R.string.room_name_format, roomData.name, roomData.room_num)
 
-        room_type_tv.text = getString(R.string.room_type_format, roomData.room_type)
+        binding.roomTypeTv.text = getString(R.string.room_type_format, roomData.room_type)
 
         val breakfast = if (roomData.breakfast_type == 1) {
             getString(R.string.breakfast_support)
@@ -167,19 +171,19 @@ class HotelOrderDetailActivity : BaseMvpActivity<HotelOrderDetailPresenter>(), H
             getString(R.string.charged_wifi)
         }
 
-        room_content_tv.text = getString(R.string.room_content_format, breakfast, wifi)
-        time_tv.text = getString(R.string.room_time_format, roomData.start_date, roomData.end_date, roomData.days)
-        user_name_tv.text = roomData.username
-        user_phone_tv.text = roomData.phone
-        order_number_tv.text = order_data.trade_no
-        created_date_tv.text = order_data.created_at
+        binding.roomContentTv.text = getString(R.string.room_content_format, breakfast, wifi)
+        binding.timeTv.text = getString(R.string.room_time_format, roomData.start_date, roomData.end_date, roomData.days)
+        binding.userNameTv.text = roomData.username
+        binding.userPhoneTv.text = roomData.phone
+        binding.orderNumberTv.text = order_data.trade_no
+        binding.createdDateTv.text = order_data.created_at
 
-        desc_tv.text = BusinessUtils.getHotelStatusDescText(status)
+        binding.descTv.text = BusinessUtils.getHotelStatusDescText(status)
 
         when (status) {
             1 -> {
-                bottom_ll.visibility = View.VISIBLE
-                left_tv.apply {
+                binding.bottomLl.visibility = View.VISIBLE
+                binding.leftTv.apply {
                     visibility = View.VISIBLE
                     text = getString(R.string.to_pay_2)
                     setOnClickListener {
@@ -199,7 +203,7 @@ class HotelOrderDetailActivity : BaseMvpActivity<HotelOrderDetailPresenter>(), H
                     }
                 }
 
-                right_tv.apply {
+                binding.rightTv.apply {
                     text = getString(R.string.to_cancel_order)
                     visibility = View.VISIBLE
                     setOnClickListener {
@@ -218,9 +222,9 @@ class HotelOrderDetailActivity : BaseMvpActivity<HotelOrderDetailPresenter>(), H
 
             }
             3, 4 -> {
-                bottom_ll.visibility = View.VISIBLE
-                left_tv.visibility = View.GONE
-                right_tv.apply {
+                binding.bottomLl.visibility = View.VISIBLE
+                binding.leftTv.visibility = View.GONE
+                binding.rightTv.apply {
                     if (order_data.is_cancel) {
                         text = getString(R.string.to_refund)
                         visibility = View.VISIBLE
@@ -233,7 +237,7 @@ class HotelOrderDetailActivity : BaseMvpActivity<HotelOrderDetailPresenter>(), H
                 }
             }
             5 -> {
-                left_tv.apply {
+                binding.leftTv.apply {
                     if (order_data.comment_status == 1) {
                         text = getString(R.string.to_review)
                         visibility = View.VISIBLE
@@ -244,12 +248,12 @@ class HotelOrderDetailActivity : BaseMvpActivity<HotelOrderDetailPresenter>(), H
                         visibility = View.GONE
                     }
                 }
-                right_tv.visibility = View.GONE
+                binding.rightTv.visibility = View.GONE
             }
             8, 9, 10, 11 -> {
-                bottom_ll.visibility = View.VISIBLE
-                left_tv.visibility = View.GONE
-                right_tv.apply {
+                binding.bottomLl.visibility = View.VISIBLE
+                binding.leftTv.visibility = View.GONE
+                binding.rightTv.apply {
                     text = getString(R.string.refund_information)
                     visibility = View.VISIBLE
                     setOnClickListener {
@@ -258,15 +262,15 @@ class HotelOrderDetailActivity : BaseMvpActivity<HotelOrderDetailPresenter>(), H
                 }
             }
             12 -> {
-                bottom_ll.visibility = View.VISIBLE
-                left_tv.apply {
+                binding.bottomLl.visibility = View.VISIBLE
+                binding.leftTv.apply {
                     visibility = View.VISIBLE
                     text = getString(R.string.apply_again)
                     setOnClickListener {
                         doRefund(price)
                     }
                 }
-                right_tv.apply {
+                binding.rightTv.apply {
                     text = getString(R.string.refund_information)
                     visibility = View.VISIBLE
                     setOnClickListener {
@@ -275,26 +279,26 @@ class HotelOrderDetailActivity : BaseMvpActivity<HotelOrderDetailPresenter>(), H
                 }
             }
             else -> {
-                bottom_ll.visibility = View.GONE
+                binding.bottomLl.visibility = View.GONE
             }
         }
 
 
         // 退款失败原因
         if (status == 12) {
-            fail_reason_rl.visibility = View.VISIBLE
-            reason_split_v.visibility = View.VISIBLE
-            fail_reason_tv.text = order_data.error_reason
+            binding.failReasonRl.visibility = View.VISIBLE
+            binding.reasonSplitV.visibility = View.VISIBLE
+            binding.failReasonTv.text = order_data.error_reason
         } else {
-            fail_reason_rl.visibility = View.GONE
-            reason_split_v.visibility = View.GONE
+            binding.failReasonRl.visibility = View.GONE
+            binding.reasonSplitV.visibility = View.GONE
         }
 
         // 投诉
         if (status == 11) {
-            complaint_tv.visibility = View.VISIBLE
+            binding.complaintTv.visibility = View.VISIBLE
         } else {
-            complaint_tv.visibility = View.GONE
+            binding.complaintTv.visibility = View.GONE
         }
 
 

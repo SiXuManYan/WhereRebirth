@@ -22,15 +22,16 @@ import com.jiechengsheng.city.features.bills.place.phone.PhonePlaceOrderActivity
 import com.jiechengsheng.city.utils.CacheUtil
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.PermissionUtils
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityCallChargesBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/6/15 16:55.
  * 话费充值
  */
 class CallChargesActivity : BaseMvpActivity<CallChargesPresenter>(), CallChargesView, OnItemClickListener {
+
+    private lateinit var binding: ActivityCallChargesBinding
 
 
     private var channelName = ""
@@ -66,6 +67,7 @@ class CallChargesActivity : BaseMvpActivity<CallChargesPresenter>(), CallCharges
     override fun getLayoutId() = R.layout.activity_call_charges
 
     override fun initView() {
+        binding = ActivityCallChargesBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initList()
         initExtra()
         dito.addAll(StringUtils.getStringArray(R.array.DITO).toMutableList())
@@ -75,7 +77,7 @@ class CallChargesActivity : BaseMvpActivity<CallChargesPresenter>(), CallCharges
         smart.addAll(StringUtils.getStringArray(R.array.SMART).toMutableList())
 
         val phone = CacheUtil.getShareDefault().getString(Constant.SP_CHARGES_PHONE, "")
-        phone_et.setText(phone)
+        binding.phoneEt.setText(phone)
 
     }
 
@@ -86,7 +88,7 @@ class CallChargesActivity : BaseMvpActivity<CallChargesPresenter>(), CallCharges
             data?.let {
                 val channelName = it.channelName
                 this.channelName = channelName
-                channel_tv.text = channelName
+                binding.channelTv.text = channelName
                 mAdapter.setNewInstance(it.channelItem)
             }
         }
@@ -100,19 +102,19 @@ class CallChargesActivity : BaseMvpActivity<CallChargesPresenter>(), CallCharges
         }
 
         val decoration = DividerDecoration(ColorUtils.getColor(R.color.colorPrimary), 1, SizeUtils.dp2px(15f), 0)
-        face_value_rv.apply {
+        binding.faceValueRv.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(this@CallChargesActivity, LinearLayoutManager.VERTICAL, false)
             addItemDecoration(decoration)
         }
 
-        phone_et.addTextChangedListener(
+        binding.phoneEt.addTextChangedListener(
             afterTextChanged = {
                 val trim = it.toString().trim()
                 if (trim.isNotBlank()) {
-                    next_tv.alpha = 1.0f
+                    binding.nextTv.alpha = 1.0f
                 } else {
-                    next_tv.alpha = 0.5f
+                    binding.nextTv.alpha = 0.5f
                 }
             }
         )
@@ -125,7 +127,7 @@ class CallChargesActivity : BaseMvpActivity<CallChargesPresenter>(), CallCharges
     }
 
     override fun bindListener() {
-        connect_iv.setOnClickListener {
+        binding.connectIv.setOnClickListener {
 
             PermissionUtils.permissionAny(this, {
                 if (it) {
@@ -141,8 +143,8 @@ class CallChargesActivity : BaseMvpActivity<CallChargesPresenter>(), CallCharges
 
         }
 
-        next_tv.setOnClickListener {
-            val phone = phone_et.text.toString().trim()
+        binding.nextTv.setOnClickListener {
+            val phone = binding.phoneEt.text.toString().trim()
             if (phone.isBlank() || !phone.startsWith("0") || phone.length != 11) {
                 ToastUtils.showShort(R.string.recharge_phone_format)
                 return@setOnClickListener
@@ -209,7 +211,7 @@ class CallChargesActivity : BaseMvpActivity<CallChargesPresenter>(), CallCharges
             contacts?.let {
 
                 val replace = contacts[1]?.replace(" ", "")
-                phone_et.setText(replace)
+                binding.phoneEt.setText(replace)
             }
 
 

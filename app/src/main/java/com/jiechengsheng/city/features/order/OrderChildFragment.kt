@@ -21,15 +21,17 @@ import com.jiechengsheng.city.features.mall.order.MallOrderDetailActivity
 import com.jiechengsheng.city.features.store.order.detail.StoreOrderDetailActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentOrderChildBinding
 /**
  * Created by Wangsw  2021/5/12 14:08.
  * 订单列表
  */
 class OrderChildFragment : BaseMvpFragment<OrderChildPresenter>(), OrderChildView, OnLoadMoreListener,
     SwipeRefreshLayout.OnRefreshListener, OnItemClickListener, ConfirmReceipt {
+
+    private var _binding: FragmentOrderChildBinding? = null
+    private val binding get() = _binding!!
 
     companion object {
         @JvmStatic
@@ -58,9 +60,10 @@ class OrderChildFragment : BaseMvpFragment<OrderChildPresenter>(), OrderChildVie
     override fun getLayoutId() = R.layout.fragment_order_child
 
     override fun initView(view: View?) {
+        _binding = FragmentOrderChildBinding.bind(requireNotNull(view))
 
-        swipe_layout.setOnRefreshListener(this)
-        swipe_layout.setBackgroundColor(ColorUtils.getColor(R.color.white))
+        binding.swipeLayout.setOnRefreshListener(this)
+        binding.swipeLayout.setBackgroundColor(ColorUtils.getColor(R.color.white))
         emptyView = EmptyView(requireContext()).apply {
             setEmptyImage(R.mipmap.ic_empty_un_order)
             setEmptyHint(R.string.no_order_yet)
@@ -81,7 +84,7 @@ class OrderChildFragment : BaseMvpFragment<OrderChildPresenter>(), OrderChildVie
         }
 
 
-        recycler_view.apply {
+        binding.recyclerView.apply {
             adapter = mAdapter
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.white),
                 SizeUtils.dp2px(32f),
@@ -96,6 +99,13 @@ class OrderChildFragment : BaseMvpFragment<OrderChildPresenter>(), OrderChildVie
         presenter = OrderChildPresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun bindListener() {
 
     }
@@ -107,8 +117,8 @@ class OrderChildFragment : BaseMvpFragment<OrderChildPresenter>(), OrderChildVie
     override fun bindList(toMutableList: MutableList<OrderListResponse>, lastPage: Boolean) {
 
 
-        if (swipe_layout != null) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout != null) {
+            binding.swipeLayout.isRefreshing = false
         }
 
         val loadMoreModule = mAdapter.loadMoreModule

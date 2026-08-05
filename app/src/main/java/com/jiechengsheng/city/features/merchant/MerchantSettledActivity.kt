@@ -14,8 +14,9 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.merchant.form.SettledFormFragment
 import com.jiechengsheng.city.features.merchant.record.MerchantRecordActivity
 import com.jiechengsheng.city.features.merchant.recult.SettledResultFragment
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityMerchantSettledHomeBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/11/19 14:15.
@@ -23,7 +24,9 @@ import org.greenrobot.eventbus.EventBus
  */
 class MerchantSettledActivity : BaseMvpActivity<MerchantSettledPresenter>(), MerchantSettledView {
 
-    private val pager_vp: com.jiechengsheng.city.widget.NoScrollViewPager
+    private lateinit var binding: ActivityMerchantSettledHomeBinding
+
+    private val pagerVp: com.jiechengsheng.city.widget.NoScrollViewPager
         get() = findViewById(R.id.pager_vp)
 
 
@@ -33,7 +36,8 @@ class MerchantSettledActivity : BaseMvpActivity<MerchantSettledPresenter>(), Mer
 
 
     override fun initView() {
-        pager_vp.apply {
+        binding = ActivityMerchantSettledHomeBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
+        binding.pagerVp.apply {
             setNoScroll(true)
             offscreenPageLimit = 3
             adapter = InnerPagerAdapter(supportFragmentManager, 0)
@@ -44,11 +48,11 @@ class MerchantSettledActivity : BaseMvpActivity<MerchantSettledPresenter>(), Mer
     override fun initData() {
         presenter = MerchantSettledPresenter(this)
         presenter.getData()
-        pager_vp.currentItem = 0
+        binding.pagerVp.currentItem = 0
     }
 
     override fun bindListener() {
-        pager_vp.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding.pagerVp.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
 
             override fun onPageScrollStateChanged(state: Int) = Unit
@@ -57,35 +61,35 @@ class MerchantSettledActivity : BaseMvpActivity<MerchantSettledPresenter>(), Mer
 
                 when (position) {
                     0 -> {
-                        type_form_tv.isChecked = true
-                        type_period_tv.isChecked = true
-                        type_result_tv.isChecked = false
+                        binding.typeFormTv.isChecked = true
+                        binding.typePeriodTv.isChecked = true
+                        binding.typeResultTv.isChecked = false
                     }
                     1 -> {
-                        type_form_tv.isChecked = true
-                        type_period_tv.isChecked = true
-                        type_result_tv.isChecked = false
+                        binding.typeFormTv.isChecked = true
+                        binding.typePeriodTv.isChecked = true
+                        binding.typeResultTv.isChecked = false
                     }
                     2 -> {
-                        type_form_tv.isChecked = true
-                        type_period_tv.isChecked = true
-                        type_result_tv.isChecked = true
+                        binding.typeFormTv.isChecked = true
+                        binding.typePeriodTv.isChecked = true
+                        binding.typeResultTv.isChecked = true
                     }
                 }
-                one_v.isChecked = type_period_tv.isChecked
-                two_v.isChecked = type_result_tv.isChecked
+                binding.oneV.isChecked = binding.typePeriodTv.isChecked
+                binding.twoV.isChecked = binding.typeResultTv.isChecked
 
-                for (index in 0 until desc_ll.childCount) {
-                    val child = desc_ll.getChildAt(position) as AppCompatCheckedTextView
+                for (index in 0 until binding.descLl.childCount) {
+                    val child = binding.descLl.getChildAt(position) as AppCompatCheckedTextView
                     child.isChecked = false
                 }
-                val child = desc_ll.getChildAt(position) as AppCompatCheckedTextView
+                val child = binding.descLl.getChildAt(position) as AppCompatCheckedTextView
                 child.isChecked = true
 
             }
         })
 
-        record_tv.setOnClickListener {
+        binding.recordTv.setOnClickListener {
             startActivity(MerchantRecordActivity::class.java)
         }
     }
@@ -102,14 +106,14 @@ class MerchantSettledActivity : BaseMvpActivity<MerchantSettledPresenter>(), Mer
         when (baseEvent.code) {
             EventCode.EVENT_MERCHANT_POST_SUCCESS -> {
                 EventBus.getDefault().post(BaseEvent(EventCode.EVENT_MERCHANT_CHANGE_TYPE, 1))
-                pager_vp.currentItem = 1
+                binding.pagerVp.currentItem = 1
             }
             EventCode.EVENT_MERCHANT_RECOMMIT -> {
-                pager_vp.currentItem = 0
+                binding.pagerVp.currentItem = 0
             }
 
             EventCode.EVENT_MERCHANT_COMMIT_NEW -> {
-                pager_vp.currentItem = 0
+                binding.pagerVp.currentItem = 0
 
 
             }
@@ -123,17 +127,17 @@ class MerchantSettledActivity : BaseMvpActivity<MerchantSettledPresenter>(), Mer
     override fun bindData(response: MerchantSettledData?) {
         // 未提交过
         if (response == null) {
-            pager_vp.currentItem = 0
+            binding.pagerVp.currentItem = 0
             return
         }
         // 提交过后的审核状态
         when (response.is_verify) {
             1, 3 -> {
                 EventBus.getDefault().post(BaseEvent(EventCode.EVENT_MERCHANT_CHANGE_TYPE, response))
-                pager_vp.currentItem = 1
+                binding.pagerVp.currentItem = 1
             }
             2 -> {
-                pager_vp.currentItem = 2
+                binding.pagerVp.currentItem = 2
             }
         }
     }

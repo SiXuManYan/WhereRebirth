@@ -23,14 +23,17 @@ import com.jiechengsheng.city.view.XBanner.AbstractUrlLoader
 import com.jiechengsheng.city.view.XBanner.XBanner
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-import pl.droidsonroids.gif.GifImageView
+import pl.droidsonroids.gif.GifImageView
+import com.jiechengsheng.city.databinding.FragmentMallHomeChildBinding
 
 /**
  * Created by Wangsw  2021/11/30 17:01.
  * 商城首页商品
  */
 class MallHomeChildFragment : BaseMvpFragment<MallHomeChildPresenter>(), MallHomeChildView {
+
+    private var _binding: FragmentMallHomeChildBinding? = null
+    private val binding get() = _binding!!
 
     /** 当前页面对应的一级分类 */
     lateinit var targetFirstCategory: MallCategory
@@ -48,18 +51,19 @@ class MallHomeChildFragment : BaseMvpFragment<MallHomeChildPresenter>(), MallHom
     override fun getLayoutId() = R.layout.fragment_mall_home_child
 
     override fun initView(view: View) {
+        _binding = FragmentMallHomeChildBinding.bind(requireNotNull(view))
         initAd()
         initBanner()
         initContent()
     }
 
     private fun initAd() {
-//        val bannerParams = ll_banner.layoutParams.apply {
+//        val bannerParams = binding.llBanner.layoutParams.apply {
 //            height = ScreenUtils.getScreenWidth() * 194 / 345
 //        }
-//        ll_banner.layoutParams = bannerParams
+//        binding.llBanner.layoutParams = bannerParams
 
-        top_banner.setBannerTypes(XBanner.CIRCLE_INDICATOR)
+        binding.topBanner.setBannerTypes(XBanner.CIRCLE_INDICATOR)
             .setTitleHeight(50)
             .isAutoPlay(true)
             .setDelay(5000)
@@ -81,7 +85,7 @@ class MallHomeChildFragment : BaseMvpFragment<MallHomeChildPresenter>(), MallHom
     private fun initBanner() {
         if (!::targetFirstCategory.isInitialized) return
 
-        point_view.apply {
+        binding.pointView.apply {
             selectedDrawableResId = R.drawable.shape_point_selected_377bff
             commonDrawableResId = R.drawable.shape_point_selected_d8d8d8
         }
@@ -89,20 +93,20 @@ class MallHomeChildFragment : BaseMvpFragment<MallHomeChildPresenter>(), MallHom
         mBannerAdapter = MallHomeChildBannerAdapter().apply {
             setEmptyView(R.layout.view_empty_data_brvah_default)
         }
-        banner_rv.apply {
+        binding.bannerRv.apply {
             adapter = mBannerAdapter
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         }
         val helper = PagerSnapHelper()
-        helper.attachToRecyclerView(banner_rv)
+        helper.attachToRecyclerView(binding.bannerRv)
 
-        banner_rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.bannerRv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 val layoutManager = recyclerView.layoutManager
                 if (layoutManager is LinearLayoutManager) {
                     val firstItemPosition: Int = layoutManager.findFirstVisibleItemPosition()
                     if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                        point_view.onPageSelected(firstItemPosition)
+                        binding.pointView.onPageSelected(firstItemPosition)
                     }
                 }
             }
@@ -127,7 +131,7 @@ class MallHomeChildFragment : BaseMvpFragment<MallHomeChildPresenter>(), MallHom
         }
         val gridLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         val decoration = DividerDecoration(ColorUtils.getColor(R.color.transplant), SizeUtils.dp2px(10f), 0, 0)
-        content_rv.apply {
+        binding.contentRv.apply {
             adapter = mAdapter
             layoutManager = gridLayoutManager
             addItemDecoration(decoration)
@@ -138,6 +142,13 @@ class MallHomeChildFragment : BaseMvpFragment<MallHomeChildPresenter>(), MallHom
         presenter = MallHomeChildPresenter(this)
 
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
 
 
     override fun loadOnVisible() {
@@ -152,23 +163,23 @@ class MallHomeChildFragment : BaseMvpFragment<MallHomeChildPresenter>(), MallHom
 
     override fun bindListener() {
 
-        swipe_layout?.setOnRefreshListener {
+        binding.swipeLayout?.setOnRefreshListener {
             loadOnVisible()
         }
 
-        top_abl.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
-            swipe_layout?.isEnabled = verticalOffset >= 0
+        binding.topAbl.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+            binding.swipeLayout?.isEnabled = verticalOffset >= 0
         })
     }
 
     override fun bindBannerData(result: ArrayList<MallBannerCategory>) {
-        swipe_layout?.isRefreshing = false
+        binding.swipeLayout?.isRefreshing = false
         mBannerAdapter.setNewInstance(result)
-        point_view.setPointCount(result.size)
+        binding.pointView.setPointCount(result.size)
     }
 
     override fun bindRecommend(data: MutableList<MallGood>, lastPage: Boolean) {
-        swipe_layout?.isRefreshing = false
+        binding.swipeLayout?.isRefreshing = false
         val loadMoreModule = mAdapter.loadMoreModule
         if (data.isEmpty()) {
             if (page == Constant.DEFAULT_FIRST_PAGE) {
@@ -195,14 +206,14 @@ class MallHomeChildFragment : BaseMvpFragment<MallHomeChildPresenter>(), MallHom
     }
 
     override fun bindTopBannerData(bannerUrls: ArrayList<String>, response: ArrayList<BannerResponse>) {
-        swipe_layout?.isRefreshing = false
+        binding.swipeLayout?.isRefreshing = false
         if (bannerUrls.size <= 1) {
-            top_banner.setUpIndicatorSize(0, 0)
+            binding.topBanner.setUpIndicatorSize(0, 0)
         } else {
-            top_banner.setUpIndicatorSize(6, 6)
+            binding.topBanner.setUpIndicatorSize(6, 6)
         }
-        top_banner.setImageUrls(bannerUrls)
-        top_banner.setBannerPageListener(object : XBanner.BannerPageListener {
+        binding.topBanner.setImageUrls(bannerUrls)
+        binding.topBanner.setBannerPageListener(object : XBanner.BannerPageListener {
 
             override fun onBannerDragging(item: Int) = Unit
 
@@ -222,19 +233,19 @@ class MallHomeChildFragment : BaseMvpFragment<MallHomeChildPresenter>(), MallHom
             return
         }
         if (isVisibleToUser) {
-            top_banner.start()
+            binding.topBanner.start()
         } else {
-            top_banner.pause()
+            binding.topBanner.pause()
         }
     }
 
     override fun onPause() {
-        top_banner.pause()
+        binding.topBanner.pause()
         super.onPause()
     }
 
     override fun onDestroy() {
-        top_banner?.releaseBanner()
+        binding.topBanner?.releaseBanner()
         super.onDestroy()
     }
 

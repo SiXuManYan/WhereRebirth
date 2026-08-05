@@ -14,10 +14,8 @@ import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.features.store.order.StoreOrderCommitActivity
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.legacyviews.*
-
-
+import com.jiechengsheng.city.view.empty.EmptyView
+import com.jiechengsheng.city.databinding.FragemntStoreCartBinding
 /**
  * Created by Wangsw  2021/7/5 13:40.
  * 购物车
@@ -25,6 +23,9 @@ import com.jiechengsheng.city.legacyviews.*
 class StoreCartFragment : BaseMvpFragment<StoreCartPresenter>(), StoreCartView,
     SwipeRefreshLayout.OnRefreshListener,
     StoreCartValueChangeListener, OnChildSelectClick, OnGroupSelectClick {
+
+    private var _binding: FragemntStoreCartBinding? = null
+    private val binding get() = _binding!!
 
     /**
      *  列表类型（0：自提，1：商家配送）
@@ -57,12 +58,13 @@ class StoreCartFragment : BaseMvpFragment<StoreCartPresenter>(), StoreCartView,
     override fun getLayoutId() = R.layout.fragemnt_store_cart
 
     override fun initView(view: View?) {
+        _binding = FragemntStoreCartBinding.bind(requireNotNull(view))
         arguments?.let {
             listType = it.getInt(Constant.PARAM_TYPE, 0)
         }
 
-        swipe_layout.setOnRefreshListener(this)
-        swipe_layout.setColorSchemeColors(ColorUtils.getColor(R.color.blue_4C9EF2))
+        binding.swipeLayout.setOnRefreshListener(this)
+        binding.swipeLayout.setColorSchemeColors(ColorUtils.getColor(R.color.blue_4C9EF2))
         emptyView = EmptyView(context).apply {
             showEmptyDefault()
         }
@@ -73,7 +75,7 @@ class StoreCartFragment : BaseMvpFragment<StoreCartPresenter>(), StoreCartView,
             onGroupSelectClick = this@StoreCartFragment
 
         }
-        recycler_view.apply {
+        binding.recyclerView.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
@@ -86,13 +88,20 @@ class StoreCartFragment : BaseMvpFragment<StoreCartPresenter>(), StoreCartView,
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun loadOnVisible() {
         presenter.getStoreCart(listType)
     }
 
     override fun bindListener() {
-        select_all_tv.setOnClickListener {
-            var isSelectAll = select_all_tv.isChecked
+        binding.selectAllTv.setOnClickListener {
+            var isSelectAll = binding.selectAllTv.isChecked
             isSelectAll = !isSelectAll
 
             // data
@@ -102,21 +111,21 @@ class StoreCartFragment : BaseMvpFragment<StoreCartPresenter>(), StoreCartView,
             if (isSelectAll) {
                 VibrateUtils.vibrate(10)
                 val handlePrice = presenter.handlePrice(mAdapter)
-                total_price_tv.text =
+                binding.totalPriceTv.text =
                     StringUtils.getString(R.string.price_unit_format, handlePrice.stripTrailingZeros().toPlainString())
 //                select_count_tv.text = getString(R.string.total_format, presenter.getSelectedCount(mAdapter))
             } else {
-                total_price_tv.text = getString(R.string.price_unit_format, "0.00")
+                binding.totalPriceTv.text = getString(R.string.price_unit_format, "0.00")
 //                select_count_tv.text = getString(R.string.total_format, 0)
             }
 
-            select_all_tv.isChecked = isSelectAll
+            binding.selectAllTv.isChecked = isSelectAll
         }
 
 
-        delete_tv.setOnClickListener {
+        binding.deleteTv.setOnClickListener {
 
-            if (select_all_tv.isChecked) {
+            if (binding.selectAllTv.isChecked) {
                 presenter.clearStoreCart()
                 mAdapter.setNewInstance(null)
                 emptyView.showEmptyContainer()
@@ -126,7 +135,7 @@ class StoreCartFragment : BaseMvpFragment<StoreCartPresenter>(), StoreCartView,
             }
         }
 
-        settlement_tv.setOnClickListener {
+        binding.settlementTv.setOnClickListener {
 
             val selectedCount = presenter.getSelectedCount(mAdapter)
             if (selectedCount <= 0) {
@@ -181,24 +190,24 @@ class StoreCartFragment : BaseMvpFragment<StoreCartPresenter>(), StoreCartView,
 
 
     override fun bindList(data: ArrayList<StoreCartGroup>) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
 
         if (data.isEmpty()) {
             mAdapter.setNewInstance(null)
             emptyView.showEmptyContainer()
-            select_all_tv.visibility = View.GONE
+            binding.selectAllTv.visibility = View.GONE
             return
         }
         mAdapter.setNewInstance(data)
-        select_all_tv.visibility = View.VISIBLE
+        binding.selectAllTv.visibility = View.VISIBLE
         handleBottom()
     }
 
     override fun onChildNumberChange(cartId: Int, add: Boolean, number: Int) {
         val handlePrice = presenter.handlePrice(mAdapter)
-        total_price_tv.text = StringUtils.getString(R.string.price_unit_format, handlePrice.stripTrailingZeros().toPlainString())
+        binding.totalPriceTv.text = StringUtils.getString(R.string.price_unit_format, handlePrice.stripTrailingZeros().toPlainString())
 
         presenter.changeCartNumber(cartId, add)
     }
@@ -210,11 +219,11 @@ class StoreCartFragment : BaseMvpFragment<StoreCartPresenter>(), StoreCartView,
     private fun handleBottom() {
         // 总价格
         val handlePrice = presenter.handlePrice(mAdapter)
-        total_price_tv.text = StringUtils.getString(R.string.price_unit_format, handlePrice.stripTrailingZeros().toPlainString())
+        binding.totalPriceTv.text = StringUtils.getString(R.string.price_unit_format, handlePrice.stripTrailingZeros().toPlainString())
         // 选中数量
 //        select_count_tv.text = getString(R.string.total_format, presenter.getSelectedCount(mAdapter))
         // 是否全选
-        select_all_tv.isChecked = presenter.checkSelectAll(mAdapter)
+        binding.selectAllTv.isChecked = presenter.checkSelectAll(mAdapter)
     }
 
 
@@ -227,11 +236,11 @@ class StoreCartFragment : BaseMvpFragment<StoreCartPresenter>(), StoreCartView,
             EventCode.EVENT_STORE_CART_HANDLE -> {
                 isEditMode = baseEvent.data as Boolean
                 if (isEditMode) {
-                    bottom_vs.displayedChild = 1
-                    total_price_tv.visibility = View.GONE
+                    binding.bottomVs.displayedChild = 1
+                    binding.totalPriceTv.visibility = View.GONE
                 } else {
-                    bottom_vs.displayedChild = 0
-                    total_price_tv.visibility = View.VISIBLE
+                    binding.bottomVs.displayedChild = 0
+                    binding.totalPriceTv.visibility = View.VISIBLE
                 }
             }
             EventCode.EVENT_REFRESH_ORDER_LIST -> {

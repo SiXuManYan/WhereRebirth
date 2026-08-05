@@ -12,15 +12,17 @@ import com.jiechengsheng.city.api.network.BaseMvpPresenter
 import com.jiechengsheng.city.api.network.BaseMvpView
 import com.jiechengsheng.city.api.response.mall.FoodRefundInfo
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
-import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.utils.Constant
+import com.jiechengsheng.city.databinding.ActivityRefundInfoFoodBinding
+import android.view.ViewGroup
 /**
  *
  * Created by Wangsw  2022/5/12 15:39.
  *  美食外卖退款信息详情
  */
 class FoodRefundInfoActivity : BaseMvpActivity<FoodRefundInfoPresenter>(), FoodRefundInfoView {
+
+    private lateinit var binding: ActivityRefundInfoFoodBinding
 
 
     private var orderId = 0
@@ -53,6 +55,7 @@ class FoodRefundInfoActivity : BaseMvpActivity<FoodRefundInfoPresenter>(), FoodR
     override fun getLayoutId() = R.layout.activity_refund_info_food
 
     override fun initView() {
+        binding = ActivityRefundInfoFoodBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initExtra()
     }
 
@@ -79,18 +82,18 @@ class FoodRefundInfoActivity : BaseMvpActivity<FoodRefundInfoPresenter>(), FoodR
 
 
         if (refundMethod != null && type == FoodRefundInfoPresenter.TYPE_TAKEAWAY) {
-            refund_method_ll.visibility = View.VISIBLE
-            refund_name_tv.text = refundMethod.name
-            refund_user_name_tv.text = refundMethod.user_name
-            refund_account_tv.text = refundMethod.account
+            binding.refundMethodLl.visibility = View.VISIBLE
+            binding.refundNameTv.text = refundMethod.name
+            binding.refundUserNameTv.text = refundMethod.user_name
+            binding.refundAccountTv.text = refundMethod.account
         } else {
             // 美食，酒店，账单，退款原路返回。不再显示退款方式字段
-            refund_method_ll.visibility = View.GONE
+            binding.refundMethodLl.visibility = View.GONE
         }
 
-        refund_price_tv.text = StringUtils.getString(R.string.price_unit_format, response.price)
-        total_price_tv.text = StringUtils.getString(R.string.price_unit_format, response.total_price)
-        time_tv.text = response.cancel_time
+        binding.refundPriceTv.text = StringUtils.getString(R.string.price_unit_format, response.price)
+        binding.totalPriceTv.text = StringUtils.getString(R.string.price_unit_format, response.total_price)
+        binding.timeTv.text = response.cancel_time
     }
 
 

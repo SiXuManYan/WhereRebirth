@@ -20,8 +20,8 @@ import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.FragmentOrderCouponBinding
 
 /**
  * Created by Wangsw  2022/3/9 15:05.
@@ -29,6 +29,9 @@ import org.greenrobot.eventbus.EventBus
  *  平台优惠券或店铺优惠券
  */
 class OrderCouponFragment : BaseMvpFragment<OrderCouponPresenter>(), OrderCouponView {
+
+    private var _binding: FragmentOrderCouponBinding? = null
+    private val binding get() = _binding!!
 
     /** type 类型  1可使用 2 不可使用  */
     var listType = 0
@@ -56,6 +59,7 @@ class OrderCouponFragment : BaseMvpFragment<OrderCouponPresenter>(), OrderCoupon
     override fun getLayoutId() = R.layout.fragment_order_coupon
 
     override fun initView(view: View?) {
+        _binding = FragmentOrderCouponBinding.bind(requireNotNull(view))
         emptyView = EmptyView(requireContext()).apply {
             setEmptyImage(R.mipmap.ic_empty_coupon)
             setEmptyHint(R.string.no_coupon)
@@ -69,7 +73,7 @@ class OrderCouponFragment : BaseMvpFragment<OrderCouponPresenter>(), OrderCoupon
             setEmptyView(emptyView)
         }
 
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             addItemDecoration(DividerDecoration(Color.TRANSPARENT, SizeUtils.dp2px(15f), 0, 0))
         }
@@ -94,13 +98,20 @@ class OrderCouponFragment : BaseMvpFragment<OrderCouponPresenter>(), OrderCoupon
         presenter = OrderCouponPresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun loadOnVisible() {
         presenter.getData(listType, goodsJsonStr, selectedCouponId, shopGoodsJson, shopId)
     }
 
 
     override fun bindListener() {
-        confirm_tv.setOnClickListener {
+        binding.confirmTv.setOnClickListener {
 
             when (requestType) {
                 OrderCouponRequestType.TYPE_PLATFORM_COUPON -> {
@@ -119,7 +130,7 @@ class OrderCouponFragment : BaseMvpFragment<OrderCouponPresenter>(), OrderCoupon
         if (data.isEmpty()) {
             mAdapter.setNewInstance(null)
             emptyView.showEmptyContainer()
-            confirm_tv.visibility = View.GONE
+            binding.confirmTv.visibility = View.GONE
             return
         }
         mAdapter.setNewInstance(data)
@@ -132,7 +143,7 @@ class OrderCouponFragment : BaseMvpFragment<OrderCouponPresenter>(), OrderCoupon
                 }
             }
 
-            confirm_tv.visibility = View.VISIBLE
+            binding.confirmTv.visibility = View.VISIBLE
         }
     }
 

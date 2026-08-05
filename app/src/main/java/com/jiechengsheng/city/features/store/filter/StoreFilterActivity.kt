@@ -28,14 +28,16 @@ import com.jiechengsheng.city.features.store.filter.screen.ScreenFilterFragment
 import com.jiechengsheng.city.features.store.recommend.StoreRecommendAdapter
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityStoreFilerBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/6/9 10:24.
- * 商城筛选
+ * 鍟嗗煄绛涢€?
  */
 class StoreFilterActivity : BaseMvpActivity<StoreFilterPresenter>(), StoreFilterView, OnLoadMoreListener, OnItemClickListener {
+
+    private lateinit var binding: ActivityStoreFilerBinding
 
 
     private lateinit var mAdapter: StoreRecommendAdapter
@@ -43,7 +45,7 @@ class StoreFilterActivity : BaseMvpActivity<StoreFilterPresenter>(), StoreFilter
     private lateinit var emptyView: EmptyView
 
 
-    /** 一级分类 id */
+    /** 涓€绾у垎绫?id */
     private var mPid = 0
     private var page = Constant.DEFAULT_FIRST_PAGE
     private var cateIds: ArrayList<Int> = ArrayList()
@@ -53,6 +55,7 @@ class StoreFilterActivity : BaseMvpActivity<StoreFilterPresenter>(), StoreFilter
     override fun getLayoutId() = R.layout.activity_store_filer
 
     override fun initView() {
+        binding = ActivityStoreFilerBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         intent.extras?.let {
             mPid = it.getInt(Constant.PARAM_PID, 0)
@@ -67,7 +70,7 @@ class StoreFilterActivity : BaseMvpActivity<StoreFilterPresenter>(), StoreFilter
     override fun isStatusDark() = true
 
     /**
-     * 三级分类
+     * 涓夌骇鍒嗙被
      */
     private fun initThirdCategory() {
         thirdCategoryAdapter = ThirdCategoryAdapter()
@@ -80,7 +83,7 @@ class StoreFilterActivity : BaseMvpActivity<StoreFilterPresenter>(), StoreFilter
             }
             thirdCategoryAdapter.notifyDataSetChanged()
 
-            // 筛选 [父级id(即第0项),选中id]
+            // 绛涢€?[鐖剁骇id(鍗崇0椤?,閫変腑id]
             cateIds.clear()
             val selected = data[position]
             cateIds.apply {
@@ -94,50 +97,50 @@ class StoreFilterActivity : BaseMvpActivity<StoreFilterPresenter>(), StoreFilter
         }
 
 
-        three_category_rv.apply {
+        binding.threeCategoryRv.apply {
             adapter = thirdCategoryAdapter
             layoutManager = LinearLayoutManager(this@StoreFilterActivity, LinearLayoutManager.HORIZONTAL, false)
         }
     }
 
     /**
-     * 筛选
+     * 绛涢€?
      */
     private fun initFilter() {
 
-        // 筛选
-        filter_pager.offscreenPageLimit = 2
-        filter_pager.adapter = StoreFilterPagerAdapter(supportFragmentManager, 0).apply {
+        // 绛涢€?
+        binding.filterStore.filterPager.offscreenPageLimit = 2
+        binding.filterStore.filterPager.adapter = StoreFilterPagerAdapter(supportFragmentManager, 0).apply {
             pid = mPid
         }
 
-        filter_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding.filterStore.filterPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
 
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
 
             override fun onPageScrollStateChanged(state: Int) = Unit
 
             override fun onPageSelected(position: Int) {
-                for (i in 0 until category_ll.childCount) {
+                for (i in 0 until binding.categoryLl.childCount) {
                     changeFilterTabStyle(position, i)
                 }
             }
         })
 
-        // 分类
-        classification_ll.setOnClickListener {
+        // 鍒嗙被
+        binding.classificationLl.setOnClickListener {
             switchFilterPager(0)
         }
 
-        // 其他筛选类型
-        screen_ll.setOnClickListener {
+        // 鍏朵粬绛涢€夌被鍨?
+        binding.screenLl.setOnClickListener {
             switchFilterPager(1)
         }
-        dismiss_view.setOnClickListener {
+        binding.filterStore.dismissView.setOnClickListener {
             handleFilterVisible(View.GONE)
         }
 
-        cart_iv.setOnClickListener {
+        binding.cartIv.setOnClickListener {
             startActivityAfterLogin(StoreCartActivity::class.java)
         }
 
@@ -164,7 +167,7 @@ class StoreFilterActivity : BaseMvpActivity<StoreFilterPresenter>(), StoreFilter
             isEnableLoadMoreIfNotFullPage = true
 
         }
-        recycler_view.apply {
+        binding.recyclerView.apply {
             adapter = mAdapter
             layoutManager = gridLayoutManager
             addItemDecoration(decoration)
@@ -180,7 +183,7 @@ class StoreFilterActivity : BaseMvpActivity<StoreFilterPresenter>(), StoreFilter
     }
 
     override fun bindListener() {
-        title_rl.setOnClickListener {
+        binding.titleRl.setOnClickListener {
             startActivity(SearchAllActivity::class.java,Bundle().apply {
                 putInt(Constant.PARAM_TYPE , 5)
             })
@@ -188,7 +191,7 @@ class StoreFilterActivity : BaseMvpActivity<StoreFilterPresenter>(), StoreFilter
     }
 
     /**
-     *  筛选内容
+     *  绛涢€夊唴瀹?
      */
     override fun onEventReceived(baseEvent: BaseEvent<*>) {
         val data = baseEvent.data
@@ -210,7 +213,7 @@ class StoreFilterActivity : BaseMvpActivity<StoreFilterPresenter>(), StoreFilter
                 }
 
                 thirdCategoryAdapter.setNewInstance(list)
-                three_category_rv.visibility = View.VISIBLE
+                binding.threeCategoryRv.visibility = View.VISIBLE
                 cateIds.clear()
                 cateIds.add(data.id)
                 presenter.getData(page, cateIds, moreFilter)
@@ -225,9 +228,9 @@ class StoreFilterActivity : BaseMvpActivity<StoreFilterPresenter>(), StoreFilter
     }
 
     private fun switchFilterPager(index: Int) {
-        val currentItem = filter_pager.currentItem
+        val currentItem = binding.filterStore.filterPager.currentItem
 
-        if (filter_container_ll.visibility == View.GONE) {
+        if (binding.filterStore.filterContainerLl.visibility == View.GONE) {
             handleFilterVisible(View.VISIBLE)
             changeFilterTabStyle(currentItem, index)
         } else {
@@ -236,18 +239,18 @@ class StoreFilterActivity : BaseMvpActivity<StoreFilterPresenter>(), StoreFilter
             }
         }
 
-        filter_pager.setCurrentItem(index, true)
+        binding.filterStore.filterPager.setCurrentItem(index, true)
     }
 
 
     private fun handleFilterVisible(visibility: Int) {
-        filter_container_ll.visibility = visibility
+        binding.filterStore.filterContainerLl.visibility = visibility
 
         if (visibility == View.GONE) {
 
-            for (index in 0 until category_ll.childCount) {
-                // 清空tab选中状态
-                val childTabLL = category_ll.getChildAt(index) as LinearLayout
+            for (index in 0 until binding.categoryLl.childCount) {
+                // 娓呯┖tab閫変腑鐘舵€?
+                val childTabLL = binding.categoryLl.getChildAt(index) as LinearLayout
                 val tabText = childTabLL.getChildAt(0) as CheckedTextView
                 val tabImage = childTabLL.getChildAt(1) as ImageView
                 tabText.isChecked = false
@@ -258,11 +261,11 @@ class StoreFilterActivity : BaseMvpActivity<StoreFilterPresenter>(), StoreFilter
     }
 
     /**
-     * 切换tab状态
+     * 鍒囨崲tab鐘舵€?
      */
     private fun changeFilterTabStyle(pagerPosition: Int, tabIndex: Int) {
 
-        val childTabLL = category_ll.getChildAt(tabIndex) as LinearLayout
+        val childTabLL = binding.categoryLl.getChildAt(tabIndex) as LinearLayout
         val tabText = childTabLL.getChildAt(0) as CheckedTextView
         val tabImage = childTabLL.getChildAt(1) as ImageView
         if (pagerPosition == tabIndex) {

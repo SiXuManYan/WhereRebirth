@@ -23,16 +23,19 @@ import com.jiechengsheng.city.utils.FeaturesUtil
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.widget.NumberView2
 import com.jiechengsheng.city.widget.calendar.JcsCalendarAdapter
-import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivityHotelBoolkBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/10/13 15:17.
  *  酒店预订
  */
 class HotelBookActivity : BaseMvpActivity<HotelBookPresenter>(), HotelBookView, NumberView2.OnValueChangeListener {
+
+    private lateinit var binding: ActivityHotelBoolkBinding
 
     private var hotelRoomId = 0
     private var singlePrice = 0.0
@@ -114,8 +117,9 @@ class HotelBookActivity : BaseMvpActivity<HotelBookPresenter>(), HotelBookView, 
     override fun getLayoutId() = R.layout.activity_hotel_boolk
 
     override fun initView() {
+        binding = ActivityHotelBoolkBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initExtra()
-        number_view.apply {
+        binding.numberView.apply {
             alwaysEnableCut = true
             MIN_GOOD_NUM = 1
             MAX_GOOD_NUM = 20
@@ -129,7 +133,7 @@ class HotelBookActivity : BaseMvpActivity<HotelBookPresenter>(), HotelBookView, 
             cut_iv.visibility = View.VISIBLE
             valueChangeListener = this@HotelBookActivity
         }
-        country_tv.text = mCountryPrefix
+        binding.countryTv.text = mCountryPrefix
     }
 
 
@@ -150,8 +154,8 @@ class HotelBookActivity : BaseMvpActivity<HotelBookPresenter>(), HotelBookView, 
             cancelable = getString(Constant.PARAM_CANCELABLE, "")
             roomNumber = getInt(Constant.PARAM_ROOM_NUMBER, 1)
             roomImage = getString(Constant.PARAM_ROOM_IMAGE, "")
-            name_tv.text = hotelName
-            cancel_tv.text = cancelable
+            binding.nameTv.text = hotelName
+            binding.cancelTv.text = cancelable
         }
 
         handlePrice()
@@ -161,7 +165,7 @@ class HotelBookActivity : BaseMvpActivity<HotelBookPresenter>(), HotelBookView, 
 
     private fun handlePrice() {
         totalPrice = BigDecimalUtil.mul(singlePrice, roomNumber.toDouble())
-        price_tv.text = getString(R.string.price_unit_format, totalPrice.toPlainString())
+        binding.priceTv.text = getString(R.string.price_unit_format, totalPrice.toPlainString())
     }
 
 
@@ -172,17 +176,17 @@ class HotelBookActivity : BaseMvpActivity<HotelBookPresenter>(), HotelBookView, 
 
     private fun initDefault() {
 
-        "·$roomType".also { type_tv.text = it }
-        "·$breakFastType | $roomArea | $roomPeople".also { content_tv.text = it }
-        "·$cancelable".also { cancel_tv.text = it }
+        "·$roomType".also { binding.typeTv.text = it }
+        "·$breakFastType | $roomArea | $roomPeople".also { binding.contentTv.text = it }
+        "·$cancelable".also { binding.cancelTv.text = it }
 
-        start_date_tv.text = mStartDateBean.showMonthDayDate
-        end_date_tv.text = mEndDateBean.showMonthDayDate
+        binding.startDateTv.text = mStartDateBean.showMonthDayDate
+        binding.endDateTv.text = mEndDateBean.showMonthDayDate
 
-        GlideUtil.load(this, roomImage, hotel_image_iv, 5)
+        GlideUtil.load(this, roomImage, binding.hotelImageIv, 5)
 
         val span = (mEndDateBean.time - mStartDateBean.time) / (1000 * 60 * 60 * 24)
-        total_date_tv.text = getString(R.string.total_date_format, span.toString())
+        binding.totalDateTv.text = getString(R.string.total_date_format, span.toString())
     }
 
     override fun onNumberChange(goodNum: Int, isAdd: Boolean) {
@@ -192,14 +196,14 @@ class HotelBookActivity : BaseMvpActivity<HotelBookPresenter>(), HotelBookView, 
     }
 
     override fun bindListener() {
-        booking_tv.setOnClickListener {
-            val resident = resident_et.text.toString().trim()
+        binding.bookingTv.setOnClickListener {
+            val resident = binding.residentEt.text.toString().trim()
 
             if (resident.isEmpty()) {
                 ToastUtils.showShort(R.string.please_enter)
                 return@setOnClickListener
             }
-            val userPhone = phone_aet.text.toString().trim()
+            val userPhone = binding.phoneAet.text.toString().trim()
             if (userPhone.isEmpty()) {
                 ToastUtils.showShort(R.string.please_enter)
                 return@setOnClickListener
@@ -219,10 +223,10 @@ class HotelBookActivity : BaseMvpActivity<HotelBookPresenter>(), HotelBookView, 
             presenter.commitOrder(apply)
         }
 
-        country_tv.setOnClickListener {
+        binding.countryTv.setOnClickListener {
             FeaturesUtil.getCountryPrefix(this) { countryCode: String ->
                 mCountryPrefix = countryCode
-                country_tv.text = getString(R.string.country_code_format, countryCode)
+                binding.countryTv.text = getString(R.string.country_code_format, countryCode)
             }
         }
     }

@@ -28,22 +28,23 @@ import com.jiechengsheng.city.features.mall.home.child.MallRecommendAdapter
 import com.jiechengsheng.city.features.search.SearchAllActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityMallSecondBinding
 /**
  * Created by Wangsw  2021/12/3 15:30.
- * 新版商城二级列表
+ * 閺傛壆澧楅崯鍡楃厔娴滃瞼楠囬崚妤勩€?
  */
 class MallSecondActivity : BaseMvpActivity<MallSecondPresenter>(), MallSecondView {
 
+    private lateinit var binding: ActivityMallSecondBinding
 
-    /** 当前页面对应的二级分类 */
+
+    /** 瑜版挸澧犳い鐢告桨鐎电懓绨查惃鍕癌缁狙冨瀻缁?*/
     private var categoryId = 0
     private var goodRequest = MallGoodListRequest()
     private var page = Constant.DEFAULT_FIRST_PAGE
 
-    /** 商品列表 */
+    /** 閸熷棗鎼ч崚妤勩€?*/
     private lateinit var mAdapter: MallRecommendAdapter
 
 
@@ -72,6 +73,7 @@ class MallSecondActivity : BaseMvpActivity<MallSecondPresenter>(), MallSecondVie
     override fun getLayoutId() = R.layout.activity_mall_second
 
     override fun initView() {
+        binding = ActivityMallSecondBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         categoryId = intent.getIntExtra(Constant.PARAM_CATEGORY_ID, 0)
         initCategoryFilter()
         initContent()
@@ -82,7 +84,7 @@ class MallSecondActivity : BaseMvpActivity<MallSecondPresenter>(), MallSecondVie
 
         mThirdCategoryAdapter = ThirdCategoryFilterAdapter().apply {
             setOnItemClickListener { _, _, position ->
-                // 筛选
+                // 缁涙盯鈧?
                 val datas = mThirdCategoryAdapter.data
                 datas.forEach {
                     it.nativeIsSelected = false
@@ -99,7 +101,7 @@ class MallSecondActivity : BaseMvpActivity<MallSecondPresenter>(), MallSecondVie
                 }
             }
         }
-        category_rv.apply {
+        binding.categoryRv.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = mThirdCategoryAdapter
         }
@@ -122,12 +124,12 @@ class MallSecondActivity : BaseMvpActivity<MallSecondPresenter>(), MallSecondVie
         }
         val gridLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         val decoration = DividerDecoration(ColorUtils.getColor(R.color.transplant), SizeUtils.dp2px(10f), 0, 0)
-        content_rv.apply {
+        binding.contentRv.apply {
             adapter = mAdapter
             layoutManager = gridLayoutManager
             addItemDecoration(decoration)
         }
-        swipe_layout.setOnRefreshListener {
+        binding.swipeLayout.setOnRefreshListener {
             goodRequest.page = Constant.DEFAULT_FIRST_PAGE
             presenter.getMallList(goodRequest)
         }
@@ -139,36 +141,36 @@ class MallSecondActivity : BaseMvpActivity<MallSecondPresenter>(), MallSecondVie
     }
 
     override fun bindListener() {
-        cart_iv.setOnClickListener {
+        binding.cartIv.setOnClickListener {
             startActivityAfterLogin(MallCartActivity::class.java)
         }
 
-        dismiss_view.setOnClickListener {
-            filter_container_ll.visibility = View.GONE
-            if (sales_tv.isChecked) {
-                complex_tv.isChecked = false
+        binding.mallFilter.dismissView.setOnClickListener {
+            binding.mallFilter.filterContainerLl.visibility = View.GONE
+            if (binding.salesTv.isChecked) {
+                binding.complexTv.isChecked = false
             }
         }
 
-        complex_ll.setOnClickListener {
-            if (filter_container_ll.visibility == View.VISIBLE) {
-                filter_container_ll.visibility = View.GONE
-                complex_tv.isChecked = false
-                complex_iv.rotation = 0f
+        binding.complexLl.setOnClickListener {
+            if (binding.mallFilter.filterContainerLl.visibility == View.VISIBLE) {
+                binding.mallFilter.filterContainerLl.visibility = View.GONE
+                binding.complexTv.isChecked = false
+                binding.complexIv.rotation = 0f
             } else {
-                filter_container_ll.visibility = View.VISIBLE
-                complex_tv.isChecked = true
-                complex_iv.rotation = 180f
+                binding.mallFilter.filterContainerLl.visibility = View.VISIBLE
+                binding.complexTv.isChecked = true
+                binding.complexIv.rotation = 180f
             }
-            if (filter_complex_ctv.isChecked || filter_price_down_ctv.isChecked || filter_price_up_ctv.isChecked) {
-                complex_tv.isChecked = true
+            if (binding.mallFilter.filterComplexCtv.isChecked || binding.mallFilter.filterPriceDownCtv.isChecked || binding.mallFilter.filterPriceUpCtv.isChecked) {
+                binding.complexTv.isChecked = true
             }
 
         }
 
-        // 综合
-        filter_complex_ctv.setOnClickListener {
-            sales_tv.isChecked = false
+        // 缂佺厧鎮?
+        binding.mallFilter.filterComplexCtv.setOnClickListener {
+            binding.salesTv.isChecked = false
 
             goodRequest.apply {
                 page = Constant.DEFAULT_FIRST_PAGE
@@ -177,19 +179,19 @@ class MallSecondActivity : BaseMvpActivity<MallSecondPresenter>(), MallSecondVie
             }
             presenter.getMallList(goodRequest)
 
-            complex_tv.text = filter_complex_ctv.text
-            filter_container_ll.visibility = View.GONE
+            binding.complexTv.text = binding.mallFilter.filterComplexCtv.text
+            binding.mallFilter.filterContainerLl.visibility = View.GONE
 
-            filter_complex_ctv.isChecked = true
-            filter_price_down_ctv.isChecked = false
-            filter_price_up_ctv.isChecked = false
-            complex_tv.isChecked = true
+            binding.mallFilter.filterComplexCtv.isChecked = true
+            binding.mallFilter.filterPriceDownCtv.isChecked = false
+            binding.mallFilter.filterPriceUpCtv.isChecked = false
+            binding.complexTv.isChecked = true
 
         }
 
-        // 价格降序
-        filter_price_down_ctv.setOnClickListener {
-            sales_tv.isChecked = false
+        // 娴犻攱鐗搁梽宥呯碍
+        binding.mallFilter.filterPriceDownCtv.setOnClickListener {
+            binding.salesTv.isChecked = false
             goodRequest.apply {
                 page = Constant.DEFAULT_FIRST_PAGE
                 order = SortEnum.desc
@@ -197,17 +199,17 @@ class MallSecondActivity : BaseMvpActivity<MallSecondPresenter>(), MallSecondVie
             }
             presenter.getMallList(goodRequest)
 
-            complex_tv.text = filter_price_down_ctv.text
-            filter_container_ll.visibility = View.GONE
-            filter_complex_ctv.isChecked = false
-            filter_price_down_ctv.isChecked = true
-            filter_price_up_ctv.isChecked = false
-            complex_tv.isChecked = true
+            binding.complexTv.text = binding.mallFilter.filterPriceDownCtv.text
+            binding.mallFilter.filterContainerLl.visibility = View.GONE
+            binding.mallFilter.filterComplexCtv.isChecked = false
+            binding.mallFilter.filterPriceDownCtv.isChecked = true
+            binding.mallFilter.filterPriceUpCtv.isChecked = false
+            binding.complexTv.isChecked = true
         }
 
-        // 价格升序
-        filter_price_up_ctv.setOnClickListener {
-            sales_tv.isChecked = false
+        // 娴犻攱鐗搁崡鍥х碍
+        binding.mallFilter.filterPriceUpCtv.setOnClickListener {
+            binding.salesTv.isChecked = false
             goodRequest.apply {
                 page = Constant.DEFAULT_FIRST_PAGE
                 order = SortEnum.asc
@@ -215,23 +217,23 @@ class MallSecondActivity : BaseMvpActivity<MallSecondPresenter>(), MallSecondVie
             }
             presenter.getMallList(goodRequest)
 
-            complex_tv.text = filter_price_up_ctv.text
-            filter_container_ll.visibility = View.GONE
-            filter_complex_ctv.isChecked = false
-            filter_price_down_ctv.isChecked = false
-            filter_price_up_ctv.isChecked = true
-            complex_tv.isChecked = true
+            binding.complexTv.text = binding.mallFilter.filterPriceUpCtv.text
+            binding.mallFilter.filterContainerLl.visibility = View.GONE
+            binding.mallFilter.filterComplexCtv.isChecked = false
+            binding.mallFilter.filterPriceDownCtv.isChecked = false
+            binding.mallFilter.filterPriceUpCtv.isChecked = true
+            binding.complexTv.isChecked = true
         }
 
-        // 销量
-        sales_tv.setOnClickListener {
-            complex_tv.isChecked = false
-            filter_container_ll.visibility = View.GONE
-            sales_tv.isChecked = !sales_tv.isChecked
+        // 闁库偓闁?
+        binding.salesTv.setOnClickListener {
+            binding.complexTv.isChecked = false
+            binding.mallFilter.filterContainerLl.visibility = View.GONE
+            binding.salesTv.isChecked = !binding.salesTv.isChecked
             goodRequest.apply {
                 page = Constant.DEFAULT_FIRST_PAGE
                 order = null
-                sold = if (sales_tv.isChecked) {
+                sold = if (binding.salesTv.isChecked) {
                     SortEnum.desc
                 } else {
                     null
@@ -240,15 +242,15 @@ class MallSecondActivity : BaseMvpActivity<MallSecondPresenter>(), MallSecondVie
             presenter.getMallList(goodRequest)
         }
 
-        other_filter_ll.setOnClickListener {
-            filter_container_ll.visibility = View.GONE
+        binding.otherFilterLl.setOnClickListener {
+            binding.mallFilter.filterContainerLl.visibility = View.GONE
             showOtherFilterDialog()
         }
 
-        search_ll.setOnClickListener {
+        binding.searchLl.setOnClickListener {
             startActivity(SearchAllActivity::class.java, Bundle().apply {
                 putInt(Constant.PARAM_TYPE, 6)
-                // 通过2三级分类跳转搜索，要同时穿2级分类
+                // 闁俺绻?娑撳楠囬崚鍡欒鐠哄疇娴嗛幖婊呭偍閿涘矁顩﹂崥灞炬缁?缁狙冨瀻缁?
                 putString(Constant.PARAM_CATEGORY_ID, categoryId.toString())
             })
         }
@@ -266,7 +268,7 @@ class MallSecondActivity : BaseMvpActivity<MallSecondPresenter>(), MallSecondVie
     }
 
     override fun bindData(data: MutableList<MallGood>, lastPage: Boolean) {
-        swipe_layout.isRefreshing = false
+        binding.swipeLayout.isRefreshing = false
         val loadMoreModule = mAdapter.loadMoreModule
         if (data.isEmpty()) {
             if (page == Constant.DEFAULT_FIRST_PAGE) {

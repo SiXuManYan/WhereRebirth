@@ -26,9 +26,10 @@ import com.jiechengsheng.city.features.store.refund.detail.StoreRefundDetailActi
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivityStoreOrderDetailBinding
+import android.view.ViewGroup
 
 
 /**
@@ -36,6 +37,8 @@ import java.math.BigDecimal
  *  商城订单详情
  */
 class StoreOrderDetailActivity : BaseMvpActivity<StoreOrderDetailPresenter>(), StoreOrderDetailView {
+
+    private lateinit var binding: ActivityStoreOrderDetailBinding
 
 
     private var orderId = 0
@@ -51,13 +54,14 @@ class StoreOrderDetailActivity : BaseMvpActivity<StoreOrderDetailPresenter>(), S
     override fun getLayoutId() = R.layout.activity_store_order_detail
 
     override fun initView() {
+        binding = ActivityStoreOrderDetailBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         intent.extras?.let {
             orderId = it.getInt(Constant.PARAM_ORDER_ID, 0)
         }
 
         mAdapter = StoreOrderDetailAdapter()
-        good_rv.apply {
+        binding.goodRv.apply {
             isNestedScrollingEnabled = true
             layoutManager = object : LinearLayoutManager(context, VERTICAL, false) {
                 override fun canScrollVertically() = false
@@ -78,7 +82,7 @@ class StoreOrderDetailActivity : BaseMvpActivity<StoreOrderDetailPresenter>(), S
     }
 
     override fun bindListener() {
-        phone_ll.setOnClickListener {
+        binding.phoneLl.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL).apply {
                 data = Uri.parse("tel:$tel")
             }
@@ -90,51 +94,51 @@ class StoreOrderDetailActivity : BaseMvpActivity<StoreOrderDetailPresenter>(), S
 
     override fun bindData(data: StoreOrderDetail) {
         tel = data.phone
-        status_tv.text = presenter.getStatusText(data.delivery_type, data.status)
-        presenter.getStatusDescText(status_desc_tv, data.status)
-        order_number_tv.text = data.trade_no
-        created_date_tv.text = data.created_at
+        binding.statusTv.text = presenter.getStatusText(data.delivery_type, data.status)
+        presenter.getStatusDescText(binding.statusDescTv, data.status)
+        binding.orderNumberTv.text = data.trade_no
+        binding.createdDateTv.text = data.created_at
         val price = data.price
         totalPrice = price.toDouble()
-        price_tv.text = getString(R.string.price_unit_format, price.toPlainString())
+        binding.priceTv.text = getString(R.string.price_unit_format, price.toPlainString())
 
 
         // 商家服务
         if (data.delivery_type == 1) {
-            delivery_value_tv.text = getString(R.string.self_extraction)
-            service_second_title_tv.text = getString(R.string.phone_number)
-            service_second_value_tv.text = data.phone
-            recipient_info_ll.visibility = View.GONE
+            binding.deliveryValueTv.text = getString(R.string.self_extraction)
+            binding.serviceSecondTitleTv.text = getString(R.string.phone_number)
+            binding.serviceSecondValueTv.text = data.phone
+            binding.recipientInfoLl.visibility = View.GONE
 
             // 商品备注
-            delivery_rl.visibility = View.GONE
-            remark_rl.visibility = View.GONE
+            binding.deliveryRl.visibility = View.GONE
+            binding.remarkRl.visibility = View.GONE
         } else {
-            delivery_value_tv.text = getString(R.string.express)
-            service_second_title_tv.text = getString(R.string.delivery_time)
-            service_second_value_tv.text = data.delivery_times
-            recipient_info_ll.visibility = View.VISIBLE
+            binding.deliveryValueTv.text = getString(R.string.express)
+            binding.serviceSecondTitleTv.text = getString(R.string.delivery_time)
+            binding.serviceSecondValueTv.text = data.delivery_times
+            binding.recipientInfoLl.visibility = View.VISIBLE
             data.address?.let {
-                address_name_tv.text = it.address
-                recipient_tv.text = getString(R.string.star_text_format, it.contact_name, it.contact_number)
+                binding.addressNameTv.text = it.address
+                binding.recipientTv.text = getString(R.string.star_text_format, it.contact_name, it.contact_number)
             }
 
             // 商品备注
-            delivery_rl.visibility = View.VISIBLE
-            remark_rl.visibility = View.VISIBLE
-            delivery_price_tv.text = getString(R.string.price_unit_format, data.delivery_fee.toPlainString())
-            remarks_value_tv.text = data.remark
+            binding.deliveryRl.visibility = View.VISIBLE
+            binding.remarkRl.visibility = View.VISIBLE
+            binding.deliveryPriceTv.text = getString(R.string.price_unit_format, data.delivery_fee.toPlainString())
+            binding.remarksValueTv.text = data.remark
 
         }
 
         // 支付信息
         if (data.status != 1 && data.status != 6) {
-            pay_way_tv.text = data.pay_channel
-            payment_name_tv.text = getString(R.string.payment_name_format, data.bank_card_account)
-            payment_account_tv.text = getString(R.string.payment_account_format, data.bank_card_number)
-            pay_container_ll.visibility = View.VISIBLE
+            binding.payWayTv.text = data.pay_channel
+            binding.paymentNameTv.text = getString(R.string.payment_name_format, data.bank_card_account)
+            binding.paymentAccountTv.text = getString(R.string.payment_account_format, data.bank_card_number)
+            binding.payContainerLl.visibility = View.VISIBLE
         } else {
-            pay_container_ll.visibility = View.GONE
+            binding.payContainerLl.visibility = View.GONE
         }
 
         var shopName = ""
@@ -144,15 +148,15 @@ class StoreOrderDetailActivity : BaseMvpActivity<StoreOrderDetailPresenter>(), S
         data.shop?.let {
             mAdapter.setNewInstance(it.goods)
             shopName = it.title
-            business_name_tv.text = it.title
+            binding.businessNameTv.text = it.title
 
             if (it.im_status == 1 && !TextUtils.isEmpty(it.mer_uuid)) {
-                im_ll.visibility = View.VISIBLE
-                im_ll.setOnClickListener { _ ->
+                binding.imLl.visibility = View.VISIBLE
+                binding.imLl.setOnClickListener { _ ->
                     BusinessUtils.showImUnavailableDialog(this)
                 }
             } else {
-                im_ll.visibility = View.GONE
+                binding.imLl.visibility = View.GONE
             }
 
             if (it.images.isNotEmpty()) {
@@ -164,68 +168,68 @@ class StoreOrderDetailActivity : BaseMvpActivity<StoreOrderDetailPresenter>(), S
         // 底部
         when (data.status) {
             1 -> {
-                bottom_container_rl.visibility = View.VISIBLE
-                left_tv.visibility = View.VISIBLE
-                left_tv.text = getString(R.string.to_cancel_order)
-                left_tv.setOnClickListener {
+                binding.bottomContainerRl.visibility = View.VISIBLE
+                binding.leftTv.visibility = View.VISIBLE
+                binding.leftTv.text = getString(R.string.to_cancel_order)
+                binding.leftTv.setOnClickListener {
                     // 取消订单
                     cancelOrder(data.id)
                 }
 
-                right_tv.visibility = View.VISIBLE
-                right_tv.text = getString(R.string.to_pay_2)
-                right_tv.setOnClickListener {
+                binding.rightTv.visibility = View.VISIBLE
+                binding.rightTv.text = getString(R.string.to_pay_2)
+                binding.rightTv.setOnClickListener {
                     // 去付款
                     handlePay(data.id, data.price)
                 }
             }
             3 -> {
                 if (data.delivery_type == 2) {
-                    bottom_container_rl.visibility = View.VISIBLE
-                    left_tv.visibility = View.VISIBLE
-                    left_tv.text = getString(R.string.to_refund)
-                    left_tv.setOnClickListener {
+                    binding.bottomContainerRl.visibility = View.VISIBLE
+                    binding.leftTv.visibility = View.VISIBLE
+                    binding.leftTv.text = getString(R.string.to_refund)
+                    binding.leftTv.setOnClickListener {
                         // 申请退款
                         doRefund()
                     }
-                    right_tv.visibility = View.GONE
+                    binding.rightTv.visibility = View.GONE
                 } else {
-                    bottom_container_rl.visibility = View.GONE
+                    binding.bottomContainerRl.visibility = View.GONE
                 }
             }
             4 -> {
                 if (data.delivery_type == 1) {
-                    bottom_container_rl.visibility = View.VISIBLE
-                    left_tv.visibility = View.VISIBLE
-                    left_tv.text = getString(R.string.to_refund)
-                    left_tv.setOnClickListener {
+                    binding.bottomContainerRl.visibility = View.VISIBLE
+                    binding.leftTv.visibility = View.VISIBLE
+                    binding.leftTv.text = getString(R.string.to_refund)
+                    binding.leftTv.setOnClickListener {
                         // 申请退款
                         doRefund()
                     }
-                    right_tv.visibility = View.GONE
+                    binding.rightTv.visibility = View.GONE
                 } else {
-                    bottom_container_rl.visibility = View.GONE
+                    binding.bottomContainerRl.visibility = View.GONE
                 }
             }
             5 -> {
-                bottom_container_rl.visibility = View.VISIBLE
+                binding.bottomContainerRl.visibility = View.VISIBLE
 
-                left_tv.visibility = View.VISIBLE
-                left_tv.text = getString(R.string.apply_return)
-                left_tv.setOnClickListener {
+                binding.leftTv.visibility = View.VISIBLE
+                binding.leftTv.text = getString(R.string.apply_return)
+                binding.leftTv.setOnClickListener {
                     // 申请退货
                     doRefund()
                 }
                 val commentStatus = data.comment_status
                 if (commentStatus == 3) {
-                    right_tv.visibility = View.GONE
+                    binding.rightTv.visibility = View.GONE
                 } else {
 
-                    right_tv.visibility = View.VISIBLE
+                    binding.rightTv.visibility = View.VISIBLE
 
                     if (commentStatus == 1) {
-                        right_tv.text = getString(R.string.evaluation)
-                        right_tv.setOnClickListener {
+                        binding.rightTv.text = getString(R.string.evaluation)
+                        binding.rightTv.setOnClickListener {
                             // 去评价
                             startActivity(StoreCommentPostActivity::class.java, Bundle().apply {
                                 putInt(Constant.PARAM_ORDER_ID, orderId)
@@ -236,8 +240,8 @@ class StoreOrderDetailActivity : BaseMvpActivity<StoreOrderDetailPresenter>(), S
                     }
 
                     if (commentStatus == 2) {
-                        right_tv.text = getString(R.string.view_evaluation)
-                        right_tv.setOnClickListener {
+                        binding.rightTv.text = getString(R.string.view_evaluation)
+                        binding.rightTv.setOnClickListener {
                             startActivity(StoreCommentDetailActivity::class.java, Bundle().apply {
                                 putInt(Constant.PARAM_ORDER_ID, orderId)
                             })
@@ -249,21 +253,21 @@ class StoreOrderDetailActivity : BaseMvpActivity<StoreOrderDetailPresenter>(), S
             8, 9, 10, 11, 12 -> {
                 //  查看售后详情
                 if (data.aftersale_status == 2) {
-                    bottom_container_rl.visibility = View.VISIBLE
-                    left_tv.visibility = View.VISIBLE
-                    left_tv.text = getString(R.string.after_sale_details)
-                    left_tv.setOnClickListener {
+                    binding.bottomContainerRl.visibility = View.VISIBLE
+                    binding.leftTv.visibility = View.VISIBLE
+                    binding.leftTv.text = getString(R.string.after_sale_details)
+                    binding.leftTv.setOnClickListener {
                         // 查看售后详情
                         viewRefundDetail()
                     }
-                    right_tv.visibility = View.GONE
+                    binding.rightTv.visibility = View.GONE
                 } else {
-                    bottom_container_rl.visibility = View.GONE
+                    binding.bottomContainerRl.visibility = View.GONE
                 }
 
             }
             else -> {
-                bottom_container_rl.visibility = View.GONE
+                binding.bottomContainerRl.visibility = View.GONE
             }
         }
     }

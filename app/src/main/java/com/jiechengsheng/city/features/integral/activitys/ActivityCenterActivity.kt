@@ -15,14 +15,16 @@ import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.integral.activitys.child.IntegralChildFragment
 import com.jiechengsheng.city.features.integral.record.IntegralRecordActivity
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityActivityCenterBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/9/21 10:10.
  * 活动中心
  */
 class ActivityCenterActivity : BaseMvpActivity<ActivityCenterPresenter>(), ActivityCenterView {
+
+    private lateinit var binding: ActivityActivityCenterBinding
 
 
     private var tabTitles = ArrayList<IntegralTag>()
@@ -38,6 +40,7 @@ class ActivityCenterActivity : BaseMvpActivity<ActivityCenterPresenter>(), Activ
 
 
     override fun initView() {
+        binding = ActivityActivityCenterBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         initFilter()
         pagerAdapter = InnerPagerAdapter(supportFragmentManager, 0)
@@ -47,7 +50,7 @@ class ActivityCenterActivity : BaseMvpActivity<ActivityCenterPresenter>(), Activ
     private fun initFilter() {
 
         mThirdAdapter = CenterTagAdapter()
-        tab_rv.apply {
+        binding.tabRv.apply {
             adapter = mThirdAdapter
             layoutManager = LinearLayoutManager(this@ActivityCenterActivity, LinearLayoutManager.HORIZONTAL, false)
             addItemDecoration(DividerDecoration(Color.TRANSPARENT, SizeUtils.dp2px(8f), 0, 0))
@@ -59,7 +62,7 @@ class ActivityCenterActivity : BaseMvpActivity<ActivityCenterPresenter>(), Activ
         mThirdAdapter.setNewInstance(response)
         tabTitles.clear()
         tabTitles.addAll(response)
-        pager.apply {
+        binding.pager.apply {
             offscreenPageLimit = response.size
             pagerAdapter.notifyDataSetChanged()
             adapter = pagerAdapter
@@ -75,7 +78,7 @@ class ActivityCenterActivity : BaseMvpActivity<ActivityCenterPresenter>(), Activ
     @SuppressLint("NotifyDataSetChanged")
     override fun bindListener() {
         mThirdAdapter.setOnItemClickListener { _, _, position ->
-            pager.setCurrentItem(position, true)
+            binding.pager.setCurrentItem(position, true)
             mThirdAdapter.data.forEachIndexed { index, category ->
                 category.nativeIsSelected = index == position
             }
@@ -83,7 +86,7 @@ class ActivityCenterActivity : BaseMvpActivity<ActivityCenterPresenter>(), Activ
 
 
         }
-        pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding.pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
 
             override fun onPageScrollStateChanged(state: Int) = Unit
@@ -93,11 +96,11 @@ class ActivityCenterActivity : BaseMvpActivity<ActivityCenterPresenter>(), Activ
                     category.nativeIsSelected = index == position
                 }
                 mThirdAdapter.notifyDataSetChanged()
-                tab_rv.smoothScrollToPosition(position)
+                binding.tabRv.smoothScrollToPosition(position)
             }
         })
 
-        record_tv.setOnClickListener {
+        binding.recordTv.setOnClickListener {
             startActivity(IntegralRecordActivity::class.java)
         }
 
@@ -105,7 +108,7 @@ class ActivityCenterActivity : BaseMvpActivity<ActivityCenterPresenter>(), Activ
     }
 
     override fun bindIntegral(integral: String) {
-        balance_tv.text = integral
+        binding.balanceTv.text = integral
     }
 
 

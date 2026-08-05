@@ -18,15 +18,17 @@ import com.jiechengsheng.city.features.map.government.GovernmentActivity
 import com.jiechengsheng.city.features.mechanism.MechanismActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.SingleRecyclerViewBinding
 /**
  * Created by Wangsw  2021/8/26 14:27.
  * 机构列表
  */
 class MechanismChildFragment : BaseMvpFragment<MechanismChildPresenter>(), MechanismChildView, OnItemClickListener,
     OnLoadMoreListener {
+
+    private var _binding: SingleRecyclerViewBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var mAdapter: MechanismAdapter
     private lateinit var emptyView: EmptyView
@@ -43,6 +45,7 @@ class MechanismChildFragment : BaseMvpFragment<MechanismChildPresenter>(), Mecha
     override fun getLayoutId() = R.layout.single_recycler_view
 
     override fun initView(view: View?) {
+        _binding = SingleRecyclerViewBinding.bind(requireNotNull(view))
 
         emptyView = EmptyView(context).apply {
             initEmpty(R.mipmap.ic_empty_search, R.string.empty_search, R.string.empty_search_hint)
@@ -56,8 +59,8 @@ class MechanismChildFragment : BaseMvpFragment<MechanismChildPresenter>(), Mecha
             loadMoreModule.setOnLoadMoreListener(this@MechanismChildFragment)
         }
 
-        content_rv.adapter = mAdapter
-        content_rv.addItemDecoration(
+        binding.contentRv.adapter = mAdapter
+        binding.contentRv.addItemDecoration(
             DividerDecoration(Color.TRANSPARENT, SizeUtils.dp2px(15f), 0, 0).apply {
                 setDrawHeaderFooter(true)
             })
@@ -67,6 +70,13 @@ class MechanismChildFragment : BaseMvpFragment<MechanismChildPresenter>(), Mecha
     override fun initData() {
         presenter = MechanismChildPresenter(this)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
 
     override fun loadOnVisible() {
         if (isViewVisible) {

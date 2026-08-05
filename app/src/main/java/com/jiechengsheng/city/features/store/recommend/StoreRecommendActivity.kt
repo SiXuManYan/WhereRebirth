@@ -16,8 +16,9 @@ import com.jiechengsheng.city.features.store.cart.StoreCartActivity
 import com.jiechengsheng.city.features.store.detail.StoreDetailActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-import java.util.*
+import java.util.*
+import com.jiechengsheng.city.databinding.ActivityStoreListBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/6/1 10:33.
@@ -25,12 +26,15 @@ import java.util.*
  */
 class StoreRecommendActivity : BaseMvpActivity<StoreRecommendPresenter>(), StoreRecommendView, OnItemClickListener {
 
+    private lateinit var binding: ActivityStoreListBinding
+
     private lateinit var mBannerAdapter: StoreBannerAdapter
     private lateinit var mAdapter: StoreRecommendAdapter
 
     override fun getLayoutId() = R.layout.activity_store_list
 
     override fun initView() {
+        binding = ActivityStoreListBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         initBanner()
         initContent()
@@ -41,27 +45,27 @@ class StoreRecommendActivity : BaseMvpActivity<StoreRecommendPresenter>(), Store
     private fun initBanner() {
         mBannerAdapter = StoreBannerAdapter()
         val manager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        banner_rv.apply {
+        binding.bannerRv.apply {
             layoutManager = manager
             adapter = mBannerAdapter
         }
 
         val helper = PagerSnapHelper()
-        helper.attachToRecyclerView(banner_rv)
+        helper.attachToRecyclerView(binding.bannerRv)
 
-        point_view.apply {
+        binding.pointView.apply {
             selectedDrawableResId = R.drawable.shape_point_selected_377bff
             commonDrawableResId = R.drawable.shape_point_selected_d8d8d8
         }
 
-        banner_rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.bannerRv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
 
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 val layoutManager = recyclerView.layoutManager
                 if (layoutManager is LinearLayoutManager) {
                     val firstItemPosition: Int = layoutManager.findFirstVisibleItemPosition()
                     if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                        point_view.onPageSelected(firstItemPosition)
+                        binding.pointView.onPageSelected(firstItemPosition)
                     }
                 }
             }
@@ -73,7 +77,7 @@ class StoreRecommendActivity : BaseMvpActivity<StoreRecommendPresenter>(), Store
         mAdapter.setOnItemClickListener(this@StoreRecommendActivity)
         val gridLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         val decoration = DividerDecoration(ColorUtils.getColor(R.color.transplant), SizeUtils.dp2px(10f), 0, 0)
-        content_rv.apply {
+        binding.contentRv.apply {
             adapter = mAdapter
             layoutManager = gridLayoutManager
             addItemDecoration(decoration)
@@ -88,15 +92,15 @@ class StoreRecommendActivity : BaseMvpActivity<StoreRecommendPresenter>(), Store
     }
 
     override fun bindListener() {
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             finish()
         }
-        search_ll.setOnClickListener {
+        binding.searchLl.setOnClickListener {
             startActivity(SearchAllActivity::class.java,Bundle().apply {
                 putInt(Constant.PARAM_TYPE , 5)
             })
         }
-        cart_iv.setOnClickListener {
+        binding.cartIv.setOnClickListener {
             startActivityAfterLogin(StoreCartActivity::class.java)
         }
     }
@@ -107,7 +111,7 @@ class StoreRecommendActivity : BaseMvpActivity<StoreRecommendPresenter>(), Store
 
     override fun bindBannerData(result: ArrayList<StoryBannerCategory>) {
         mBannerAdapter.setNewInstance(result)
-        point_view.setPointCount(result.size)
+        binding.pointView.setPointCount(result.size)
     }
 
     override fun onItemClick(adapter: BaseQuickAdapter<*, *>, view: View, position: Int) {

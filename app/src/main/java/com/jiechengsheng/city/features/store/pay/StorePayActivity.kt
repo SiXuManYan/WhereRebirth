@@ -21,14 +21,17 @@ import com.jiechengsheng.city.features.store.order.StoreOrderCommitActivity
 import com.jiechengsheng.city.features.store.pay.info.PayInfoActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityStorePayBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/6/23 15:10.
  * 商城支付
  */
 class StorePayActivity : BaseMvpActivity<StorePayPresenter>(), StorePayView, OnItemClickListener {
+
+    private lateinit var binding: ActivityStorePayBinding
 
 
     /**
@@ -55,6 +58,7 @@ class StorePayActivity : BaseMvpActivity<StorePayPresenter>(), StorePayView, OnI
     override fun onBackPressed() = onBackClick()
 
     override fun initView() {
+        binding = ActivityStorePayBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, ColorUtils.getColor(R.color.white))
         intent.extras?.let {
             totalPrice = it.getDouble(Constant.PARAM_TOTAL_PRICE, 0.0)
@@ -66,14 +70,14 @@ class StorePayActivity : BaseMvpActivity<StorePayPresenter>(), StorePayView, OnI
         }
 
         initPayChannel()
-        total_tv.text = getString(R.string.price_unit_format, totalPrice.toString())
+        binding.totalTv.text = getString(R.string.price_unit_format, totalPrice.toString())
     }
 
     private fun initPayChannel() {
         mAdapter = StorePayAdapter()
         mAdapter.setOnItemClickListener(this@StorePayActivity)
 
-        pay_channel_rv.apply {
+        binding.payChannelRv.apply {
             adapter = mAdapter
             isNestedScrollingEnabled = true
             layoutManager = object : LinearLayoutManager(context, VERTICAL, false) {
@@ -114,7 +118,7 @@ class StorePayActivity : BaseMvpActivity<StorePayPresenter>(), StorePayView, OnI
 
 
     override fun bindListener() {
-        pay_tv.setOnClickListener {
+        binding.payTv.setOnClickListener {
             if (selectedChannel == null) {
                 ToastUtils.showShort(getString(R.string.select_pay_way))
                 return@setOnClickListener

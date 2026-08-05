@@ -9,14 +9,16 @@ import com.jiechengsheng.city.api.response.hotel.HotelComment
 import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.features.hotel.comment.child.HotelCommentAdapter
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.view.empty.EmptyView
+import com.jiechengsheng.city.databinding.FragmentRefreshListBinding
 /**
  * Created by Wangsw  2021/5/27 16:05.
  *  美食、商城评论列表
  */
 class FoodCommentFragment : BaseMvpFragment<FoodCommentPresenter>(), FoodCommentView, OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener {
+
+    private var _binding: FragmentRefreshListBinding? = null
+    private val binding get() = _binding!!
 
 
     /** 餐厅id */
@@ -53,13 +55,14 @@ class FoodCommentFragment : BaseMvpFragment<FoodCommentPresenter>(), FoodComment
     override fun getLayoutId() = R.layout.fragment_refresh_list
 
     override fun initView(view: View) {
+        _binding = FragmentRefreshListBinding.bind(requireNotNull(view))
         arguments?.let {
             restaurant_id = it.getString(Constant.PARAM_ID, "")
             listType = it.getInt(Constant.PARAM_TYPE, 0)
         }
 
         // list
-        swipe_layout.setOnRefreshListener(this)
+        binding.swipeLayout.setOnRefreshListener(this)
         emptyView = EmptyView(context).apply {
             setEmptyImage(R.mipmap.ic_empty_refund_comment)
             setEmptyMessage(R.string.no_comments_yet)
@@ -71,19 +74,26 @@ class FoodCommentFragment : BaseMvpFragment<FoodCommentPresenter>(), FoodComment
             loadMoreModule.setOnLoadMoreListener(this@FoodCommentFragment)
             setEmptyView(emptyView)
         }
-        recycler.adapter = mAdapter
+        binding.recycler.adapter = mAdapter
     }
 
     override fun initData() {
         presenter = FoodCommentPresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun bindListener() {
 
     }
 
     override fun onRefresh() {
-        swipe_layout.isRefreshing = true
+        binding.swipeLayout.isRefreshing = true
         page = Constant.DEFAULT_FIRST_PAGE
         loadOnVisible()
     }
@@ -104,8 +114,8 @@ class FoodCommentFragment : BaseMvpFragment<FoodCommentPresenter>(), FoodComment
     }
 
     override fun bindCommentData(data: MutableList<HotelComment>, isLastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
         val loadMoreModule = mAdapter.loadMoreModule
         if (data.isEmpty()) {

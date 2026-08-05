@@ -15,14 +15,17 @@ import com.jiechengsheng.city.features.store.order.detail.StoreOrderDetailAdapte
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
 import com.zhihu.matisse.Matisse
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityStoreRefundBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/7/1 10:27.
  * 商城退款退货
  */
 class StoreRefundActivity : BaseMvpActivity<StoreRefundPresenter>(), StoreRefundView {
+
+    private lateinit var binding: ActivityStoreRefundBinding
 
 
     private var orderId = 0
@@ -48,6 +51,7 @@ class StoreRefundActivity : BaseMvpActivity<StoreRefundPresenter>(), StoreRefund
     override fun getLayoutId() = R.layout.activity_store_refund
 
     override fun initView() {
+        binding = ActivityStoreRefundBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         BarUtils.setStatusBarColor(this, Color.WHITE)
         mAdapter = StoreOrderDetailAdapter()
@@ -62,14 +66,14 @@ class StoreRefundActivity : BaseMvpActivity<StoreRefundPresenter>(), StoreRefund
 
 
         // 商品
-        good_rv.apply {
+        binding.goodRv.apply {
             isNestedScrollingEnabled = true
             layoutManager = object : LinearLayoutManager(context, VERTICAL, false) {
                 override fun canScrollVertically() = false
             }
             adapter = mAdapter
         }
-        amount_tv.text = getString(R.string.price_unit_format, totalPrice.toString())
+        binding.amountTv.text = getString(R.string.price_unit_format, totalPrice.toString())
 
         // 相册
         mImageAdapter = StoreRefundAdapter().apply {
@@ -86,7 +90,7 @@ class StoreRefundActivity : BaseMvpActivity<StoreRefundPresenter>(), StoreRefund
 
         }
 
-        image_rv.apply {
+        binding.imageRv.apply {
             adapter = mImageAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
@@ -100,7 +104,7 @@ class StoreRefundActivity : BaseMvpActivity<StoreRefundPresenter>(), StoreRefund
     private fun handleFromChange() {
 
         if (cancelReason.isNotEmpty()) {
-            desc_tv.setText(cancelReason)
+            binding.descTv.setText(cancelReason)
         }
         if (isChange) {
             intent.extras?.let {
@@ -122,7 +126,7 @@ class StoreRefundActivity : BaseMvpActivity<StoreRefundPresenter>(), StoreRefund
 
     override fun bindListener() {
 
-        upload_iv.setOnClickListener {
+        binding.uploadIv.setOnClickListener {
 
             val size = mImageAdapter.data.size
             if (size == 5) {
@@ -132,8 +136,8 @@ class StoreRefundActivity : BaseMvpActivity<StoreRefundPresenter>(), StoreRefund
             val max = 5 - size
             FeaturesUtil.handleMediaSelect(this, Constant.IMG, max)
         }
-        refund_tv.setOnClickListener {
-            val desc = desc_tv.text.toString().trim()
+        binding.refundTv.setOnClickListener {
+            val desc = binding.descTv.text.toString().trim()
             if (desc.isEmpty()) {
                 ToastUtils.showShort(R.string.refund_reason_input_hint)
                 return@setOnClickListener

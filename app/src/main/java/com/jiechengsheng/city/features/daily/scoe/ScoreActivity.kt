@@ -9,16 +9,18 @@ import com.jiechengsheng.city.features.daily.sign.SignInRuleActivity
 import com.jiechengsheng.city.features.integral.child.detail.IntegralChildAdapter
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityScoreBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/11/25 18:25.
  * 我的积分
  */
 class ScoreActivity : BaseMvpActivity<ScorePresenter>(), ScoreView {
 
-    private val rule_tv: android.widget.CheckedTextView
+    private lateinit var binding: ActivityScoreBinding
+
+    private val ruleTv: android.widget.CheckedTextView
         get() = findViewById(R.id.rule_tv)
 
     private var isToolbarDark = false
@@ -34,6 +36,7 @@ class ScoreActivity : BaseMvpActivity<ScorePresenter>(), ScoreView {
     override fun getLayoutId() = R.layout.activity_score
 
     override fun initView() {
+        binding = ActivityScoreBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         initScroll()
     }
@@ -46,7 +49,7 @@ class ScoreActivity : BaseMvpActivity<ScorePresenter>(), ScoreView {
     }
 
     override fun bindListener() {
-        rule_tv.setOnClickListener {
+        binding.ruleTv.setOnClickListener {
             startActivity(SignInRuleActivity::class.java)
         }
     }
@@ -67,7 +70,7 @@ class ScoreActivity : BaseMvpActivity<ScorePresenter>(), ScoreView {
                 presenter.getIntegralDetailList(page)
             }
         }
-        content_rv.apply {
+        binding.contentRv.apply {
             isNestedScrollingEnabled = true
             adapter = mAdapter
             addItemDecoration(DividerDecoration(getColor(R.color.colorPrimary), 1, SizeUtils.dp2px(15f), 0))
@@ -76,12 +79,12 @@ class ScoreActivity : BaseMvpActivity<ScorePresenter>(), ScoreView {
             }
         }
 
-        useView.setBackgroundColor(getColor(R.color.white))
-        toolbar.setBackgroundColor(getColor(R.color.white))
-        useView.background.alpha = 0
-        toolbar.background.alpha = 0
-        scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
-            val headHeight = media_fl.measuredHeight - toolbar.measuredHeight
+        binding.useView.setBackgroundColor(getColor(R.color.white))
+        binding.toolbar.setBackgroundColor(getColor(R.color.white))
+        binding.useView.background.alpha = 0
+        binding.toolbar.background.alpha = 0
+        binding.scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
+            val headHeight = binding.mediaFl.measuredHeight - binding.toolbar.measuredHeight
             var alpha = (y.toFloat() / headHeight * 255).toInt()
             if (alpha >= 255) {
                 alpha = 255
@@ -92,14 +95,14 @@ class ScoreActivity : BaseMvpActivity<ScorePresenter>(), ScoreView {
             isToolbarDark = alpha > 130
 
             if (isToolbarDark) {
-                back_iv.setImageResource(R.mipmap.ic_back_black)
+                binding.backIv.setImageResource(R.mipmap.ic_back_black)
             } else {
-                back_iv.setImageResource(R.mipmap.ic_back_white)
+                binding.backIv.setImageResource(R.mipmap.ic_back_white)
             }
-            score_title_tv.isChecked = isToolbarDark
-            rule_tv.isChecked = isToolbarDark
-            useView.background.alpha = alpha
-            toolbar.background.alpha = alpha
+            binding.scoreTitleTv.isChecked = isToolbarDark
+            binding.ruleTv.isChecked = isToolbarDark
+            binding.useView.background.alpha = alpha
+            binding.toolbar.background.alpha = alpha
 
             changeStatusTextColor()
         }
@@ -107,7 +110,7 @@ class ScoreActivity : BaseMvpActivity<ScorePresenter>(), ScoreView {
     }
 
     override fun bindUserIntegral(integral: String) {
-        my_score_tv.text = integral
+        binding.myScoreTv.text = integral
     }
 
     override fun bindDetailData(data: List<IntegralDetailResponse>, lastPage: Boolean) {

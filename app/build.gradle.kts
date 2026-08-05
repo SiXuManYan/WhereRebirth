@@ -3,9 +3,6 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
-import javax.xml.parsers.DocumentBuilderFactory
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.w3c.dom.Element
 
 plugins {
     alias(libs.plugins.android.application)
@@ -18,104 +15,6 @@ apply(from = "mob.gradle")
 fun releaseTime(): String = SimpleDateFormat("yyyyMMdd", Locale.ROOT).apply {
     timeZone = TimeZone.getTimeZone("UTC")
 }.format(Date())
-
-val legacyViewAccessorsDir = layout.buildDirectory.dir("generated/source/legacyViewAccessors")
-
-val generateLegacyViewAccessors by tasks.registering {
-    val layoutFiles = fileTree("src/main/res") {
-        include("layout*/**/*.xml")
-    }
-    inputs.files(layoutFiles)
-    outputs.dir(legacyViewAccessorsDir)
-
-    doLast {
-        val outputRoot = legacyViewAccessorsDir.get().asFile
-        outputRoot.deleteRecursively()
-        outputRoot.mkdirs()
-
-        val parser = DocumentBuilderFactory.newInstance().newDocumentBuilder()
-        val layoutsByName = layoutFiles.files
-            .sortedBy { it.invariantSeparatorsPath }
-            .associateBy { it.nameWithoutExtension }
-
-        fun viewType(element: Element, visitedLayouts: Set<String>): String {
-            return when (val tag = element.tagName) {
-                "View" -> "android.view.View"
-                "ViewStub" -> "android.view.ViewStub"
-                "SurfaceView" -> "android.view.SurfaceView"
-                "TextureView" -> "android.view.TextureView"
-                "WebView" -> "android.webkit.WebView"
-                "fragment", "merge" -> "android.view.View"
-                "view" -> element.getAttribute("class").ifBlank { "android.view.View" }
-                "include" -> {
-                    val includedLayout = element.getAttribute("layout").substringAfter("@layout/", "")
-                    if (includedLayout.isBlank() || includedLayout in visitedLayouts) {
-                        "android.view.View"
-                    } else {
-                        val includedFile = layoutsByName[includedLayout]
-                        if (includedFile == null) {
-                            "android.view.View"
-                        } else {
-                            val root = parser.parse(includedFile).documentElement
-                            viewType(root, visitedLayouts + includedLayout)
-                        }
-                    }
-                }
-                else -> if ('.' in tag) tag else "android.widget.$tag"
-            }
-        }
-
-        fun collectViews(
-            layoutName: String,
-            visitedLayouts: Set<String> = emptySet(),
-        ): LinkedHashMap<String, String> {
-            if (layoutName in visitedLayouts) return linkedMapOf()
-            val layoutFile = layoutsByName[layoutName] ?: return linkedMapOf()
-            val document = parser.parse(layoutFile)
-            val views = linkedMapOf<String, String>()
-            val elements = document.getElementsByTagName("*")
-
-            for (index in 0 until elements.length) {
-                val element = elements.item(index) as Element
-                val id = element.getAttribute("android:id")
-                    .removePrefix("@+id/")
-                    .removePrefix("@id/")
-                if (id.isNotBlank()) {
-                    views.putIfAbsent(id, viewType(element, visitedLayouts + layoutName))
-                }
-
-                if (element.tagName == "include") {
-                    val includedLayout = element.getAttribute("layout").substringAfter("@layout/", "")
-                    if (includedLayout.isNotBlank()) {
-                        collectViews(includedLayout, visitedLayouts + layoutName).forEach(views::putIfAbsent)
-                    }
-                }
-            }
-            return views
-        }
-
-        val allViews = linkedMapOf<String, String>()
-        layoutsByName.keys.sorted().forEach { layoutName ->
-            collectViews(layoutName).forEach(allViews::putIfAbsent)
-        }
-
-        val source = buildString {
-            appendLine("@file:Suppress(\"unused\")")
-            appendLine()
-            appendLine("package com.jiechengsheng.city.legacyviews")
-            appendLine()
-            appendLine("import com.jiechengsheng.city.R")
-            appendLine()
-            allViews.forEach { (id, type) ->
-                appendLine("val android.app.Activity.`$id`: $type get() = findViewById(R.id.$id)")
-                appendLine("val androidx.fragment.app.Fragment.`$id`: $type get() = requireView().findViewById(R.id.$id)")
-                appendLine("val android.view.View.`$id`: $type get() = findViewById(R.id.$id)")
-                appendLine()
-            }
-        }
-        outputRoot.resolve("LegacyViewAccessors.kt").writeText(source)
-    }
-}
 
 android {
     namespace = "com.jiechengsheng.city"
@@ -204,14 +103,9 @@ android {
 
     sourceSets {
         getByName("main") {
-            java.srcDir(legacyViewAccessorsDir)
             jniLibs.srcDirs("libs")
         }
     }
-}
-
-tasks.withType<KotlinCompile>().configureEach {
-    dependsOn(generateLegacyViewAccessors)
 }
 
 dependencies {

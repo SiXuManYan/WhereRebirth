@@ -189,7 +189,7 @@
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
-        <include layout="@layout/layout_mall_filter" />
+        <include layout="@layout/layout_mall_filter"  android:id="@+id/mall_filter"/>
 
 
     </FrameLayout>

@@ -11,14 +11,16 @@ import com.jiechengsheng.city.api.response.hotel.HotelComment
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.hotel.comment.child.HotelCommentAdapter
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.view.empty.EmptyView
+import com.jiechengsheng.city.databinding.ActivityTravelCommentBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/10/19 14:35.
  * 旅游评论
  */
 class TravelCommentActivity : BaseMvpActivity<TravelCommentPresenter>(), TravelCommentView {
+
+    private lateinit var binding: ActivityTravelCommentBinding
 
     private var travelId = 0
     private var page = Constant.DEFAULT_FIRST_PAGE
@@ -32,13 +34,14 @@ class TravelCommentActivity : BaseMvpActivity<TravelCommentPresenter>(), TravelC
     override fun isStatusDark() = true
 
     override fun initView() {
+        binding = ActivityTravelCommentBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         val bundle = intent.extras
         bundle?.let {
             travelId = it.getInt(Constant.PARAM_ID, 0)
         }
 
-        swipe_layout.setOnRefreshListener(this)
+        binding.swipeLayout.setOnRefreshListener(this)
         emptyView = EmptyView(this).apply {
             showEmptyDefault()
             addEmptyList(this)
@@ -52,7 +55,7 @@ class TravelCommentActivity : BaseMvpActivity<TravelCommentPresenter>(), TravelC
             loadMoreModule.setOnLoadMoreListener(this@TravelCommentActivity)
             setEmptyView(emptyView)
         }
-        recycler.adapter = mAdapter
+        binding.recycler.adapter = mAdapter
 
     }
 
@@ -65,7 +68,7 @@ class TravelCommentActivity : BaseMvpActivity<TravelCommentPresenter>(), TravelC
 
 
     override fun onRefresh() {
-        swipe_layout.isRefreshing = true
+        binding.swipeLayout.isRefreshing = true
         page = Constant.DEFAULT_FIRST_PAGE
         presenter.getDetail(page, travelId)
     }
@@ -76,8 +79,8 @@ class TravelCommentActivity : BaseMvpActivity<TravelCommentPresenter>(), TravelC
     }
 
     override fun bindData(data: MutableList<HotelComment>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
         val loadMoreModule = mAdapter.loadMoreModule
         if (data.isEmpty()) {

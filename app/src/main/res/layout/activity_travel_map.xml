@@ -177,7 +177,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/category_ll">
 
-        <!-- 地图和列表 -->
+        <!-- 鍦板浘鍜屽垪琛?-->
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -217,8 +217,8 @@
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
-    <!-- 筛选 -->
-    <include layout="@layout/layout_travel_filter_content" />
+    <!-- 绛涢€?-->
+    <include layout="@layout/layout_travel_filter_content"  android:id="@+id/travel_filter"/>
 
 
 </RelativeLayout>

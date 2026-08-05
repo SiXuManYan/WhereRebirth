@@ -10,14 +10,16 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.coupon.good.child.CouponGoodFragment
 import com.jiechengsheng.city.features.mall.home.MallHomePresenter
 import com.jiechengsheng.city.features.mall.home.MallHomeView
-import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.utils.Constant
+import com.jiechengsheng.city.databinding.ActitiyCouponGoodBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/3/4 14:29.
  * 优惠券商品列表
  */
 class CouponGoodActivity : BaseMvpActivity<MallHomePresenter>(), MallHomeView {
+
+    private lateinit var binding: ActitiyCouponGoodBinding
 
 
     /** 代金券id */
@@ -33,6 +35,7 @@ class CouponGoodActivity : BaseMvpActivity<MallHomePresenter>(), MallHomeView {
     override fun getLayoutId() = R.layout.actitiy_coupon_good
 
     override fun initView() {
+        binding = ActitiyCouponGoodBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         couponId = intent.getIntExtra(Constant.PARAM_ID, 0)
         shopId = intent.getIntExtra(Constant.PARAM_SHOP_ID, 0)
     }
@@ -53,8 +56,8 @@ class CouponGoodActivity : BaseMvpActivity<MallHomePresenter>(), MallHomeView {
         firstCategory.clear()
         firstCategory.addAll(response)
 
-        pager_vp.offscreenPageLimit = response.size
-        pager_vp.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding.pagerVp.offscreenPageLimit = response.size
+        binding.pagerVp.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
 
             override fun onPageSelected(position: Int) = Unit
@@ -64,8 +67,8 @@ class CouponGoodActivity : BaseMvpActivity<MallHomePresenter>(), MallHomeView {
 
         val innerPagerAdapter = InnerPagerAdapter(supportFragmentManager, 0)
         innerPagerAdapter.notifyDataSetChanged()
-        pager_vp.adapter = innerPagerAdapter
-        tabs_stl.setViewPager(pager_vp, titles.toTypedArray())
+        binding.pagerVp.adapter = innerPagerAdapter
+        binding.tabsStl.setViewPager(binding.pagerVp, titles.toTypedArray())
 
     }
 

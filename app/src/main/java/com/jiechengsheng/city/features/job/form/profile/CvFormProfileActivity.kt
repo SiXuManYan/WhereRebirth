@@ -28,9 +28,10 @@ import com.jiechengsheng.city.features.job.form.CvFormView
 import com.jiechengsheng.city.features.job.form.city.CvCityFragment
 import com.jiechengsheng.city.features.job.form.city.OnSelectedCity
 import com.jiechengsheng.city.utils.*
-import com.jiechengsheng.city.legacyviews.*
 import org.greenrobot.eventbus.EventBus
-import java.util.*
+import java.util.*
+import com.jiechengsheng.city.databinding.ActivityJobCvProfileBinding
+import android.view.ViewGroup
 
 
 /**
@@ -38,6 +39,8 @@ import java.util.*
  * 简历-个人信息表单
  */
 class CvFormProfileActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView, OnSelectedCity {
+
+    private lateinit var binding: ActivityJobCvProfileBinding
 
 
     /**
@@ -79,6 +82,7 @@ class CvFormProfileActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView, On
     override fun getLayoutId() = R.layout.activity_job_cv_profile
 
     override fun initView() {
+        binding = ActivityJobCvProfileBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         draftData = intent.getParcelableExtra(Constant.PARAM_DATA)
         cityDialog = CvCityFragment().apply {
             isCancelable = false
@@ -93,28 +97,28 @@ class CvFormProfileActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView, On
         draftData?.let {
             draftProfileId = it.id
             cityId = it.city_id
-            first_name_et.setText(it.first_name)
-            last_name_et.setText(it.last_name)
+            binding.firstNameEt.setText(it.first_name)
+            binding.lastNameEt.setText(it.last_name)
 
             userGender = it.gender
             when (userGender) {
                 1 -> {
-                    sex_tv.text = getString(R.string.male)
+                    binding.sexTv.text = getString(R.string.male)
                 }
-                2 -> sex_tv.text = getString(R.string.female)
+                2 -> binding.sexTv.text = getString(R.string.female)
             }
 
-            city_tv.text = it.city
-            email_et.setText(it.email)
-            contact_number_et.setText(it.contact_number)
-            birth_tv.text = it.birthday
+            binding.cityTv.text = it.city
+            binding.emailEt.setText(it.email)
+            binding.contactNumberEt.setText(it.contact_number)
+            binding.birthTv.text = it.birthday
 
             civilStatus = it.civil_status
             when (civilStatus) {
                 0 -> {
-                    civil_status_tv.text = getString(R.string.single)
+                    binding.civilStatusTv.text = getString(R.string.single)
                 }
-                1 -> civil_status_tv.text = getString(R.string.married)
+                1 -> binding.civilStatusTv.text = getString(R.string.married)
             }
 
             val avatar = it.avatar
@@ -126,10 +130,10 @@ class CvFormProfileActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView, On
 
     override fun initData() {
         presenter = CvFormPresenter(this)
-        requiredEdit.add(first_name_et)
-        requiredEdit.add(last_name_et)
-        requiredEdit.add(email_et)
-        requiredEdit.add(contact_number_et)
+        requiredEdit.add(binding.firstNameEt)
+        requiredEdit.add(binding.lastNameEt)
+        requiredEdit.add(binding.emailEt)
+        requiredEdit.add(binding.contactNumberEt)
 
     }
 
@@ -137,7 +141,7 @@ class CvFormProfileActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView, On
     override fun bindListener() {
 
 
-        change_avatar_rl.setOnClickListener {
+        binding.changeAvatarRl.setOnClickListener {
             BusinessUtils.createBottomDialog(this, 1, avatarSource, object : OnBottomSelectedIndex {
                 override fun onIndexSelect(selectedIndex: Int) {
 
@@ -173,7 +177,7 @@ class CvFormProfileActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView, On
             })
         }
 
-        sex_tv.setOnClickListener {
+        binding.sexTv.setOnClickListener {
             val index = when (userGender) {
                 2 -> 1
                 else -> 0
@@ -181,33 +185,33 @@ class CvFormProfileActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView, On
             BusinessUtils.createBottomDialog(this, index, genderData, object : OnBottomSelectedIndex {
                 override fun onIndexSelect(selectedIndex: Int) {
                     userGender = selectedIndex + 1
-                    sex_tv.text = genderData[selectedIndex]
+                    binding.sexTv.text = genderData[selectedIndex]
                 }
             })
         }
 
 
-        civil_status_tv.setOnClickListener {
+        binding.civilStatusTv.setOnClickListener {
             BusinessUtils.createBottomDialog(this, civilStatus, civilData, object : OnBottomSelectedIndex {
                 override fun onIndexSelect(selectedIndex: Int) {
                     civilStatus = selectedIndex
-                    civil_status_tv.text = civilData[selectedIndex]
+                    binding.civilStatusTv.text = civilData[selectedIndex]
                 }
             })
         }
 
-        birth_tv.setOnClickListener {
-            selectBirthday(birth_tv)
+        binding.birthTv.setOnClickListener {
+            selectBirthday(binding.birthTv)
         }
 
 
-        city_tv.setOnClickListener {
+        binding.cityTv.setOnClickListener {
             cityDialog.lastCityData = mCityData
             cityDialog.lastSelectedCityId = cityId
             cityDialog.show(supportFragmentManager, cityDialog.tag)
         }
 
-        save_tv.setOnClickListener(object : ClickUtils.OnDebouncingClickListener(500) {
+        binding.saveTv.setOnClickListener(object : ClickUtils.OnDebouncingClickListener(500) {
 
             override fun onDebouncingClick(v: View?) {
 
@@ -218,7 +222,7 @@ class CvFormProfileActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView, On
                     }
                 }
 
-                if (birth_tv.text.isNullOrBlank()) {
+                if (binding.birthTv.text.isNullOrBlank()) {
                     ToastUtils.showShort("Please select Date of Birth")
                     return
                 }
@@ -228,32 +232,32 @@ class CvFormProfileActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView, On
                     return
                 }
 
-                if (civil_status_tv.text.isNullOrBlank()) {
+                if (binding.civilStatusTv.text.isNullOrBlank()) {
                     ToastUtils.showShort("Please select Civil Status")
                     return
                 }
 
 
-                if (city_tv.text.isNullOrBlank() || cityId == 0) {
+                if (binding.cityTv.text.isNullOrBlank() || cityId == 0) {
                     ToastUtils.showShort("Please select Work City")
                     return
                 }
 
                 val apply = CreateProfileDetail().apply {
-                    first_name = first_name_et.text.toString().trim()
-                    last_name = last_name_et.text.toString().trim()
+                    first_name = binding.firstNameEt.text.toString().trim()
+                    last_name = binding.lastNameEt.text.toString().trim()
 
                     gender = userGender
                     city_id = cityId
-                    email = email_et.text.toString().trim()
-                    contact_number = contact_number_et.text.toString().trim()
-                    birthday = birth_tv.text.toString().trim()
+                    email = binding.emailEt.text.toString().trim()
+                    contact_number = binding.contactNumberEt.text.toString().trim()
+                    birthday = binding.birthTv.text.toString().trim()
                     civil_status = civilStatus
                 }
 
-                save_tv.isClickable = false
+                binding.saveTv.isClickable = false
                 Handler(Looper.getMainLooper()).postDelayed({
-                    save_tv.isClickable = true
+                    binding.saveTv.isClickable = true
                 }, 500)
 
                 presenter.handleAvatar(draftProfileId, apply, currentAvatarUrlOrUriPath)
@@ -275,7 +279,7 @@ class CvFormProfileActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView, On
         mCityData.clear()
         mCityData.addAll(allData)
         cityId = cityChild.id.toInt()
-        city_tv.text = cityChild.name
+        binding.cityTv.text = cityChild.name
 
     }
 

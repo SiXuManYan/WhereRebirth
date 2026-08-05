@@ -18,26 +18,29 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivityTakeAway2Binding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/4/25 10:04.
- * 外卖详情
+ * 澶栧崠璇︽儏
  */
 class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, TakeawayAdapter.OnSelectCountChange {
 
+    private lateinit var binding: ActivityTakeAway2Binding
 
-    /** 餐厅id */
+
+    /** 椁愬巺id */
     private lateinit var restaurant_id: String
 
-    /** 包装费 */
+    /** 鍖呰璐?*/
     private var packing_charges: BigDecimal = BigDecimal.ZERO
 
-    /** 配送费 */
+    /** 閰嶉€佽垂 */
     private var delivery_cost: BigDecimal = BigDecimal.ZERO
 
-    /** 商家名称 */
+    /** 鍟嗗鍚嶇О */
     private var restaurant_name = ""
 
     private lateinit var mDishAdapter: TakeawayAdapter
@@ -46,7 +49,7 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
 
     private var isToolbarDark = false
 
-    /** IM聊天开启状态（1：开启，2：关闭） */
+    /** IM鑱婂ぉ寮€鍚姸鎬侊紙1锛氬紑鍚紝2锛氬叧闂級 */
     private var im_status = 0
     private var toolbarStatus = 0
     private var businessPhone = ""
@@ -60,6 +63,7 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
     override fun isStatusDark() = isToolbarDark
 
     override fun initView() {
+        binding = ActivityTakeAway2Binding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         val id = intent.getStringExtra(Constant.PARAM_ID)
         if (id.isNullOrBlank()) {
@@ -72,7 +76,7 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
     }
 
     private fun initRecyclerView() {
-        // 菜品列表
+        // 鑿滃搧鍒楄〃
         mDishAdapter = TakeawayAdapter().apply {
             setEmptyView(EmptyView(this@TakeawayActivity).apply {
                 showEmptyDefault()
@@ -80,7 +84,7 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
             onSelectCountChange = this@TakeawayActivity
         }
 
-        dish_rv.apply {
+        binding.dishRv.apply {
             isNestedScrollingEnabled = true
             layoutManager = object : LinearLayoutManager(this@TakeawayActivity, VERTICAL, false) {
                 override fun canScrollVertically(): Boolean {
@@ -100,27 +104,27 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
             setEmptyMessage(R.string.empty_cart)
         }
 
-        // 购物车列表
+        // 璐墿杞﹀垪琛?
         mCartAdapter = TakeawayAdapter().apply {
             setEmptyView(emptyView)
             onSelectCountChange = object : TakeawayAdapter.OnSelectCountChange {
 
                 override fun selectCountChange(goodNum: Int, id: Int) {
 
-                    // 更新菜品列表数量
+                    // 鏇存柊鑿滃搧鍒楄〃鏁伴噺
                     mDishAdapter.data.forEachIndexed { index, dishResponse ->
                         if (dishResponse.id == id) {
                             dishResponse.nativeSelectCount = goodNum
                             mDishAdapter.notifyItemChanged(index)
                         }
                     }
-                    // 更新
+                    // 鏇存柊
                     handleBottom()
                 }
             }
         }
 
-        shopping_cart_rv.apply {
+        binding.takeAwayCart.shoppingCartRv.apply {
             layoutManager = LinearLayoutManager(this@TakeawayActivity, LinearLayoutManager.VERTICAL, false)
             addItemDecoration(DividerDecoration(
                 Color.WHITE, SizeUtils.dp2px(10f),
@@ -133,12 +137,12 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
 
     private fun initScroll() {
 
-        useView.setBackgroundColor(getColor(R.color.white))
-        toolbar.setBackgroundColor(getColor(R.color.white))
-        useView.background.alpha = 0
-        toolbar.background.alpha = 0
-        scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
-            val headHeight = media_fl.measuredHeight - toolbar.measuredHeight
+        binding.useView.setBackgroundColor(getColor(R.color.white))
+        binding.toolbar.setBackgroundColor(getColor(R.color.white))
+        binding.useView.background.alpha = 0
+        binding.toolbar.background.alpha = 0
+        binding.scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
+            val headHeight = binding.mediaFl.measuredHeight - binding.toolbar.measuredHeight
             var alpha = (y.toFloat() / headHeight * 255).toInt()
             if (alpha >= 255) {
                 alpha = 255
@@ -149,13 +153,13 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
             isToolbarDark = alpha > 130
             setBackImage()
 
-            useView.background.alpha = alpha
-            toolbar.background.alpha = alpha
+            binding.useView.background.alpha = alpha
+            binding.toolbar.background.alpha = alpha
             if (alpha == 255) {
-                titleTv.text = restaurant_tv.text
+                binding.titleTv.text = binding.restaurantTv.text
             }
             if (alpha == 0) {
-                titleTv.text = ""
+                binding.titleTv.text = ""
             }
             changeStatusTextColor()
         }
@@ -164,7 +168,7 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
 
 
     private fun setBackImage() {
-        back_iv.setImageResource(
+        binding.backIv.setImageResource(
             if (isToolbarDark) {
                 R.mipmap.ic_back_black
             } else {
@@ -180,7 +184,7 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
 
     override fun bindListener() {
 
-        service_iv.setOnClickListener {
+        binding.serviceIv.setOnClickListener {
             if (im_status == 1 && mer_uuid.isNotBlank()) {
 
                 BusinessUtils.showImUnavailableDialog(this)
@@ -197,7 +201,7 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
 
         }
 
-        cart_iv.setOnClickListener {
+        binding.cartIv.setOnClickListener {
             val selectedList = presenter.getSelectedList(mDishAdapter)
             if (selectedList.isNullOrEmpty()) {
                 emptyView.showEmptyContainer()
@@ -205,18 +209,18 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
 
             mCartAdapter.setNewInstance(selectedList)
 
-            if (cart_ll.visibility != View.VISIBLE) {
-                cart_ll.visibility = View.VISIBLE
+            if (binding.takeAwayCart.cartLl.visibility != View.VISIBLE) {
+                binding.takeAwayCart.cartLl.visibility = View.VISIBLE
             } else {
-                cart_ll.visibility = View.GONE
+                binding.takeAwayCart.cartLl.visibility = View.GONE
             }
         }
 
-        close_cart_v.setOnClickListener {
-            cart_ll.visibility = View.GONE
+        binding.takeAwayCart.closeCartV.setOnClickListener {
+            binding.takeAwayCart.cartLl.visibility = View.GONE
         }
 
-        settlement_tv.setOnClickListener {
+        binding.settlementTv.setOnClickListener {
             val totalSelectCount = presenter.getTotalSelectCount(mDishAdapter)
             if (totalSelectCount <= 0) {
                 ToastUtils.showShort(R.string.nothing_selected)
@@ -224,7 +228,7 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
             }
             val totalPrice = presenter.handlePrice(mDishAdapter)
             val selectedList = presenter.getSelectedList(mDishAdapter)
-            // 额外加上配送费
+            // 棰濆鍔犱笂閰嶉€佽垂
             val finalTotalPrice = BigDecimalUtil.add(totalPrice, BigDecimalUtil.add(delivery_cost, packing_charges))
 
             startActivityAfterLogin(OrderSubmitTakeawayActivity::class.java, Bundle().apply {
@@ -237,7 +241,7 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
             })
         }
 
-        clear_cart_tv.setOnClickListener {
+        binding.takeAwayCart.clearCartTv.setOnClickListener {
             mCartAdapter.setNewInstance(null)
             emptyView.showEmptyContainer()
             presenter.clearCart(mDishAdapter)
@@ -248,7 +252,7 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
 
     override fun bindData(data: TakeawayDetailResponse) {
 
-        GlideUtil.load(this, data.take_out_image, media_iv)
+        GlideUtil.load(this, data.take_out_image, binding.mediaIv)
 
 
         businessPhone = data.tel
@@ -256,23 +260,23 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
         mer_name = data.mer_name
         val restaurantName = data.restaurant_name
         restaurant_name = restaurantName
-        restaurant_tv.text = restaurantName
-        time_tv.text = getString(R.string.delivery_time_format, data.delivery_time)
+        binding.restaurantTv.text = restaurantName
+        binding.timeTv.text = getString(R.string.delivery_time_format, data.delivery_time)
 
-        // 配送费
+        // 閰嶉€佽垂
         delivery_cost = data.delivery_cost
         if (delivery_cost.compareTo(BigDecimal.ZERO) == 1) {
-            delivery_fee_tv.text = getString(R.string.delivery_price_format_3, delivery_cost.toPlainString())
+            binding.deliveryFeeTv.text = getString(R.string.delivery_price_format_3, delivery_cost.toPlainString())
         } else {
-            delivery_fee_tv.text = getString(R.string.free_delivery)
+            binding.deliveryFeeTv.text = getString(R.string.free_delivery)
         }
 
-        // 包装费
+        // 鍖呰璐?
         packing_charges = data.packing_charges
-        packaging_fee_tv.text = getString(R.string.packaging_fee_format, packing_charges.toPlainString())
+        binding.takeAwayCart.packagingFeeTv.text = getString(R.string.packaging_fee_format, packing_charges.toPlainString())
 
 
-        // 聊天
+        // 鑱婂ぉ
         im_status = data.im_status
 
         mDishAdapter.setNewInstance(data.goods)
@@ -283,25 +287,25 @@ class TakeawayActivity : BaseMvpActivity<TakeawayPresenter>(), TakeawayView, Tak
     override fun selectCountChange(goodNum: Int, id: Int) = handleBottom()
 
     /**
-     * 购物车数量、总价、是否能结算
+     * 璐墿杞︽暟閲忋€佹€讳环銆佹槸鍚﹁兘缁撶畻
      */
     private fun handleBottom() {
         val totalPrice = presenter.handlePrice(mDishAdapter)
         val totalCount = presenter.getTotalSelectCount(mDishAdapter)
 
-        // 总价
-        total_price_tv.text = getString(R.string.price_unit_format, totalPrice)
+        // 鎬讳环
+        binding.totalPriceTv.text = getString(R.string.price_unit_format, totalPrice)
 
-        // 购物车数量
+        // 璐墿杞︽暟閲?
         if (totalCount > 0) {
-            count_tv.visibility = View.VISIBLE
-            count_tv.text = totalCount.toString()
-            cart_iv.setImageResource(R.mipmap.ic_cart_blue)
-            settlement_tv.alpha = 1f
+            binding.countTv.visibility = View.VISIBLE
+            binding.countTv.text = totalCount.toString()
+            binding.cartIv.setImageResource(R.mipmap.ic_cart_blue)
+            binding.settlementTv.alpha = 1f
         } else {
-            count_tv.visibility = View.GONE
-            cart_iv.setImageResource(R.mipmap.ic_cart_gray)
-            settlement_tv.alpha = 0.5f
+            binding.countTv.visibility = View.GONE
+            binding.cartIv.setImageResource(R.mipmap.ic_cart_gray)
+            binding.settlementTv.alpha = 0.5f
 
         }
 

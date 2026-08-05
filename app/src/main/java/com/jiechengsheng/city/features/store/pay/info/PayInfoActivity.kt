@@ -17,15 +17,17 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.store.pay.result.StorePayResultActivity
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityStorePayInfoBinding
 
 /**
  * Created by Wangsw  2021/6/23 17:11.
- *  支付信息
- *  商城支付。水电支付
+ *  鏀粯淇℃伅
+ *  鍟嗗煄鏀粯銆傛按鐢垫敮浠?
  */
 class PayInfoActivity : BaseMvpActivity<PayInfoPresenter>(), PayInfoView {
+
+    private lateinit var binding: ActivityStorePayInfoBinding
 
     private var totalPrice: Double = 0.00
     private var selectedChannel: PayChannel? = null
@@ -33,12 +35,12 @@ class PayInfoActivity : BaseMvpActivity<PayInfoPresenter>(), PayInfoView {
     private var addressDialog: BottomSheetDialog? = null
 
     /**
-     * 0 商城订单
-     * 1 水电订单
-     * 2 美食
-     * 3 外卖
-     * 4 酒店
-     * 5 新版商城
+     * 0 鍟嗗煄璁㈠崟
+     * 1 姘寸數璁㈠崟
+     * 2 缇庨
+     * 3 澶栧崠
+     * 4 閰掑簵
+     * 5 鏂扮増鍟嗗煄
      */
     private var useType = 0
 
@@ -48,6 +50,7 @@ class PayInfoActivity : BaseMvpActivity<PayInfoPresenter>(), PayInfoView {
     override fun getLayoutId() = R.layout.activity_store_pay_info
 
     override fun initView() {
+        binding = ActivityStorePayInfoBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         intent.extras?.let {
             totalPrice = it.getDouble(Constant.PARAM_TOTAL_PRICE, 0.0)
@@ -60,14 +63,14 @@ class PayInfoActivity : BaseMvpActivity<PayInfoPresenter>(), PayInfoView {
             useType = it.getInt(Constant.PARAM_TYPE)
         }
 
-        amount_tv.text = getString(R.string.price_unit_format, totalPrice.toString())
+        binding.amountTv.text = getString(R.string.price_unit_format, totalPrice.toString())
         selectedChannel?.let {
-            payment_platform_tv.text = it.title
-            payment_name_tv.text = it.card_account
-            payment_account_number_tv.text = it.card_number
+            binding.paymentPlatformTv.text = it.title
+            binding.paymentNameTv.text = it.card_account
+            binding.paymentAccountNumberTv.text = it.card_number
         }
 
-        // 提交订单成功，刷新列表
+        // 鎻愪氦璁㈠崟鎴愬姛锛屽埛鏂板垪琛?
         EventBus.getDefault().post(BaseEvent<Boolean>(EventCode.EVENT_ORDER_COMMIT_SUCCESS))
     }
 
@@ -79,14 +82,14 @@ class PayInfoActivity : BaseMvpActivity<PayInfoPresenter>(), PayInfoView {
 
     override fun bindListener() {
 
-        paid_tv.setOnClickListener {
+        binding.paidTv.setOnClickListener {
             showVerifyDialog()
         }
-        copy_iv.setOnClickListener {
-            BusinessUtils.copyText(this, payment_name_tv.text.toString().trim())
+        binding.copyIv.setOnClickListener {
+            BusinessUtils.copyText(this, binding.paymentNameTv.text.toString().trim())
         }
-        copy2_iv.setOnClickListener {
-            BusinessUtils.copyText(this, payment_account_number_tv.text.toString().trim())
+        binding.copy2Iv.setOnClickListener {
+            BusinessUtils.copyText(this, binding.paymentAccountNumberTv.text.toString().trim())
         }
     }
 
@@ -187,7 +190,7 @@ class PayInfoActivity : BaseMvpActivity<PayInfoPresenter>(), PayInfoView {
                 it.dismiss()
             }
         }
-        // 支付成功
+        // 鏀粯鎴愬姛
         EventBus.getDefault().post(BaseEvent<Any>(EventCode.EVENT_REFRESH_ORDER_LIST))
 
         startActivityAfterLogin(StorePayResultActivity::class.java, Bundle().apply {

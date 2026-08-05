@@ -22,16 +22,17 @@ import com.jiechengsheng.city.features.search.SearchAllActivity
 import com.jiechengsheng.city.frames.common.Html5Url
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
-import com.jiechengsheng.city.utils.MobUtil
-
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.utils.MobUtil
+import com.jiechengsheng.city.databinding.ActivityMallShopHomeBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/1/19 17:21.
  * 店铺首页
  */
 class MallShopHomeActivity : BaseMvpActivity<MallShopHomePresenter>(), MallShopHomeView {
+
+    private lateinit var binding: ActivityMallShopHomeBinding
 
     private lateinit var mData: MallShop
     private var shopId = 0
@@ -63,11 +64,12 @@ class MallShopHomeActivity : BaseMvpActivity<MallShopHomePresenter>(), MallShopH
     }
 
     override fun initView() {
+        binding = ActivityMallShopHomeBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         shopId = intent.getIntExtra(Constant.PARAM_SHOP_ID, 0)
 
-        viewpager.offscreenPageLimit = tabTitle.size
-        viewpager.adapter = InnerPagerAdapter(supportFragmentManager, 0)
-        tabs_type.setViewPager(viewpager)
+        binding.viewpager.offscreenPageLimit = tabTitle.size
+        binding.viewpager.adapter = InnerPagerAdapter(supportFragmentManager, 0)
+        binding.tabsType.setViewPager(binding.viewpager)
     }
 
     override fun initData() {
@@ -77,27 +79,27 @@ class MallShopHomeActivity : BaseMvpActivity<MallShopHomePresenter>(), MallShopH
 
     override fun bindListener() {
 
-        follow_bt.setOnClickListener {
+        binding.followBt.setOnClickListener {
             if (mData.collect_status == 0) {
-                presenter.collection(shopId, follow_bt)
+                presenter.collection(shopId, binding.followBt)
             } else {
-                presenter.unCollection(shopId, follow_bt)
+                presenter.unCollection(shopId, binding.followBt)
             }
         }
 
-        share_iv.setOnClickListener {
+        binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_MALL_SHOP, shopId)
             MobUtil.shareFacebookWebPage(url, this@MallShopHomeActivity)
         }
 
-        search_ll.setOnClickListener {
+        binding.searchLl.setOnClickListener {
             startActivity(SearchAllActivity::class.java, Bundle().apply {
                 putInt(Constant.PARAM_TYPE, 8)
                 putInt(Constant.PARAM_SHOP_ID, shopId)
             })
         }
 
-        shop_name_tv.setOnClickListener {
+        binding.shopNameTv.setOnClickListener {
             MallShopInfoActivity.navigation(this, mData)
         }
 
@@ -128,9 +130,9 @@ class MallShopHomeActivity : BaseMvpActivity<MallShopHomePresenter>(), MallShopH
 
     override fun bindDetail(response: MallShop) {
         this.mData = response
-        GlideUtil.load(this, response.image, shop_bg_iv)
-        GlideUtil.load(this, response.logo, shop_logo_iv, 4)
-        shop_name_tv.text = response.title
+        GlideUtil.load(this, response.image, binding.shopBgIv)
+        GlideUtil.load(this, response.logo, binding.shopLogoIv, 4)
+        binding.shopNameTv.text = response.title
         setLikeImage(false)
     }
 
@@ -148,8 +150,8 @@ class MallShopHomeActivity : BaseMvpActivity<MallShopHomePresenter>(), MallShopH
 
     private fun setLikeImage(handleCount: Boolean) {
         if (mData.collect_status == 0) {
-            follow_bt.setBackgroundResource(R.drawable.shape_blue_radius_16)
-            follow_bt.text = getString(R.string.shop_follow)
+            binding.followBt.setBackgroundResource(R.drawable.shape_blue_radius_16)
+            binding.followBt.text = getString(R.string.shop_follow)
             if (handleCount) {
                 mData.collect_count--
                 if (mData.collect_count < 0) {
@@ -158,8 +160,8 @@ class MallShopHomeActivity : BaseMvpActivity<MallShopHomePresenter>(), MallShopH
             }
 
         } else {
-            follow_bt.setBackgroundResource(R.drawable.stock_white_radius_16)
-            follow_bt.text = getString(R.string.shop_following)
+            binding.followBt.setBackgroundResource(R.drawable.stock_white_radius_16)
+            binding.followBt.text = getString(R.string.shop_following)
             if (handleCount) {
                 mData.collect_count++
             }

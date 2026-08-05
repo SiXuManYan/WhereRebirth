@@ -18,14 +18,16 @@ import com.jiechengsheng.city.features.home.child.header.OnChildCategoryClick
 import com.jiechengsheng.city.features.mall.home.child.MallRecommendAdapter
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentHomeChildBinding
 /**
  * Created by Wangsw  2022/6/22 11:56.
  * 首页estore
  */
 class HomeMallFragment : BaseMvpFragment<HomeChildPresenter>(), HomeChildView, OnChildCategoryClick {
+
+    private var _binding: FragmentHomeChildBinding? = null
+    private val binding get() = _binding!!
 
 
     /** 轮播图 */
@@ -61,6 +63,7 @@ class HomeMallFragment : BaseMvpFragment<HomeChildPresenter>(), HomeChildView, O
     override fun getLayoutId() = R.layout.fragment_home_child
 
     override fun initView(view: View) {
+        _binding = FragmentHomeChildBinding.bind(requireNotNull(view))
         initContent()
         initHeader()
     }
@@ -85,7 +88,7 @@ class HomeMallFragment : BaseMvpFragment<HomeChildPresenter>(), HomeChildView, O
         }
         val gridLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         val decoration = DividerDecoration(ColorUtils.getColor(R.color.transplant), SizeUtils.dp2px(10f), 0, 0)
-        home_child_rv.apply {
+        binding.homeChildRv.apply {
             adapter = mAdapter
             layoutManager = gridLayoutManager
             addItemDecoration(decoration)
@@ -107,6 +110,13 @@ class HomeMallFragment : BaseMvpFragment<HomeChildPresenter>(), HomeChildView, O
         loadData()
 
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
 
 
     override fun bindListener() = Unit
@@ -164,7 +174,7 @@ class HomeMallFragment : BaseMvpFragment<HomeChildPresenter>(), HomeChildView, O
         super.onEventReceived(baseEvent)
         when (baseEvent.code) {
             EventCode.EVENT_SCROLL_TO_TOP -> {
-                home_child_rv.scrollToPosition(0)
+                binding.homeChildRv.scrollToPosition(0)
             }
             else -> {}
         }

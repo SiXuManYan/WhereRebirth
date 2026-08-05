@@ -11,14 +11,16 @@ import com.jiechengsheng.city.R
 import com.jiechengsheng.city.api.response.job.Report
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityReportBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/10/27 17:38.
  * 职位举报
  */
 class ReportActivity : BaseMvpActivity<ReportPresenter>(), ReportView {
+
+    private lateinit var binding: ActivityReportBinding
 
 
     private var jobId = 0
@@ -31,6 +33,7 @@ class ReportActivity : BaseMvpActivity<ReportPresenter>(), ReportView {
     override fun getLayoutId() = R.layout.activity_report
 
     override fun initView() {
+        binding = ActivityReportBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         jobId = intent.getIntExtra(Constant.PARAM_ID, 0)
         initContent()
@@ -46,11 +49,11 @@ class ReportActivity : BaseMvpActivity<ReportPresenter>(), ReportView {
                     it.nativeIsSelected = it.id == jobReport.id
                 }
                 mAdapter.notifyDataSetChanged()
-                submit_tv.isClickable = true
-                submit_tv.alpha = 1.0f
+                binding.submitTv.isClickable = true
+                binding.submitTv.alpha = 1.0f
             }
         }
-        content_rv.apply {
+        binding.contentRv.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(this@ReportActivity, LinearLayoutManager.VERTICAL, false)
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.colorPrimary), 1, SizeUtils.dp2px(15f), 0))
@@ -65,7 +68,7 @@ class ReportActivity : BaseMvpActivity<ReportPresenter>(), ReportView {
     }
 
     override fun bindListener() {
-        submit_tv.setOnClickListener {
+        binding.submitTv.setOnClickListener {
             if (jobId == 0 || reportTitleId == 0) {
                 return@setOnClickListener
             }

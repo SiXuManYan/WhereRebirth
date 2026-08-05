@@ -14,14 +14,16 @@ import com.jiechengsheng.city.features.hotel.home.HotelHomeRecommendAdapter
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.calendar.JcsCalendarAdapter
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.SingleRecyclerViewWithRefreshBinding
 /**
  * Created by Wangsw  2021/9/27 15:48.
  * 酒店列表
  */
 class HotelChildFragment : BaseMvpFragment<HotelChildPresenter>(), HotelChildView {
+
+    private var _binding: SingleRecyclerViewWithRefreshBinding? = null
+    private val binding get() = _binding!!
 
 
     var searchInput: String? = null
@@ -48,6 +50,7 @@ class HotelChildFragment : BaseMvpFragment<HotelChildPresenter>(), HotelChildVie
 
 
     override fun initView(view: View) {
+        _binding = SingleRecyclerViewWithRefreshBinding.bind(requireNotNull(view))
         initList()
     }
 
@@ -66,13 +69,13 @@ class HotelChildFragment : BaseMvpFragment<HotelChildPresenter>(), HotelChildVie
             loadMoreModule.setOnLoadMoreListener(this@HotelChildFragment)
         }
 
-        content_rv.apply {
+        binding.contentRv.apply {
             adapter = mAdapter
             addItemDecoration(DividerDecoration(Color.TRANSPARENT, SizeUtils.dp2px(16f), SizeUtils.dp2px(15f), SizeUtils.dp2px(15f)))
 
         }
         val padding = SizeUtils.dp2px(15f)
-        content_rv.setPaddingRelative(padding, 0, padding, 0)
+        binding.contentRv.setPaddingRelative(padding, 0, padding, 0)
 
 
     }
@@ -81,6 +84,13 @@ class HotelChildFragment : BaseMvpFragment<HotelChildPresenter>(), HotelChildVie
         presenter = HotelChildPresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun loadOnVisible() {
         if (isViewVisible) {
             presenter.getData(page, searchInput, star_level, hotel_type_ids, price_range, grade)
@@ -88,7 +98,7 @@ class HotelChildFragment : BaseMvpFragment<HotelChildPresenter>(), HotelChildVie
     }
 
     override fun bindListener() {
-        swipe_layout.setOnRefreshListener {
+        binding.swipeLayout.setOnRefreshListener {
             page = Constant.DEFAULT_FIRST_PAGE
             loadOnVisible()
         }

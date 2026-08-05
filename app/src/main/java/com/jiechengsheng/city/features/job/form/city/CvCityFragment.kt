@@ -17,14 +17,16 @@ import com.jiechengsheng.city.api.response.CityPickerResponse
 import com.jiechengsheng.city.base.mvp.BaseBottomSheetDialogFragment
 import com.jiechengsheng.city.base.mvp.FixedHeightBottomSheetDialog
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.DialogCvCityBinding
 /**
  * Created by Wangsw  2022/9/29 16:49.
  *
  */
 class CvCityFragment : BaseBottomSheetDialogFragment<CvCityPresenter>(), CvCityView {
+
+    private var _binding: DialogCvCityBinding? = null
+    private val binding get() = _binding!!
 
     var lastSelectedCityId = 0
     var lastCityData = ArrayList<CityPickerResponse.CityChild>()
@@ -40,6 +42,7 @@ class CvCityFragment : BaseBottomSheetDialogFragment<CvCityPresenter>(), CvCityV
 
     @SuppressLint("NotifyDataSetChanged")
     override fun initView(parent: View) {
+        _binding = DialogCvCityBinding.bind(requireNotNull(view))
         emptyView = EmptyView(requireContext())
         emptyView.showEmptyDefault()
 
@@ -58,7 +61,7 @@ class CvCityFragment : BaseBottomSheetDialogFragment<CvCityPresenter>(), CvCityV
         }
 
         val manager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        recycler_view.apply {
+        binding.recyclerView.apply {
             adapter = mAdapter
             layoutManager = manager
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.grey_F5F5F5),
@@ -87,8 +90,15 @@ class CvCityFragment : BaseBottomSheetDialogFragment<CvCityPresenter>(), CvCityV
 
     }
 
+    
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     override fun bindListener() {
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             dismiss()
         }
     }

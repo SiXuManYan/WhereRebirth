@@ -17,14 +17,17 @@ import com.jiechengsheng.city.features.job.home.JobHomeFragment
 import com.jiechengsheng.city.features.job.record.JobRecordFragment
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityJobMainBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/12/15 10:14.
  * 招聘页
  */
 class JobMainActivity : BaseMvpActivity<JobMainPresenter>(), JobMainView {
+
+    private lateinit var binding: ActivityJobMainBinding
 
     private val frList = ArrayList<Fragment>()
     private val tabs = ArrayList<CustomTabEntity>()
@@ -39,12 +42,13 @@ class JobMainActivity : BaseMvpActivity<JobMainPresenter>(), JobMainView {
         if (bundle != null) {
             // 简历状态更新，跳转至第三个tab
             val isFromNotice = bundle.getBoolean(Constant.PARAM_FROM_NOTICE, false)
-            tabs_navigator.currentTab = 2
+            binding.tabsNavigator.currentTab = 2
             EventBus.getDefault().post(BaseEvent<Any>(EventCode.EVENT_NAVIGATION_TO_JOB_INTERVIEWS))
         }
     }
 
     override fun initView() {
+        binding = ActivityJobMainBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         isFromNotice = intent.getBooleanExtra(Constant.PARAM_FROM_NOTICE, false)
 
         tabs.apply {
@@ -68,12 +72,12 @@ class JobMainActivity : BaseMvpActivity<JobMainPresenter>(), JobMainView {
             add(CvHomeFragment())
         }
 
-        tabs_navigator.setTabData(tabs, this, R.id.fl_content, frList)
-        tabs_navigator.setOnTabSelectListener(object : OnTabSelectListener {
+        binding.tabsNavigator.setTabData(tabs, this, R.id.fl_content, frList)
+        binding.tabsNavigator.setOnTabSelectListener(object : OnTabSelectListener {
             override fun onTabSelect(position: Int) {
 
                 if (!User.isLogon()) {
-                    tabs_navigator.currentTab = 0
+                    binding.tabsNavigator.currentTab = 0
                     startActivity(LoginActivity::class.java)
                 }
 
@@ -87,7 +91,7 @@ class JobMainActivity : BaseMvpActivity<JobMainPresenter>(), JobMainView {
     override fun initData() {
         presenter = JobMainPresenter(this)
         if (isFromNotice && User.isLogon()) {
-            tabs_navigator.currentTab = 2
+            binding.tabsNavigator.currentTab = 2
         }
     }
 

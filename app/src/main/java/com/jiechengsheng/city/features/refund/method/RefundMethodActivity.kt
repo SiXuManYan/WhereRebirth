@@ -17,15 +17,17 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.refund.add.channel.RefundChannelActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityRefundMethodListBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/4/25 16:11.
  * 退款方式列表
  */
 class RefundMethodActivity : BaseMvpActivity<RefundMethodPresenter>(), RefundMethodView, OnItemChildClickListener,
     OnItemClickListener {
+
+    private lateinit var binding: ActivityRefundMethodListBinding
 
     private lateinit var emptyView: EmptyView
     private lateinit var mAdapter: RefundMethodAdapter
@@ -36,6 +38,7 @@ class RefundMethodActivity : BaseMvpActivity<RefundMethodPresenter>(), RefundMet
     override fun getLayoutId() = R.layout.activity_refund_method_list
 
     override fun initView() {
+        binding = ActivityRefundMethodListBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         handleSelected = intent.getBooleanExtra(Constant.PARAM_HANDLE_SELECT, false)
 
@@ -53,7 +56,7 @@ class RefundMethodActivity : BaseMvpActivity<RefundMethodPresenter>(), RefundMet
             setOnItemClickListener(this@RefundMethodActivity)
         }
 
-        recycler_view.apply {
+        binding.recyclerView.apply {
             adapter = mAdapter
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.colorPrimary), SizeUtils.dp2px(1f), 0, 0))
         }
@@ -67,7 +70,7 @@ class RefundMethodActivity : BaseMvpActivity<RefundMethodPresenter>(), RefundMet
     }
 
     override fun bindListener() {
-        add_tv.setOnClickListener {
+        binding.addTv.setOnClickListener {
             startActivity(RefundChannelActivity::class.java)
         }
     }

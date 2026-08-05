@@ -23,14 +23,16 @@ import com.jiechengsheng.city.features.store.history.SearchHistoryAdapter
 import com.jiechengsheng.city.features.store.search.StoreSearchActivity
 import com.jiechengsheng.city.government.activity.ConvenienceServiceSearchActivity
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.view.MyLayoutManager
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.view.MyLayoutManager
+import com.jiechengsheng.city.databinding.ActivitySearchAllBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/2/25 10:25.
  * 搜索
  */
 class SearchAllActivity : BaseMvpActivity<SearchAllPresenter>(), SearchAllView {
+
+    private lateinit var binding: ActivitySearchAllBinding
 
     /**
      * 0 全部搜索
@@ -65,6 +67,7 @@ class SearchAllActivity : BaseMvpActivity<SearchAllPresenter>(), SearchAllView {
     override fun isStatusDark() = true
 
     override fun initView() {
+        binding = ActivitySearchAllBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         type = intent.getIntExtra(Constant.PARAM_TYPE, 0)
         categoryId = intent.getStringExtra(Constant.PARAM_CATEGORY_ID)
@@ -78,17 +81,17 @@ class SearchAllActivity : BaseMvpActivity<SearchAllPresenter>(), SearchAllView {
                 handleSearch(s)
             }
         }
-        history_rv.apply {
+        binding.historyRv.apply {
             adapter = mAdapter
             layoutManager = MyLayoutManager()
         }
 
         if (hideHistory) {
-            history_rl.visibility = View.GONE
-            history_rv.visibility = View.GONE
+            binding.historyRl.visibility = View.GONE
+            binding.historyRv.visibility = View.GONE
         }
 
-        KeyboardUtils.showSoftInput(search_aet)
+        KeyboardUtils.showSoftInput(binding.searchAet)
 
     }
 
@@ -100,12 +103,12 @@ class SearchAllActivity : BaseMvpActivity<SearchAllPresenter>(), SearchAllView {
     }
 
     override fun bindListener() {
-        cancel_tv.setOnClickListener { finish() }
+        binding.cancelTv.setOnClickListener { finish() }
 
-        search_aet.setOnEditorActionListener(object : TextView.OnEditorActionListener {
+        binding.searchAet.setOnEditorActionListener(object : TextView.OnEditorActionListener {
             override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    val finalInput = search_aet.text.toString().trim()
+                    val finalInput = binding.searchAet.text.toString().trim()
                     handleSearch(finalInput)
 
                     if (finalInput.isNotBlank()) {
@@ -119,7 +122,7 @@ class SearchAllActivity : BaseMvpActivity<SearchAllPresenter>(), SearchAllView {
 
         })
 
-        delete_iv.setOnClickListener {
+        binding.deleteIv.setOnClickListener {
 
             val create = AlertDialog.Builder(this)
                 .setTitle(R.string.hint)
@@ -187,7 +190,7 @@ class SearchAllActivity : BaseMvpActivity<SearchAllPresenter>(), SearchAllView {
     }
 
     override fun onDestroy() {
-        KeyboardUtils.hideSoftInput(search_aet)
+        KeyboardUtils.hideSoftInput(binding.searchAet)
         super.onDestroy()
     }
 }

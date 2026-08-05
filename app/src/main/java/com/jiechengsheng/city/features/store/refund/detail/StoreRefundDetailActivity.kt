@@ -16,14 +16,17 @@ import com.jiechengsheng.city.features.store.order.detail.StoreOrderDetailAdapte
 import com.jiechengsheng.city.features.store.refund.StoreRefundActivity
 import com.jiechengsheng.city.features.store.refund.StoreRefundAdapter
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.legacyviews.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityStoreRefundDetailBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/7/1 17:53.
  * 售后详情
  */
 class StoreRefundDetailActivity : BaseMvpActivity<StoreRefundDetailPresenter>(), StoreRefundDetailView {
+
+    private lateinit var binding: ActivityStoreRefundDetailBinding
 
     private var orderId = 0
     private var totalPrice = 0.0
@@ -36,6 +39,7 @@ class StoreRefundDetailActivity : BaseMvpActivity<StoreRefundDetailPresenter>(),
     override fun isStatusDark() = true
 
     override fun initView() {
+        binding = ActivityStoreRefundDetailBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         BarUtils.setStatusBarColor(this, Color.WHITE)
         intent.extras?.let {
@@ -44,7 +48,7 @@ class StoreRefundDetailActivity : BaseMvpActivity<StoreRefundDetailPresenter>(),
 
         // 商品信息
         mAdapter = StoreOrderDetailAdapter()
-        good_rv.apply {
+        binding.goodRv.apply {
             isNestedScrollingEnabled = true
             layoutManager = object : LinearLayoutManager(context, VERTICAL, false) {
                 override fun canScrollVertically() = false
@@ -56,7 +60,7 @@ class StoreRefundDetailActivity : BaseMvpActivity<StoreRefundDetailPresenter>(),
         mImageAdapter = StoreRefundAdapter().apply {
             hideDelete = true
         }
-        image_rv.apply {
+        binding.imageRv.apply {
             adapter = mImageAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
@@ -71,7 +75,7 @@ class StoreRefundDetailActivity : BaseMvpActivity<StoreRefundDetailPresenter>(),
 
     override fun bindListener() {
 
-        change_tv.setOnClickListener {
+        binding.changeTv.setOnClickListener {
 
             startActivity(StoreRefundActivity::class.java, Bundle().apply {
                 putParcelableArrayList(Constant.PARAM_DATA, ArrayList(mAdapter.data))
@@ -84,7 +88,7 @@ class StoreRefundDetailActivity : BaseMvpActivity<StoreRefundDetailPresenter>(),
 
         }
 
-        cancel_tv.setOnClickListener {
+        binding.cancelTv.setOnClickListener {
             presenter.cancelApplication(orderId)
         }
     }
@@ -94,29 +98,29 @@ class StoreRefundDetailActivity : BaseMvpActivity<StoreRefundDetailPresenter>(),
 
         if (data.status == 11) {
             data.shop?.let {
-                address_ll.visibility = View.VISIBLE
-                contact_name_tv.text = getString(R.string.contact_name_format, it.contact_name)
-                contact_number_tv.text = getString(R.string.contact_number_format, it.contact_cell_phone)
+                binding.addressLl.visibility = View.VISIBLE
+                binding.contactNameTv.text = getString(R.string.contact_name_format, it.contact_name)
+                binding.contactNumberTv.text = getString(R.string.contact_number_format, it.contact_cell_phone)
             }
         } else {
-            address_ll.visibility = View.GONE
+            binding.addressLl.visibility = View.GONE
         }
 
         if (data.status == 12) {
-            bottom_rl.visibility = View.VISIBLE
-            bottom_v.visibility = View.VISIBLE
+            binding.bottomRl.visibility = View.VISIBLE
+            binding.bottomV.visibility = View.VISIBLE
         }
 
         mAdapter.setNewInstance(data.goods)
         val refundPrice = data.refund_price
         totalPrice = refundPrice.toDouble()
-        amount_tv.text = getString(R.string.price_unit_format, refundPrice.toPlainString())
+        binding.amountTv.text = getString(R.string.price_unit_format, refundPrice.toPlainString())
 
-        cancel_time_tv.text = data.cancel_time
-        trade_no_tv.text = data.trade_no.toString()
+        binding.cancelTimeTv.text = data.cancel_time
+        binding.tradeNoTv.text = data.trade_no.toString()
 
         val cancelReason = data.cancel_reason
-        desc_tv.text = cancelReason
+        binding.descTv.text = cancelReason
         cancel_reason = cancelReason
         mImageAdapter.setNewInstance(data.cancel_images)
 

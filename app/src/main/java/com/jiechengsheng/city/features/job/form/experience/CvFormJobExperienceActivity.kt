@@ -21,16 +21,19 @@ import com.jiechengsheng.city.features.job.form.CvFormView
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.OnWorkTimeSelected
-import com.jiechengsheng.city.legacyviews.*
 import me.shaohui.bottomdialog.BottomDialog
 import org.greenrobot.eventbus.EventBus
-import java.util.*
+import java.util.*
+import com.jiechengsheng.city.databinding.ActivityJobCvExperienceBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/9/29 15:00.
  *  简历-工作经历表单
  */
 class CvFormJobExperienceActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView {
+
+    private lateinit var binding: ActivityJobCvExperienceBinding
 
 
     /**
@@ -49,6 +52,7 @@ class CvFormJobExperienceActivity : BaseMvpActivity<CvFormPresenter>(), CvFormVi
     override fun getLayoutId() = R.layout.activity_job_cv_experience
 
     override fun initView() {
+        binding = ActivityJobCvExperienceBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         draftData = intent.getParcelableExtra(Constant.PARAM_DATA)
         initDraft()
 
@@ -57,14 +61,14 @@ class CvFormJobExperienceActivity : BaseMvpActivity<CvFormPresenter>(), CvFormVi
     private fun initDraft() {
         draftData?.let {
             draftExperienceId = it.id
-            company_name_et.setText(it.company)
-            job_title_et.setText(it.job_title)
-            job_desc_et.setText(it.job_desc)
-            start_date_tv.text = it.start_date
-            end_date_tv.text = it.end_date
-            new_experience_iv.visibility = View.VISIBLE
+            binding.companyNameEt.setText(it.company)
+            binding.jobTitleEt.setText(it.job_title)
+            binding.jobDescEt.setText(it.job_desc)
+            binding.startDateTv.text = it.start_date
+            binding.endDateTv.text = it.end_date
+            binding.newExperienceIv.visibility = View.VISIBLE
             if (draftExperienceId > 0) {
-                delete_tv.visibility = View.VISIBLE
+                binding.deleteTv.visibility = View.VISIBLE
             }
         }
 
@@ -72,19 +76,19 @@ class CvFormJobExperienceActivity : BaseMvpActivity<CvFormPresenter>(), CvFormVi
 
     override fun initData() {
         presenter = CvFormPresenter(this)
-        requiredEdit.add(company_name_et)
-        requiredEdit.add(job_title_et)
-        requiredEdit.add(job_desc_et)
+        requiredEdit.add(binding.companyNameEt)
+        requiredEdit.add(binding.jobTitleEt)
+        requiredEdit.add(binding.jobDescEt)
 
         startDialog = BusinessUtils.showWorkDialog(this, object : OnWorkTimeSelected {
             override fun onWorkTimeSelected(string: String) {
-                start_date_tv.text = string
+                binding.startDateTv.text = string
             }
         })
 
         endDialog = BusinessUtils.showWorkDialog(this, object : OnWorkTimeSelected {
             override fun onWorkTimeSelected(string: String) {
-                end_date_tv.text = string
+                binding.endDateTv.text = string
             }
         })
 
@@ -93,16 +97,16 @@ class CvFormJobExperienceActivity : BaseMvpActivity<CvFormPresenter>(), CvFormVi
 
     override fun bindListener() {
 
-        start_date_tv.setOnClickListener {
+        binding.startDateTv.setOnClickListener {
             startDialog?.show()
         }
 
-        end_date_tv.setOnClickListener {
+        binding.endDateTv.setOnClickListener {
             endDialog?.show()
         }
 
 
-        save_tv.setOnClickListener(object : ClickUtils.OnDebouncingClickListener(500) {
+        binding.saveTv.setOnClickListener(object : ClickUtils.OnDebouncingClickListener(500) {
 
             override fun onDebouncingClick(v: View?) {
 
@@ -113,8 +117,8 @@ class CvFormJobExperienceActivity : BaseMvpActivity<CvFormPresenter>(), CvFormVi
                     }
                 }
 
-                val startDate = start_date_tv.text.toString().trim()
-                val endDate = end_date_tv.text.toString().trim()
+                val startDate = binding.startDateTv.text.toString().trim()
+                val endDate = binding.endDateTv.text.toString().trim()
                 if (startDate.isBlank() || endDate.isBlank()) {
                     ToastUtils.showShort("Please select date")
                     return
@@ -125,16 +129,16 @@ class CvFormJobExperienceActivity : BaseMvpActivity<CvFormPresenter>(), CvFormVi
                     return
                 }
                 val apply = CreateJobExperience().apply {
-                    company = company_name_et.text.toString().trim()
-                    job_title = job_title_et.text.toString().trim()
+                    company = binding.companyNameEt.text.toString().trim()
+                    job_title = binding.jobTitleEt.text.toString().trim()
                     start_date = startDate
                     end_date = endDate
-                    job_desc = job_desc_et.text.toString().trim()
+                    job_desc = binding.jobDescEt.text.toString().trim()
                 }
 
-                save_tv.isClickable = false
+                binding.saveTv.isClickable = false
                 Handler(Looper.getMainLooper()).postDelayed({
-                    save_tv.isClickable = true
+                    binding.saveTv.isClickable = true
                 }, 500)
 
                 presenter.handleExperiences(draftExperienceId, apply)
@@ -144,12 +148,12 @@ class CvFormJobExperienceActivity : BaseMvpActivity<CvFormPresenter>(), CvFormVi
         })
 
 
-        new_experience_iv.setOnClickListener {
+        binding.newExperienceIv.setOnClickListener {
             startActivity(CvFormJobExperienceActivity::class.java)
         }
 
 
-        delete_tv.setOnClickListener {
+        binding.deleteTv.setOnClickListener {
             AlertDialog.Builder(this, R.style.JobAlertDialogTheme)
                 .setCancelable(false)
                 .setTitle(R.string.hint)

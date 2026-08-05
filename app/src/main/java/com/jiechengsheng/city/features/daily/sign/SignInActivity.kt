@@ -11,28 +11,31 @@ import com.jiechengsheng.city.api.response.SignListResponse
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.utils.LocalLanguageUtil
 import com.jiechengsheng.city.utils.MobUtil
-import com.jiechengsheng.city.utils.SPKey
-import com.jiechengsheng.city.legacyviews.*
-
+import com.jiechengsheng.city.utils.SPKey
+import com.jiechengsheng.city.databinding.SignInBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/11/24 16:32.
  * 每日签到
  */
 class SignInActivity : BaseMvpActivity<SignInPresenter>(), SignInView {
 
+    private lateinit var binding: SignInBinding
+
     private var inviteLink = ""
 
     override fun getLayoutId() = R.layout.sign_in
 
     override fun initView() {
+        binding = SignInBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initLanguage()
         inviteLink = SPUtils.getInstance().getString(SPKey.K_INVITE_LINK, "")
         if (inviteLink.isBlank()) {
-            invite_tv.isChecked = true
-            invite_tv.isClickable = false
+            binding.inviteTv.isChecked = true
+            binding.inviteTv.isClickable = false
         } else {
-            invite_tv.isChecked = false
-            invite_tv.isClickable = true
+            binding.inviteTv.isChecked = false
+            binding.inviteTv.isClickable = true
         }
 
     }
@@ -40,9 +43,9 @@ class SignInActivity : BaseMvpActivity<SignInPresenter>(), SignInView {
     private fun initLanguage() {
         val languageLocale = LocalLanguageUtil.getInstance().getSetLanguageLocale(this)
         if (languageLocale.language == "zh") {
-            ad_iv.setImageResource(R.mipmap.ic_sign_in_ad_chn)
+            binding.adIv.setImageResource(R.mipmap.ic_sign_in_ad_chn)
         } else {
-            ad_iv.setImageResource(R.mipmap.ic_sign_in_ad_en)
+            binding.adIv.setImageResource(R.mipmap.ic_sign_in_ad_en)
         }
     }
 
@@ -53,36 +56,36 @@ class SignInActivity : BaseMvpActivity<SignInPresenter>(), SignInView {
     }
 
     override fun bindListener() {
-        rule_tv.setOnClickListener {
+        binding.ruleTv.setOnClickListener {
             startActivity(SignInRuleActivity::class.java)
         }
-        sign_in_now_tv.setOnClickListener {
+        binding.signInNowTv.setOnClickListener {
             presenter.signIn()
         }
-        sign_in_tv.setOnClickListener {
-            sign_in_now_tv.performClick()
+        binding.signInTv.setOnClickListener {
+            binding.signInNowTv.performClick()
         }
-        invite_tv.setOnClickListener {
+        binding.inviteTv.setOnClickListener {
             MobUtil.shareFacebookWebPage(inviteLink, this)
         }
     }
 
     override fun bindUserIntegral(isSigned: Boolean) {
         if (isSigned) {
-            sign_in_now_tv.apply {
+            binding.signInNowTv.apply {
                 setText(R.string.already_sign_in)
                 isClickable = false
                 setTextColor(ColorUtils.getColor(R.color.black_33333360))
             }
-            sign_in_tv.apply {
+            binding.signInTv.apply {
                 setText(R.string.finished)
                 isClickable = false
             }
         } else {
-            sign_in_now_tv.setText(R.string.sign_in_now)
-            sign_in_tv.setText(R.string.to_finish)
+            binding.signInNowTv.setText(R.string.sign_in_now)
+            binding.signInTv.setText(R.string.to_finish)
         }
-        sign_in_tv.isChecked = isSigned
+        binding.signInTv.isChecked = isSigned
     }
 
 
@@ -93,21 +96,21 @@ class SignInActivity : BaseMvpActivity<SignInPresenter>(), SignInView {
         data.forEachIndexed { index, dataBean ->
 
             if (index <= 3) {
-                bindCommonItem(index, dataBean, first_date_ll)
+                bindCommonItem(index, dataBean, binding.firstDateLl)
             }
             if (index == 4 || index == 5) {
-                bindCommonItem(index - 4, dataBean, second_date_ll)
+                bindCommonItem(index - 4, dataBean, binding.secondDateLl)
             }
             if (index == 6) {
                 val signStatus = dataBean.signStatus
                 val integral = dataBean.integral
-                final_date_tv.isChecked = signStatus == 1
-                final_score_tv.isChecked = signStatus == 1
-                final_score_tv.text = StringUtils.getString(R.string.add_format, integral)
+                binding.finalDateTv.isChecked = signStatus == 1
+                binding.finalScoreTv.isChecked = signStatus == 1
+                binding.finalScoreTv.text = StringUtils.getString(R.string.add_format, integral)
                 if (signStatus == 1) {
-                    final_container_rl.setBackgroundResource(R.drawable.shape_sign_in_radius_4_selected)
+                    binding.finalContainerRl.setBackgroundResource(R.drawable.shape_sign_in_radius_4_selected)
                 } else {
-                    final_container_rl.setBackgroundResource(R.drawable.shape_sign_in_radius_4_normal)
+                    binding.finalContainerRl.setBackgroundResource(R.drawable.shape_sign_in_radius_4_normal)
                 }
 
             }
