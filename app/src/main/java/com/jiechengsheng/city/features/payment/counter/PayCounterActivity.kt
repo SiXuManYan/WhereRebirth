@@ -28,14 +28,16 @@ import com.jiechengsheng.city.features.web.WebViewActivity
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_pay_counter.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityPayCounterBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2023/3/7 16:07.
  * 收银台
  */
 class PayCounterActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterView, OnItemChildClickListener {
+
+    private lateinit var binding: ActivityPayCounterBinding
 
 
     /** 订单 Id */
@@ -89,6 +91,7 @@ class PayCounterActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterVie
 
 
     override fun initView() {
+        binding = ActivityPayCounterBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         overridePendingTransition(R.anim.bottom_in, R.anim.bottom_silent)
         initExtra()
         initContent()
@@ -103,7 +106,7 @@ class PayCounterActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterVie
             }
             moduleType = it.getString(Constant.PARAM_MODULE_TYPE, "")
             amountToPaid = it.getString(Constant.PARAM_AMOUNT, "0")
-            amount_tv.text = amountToPaid
+            binding.amountTv.text = amountToPaid
         }
     }
 
@@ -116,7 +119,7 @@ class PayCounterActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterVie
         }
 
         val manager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        recycler_view.apply {
+        binding.recyclerView.apply {
             adapter = mAdapter
             layoutManager = manager
             addItemDecoration(DividerDecoration(Color.TRANSPARENT, SizeUtils.dp2px(16f), 0, 0))
@@ -228,7 +231,7 @@ class PayCounterActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterVie
                 .show()
         }
 
-        view_bind_channel_tv.setOnClickListener {
+        binding.viewBindChannelTv.setOnClickListener {
             // 查看已绑定支付渠道列表
             startActivityAfterLogin(TokenizedActivity::class.java)
         }

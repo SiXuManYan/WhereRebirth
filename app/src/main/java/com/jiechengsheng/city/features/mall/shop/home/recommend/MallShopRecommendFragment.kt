@@ -19,14 +19,16 @@ import com.jiechengsheng.city.features.coupon.center.CouponCenterAdapter
 import com.jiechengsheng.city.features.mall.home.child.MallRecommendAdapter
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.fragment_mall_shop_recommend.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentMallShopRecommendBinding
 /**
  * Created by Wangsw  2022/2/24 14:09.
  * 商城店铺推荐
  */
 class MallShopRecommendFragment : BaseMvpFragment<ShopRecommendPresenter>(), ShopRecommendView {
+
+    private var _binding: FragmentMallShopRecommendBinding? = null
+    private val binding get() = _binding!!
 
     private var mShopId = 0
 
@@ -72,6 +74,7 @@ class MallShopRecommendFragment : BaseMvpFragment<ShopRecommendPresenter>(), Sho
     override fun getLayoutId() = R.layout.fragment_mall_shop_recommend
 
     override fun initView(view: View?) {
+        _binding = FragmentMallShopRecommendBinding.bind(requireNotNull(view))
         arguments?.let {
             mShopId = it.getInt(Constant.PARAM_SHOP_ID)
         }
@@ -146,7 +149,7 @@ class MallShopRecommendFragment : BaseMvpFragment<ShopRecommendPresenter>(), Sho
         }
         val gridLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         val decoration = DividerDecoration(ColorUtils.getColor(R.color.transplant), SizeUtils.dp2px(10f), 0, 0)
-        content_rv.apply {
+        binding.contentRv.apply {
             adapter = mAdapter
             layoutManager = gridLayoutManager
             addItemDecoration(decoration)
@@ -163,6 +166,13 @@ class MallShopRecommendFragment : BaseMvpFragment<ShopRecommendPresenter>(), Sho
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun loadOnVisible() {
         presenter.requestShopCoupon(mShopId)
         presenter.getRecommend(mShopId)
@@ -170,7 +180,7 @@ class MallShopRecommendFragment : BaseMvpFragment<ShopRecommendPresenter>(), Sho
     }
 
     override fun bindListener() {
-        swipe_layout.setOnRefreshListener {
+        binding.swipeLayout.setOnRefreshListener {
             goodRequest.apply {
                 page = Constant.DEFAULT_FIRST_PAGE
                 shopId = mShopId
@@ -181,7 +191,7 @@ class MallShopRecommendFragment : BaseMvpFragment<ShopRecommendPresenter>(), Sho
     }
 
     override fun bindData(data: MutableList<MallGood>, lastPage: Boolean) {
-        swipe_layout.isRefreshing = false
+        binding.swipeLayout.isRefreshing = false
         val loadMoreModule = mAdapter.loadMoreModule
         if (data.isEmpty()) {
             if (mPage == Constant.DEFAULT_FIRST_PAGE) {
@@ -213,9 +223,9 @@ class MallShopRecommendFragment : BaseMvpFragment<ShopRecommendPresenter>(), Sho
         } else {
             couponHeader.visibility = View.GONE
         }
-        swipe_layout.isRefreshing = false
+        binding.swipeLayout.isRefreshing = false
         mCouponHeaderAdapter.setNewInstance(response)
-        content_rv.smoothScrollToPosition(0)
+        binding.contentRv.smoothScrollToPosition(0)
     }
 
     override fun bindRecommend(response: ArrayList<ShopRecommend>) {
@@ -224,7 +234,7 @@ class MallShopRecommendFragment : BaseMvpFragment<ShopRecommendPresenter>(), Sho
         } else {
             recommendHeader.visibility = View.GONE
         }
-        swipe_layout.isRefreshing = false
+        binding.swipeLayout.isRefreshing = false
         mRecommendHeaderAdapter.setNewInstance(response)
     }
 

@@ -11,14 +11,17 @@ import com.jiechengsheng.city.base.BaseActivity
 import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.features.store.cart.child.StoreCartFragment
-import kotlinx.android.synthetic.main.activity_store_cart.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityStoreCartBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/7/5 10:30.
  * 商城购物车
  */
 class StoreCartActivity : BaseActivity() {
+
+    private lateinit var binding: ActivityStoreCartBinding
 
     val titles = arrayOf(StringUtils.getString(R.string.take_carts), StringUtils.getString(R.string.delivery_carts))
 
@@ -27,27 +30,28 @@ class StoreCartActivity : BaseActivity() {
     override fun isStatusDark(): Boolean = true
 
     override fun initView() {
+        binding = ActivityStoreCartBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, ColorUtils.getColor(R.color.white))
-        pager.offscreenPageLimit = titles.size
-        pager.adapter = StorePagerAdapter(supportFragmentManager, 0)
-        tabs_type.setViewPager(pager)
+        binding.pager.offscreenPageLimit = titles.size
+        binding.pager.adapter = StorePagerAdapter(supportFragmentManager, 0)
+        binding.tabsType.setViewPager(binding.pager)
     }
 
     override fun initData() = Unit
 
     override fun bindListener() {
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             finish()
         }
 
-        edit_tv.setOnClickListener {
-            right_vs.displayedChild = 1
+        binding.editTv.setOnClickListener {
+            binding.rightVs.displayedChild = 1
             EventBus.getDefault().post(BaseEvent<Boolean>(EventCode.EVENT_STORE_CART_HANDLE, true))
 
         }
 
-        cancel_tv.setOnClickListener {
-            right_vs.displayedChild = 0
+        binding.cancelTv.setOnClickListener {
+            binding.rightVs.displayedChild = 0
             EventBus.getDefault().post(BaseEvent<Boolean>(EventCode.EVENT_STORE_CART_HANDLE, false))
 
         }

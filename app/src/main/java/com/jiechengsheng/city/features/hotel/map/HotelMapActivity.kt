@@ -41,35 +41,38 @@ import com.jiechengsheng.city.utils.LocationUtil
 import com.jiechengsheng.city.utils.PermissionUtils
 import com.jiechengsheng.city.widget.calendar.JcsCalendarAdapter
 import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
-import kotlinx.android.synthetic.main.activity_map_hotel.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityMapHotelBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/9/27 14:06.
- *  酒店地图
+ *  闂備胶澧楃敮鎺旇姳閻㈢鎹堕柡澶嬪缁?
  */
 class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, JcsCalendarDialog.OnDateSelectedListener {
 
-    /** 酒店分类 id ,用户获取酒店下的子分类 */
+    private lateinit var binding: ActivityMapHotelBinding
+
+    /** 闂備胶澧楃敮鎺旇姳閻㈢绀嗛柛鈩冪懆椤?id ,闂佹椿娼块崝宥夊春濞戙垺鍤旂€瑰嫭婢樼徊鍧楁⒑閻楀牆绗掔紒銊ョ仛缁嬪鈧綆鍓氶悾閬嶆倵濞戞瑥濮囬柛銊ユ捣閻?*/
     private var hotelCategoryId = 0
 
-    /** 当前参与请求的分类id */
+    /** 閻熸粎澧楅幐鍛婃櫠閻樿鐭楅柛灞剧懅閻熴垽鎮归崶顒佹暠闁活亙鍗抽幆鍐礋椤愩垻鈧崵绱掗銈嗘緜d */
     private var currentRequestCategoryId = 0
 
-    /** 搜索内容 */
+    /** 闂佺懓鍚嬬划搴ㄥ磼閵娾晛绀冮柛娑卞弾閸?*/
     var searchInput: String? = null
 
-    /** 星级 */
+    /** 闂佸搫瀚崰鎾搭殽?*/
     var starLevel: String? = null
 
-    /** 价格区间 */
+    /** 婵炲濞€閺€閬嶆偋閹间礁绀屾繛宸簼閿?*/
     var priceRange: String? = null
 
-    /** 酒店分数 */
+    /** 闂備胶澧楃敮鎺旇姳閻㈢绀嗛柛鈩兩戝▓?*/
     var grade: String? = null
 
 
-    /** 房间数量 */
+    /** 闂佽娼欏鈥澄涢崸妤€鏋佸ù鍏兼綑濞?*/
     private var roomNumber = 1
 
     private lateinit var mJcsCalendarDialog: JcsCalendarDialog
@@ -80,10 +83,10 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
 
     private var contentIsMap = false
 
-    /** 内容和 tab二级分类 */
+    /** 闂佸憡鍔曢幊搴敊閹版澘妞?tab婵炲瓨绮岄惉鍏碱殽閸ヮ剙绀嗛柛鈩冪懆椤?*/
     private lateinit var mPagerAdapter: HotelMapPagerAdapter
 
-    /** marker 选中后，对应的列表内容 */
+    /** marker 闂備緡鍋勯ˇ顕€鎳欓幋锕€瑙﹂幖鎼灣缁€澶愭倵閻㈠灚鍤€缂併劍鐓￠幆鍐礋椤愩垻浠氶柣鐐寸◤閸斿矂宕€电硶鍋?*/
     private lateinit var mMarkerContentAdapter: HotelHomeRecommendAdapter
 
     /** maker  Behavior */
@@ -128,6 +131,7 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
 
 
     override fun initView() {
+        binding = ActivityMapHotelBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initExtra()
         initMap()
         initCategory()
@@ -136,7 +140,7 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
     }
 
 
-    /** 处理搜索 */
+    /** 婵犮垼娉涚€氼噣骞冩繝鍥х婵犲﹤鎳庨崑?*/
     private val searchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == Activity.RESULT_OK) {
             val bundle = it.data?.extras
@@ -146,12 +150,12 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
     }
 
     private fun search() {
-        delete_iv.visibility = if (searchInput.isNullOrBlank()) {
+        binding.deleteIv.visibility = if (searchInput.isNullOrBlank()) {
             View.GONE
         } else {
             View.VISIBLE
         }
-        search_tv.text = searchInput
+        binding.searchTv.text = searchInput
         EventBus.getDefault().post(BaseEvent<String?>(EventCode.EVENT_REFRESH_CHILD, searchInput))
         // todo marker
         requestMarkerList()
@@ -175,8 +179,8 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
     }
 
     private fun updateDate() {
-        start_date_tv.text = mStartDateBean.showMonthDayDateWithSplit
-        end_date_tv.text = mEndDateBean.showMonthDayDateWithSplit
+        binding.startDateTv.text = mStartDateBean.showMonthDayDateWithSplit
+        binding.endDateTv.text = mEndDateBean.showMonthDayDateWithSplit
 
     }
 
@@ -194,16 +198,16 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
 
     private fun initBehavior() {
 
-        makerBehavior = BottomSheetBehavior.from(bottom_sheet_rv)
+        makerBehavior = BottomSheetBehavior.from(binding.bottomSheetRv)
         makerBehavior.state = BottomSheetBehavior.STATE_HIDDEN
         makerBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
             override fun onSlide(bottomSheet: View, slideOffset: Float) = Unit
             override fun onStateChanged(bottomSheet: View, newState: Int) = when (newState) {
                 BottomSheetBehavior.STATE_EXPANDED -> {
-                    content_vp.visibility = View.GONE
+                    binding.contentVp.visibility = View.GONE
                 }
                 BottomSheetBehavior.STATE_HIDDEN -> {
-                    content_vp.visibility = View.VISIBLE
+                    binding.contentVp.visibility = View.VISIBLE
                 }
                 else -> {
                 }
@@ -234,11 +238,11 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
 
 
         val pagerSnapHelper = PagerSnapHelper()
-        pagerSnapHelper.attachToRecyclerView(bottom_sheet_rv)
+        pagerSnapHelper.attachToRecyclerView(binding.bottomSheetRv)
 
-        bottom_sheet_rv.apply {
+        binding.bottomSheetRv.apply {
             adapter = mMarkerContentAdapter
-            // 禁用横向滑动
+            // 缂備礁鍊烽懗鍫曞极閵堝憘鐔碱敂閸曨剙鈧粯绻濇繝鍐ㄧ仴濠?
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
@@ -264,27 +268,27 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
 
 
     override fun bindListener() {
-        search_tv.setOnClickListener {
+        binding.searchTv.setOnClickListener {
             searchLauncher.launch(Intent(this, SearchAllActivity::class.java).putExtra(Constant.PARAM_TYPE, 4))
             //  makerBehavior.state = BottomSheetBehavior.STATE_HIDDEN
         }
 
 
-        type_iv.setOnClickListener {
+        binding.typeIv.setOnClickListener {
 
 
             if (contentIsMap) {
-                type_iv.setImageResource(R.mipmap.ic_type_map)
+                binding.typeIv.setImageResource(R.mipmap.ic_type_map)
                 makerBehavior.state = BottomSheetBehavior.STATE_HIDDEN
             } else {
-                type_iv.setImageResource(R.mipmap.ic_type_list)
+                binding.typeIv.setImageResource(R.mipmap.ic_type_list)
                 makerBehavior.state = BottomSheetBehavior.STATE_EXPANDED
             }
             contentIsMap = !contentIsMap
 
         }
 
-        content_vp.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding.contentVp.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
 
 
@@ -292,7 +296,7 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
 
             override fun onPageSelected(position: Int) {
                 if (mPagerAdapter.category.isEmpty()) return
-                if (!::map.isInitialized) return
+                if (!::googleMap.isInitialized) return
 
                 val category = mPagerAdapter.category[position]
                 currentRequestCategoryId = category.id
@@ -302,17 +306,17 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
 
         })
 
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             finish()
         }
 
-        delete_iv.setOnClickListener {
+        binding.deleteIv.setOnClickListener {
             searchInput = null
             search()
         }
 
 
-        date_ll.setOnClickListener(object :ClickUtils.OnDebouncingClickListener(500){
+        binding.dateLl.setOnClickListener(object :ClickUtils.OnDebouncingClickListener(500){
             override fun onDebouncingClick(v: View?) {
                 mJcsCalendarDialog.show(supportFragmentManager)
             }
@@ -324,97 +328,97 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
         // pager
         mPagerAdapter.category.addAll(response)
         mPagerAdapter.notifyDataSetChanged()
-        content_vp.offscreenPageLimit = response.size
-        content_vp.adapter = mPagerAdapter
-        tabs_type.setViewPager(content_vp)
+        binding.contentVp.offscreenPageLimit = response.size
+        binding.contentVp.adapter = mPagerAdapter
+        binding.tabsType.setViewPager(binding.contentVp)
     }
 
-    // ################ 地图相关 ###################
+    // ################ 闂侀潻闄勫妯好瑰鈧幆鍕矙閸喖缍?###################
 
-    private lateinit var map: GoogleMap
+    private lateinit var googleMap: GoogleMap
 
-    // 我的位置
+    // 闂佺懓鐡ㄩ崹鐟扳枔閹寸偞濯寸€广儱娲ㄩ弸?
     private lateinit var myLocation: CameraPosition
 
-    // 地图上的所有maker
+    // 闂侀潻闄勫妯好瑰Ο鑽も枖濠电姴瀚悾閬嶆煙绾版ê浜鹃梺鍝勭墕閵嗗¨ker
     private var makers: ArrayList<Marker?> = ArrayList()
 
 
     private fun initMap() {
-        // 获取 SupportMapFragment 并在地图准备好使用时请求通知
+        // 闂佸吋鍎抽崲鑼躲亹?SupportMapFragment 濡ょ姷鍋犲▔娑橈耿椤忓牆鎹堕柡澶嬪缁傚牓鏌涢幋婵囶棞妞わ富鍓氱缓浠嬪箣閹烘垟鏋忛梺娲绘娇閸斿秴顪冮崒婊勫珰闂佸灝顑囧﹢鎾⒑椤愶絾鐨戦柣?
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
-        map = googleMap
+        this.googleMap = googleMap
 
-        map.apply {
+        googleMap.apply {
 
-            // 移动到巴朗牙
+            // 缂備礁顦抽褎鎱ㄩ埡鍛闁哄鐏濆浠嬫煛閸噥娈樺?
             moveCamera(CameraUpdateFactory.newLatLng(LatLng(Constant.LAT, Constant.LNG)))
 
 
-            // 调整内置UI padding 防止logo被遮挡
+            // 闁荤姴顑呴崯顖炲汲閿濆绀冮柛娑卞灣閺嬩繃I padding 闂傚倸鍟鍫曨敆濞岀go闁荤偞鍑归崑濠冨閸曨垰绠?
             setPadding(0, 0, 0, SizeUtils.dp2px(220f))
 
-            // 自定义信息样式
+            // 闂佺厧顨庢禍婊堟偩閻愵剛鈻曞璺侯槷缁诲棝鏌熼褍鐏￠柣妤€宕?
             setInfoWindowAdapter(HotelCustomInfoWindowAdapter(this@HotelMapActivity))
 
-            // 点击标记
+            // 闂佺粯鍔楅幊鎾诲吹椤曗偓瀵粙宕堕宥呮暪
             setOnMarkerClickListener(this@HotelMapActivity)
 
-            // 点击标记信息窗口
+            // 闂佺粯鍔楅幊鎾诲吹椤曗偓瀵粙宕堕宥呮暪婵烇絽娲犻崜婵囧閸涱垳鐜绘俊銈傚亾鐟?
             setOnInfoWindowClickListener(this@HotelMapActivity)
 
-            // 移动到我的位置
+            // 缂備礁顦抽褎鎱ㄩ埡鍛闁绘鐗嗛悘澶愭煟閵娿儱顏х紓宥呮噽缁?
             setOnMyLocationButtonClickListener(this@HotelMapActivity)
 
-            // 点击我的位置
+            // 闂佺粯鍔楅幊鎾诲吹椤曗偓楠炲骞嬮悩宕囨殸婵炶揪绲界粔鍫曟偪?
             setOnMyLocationClickListener(this@HotelMapActivity)
-            // 辅助功能模式，覆盖视图上的默认内容描述
+            // 闁哄鐗嗛幊搴㈡叏椤忓牆绀夐柣鏃囶嚙閸樺瓨淇婇妞诲亾瀹曞洨顢呴梺鎸庣☉閻線銆呴锔藉剮闁哄稁鍓﹀鎺楁煕閵夈儱缍栫紒妤€鍊块幆鍐礋椤栨粌绗￠柣鐘遍檷閸婃洟宕€电硶鍋撶涵鍜佹綈鐎殿喗瀵у?
             setContentDescription("Map with lots of markers.");
         }
 
-        map.uiSettings.apply {
+        googleMap.uiSettings.apply {
             isMapToolbarEnabled = true
-            // 隐藏我的位置和图层
+            // 闂傚倸鎳忛崝妯何涘畝鍕闁瑰濮甸悾鍗灻归敐鍛ら柣銈呮瀹曨亞浠﹂懞銉ь洯闁?
             // isMyLocationButtonEnabled = false
         }
 
-        // 当前位置
+        // 閻熸粎澧楅幐鍛婃櫠閻樿櫕濯寸€广儱娲ㄩ弸?
         enableMyLocation()
 
 
     }
 
     private fun requestMarkerList() {
-        if (!::map.isInitialized) return
+        if (!::googleMap.isInitialized) return
         presenter.getMakerData(search_input = searchInput, star_level = starLevel, price_range = priceRange, currentRequestCategoryId)
     }
 
 
     @SuppressLint("MissingPermission")
     private fun enableMyLocation() {
-        if (!::map.isInitialized) return
+        if (!::googleMap.isInitialized) return
 
         PermissionUtils.permissionAny(
             this, {
                 if (it) {
-                    map.isMyLocationEnabled = true
+                    googleMap.isMyLocationEnabled = true
                     getMyLocationInfo()
                 }
             }, Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_COARSE_LOCATION
         )
 
-        // 获得展示在地图上的数据
+        // 闂佸吋鍎抽崲鑼鏉堚晙娌柡鍥╁О娴犳盯鏌涢敂鍝勫婵犫偓閹绢喖鐐婇柛娆嶅劤閻熸劙鏌ｉ妸銉ヮ仾闁哄棛鍠栭獮?
         requestMarkerList()
     }
 
 
     /**
-     * 获取我的位置信息
+     * 闂佸吋鍎抽崲鑼躲亹閸ヮ剙绠ｉ柟瀵稿У閻ｅ崬霉閿濆懐肖闁汇倕妫欑粚閬嶅焺閸愌呯
      */
     private fun getMyLocationInfo() {
         LocationUtil.getInstance().addressCallback = object : LocationUtil.AddressCallback {
@@ -425,7 +429,7 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
                 CacheUtil.getShareDefault().put(Constant.SP_MY_LONGITUDE, lng.toFloat())
 
 
-                // 镜头移动到当前位置
+                // 闂傚倵鍋撴繝濠傚暔娴犲牏绱掓径搴殭濠殿喒鏅犲畷姘跺级鐠恒劎歇闂佸憡鎸哥粔宕囩礊閸涱垳纾?
                 myLocation = CameraPosition.Builder().target(LatLng(lat, lng))
                     .zoom(20f)
                     .bearing(0f)
@@ -443,22 +447,22 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
                 .bearing(0f)
                 .tilt(0f)
                 .build()
-            map.animateCamera(CameraUpdateFactory.newCameraPosition(targetCamera))
+            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(targetCamera))
 
         }, 10)
     }
 
     /**
-     * 移动到我的位置
+     * 缂備礁顦抽褎鎱ㄩ埡鍛闁绘鐗嗛悘澶愭煟閵娿儱顏х紓宥呮噽缁?
      */
     override fun onMyLocationButtonClick(): Boolean {
         if (!::myLocation.isInitialized) return false
-        map.animateCamera(CameraUpdateFactory.newCameraPosition(myLocation))
+        googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(myLocation))
         return false
     }
 
     /**
-     * 点击我的位置 maker
+     * 闂佺粯鍔楅幊鎾诲吹椤曗偓楠炲骞嬮悩宕囨殸婵炶揪绲界粔鍫曟偪?maker
      */
     override fun onMyLocationClick(location: Location) {
 //        ToastUtils.showShort("Current location : \nlatitude:${location.latitude}" + "\nlongitude:${location.longitude}  ")
@@ -466,37 +470,37 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
 
 
     override fun bindMakerList(response: MutableList<HotelHomeRecommend>) {
-        if (!::map.isInitialized) return
+        if (!::googleMap.isInitialized) return
 
         if (response.isEmpty()) {
             ToastUtils.showShort(R.string.search_result_empty_hint)
-            map.clear()
+            googleMap.clear()
             makers.clear()
             return
         }
 
-        // 相机移动到maker范围
+        // 闂佺儵鏅涢幉鈥斥攦閳ь剛绱掓径搴殭濠殿喒鏅犲畷姘舵儌缁烘笒er闂佽偐鍘ч崯顐⒚?
         val bounds = LatLngBounds.Builder()
 
         response.forEach {
             bounds.include(LatLng(it.lat, it.lng))
         }
 
-        map.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds.build(), 100))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds.build(), 100))
 
 
-        // 在地图上添加大量Marker
+        // 闂侀潻璐熼崝灞斤耿閹绢喖鐐婇柛娆嶅劤閻熸劖绻涢敐鍫殭濠殿喚鍋炲鍕樄闁革絿鐦瞐rker
         addMarkersToMap(response)
 
-        // 展示marker 列表数据
+        // 闁诲繒鍋炲ú婊堝Φ濮濈敘rker 闂佸憡甯楅〃澶愬Υ閸愵喖鏋侀柣妤€鐗嗙粊?
         mMarkerContentAdapter.setNewInstance(response)
 
 
     }
 
     private fun addMarkersToMap(response: MutableList<HotelHomeRecommend>) {
-        if (!::map.isInitialized || response.isEmpty()) return
-        map.clear()
+        if (!::googleMap.isInitialized || response.isEmpty()) return
+        googleMap.clear()
         makers.clear()
 
         response.forEach {
@@ -511,7 +515,7 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
                 setImageResource(R.drawable.shape_triangle_down_white)
             }
 
-            val maker = map.addMarker(
+            val maker = googleMap.addMarker(
                 MarkerOptions()
                     .position(LatLng(it.lat, it.lng))
                     .title(it.name)
@@ -526,12 +530,12 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
 
 
     /**
-     * 点击标记上的信息窗口
+     * 闂佺粯鍔楅幊鎾诲吹椤曗偓瀵粙宕堕宥呮暪婵炴垶鎸搁敃锕€鈻撻幋鐐碘攳闁斥晛鍟╃槐鏍磼閹邦収娈旂憸?
      */
     override fun onInfoWindowClick(marker: Marker) = Unit
 
     override fun onMarkerClick(marker: Marker): Boolean {
-        // 所有 maker 设置成未选中
+        // 闂佸湱顣介崑鎾绘煛?maker 闁荤姳绀佹晶浠嬫偪閸℃稑绠ｉ柟閭﹀幗瀵捇姊洪銏╂Х闁?
         makers.forEach {
             val makerTag = it?.tag as HotelHomeRecommend
             val view = LayoutInflater.from(this).inflate(R.layout.custom_info_hotel_maker_2, null)
@@ -547,7 +551,7 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
         }
         marker.hideInfoWindow()
 
-        // 设置当前选中
+        // 闁荤姳绀佹晶浠嬫偪閸℃哎浜归柟鎯у暱椤ゅ懘姊洪銏╂Х闁?
         val makerTag = marker.tag as HotelHomeRecommend
         val view = LayoutInflater.from(this).inflate(R.layout.custom_info_hotel_maker_2, null)
         view.findViewById<AppCompatCheckedTextView>(R.id.title_tv).apply {
@@ -560,14 +564,14 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
 
         marker.setIcon(BitmapDescriptorFactory.fromBitmap(ConvertUtils.view2Bitmap(view)))
 
-        // 切换底部列表数据
+        // 闂佸憡甯掑ú锕€鐣烽崣澶嬪劅闁哄洢鍨归崝銉╂煕閹烘搩娈欓柕鍡楀暣瀵偊鎮ч崼婵堛偊
         val index = makers.indexOf(marker)
         if (index != -1) {
-            bottom_sheet_rv.scrollToPosition(index)
+            binding.bottomSheetRv.scrollToPosition(index)
             makerBehavior.state = BottomSheetBehavior.STATE_EXPANDED
         }
 
-        // 地图平滑移动到目标位置
+        // 闂侀潻闄勫妯好瑰鈧悰顕€鎼归銈嗗缂備礁顦抽褎鎱ㄩ埡鍛闁规鍠楃粣妤呮煛瀹ュ懏鐭楃紓宥呮噽缁?
         Handler(mainLooper).postDelayed({
 
             val targetCamera = CameraPosition.Builder().target(marker.position)
@@ -575,7 +579,7 @@ class HotelMapActivity : BaseMvpActivity<HotelMapPresenter>(), HotelMapView, Jcs
                 .bearing(0f)
                 .tilt(0f)
                 .build()
-            map.animateCamera(CameraUpdateFactory.newCameraPosition(targetCamera))
+            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(targetCamera))
         }, 10)
 
         return false

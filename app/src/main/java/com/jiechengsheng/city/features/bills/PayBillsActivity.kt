@@ -18,8 +18,9 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.view.XBanner.AbstractUrlLoader
 import com.jiechengsheng.city.view.XBanner.XBanner
-import kotlinx.android.synthetic.main.activity_pay_bills.*
-import pl.droidsonroids.gif.GifImageView
+import pl.droidsonroids.gif.GifImageView
+import com.jiechengsheng.city.databinding.ActivityPayBillsBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/4/15 14:12.
@@ -27,12 +28,15 @@ import pl.droidsonroids.gif.GifImageView
  */
 class PayBillsActivity : BaseMvpActivity<PayBillsPresenter>(), PayBillsView {
 
+    private lateinit var binding: ActivityPayBillsBinding
+
 
     override fun getLayoutId() = R.layout.activity_pay_bills
 
     override fun isStatusDark() = true
 
     override fun initView() {
+        binding = ActivityPayBillsBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initBanner()
         initPager()
 
@@ -40,7 +44,7 @@ class PayBillsActivity : BaseMvpActivity<PayBillsPresenter>(), PayBillsView {
 
     private fun initBanner() {
 
-        top_banner.setBannerTypes(XBanner.CIRCLE_INDICATOR)
+        binding.topBanner.setBannerTypes(XBanner.CIRCLE_INDICATOR)
             .setTitleHeight(50)
             .isAutoPlay(true)
             .setDelay(5000)
@@ -61,28 +65,28 @@ class PayBillsActivity : BaseMvpActivity<PayBillsPresenter>(), PayBillsView {
     private fun initPager() {
         val alreadyShow = CacheUtil.getShareDefault().getBoolean(Constant.SP_ALREADY_SHOW_BILLS_GUIDE, false)
         if (alreadyShow) {
-            real_content_ll.visibility = View.VISIBLE
-            pager_vp.visibility = View.GONE
+            binding.realContentLl.visibility = View.VISIBLE
+            binding.pagerVp.visibility = View.GONE
             return
         }
 
-        real_content_ll.visibility = View.GONE
-        pager_vp.visibility = View.VISIBLE
+        binding.realContentLl.visibility = View.GONE
+        binding.pagerVp.visibility = View.VISIBLE
 
         val adapter = BillGuideAdapter()
         adapter.itemClickListener = object : GuideItemClickListener {
             override fun pagerItemClick(position: Int) {
                 if (position == adapter.count - 1) {
                     CacheUtil.getShareDefault().put(Constant.SP_ALREADY_SHOW_BILLS_GUIDE, true)
-                    real_content_ll.visibility = View.VISIBLE
-                    pager_vp.visibility = View.GONE
+                    binding.realContentLl.visibility = View.VISIBLE
+                    binding.pagerVp.visibility = View.GONE
                 } else {
-                    pager_vp.setCurrentItem(position + 1, true)
+                    binding.pagerVp.setCurrentItem(position + 1, true)
                 }
             }
         }
-        pager_vp.adapter = adapter
-        pager_vp.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding.pagerVp.adapter = adapter
+        binding.pagerVp.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
 
             override fun onPageScrollStateChanged(state: Int) = Unit
@@ -101,27 +105,27 @@ class PayBillsActivity : BaseMvpActivity<PayBillsPresenter>(), PayBillsView {
 
 
     override fun bindListener() {
-        prepaid_ll.setOnClickListener {
+        binding.prepaidLl.setOnClickListener {
             startActivityAfterLogin(BillsChannelActivity::class.java, Bundle().apply {
                 putInt(Constant.PARAM_TYPE, 1)
             })
         }
-        water_ll.setOnClickListener {
+        binding.waterLl.setOnClickListener {
             startActivityAfterLogin(BillsChannelActivity::class.java, Bundle().apply {
                 putInt(Constant.PARAM_TYPE, 2)
             })
         }
-        electric_ll.setOnClickListener {
+        binding.electricLl.setOnClickListener {
             startActivityAfterLogin(BillsChannelActivity::class.java, Bundle().apply {
                 putInt(Constant.PARAM_TYPE, 3)
             })
         }
-        internet_ll.setOnClickListener {
+        binding.internetLl.setOnClickListener {
             startActivityAfterLogin(BillsChannelActivity::class.java, Bundle().apply {
                 putInt(Constant.PARAM_TYPE, 4)
             })
         }
-        record_iv.setOnClickListener {
+        binding.recordIv.setOnClickListener {
             startActivityAfterLogin(BillsRecordActivity::class.java)
         }
 
@@ -130,8 +134,8 @@ class PayBillsActivity : BaseMvpActivity<PayBillsPresenter>(), PayBillsView {
 
     override fun bindTopBannerData(bannerUrls: ArrayList<String>, response: ArrayList<BannerResponse>) {
 
-        top_banner.setImageUrls(bannerUrls)
-        top_banner.setBannerPageListener(object : XBanner.BannerPageListener {
+        binding.topBanner.setImageUrls(bannerUrls)
+        binding.topBanner.setBannerPageListener(object : XBanner.BannerPageListener {
 
             override fun onBannerDragging(item: Int) = Unit
 
@@ -147,19 +151,19 @@ class PayBillsActivity : BaseMvpActivity<PayBillsPresenter>(), PayBillsView {
 
 
     override fun onDestroy() {
-        top_banner?.releaseBanner()
+        binding.topBanner?.releaseBanner()
         super.onDestroy()
     }
 
     override fun onResume() {
         super.onResume()
-        top_banner?.start()
+        binding.topBanner?.start()
     }
 
 
     override fun onPause() {
         super.onPause()
-        top_banner?.pause()
+        binding.topBanner?.pause()
     }
 
 }

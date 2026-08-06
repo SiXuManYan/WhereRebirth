@@ -16,14 +16,16 @@ import com.jiechengsheng.city.features.bills.charges.CallChargesActivity
 import com.jiechengsheng.city.features.bills.form.BillsFormActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_no_refresh_list.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityNoRefreshListBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/6/8 15:28.
  * 水电网费缴费渠道列表
  */
 class BillsChannelActivity : BaseMvpActivity<BillsChannelPresenter>(), BillsChannelView, OnItemClickListener {
+
+    private lateinit var binding: ActivityNoRefreshListBinding
 
 
     /**
@@ -45,6 +47,7 @@ class BillsChannelActivity : BaseMvpActivity<BillsChannelPresenter>(), BillsChan
     override fun isStatusDark() = true
 
     override fun initView() {
+        binding = ActivityNoRefreshListBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         billsType = intent.getIntExtra(Constant.PARAM_TYPE, 0)
 
         val title = when (billsType) {
@@ -73,7 +76,7 @@ class BillsChannelActivity : BaseMvpActivity<BillsChannelPresenter>(), BillsChan
             setOnItemClickListener(this@BillsChannelActivity)
         }
 
-        recycler.apply {
+        binding.recycler.apply {
 
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.colorPrimary),
                 SizeUtils.dp2px(1f),
@@ -82,11 +85,11 @@ class BillsChannelActivity : BaseMvpActivity<BillsChannelPresenter>(), BillsChan
         }
 
         if (billsType == 1) {
-            recycler.adapter = mCallAdapter
+            binding.recycler.adapter = mCallAdapter
             mCallAdapter.setEmptyView(emptyView)
 
         } else {
-            recycler. adapter = mCommonAdapter
+            binding.recycler. adapter = mCommonAdapter
             mCommonAdapter.setEmptyView(emptyView)
         }
     }

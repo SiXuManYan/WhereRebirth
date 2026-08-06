@@ -16,14 +16,16 @@ import com.jiechengsheng.city.features.mall.home.MallHomeActivity
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.fragment_refresh_list.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentRefreshListBinding
 /**
  * Created by Wangsw  2022/3/2 15:09.
  *
  */
 class MyCouponFragment : BaseMvpFragment<MyCouponPresenter>(), MyCouponView {
+
+    private var _binding: FragmentRefreshListBinding? = null
+    private val binding get() = _binding!!
 
 
     /** type 类型  1未使用 2 已使用 3已过期 */
@@ -36,7 +38,8 @@ class MyCouponFragment : BaseMvpFragment<MyCouponPresenter>(), MyCouponView {
     override fun getLayoutId() = R.layout.fragment_refresh_list
 
     override fun initView(view: View?) {
-        swipe_layout.apply {
+        _binding = FragmentRefreshListBinding.bind(requireNotNull(view))
+        binding.swipeLayout.apply {
 
             setOnRefreshListener {
                 page = Constant.DEFAULT_FIRST_PAGE
@@ -62,7 +65,7 @@ class MyCouponFragment : BaseMvpFragment<MyCouponPresenter>(), MyCouponView {
 
         }
 
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             addItemDecoration(DividerDecoration(Color.TRANSPARENT, SizeUtils.dp2px(15f), 0, 0))
         }
@@ -73,6 +76,13 @@ class MyCouponFragment : BaseMvpFragment<MyCouponPresenter>(), MyCouponView {
         presenter = MyCouponPresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun bindListener() = Unit
 
     override fun loadOnVisible() {
@@ -80,8 +90,8 @@ class MyCouponFragment : BaseMvpFragment<MyCouponPresenter>(), MyCouponView {
     }
 
     override fun bindData(data: MutableList<UserCoupon>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
 
         val loadMoreModule = mAdapter.loadMoreModule

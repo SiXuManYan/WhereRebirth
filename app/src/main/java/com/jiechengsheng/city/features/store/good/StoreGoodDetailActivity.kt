@@ -21,16 +21,18 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.view.XBanner.AbstractUrlLoader
 import com.jiechengsheng.city.view.XBanner.XBanner
-import kotlinx.android.synthetic.main.activity_store_good_detail.*
-import kotlinx.android.synthetic.main.layout_store_good_detail_cart.*
 import pl.droidsonroids.gif.GifImageView
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivityStoreGoodDetailBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/6/18 14:23.
- * 商城商品详情
+ * 鍟嗗煄鍟嗗搧璇︽儏
  */
 class StoreGoodDetailActivity : BaseMvpActivity<StoreGoodDetailPresenter>(), StoreGoodDetailView {
+
+    private lateinit var binding: ActivityStoreGoodDetailBinding
 
     var good_id: Int = 0
     var shop_id: Int = 0
@@ -38,27 +40,27 @@ class StoreGoodDetailActivity : BaseMvpActivity<StoreGoodDetailPresenter>(), Sto
     var isBuyNow = false
 
     /**
-     * 配送时间
+     * 閰嶉€佹椂闂?
      */
     var delivery_times = ""
 
     /**
-     * 自取时间
+     * 鑷彇鏃堕棿
      */
     var take_times = ""
 
     /**
-     * 配送费
+     * 閰嶉€佽垂
      */
     var delivery_fee: Float = 0f
 
     /**
-     * 商家名称
+     * 鍟嗗鍚嶇О
      */
     var shop_name = ""
 
     /**
-     * 商品图片
+     * 鍟嗗搧鍥剧墖
      */
     var good_image = ""
     var good_name = ""
@@ -69,6 +71,7 @@ class StoreGoodDetailActivity : BaseMvpActivity<StoreGoodDetailPresenter>(), Sto
     override fun getLayoutId() = R.layout.activity_store_good_detail
 
     override fun initView() {
+        binding = ActivityStoreGoodDetailBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         val bundle = intent.extras
         if (bundle == null) {
@@ -80,11 +83,11 @@ class StoreGoodDetailActivity : BaseMvpActivity<StoreGoodDetailPresenter>(), Sto
         shop_name = bundle.getString(Constant.PARAM_SHOP_NAME, "")
         shop_id = bundle.getInt(Constant.PARAM_SHOP_ID)
 
-        val bannerParams = ll_banner.layoutParams.apply {
+        val bannerParams = binding.llBanner.layoutParams.apply {
             height = ScreenUtils.getScreenWidth() * 206 / 375
         }
-        ll_banner.layoutParams = bannerParams
-        top_banner.setBannerTypes(XBanner.CIRCLE_INDICATOR)
+        binding.llBanner.layoutParams = bannerParams
+        binding.topBanner.setBannerTypes(XBanner.CIRCLE_INDICATOR)
                 .setTitleHeight(50)
                 .isAutoPlay(true)
                 .setDelay(5000)
@@ -101,7 +104,7 @@ class StoreGoodDetailActivity : BaseMvpActivity<StoreGoodDetailPresenter>(), Sto
                     }
                 })
 
-        number_view.apply {
+        binding.storeCart.numberView.apply {
             alwaysEnableCut = true
             MIN_GOOD_NUM = 1
             cut_iv.setImageResource(R.mipmap.ic_cut_blue)
@@ -120,65 +123,65 @@ class StoreGoodDetailActivity : BaseMvpActivity<StoreGoodDetailPresenter>(), Sto
 
     override fun onResume() {
         super.onResume()
-        top_banner.startPlayIfNeeded()
+        binding.topBanner.startPlayIfNeeded()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        top_banner?.releaseBanner()
+        binding.topBanner?.releaseBanner()
     }
 
     override fun onPause() {
         super.onPause()
-        top_banner.pause()
+        binding.topBanner.pause()
     }
 
 
     override fun bindListener() {
-        buy_after_tv.setOnClickListener {
+        binding.buyAfterTv.setOnClickListener {
             if (!User.isLogon()) {
                 startActivity(LoginActivity::class.java)
                 return@setOnClickListener
             }
-            cart_ll.visibility = View.VISIBLE
-            handle_tv.text = buy_after_tv.text
+            binding.storeCart.cartLl.visibility = View.VISIBLE
+            binding.storeCart.handleTv.text = binding.buyAfterTv.text
             isBuyNow = false
         }
-        buy_now_tv.setOnClickListener {
+        binding.buyNowTv.setOnClickListener {
             if (!User.isLogon()) {
                 startActivity(LoginActivity::class.java)
                 return@setOnClickListener
             }
-            cart_ll.visibility = View.VISIBLE
-            handle_tv.text = buy_now_tv.text
+            binding.storeCart.cartLl.visibility = View.VISIBLE
+            binding.storeCart.handleTv.text = binding.buyNowTv.text
             isBuyNow = true
         }
 
-        close_cart_v.setOnClickListener {
-            cart_ll.visibility = View.GONE
+        binding.storeCart.closeCartV.setOnClickListener {
+            binding.storeCart.cartLl.visibility = View.GONE
         }
 
-        business_service_rg.setOnCheckedChangeListener { group, checkedId ->
+        binding.storeCart.businessServiceRg.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
-                R.id.express_rb -> time_tv.text = delivery_times
-                R.id.self_rb -> time_tv.text = take_times
+                R.id.express_rb -> binding.storeCart.timeTv.text = delivery_times
+                R.id.self_rb -> binding.storeCart.timeTv.text = take_times
             }
         }
 
-        handle_tv.setOnClickListener {
-            if (!express_rb.isChecked && !self_rb.isChecked) {
+        binding.storeCart.handleTv.setOnClickListener {
+            if (!binding.storeCart.expressRb.isChecked && !binding.storeCart.selfRb.isChecked) {
                 ToastUtils.showShort(R.string.delivery_method_none)
                 return@setOnClickListener
 
             }
 
-            val deliveryType = if (express_rb.isChecked) {
+            val deliveryType = if (binding.storeCart.expressRb.isChecked) {
                 2
             } else {
                 1
             }
 
-            val goodNum = number_view.goodNum
+            val goodNum = binding.storeCart.numberView.goodNum
             val finalPrice = BigDecimalUtil.mul(now_price, BigDecimal(goodNum))
 
             if (isBuyNow) {
@@ -206,8 +209,8 @@ class StoreGoodDetailActivity : BaseMvpActivity<StoreGoodDetailPresenter>(), Sto
                 startActivityAfterLogin(StoreOrderCommitActivity::class.java, Bundle().apply {
                     putSerializable(Constant.PARAM_ORDER_COMMIT_DATA, appList)
                 })
-                cart_ll.visibility = View.GONE
-                number_view.updateNumberJudgeMin(1)
+                binding.storeCart.cartLl.visibility = View.GONE
+                binding.storeCart.numberView.updateNumberJudgeMin(1)
             } else {
                 presenter.addCart(good_id, goodNum, deliveryType)
             }
@@ -222,43 +225,43 @@ class StoreGoodDetailActivity : BaseMvpActivity<StoreGoodDetailPresenter>(), Sto
     override fun bindData(data: StoreGoodDetail) {
         val images = data.images
         if (images.isNotEmpty()) {
-            top_banner.setImageUrls(images).start()
+            binding.topBanner.setImageUrls(images).start()
             good_image = images[0]
         }
 
-        title_tv.text = data.title
+        binding.titleTv.text = data.title
         good_name = data.title
         now_price = data.price
-        now_price_tv.text = StringUtils.getString(R.string.price_unit_format, now_price.toPlainString())
+        binding.nowPriceTv.text = StringUtils.getString(R.string.price_unit_format, now_price.toPlainString())
         val oldPrice = StringUtils.getString(R.string.price_unit_format, data.original_price.toPlainString())
         val builder = SpanUtils().append(oldPrice).setStrikethrough().create()
-        old_price_tv.text = builder
-        desc_tv.text = data.desc
+        binding.oldPriceTv.text = builder
+        binding.descTv.text = data.desc
         when (data.delivery_type) {
             1 -> {
-                express_rb.visibility = View.GONE
-                self_rb.visibility = View.VISIBLE
+                binding.storeCart.expressRb.visibility = View.GONE
+                binding.storeCart.selfRb.visibility = View.VISIBLE
             }
             2 -> {
-                express_rb.visibility = View.VISIBLE
-                self_rb.visibility = View.GONE
+                binding.storeCart.expressRb.visibility = View.VISIBLE
+                binding.storeCart.selfRb.visibility = View.GONE
             }
             3 -> {
-                express_rb.visibility = View.VISIBLE
-                self_rb.visibility = View.VISIBLE
+                binding.storeCart.expressRb.visibility = View.VISIBLE
+                binding.storeCart.selfRb.visibility = View.VISIBLE
             }
         }
 
         delivery_times = data.delivery_times
         take_times = data.take_times
         val inventory = data.inventory
-        stock_tv.text = getString(R.string.stock_format, inventory)
-        number_view.MAX_GOOD_NUM = inventory
+        binding.storeCart.stockTv.text = getString(R.string.stock_format, inventory)
+        binding.storeCart.numberView.MAX_GOOD_NUM = inventory
     }
 
 
     override fun addSuccess() {
-        cart_ll.visibility = View.GONE
-        number_view.updateNumberJudgeMin(1)
+        binding.storeCart.cartLl.visibility = View.GONE
+        binding.storeCart.numberView.updateNumberJudgeMin(1)
     }
 }

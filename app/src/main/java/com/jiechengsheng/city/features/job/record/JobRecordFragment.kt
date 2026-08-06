@@ -12,16 +12,19 @@ import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.BaseFragment
 import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.fragment_job_apply.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
+import org.greenrobot.eventbus.ThreadMode
+import com.jiechengsheng.city.databinding.FragmentJobApplyBinding
 
 /**
  * Created by Wangsw  2022/12/15 11:25.
  * 职位申请与面试邀约
  */
 class JobRecordFragment : BaseFragment() {
+
+    private var _binding: FragmentJobApplyBinding? = null
+    private val binding get() = _binding!!
 
      val TAB_TITLES = arrayOf(StringUtils.getString(R.string.job_applied), StringUtils.getString(R.string.job_interviews))
 
@@ -47,24 +50,32 @@ class JobRecordFragment : BaseFragment() {
     }
 
     override fun initView(view: View?) {
+        _binding = FragmentJobApplyBinding.bind(requireNotNull(view))
          arguments?.let {
              isFromNotice = it.getBoolean(Constant.PARAM_FROM_NOTICE , false)
         }
 
-        pager.offscreenPageLimit = TAB_TITLES.size
+        binding.pager.offscreenPageLimit = TAB_TITLES.size
         val adapter = InnerPagerAdapter(childFragmentManager, 0)
-        pager.adapter = adapter;
-        tabs_type.setViewPager(pager, TAB_TITLES);
+        binding.pager.adapter = adapter;
+        binding.tabsType.setViewPager(binding.pager, TAB_TITLES);
     }
 
     override fun initData(){
         if (isFromNotice) {
-            tabs_type.currentTab = 1
+            binding.tabsType.currentTab = 1
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun bindListener() {
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             activity?.finish()
         }
     }
@@ -74,7 +85,7 @@ class JobRecordFragment : BaseFragment() {
     fun onEventReceived(baseEvent: BaseEvent<*>) {
         when (baseEvent.code) {
             EventCode.EVENT_NAVIGATION_TO_JOB_INTERVIEWS -> {
-                tabs_type.currentTab = 1
+                binding.tabsType.currentTab = 1
             }
             else -> {}
         }

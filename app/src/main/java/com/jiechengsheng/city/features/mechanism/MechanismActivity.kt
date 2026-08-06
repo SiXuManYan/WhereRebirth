@@ -24,15 +24,16 @@ import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
 import com.jiechengsheng.city.utils.MobUtil
-import com.jiechengsheng.city.widget.JcsBanner
-import kotlinx.android.synthetic.main.activity_mechanism.*
-
-
+import com.jiechengsheng.city.widget.JcsBanner
+import com.jiechengsheng.city.databinding.ActivityMechanismBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/9/4 15:08.
  *  机构详情
  */
 class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
+
+    private lateinit var binding: ActivityMechanismBinding
 
     private var infoId = 0
 
@@ -73,6 +74,7 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
     override fun isStatusDark() = isToolbarDark
 
     override fun initView() {
+        binding = ActivityMechanismBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         infoId = intent.getIntExtra(Constant.PARAM_ID, 0)
         initScroll()
         initMedia()
@@ -81,9 +83,9 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
     private fun initMedia() {
         mAdapter = ImageBannerAdapter()
         val pagerSnapHelper = PagerSnapHelper()
-        pagerSnapHelper.attachToRecyclerView(media_rv)
+        pagerSnapHelper.attachToRecyclerView(binding.mediaRv)
 
-        media_rv.apply {
+        binding.mediaRv.apply {
             layoutManager = LinearLayoutManager(this@MechanismActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = mAdapter
             addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -91,7 +93,7 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
                     val layoutManager = recyclerView.layoutManager as LinearLayoutManager
                     val firstItemPosition: Int = layoutManager.findFirstVisibleItemPosition()
                     if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                        point_view.onPageSelected(firstItemPosition)
+                        binding.pointView.onPageSelected(firstItemPosition)
                     }
                 }
             })
@@ -109,27 +111,27 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
     }
 
     override fun bindListener() {
-        back_iv.setOnClickListener { finish() }
-        phone_ll.setOnClickListener {
+        binding.backIv.setOnClickListener { finish() }
+        binding.phoneLl.setOnClickListener {
             val data = Uri.parse("tel:$businessPhone")
             val intent = Intent(Intent.ACTION_DIAL)
             intent.data = data
             startActivity(intent)
         }
-        nav_ll.setOnClickListener {
+        binding.navLl.setOnClickListener {
             FeaturesUtil.startNaviGoogle(this, mLat.toFloat(), mLng.toFloat())
         }
-        web_tv.setOnClickListener {
+        binding.webTv.setOnClickListener {
             WebViewActivity.navigation(this, webUrl)
         }
-        facebook_tv.setOnClickListener {
+        binding.facebookTv.setOnClickListener {
             WebViewActivity.navigation(this, facebook)
         }
-        share_iv.setOnClickListener {
+        binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_GENERAL, infoId)
             MobUtil.shareFacebookWebPage(url, this@MechanismActivity)
         }
-        like_iv.setOnClickListener {
+        binding.likeIv.setOnClickListener {
             if (!User.isLogon()) {
                 startActivity(LoginActivity::class.java)
                 return@setOnClickListener
@@ -146,12 +148,12 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
 
     private fun initScroll() {
         // alpha
-        useView.setBackgroundColor(getColor(R.color.white))
-        toolbar.setBackgroundColor(getColor(R.color.white))
-        useView.background.alpha = 0
-        toolbar.background.alpha = 0
-        scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
-            val headHeight = media_fl.measuredHeight - toolbar.measuredHeight
+        binding.useView.setBackgroundColor(getColor(R.color.white))
+        binding.toolbar.setBackgroundColor(getColor(R.color.white))
+        binding.useView.background.alpha = 0
+        binding.toolbar.background.alpha = 0
+        binding.scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
+            val headHeight = binding.mediaFl.measuredHeight - binding.toolbar.measuredHeight
             var alpha = (y.toFloat() / headHeight * 255).toInt()
             if (alpha >= 255) {
                 alpha = 255
@@ -164,8 +166,8 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
             setBackImage()
             setShareImage()
 
-            useView.background.alpha = alpha
-            toolbar.background.alpha = alpha
+            binding.useView.background.alpha = alpha
+            binding.toolbar.background.alpha = alpha
 
             changeStatusTextColor()
         }
@@ -175,7 +177,7 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
 
     private fun setLikeImage() {
 
-        like_iv.setImageResource(
+        binding.likeIv.setImageResource(
             if (collect_status == 2) {
                 if (isToolbarDark) {
                     R.mipmap.ic_like_red_night
@@ -193,7 +195,7 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
     }
 
     private fun setBackImage() {
-        back_iv.setImageResource(
+        binding.backIv.setImageResource(
             if (isToolbarDark) {
                 R.mipmap.ic_back_black
             } else {
@@ -203,7 +205,7 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
     }
 
     private fun setShareImage() {
-        share_iv.setImageResource(
+        binding.shareIv.setImageResource(
             if (isToolbarDark) {
                 R.mipmap.ic_share_night
             } else {
@@ -214,8 +216,8 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
 
     override fun bindDetail(data: MechanismDetailResponse) {
 
-        name_tv.text = data.title
-        address_name_tv.text = data.address
+        binding.nameTv.text = data.title
+        binding.addressNameTv.text = data.address
         collect_status = data.collect_status
         businessPhone = data.tel
         webUrl = data.web_site
@@ -226,9 +228,9 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
         val weeks = StringUtils.getStringArray(R.array.weeks)
         val startWeek: String = weeks[data.week_start - 1]
         val endWeek: String = weeks[data.week_end - 1]
-        time_tv.text = getString(R.string.valid_period_format2, startWeek, endWeek)
+        binding.timeTv.text = getString(R.string.valid_period_format2, startWeek, endWeek)
 
-        phone_tv.apply {
+        binding.phoneTv.apply {
             text = businessPhone
             visibility = if (businessPhone.isBlank()) {
                 View.GONE
@@ -237,7 +239,7 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
             }
 
         }
-        mail_tv.apply {
+        binding.mailTv.apply {
             text = data.email
             visibility = if (data.email.isBlank()) {
                 View.GONE
@@ -245,7 +247,7 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
                 View.VISIBLE
             }
         }
-        web_tv.apply {
+        binding.webTv.apply {
             text = data.web_site
             visibility = if (data.web_site.isBlank()) {
                 View.GONE
@@ -253,7 +255,7 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
                 View.VISIBLE
             }
         }
-        facebook_tv.apply {
+        binding.facebookTv.apply {
             text = data.facebook
             visibility = if (data.facebook.isBlank()) {
                 View.GONE
@@ -263,7 +265,7 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
 
         }
         val content = data.abstractX
-        content_tv.text = if (content.isBlank()) {
+        binding.contentTv.text = if (content.isBlank()) {
             getString(R.string.no_introduce)
         } else {
             content
@@ -274,7 +276,7 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
         }
         mLat = data.lat
         mLng = data.lng
-        point_view.setPointCount(data.images.size)
+        binding.pointView.setPointCount(data.images.size)
         mAdapter.setNewInstance(data.images)
 
     }
@@ -296,8 +298,8 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
         when (baseEvent.code) {
             EventCode.EVENT_POSITION  -> {
                 val position = baseEvent.data as Int
-                media_rv.scrollToPosition(position)
-                point_view.onPageSelected(position)
+                binding.mediaRv.scrollToPosition(position)
+                binding.pointView.onPageSelected(position)
             }
             else -> {}
         }

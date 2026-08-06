@@ -2,6 +2,7 @@ package com.jiechengsheng.city.features.bills.record
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.blankj.utilcode.util.ColorUtils
 import com.blankj.utilcode.util.SizeUtils
@@ -14,6 +15,7 @@ import com.jiechengsheng.city.api.response.bills.BillsRecord
 import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
+import com.jiechengsheng.city.databinding.ActivityRefreshListBinding
 import com.jiechengsheng.city.features.bills.order.BillsOrderDetailActivity
 import com.jiechengsheng.city.features.bills.record.result.BillsRecommitResultActivity
 import com.jiechengsheng.city.features.gourmet.refund.ComplexRefundActivity
@@ -21,7 +23,6 @@ import com.jiechengsheng.city.features.gourmet.refund.ComplexRefundPresenter
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_refresh_list.*
 
 /**
  * Created by Wangsw  2022/6/11 13:36.
@@ -32,6 +33,7 @@ class BillsRecordActivity : BaseMvpActivity<BillsRecordPresenter>(), BillsRecord
 
     private var page = Constant.DEFAULT_FIRST_PAGE
 
+    private lateinit var binding: ActivityRefreshListBinding
     private lateinit var emptyView: EmptyView
     private lateinit var mAdapter: BillsRecordAdapter
 
@@ -39,12 +41,15 @@ class BillsRecordActivity : BaseMvpActivity<BillsRecordPresenter>(), BillsRecord
     override fun getLayoutId() = R.layout.activity_refresh_list
 
     override fun initView() {
+        binding = ActivityRefreshListBinding.bind(
+            findViewById<ViewGroup>(android.R.id.content).getChildAt(0)
+        )
         mJcsTitle.setMiddleTitle(getString(R.string.payment_record))
         initList()
     }
 
     private fun initList() {
-        swipe_layout.setOnRefreshListener(this)
+        binding.swipeLayout.setOnRefreshListener(this)
         emptyView = EmptyView(this).apply {
             showEmptyDefault()
             addEmptyList(this)
@@ -58,7 +63,7 @@ class BillsRecordActivity : BaseMvpActivity<BillsRecordPresenter>(), BillsRecord
             setOnItemClickListener(this@BillsRecordActivity)
             setOnItemChildClickListener(this@BillsRecordActivity)
         }
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.colorPrimary),
                 SizeUtils.dp2px(1f),
@@ -97,8 +102,8 @@ class BillsRecordActivity : BaseMvpActivity<BillsRecordPresenter>(), BillsRecord
     }
 
     override fun bindList(toMutableList: MutableList<BillsRecord>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
 
         val loadMoreModule = mAdapter.loadMoreModule

@@ -10,14 +10,16 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.feedback.form.FeedBackPostPresenter
 import com.jiechengsheng.city.features.feedback.form.FeedBackPostView
 import com.jiechengsheng.city.features.store.refund.StoreRefundAdapter
-import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_feedback_detail.*
-
+import com.jiechengsheng.city.utils.Constant
+import com.jiechengsheng.city.databinding.ActivityFeedbackDetailBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/10/14 13:47.
  * 意见详情
  */
 class FeedbackDetActivity : BaseMvpActivity<FeedBackPostPresenter>(), FeedBackPostView {
+
+    private lateinit var binding: ActivityFeedbackDetailBinding
 
     var image = ArrayList<String>()
     var content = ""
@@ -49,6 +51,7 @@ class FeedbackDetActivity : BaseMvpActivity<FeedBackPostPresenter>(), FeedBackPo
 
 
     override fun initView() {
+        binding = ActivityFeedbackDetailBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initExtra()
         initImage()
     }
@@ -71,7 +74,7 @@ class FeedbackDetActivity : BaseMvpActivity<FeedBackPostPresenter>(), FeedBackPo
             hideDelete = true
         }
 
-        image_rv.apply {
+        binding.imageRv.apply {
             adapter = mImageAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
@@ -80,8 +83,8 @@ class FeedbackDetActivity : BaseMvpActivity<FeedBackPostPresenter>(), FeedBackPo
     override fun initData() {
         presenter = FeedBackPostPresenter(this)
 
-        content_tv.text = content
-        phone_tv.text = phone
+        binding.contentTv.text = content
+        binding.phoneTv.text = phone
         mImageAdapter.setNewInstance(image)
 
     }

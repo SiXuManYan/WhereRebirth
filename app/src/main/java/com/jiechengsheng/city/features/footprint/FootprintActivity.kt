@@ -6,14 +6,16 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.blankj.utilcode.util.StringUtils
 import com.jiechengsheng.city.R
 import com.jiechengsheng.city.base.BaseActivity
-import com.jiechengsheng.city.features.footprint.child.CityFootprintFragment
-import kotlinx.android.synthetic.main.actitiy_collection.*
-
+import com.jiechengsheng.city.features.footprint.child.CityFootprintFragment
+import com.jiechengsheng.city.databinding.ActitiyCollectionBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/11/16 15:48.
  * 我的足迹
  */
 class FootprintActivity : BaseActivity() {
+
+    private lateinit var binding: ActitiyCollectionBinding
 
     val TAB_TITLES =
         arrayOf(
@@ -26,12 +28,13 @@ class FootprintActivity : BaseActivity() {
     override fun getLayoutId() = R.layout.actitiy_collection
 
     override fun initView() {
+        binding = ActitiyCollectionBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         mJcsTitle.setMiddleTitle(getString(R.string.mine_footprint_title))
-        pager.apply {
+        binding.pager.apply {
             offscreenPageLimit = TAB_TITLES.size
             adapter = InnerPagerAdapter(supportFragmentManager, 0)
         }
-        tabs.setViewPager(pager)
+        binding.tabs.setViewPager(binding.pager)
 
     }
 

@@ -12,14 +12,16 @@ import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.gourmet.cart.ShoppingCartAdapter
 import com.jiechengsheng.city.features.payment.counter.PayCounterActivity
-import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_order_submit.*
-
+import com.jiechengsheng.city.utils.Constant
+import com.jiechengsheng.city.databinding.ActivityOrderSubmitBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/4/20 16:54.
  * 美食提交订单
  */
 class OrderSubmitActivity : BaseMvpActivity<OrderSubmitPresenter>(), OrderSubmitView {
+
+    private lateinit var binding: ActivityOrderSubmitBinding
 
 
     private lateinit var mAdapter: ShoppingCartAdapter
@@ -30,6 +32,7 @@ class OrderSubmitActivity : BaseMvpActivity<OrderSubmitPresenter>(), OrderSubmit
     override fun isStatusDark() = true
 
     override fun initView() {
+        binding = ActivityOrderSubmitBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
 
         initRecycler()
@@ -40,7 +43,7 @@ class OrderSubmitActivity : BaseMvpActivity<OrderSubmitPresenter>(), OrderSubmit
     private fun initRecycler() {
         mAdapter = ShoppingCartAdapter()
 
-        recycler_view.apply {
+        binding.recyclerView.apply {
             adapter = mAdapter
             isNestedScrollingEnabled = true
             layoutManager = object : LinearLayoutManager(this@OrderSubmitActivity, LinearLayoutManager.VERTICAL, false) {
@@ -59,16 +62,16 @@ class OrderSubmitActivity : BaseMvpActivity<OrderSubmitPresenter>(), OrderSubmit
 
         val list = presenter.convertList(data)
         mAdapter.setNewInstance(list)
-        total_price_tv.text = getString(R.string.price_unit_format, mTotalPrice)
+        binding.totalPriceTv.text = getString(R.string.price_unit_format, mTotalPrice)
     }
 
     override fun bindListener() {
-        buy_after_tv.setOnClickListener {
+        binding.buyAfterTv.setOnClickListener {
 
             if (mAdapter.data.isEmpty()) {
                 return@setOnClickListener
             }
-            val phone = phone_et.text.toString().trim()
+            val phone = binding.phoneEt.text.toString().trim()
 
             presenter.submitOrder(mAdapter.data, phone)
         }

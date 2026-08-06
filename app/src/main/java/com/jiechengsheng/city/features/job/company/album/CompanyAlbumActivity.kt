@@ -10,14 +10,16 @@ import com.jiechengsheng.city.features.job.company.CompanyAlbumAdapter
 import com.jiechengsheng.city.features.job.company.CompanyPresenter
 import com.jiechengsheng.city.features.job.company.CompanyView
 import com.jiechengsheng.city.features.media.MediaDetailActivity
-import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_no_refresh_list.*
-
+import com.jiechengsheng.city.utils.Constant
+import com.jiechengsheng.city.databinding.ActivityNoRefreshListBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/11/3 13:45.
  * 公司相册
  */
 class CompanyAlbumActivity : BaseMvpActivity<CompanyPresenter>(), CompanyView {
+
+    private lateinit var binding: ActivityNoRefreshListBinding
 
     private var companyId = 0
 
@@ -28,16 +30,17 @@ class CompanyAlbumActivity : BaseMvpActivity<CompanyPresenter>(), CompanyView {
     override fun getLayoutId() = R.layout.activity_no_refresh_list
 
     override fun initView() {
+        binding = ActivityNoRefreshListBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         intent.extras?.let {
             companyId = it.getInt(Constant.PARAM_ID, 0)
         }
 
         mJcsTitle.setMiddleTitle(R.string.company_album)
-        container_ll.setBackgroundColor(Color.WHITE)
-        recycler.setBackgroundColor(ColorUtils.getColor(R.color.colorPrimary))
+        binding.containerLl.setBackgroundColor(Color.WHITE)
+        binding.recycler.setBackgroundColor(ColorUtils.getColor(R.color.colorPrimary))
 
-        recycler.setPadding(SizeUtils.dp2px(2f), 0, SizeUtils.dp2px(2f), 0)
+        binding.recycler.setPadding(SizeUtils.dp2px(2f), 0, SizeUtils.dp2px(2f), 0)
 
 
         mAdapter = CompanyAlbumAdapter().apply {
@@ -45,7 +48,7 @@ class CompanyAlbumActivity : BaseMvpActivity<CompanyPresenter>(), CompanyView {
                 MediaDetailActivity.navigationOnlyStringImage(this@CompanyAlbumActivity, position, mAdapter.data, true)
             }
         }
-        recycler.apply {
+        binding.recycler.apply {
             layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
             adapter = mAdapter
         }

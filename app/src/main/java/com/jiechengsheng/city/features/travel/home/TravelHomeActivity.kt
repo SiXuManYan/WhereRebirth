@@ -34,14 +34,17 @@ import com.jiechengsheng.city.view.XBanner.XBanner
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_travel_home.*
-import pl.droidsonroids.gif.GifImageView
+import pl.droidsonroids.gif.GifImageView
+import com.jiechengsheng.city.databinding.ActivityTravelHomeBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/9/13 11:14.
  * 旅游首页
  */
 class TravelHomeActivity : BaseMvpActivity<TravelHomePresenter>(), TravelHomeView, SwipeRefreshLayout.OnRefreshListener {
+
+    private lateinit var binding: ActivityTravelHomeBinding
 
 
     private var categories: ArrayList<Int> = ArrayList()
@@ -61,6 +64,7 @@ class TravelHomeActivity : BaseMvpActivity<TravelHomePresenter>(), TravelHomeVie
     override fun getLayoutId() = R.layout.activity_travel_home
 
     override fun initView() {
+        binding = ActivityTravelHomeBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         categories = intent.getIntegerArrayListExtra(Constant.PARAM_CATEGORY_ID)!!
         initModule()
@@ -95,7 +99,7 @@ class TravelHomeActivity : BaseMvpActivity<TravelHomePresenter>(), TravelHomeVie
             }
         }
 
-        module_rv.apply {
+        binding.moduleRv.apply {
             layoutManager = object : GridLayoutManager(context, 3, RecyclerView.VERTICAL, false) {
                 override fun canScrollVertically(): Boolean {
                     return false
@@ -107,21 +111,21 @@ class TravelHomeActivity : BaseMvpActivity<TravelHomePresenter>(), TravelHomeVie
     }
 
     private fun initScroll() {
-        rv_home.isNestedScrollingEnabled = true
-        bottom_cl.isNestedScrollingEnabled = true
+        binding.rvHome.isNestedScrollingEnabled = true
+        binding.bottomCl.isNestedScrollingEnabled = true
 
-        child_abl.addOnOffsetChangedListener(object : AppBarStateChangeListener() {
+        binding.childAbl.addOnOffsetChangedListener(object : AppBarStateChangeListener() {
             override fun onStateChanged(appBarLayout: AppBarLayout, expanded: State, verticalOffset: Int) {
-                swipeLayout.isEnabled = verticalOffset >= 0 // 滑动到顶部时开启
+                binding.swipeLayout.isEnabled = verticalOffset >= 0 // 滑动到顶部时开启
             }
         })
-        swipeLayout.postDelayed({ swipeLayout.isEnabled = false }, 200)
+        binding.swipeLayout.postDelayed({ binding.swipeLayout.isEnabled = false }, 200)
 
     }
 
     /** 轮播图 */
     private fun initBanner() {
-        top_banner.setBannerTypes(XBanner.CIRCLE_INDICATOR)
+        binding.topBanner.setBannerTypes(XBanner.CIRCLE_INDICATOR)
             .setTitleHeight(50)
             .isAutoPlay(true)
             .setDelay(5000)
@@ -140,11 +144,11 @@ class TravelHomeActivity : BaseMvpActivity<TravelHomePresenter>(), TravelHomeVie
 
     /** 推荐列表 */
     private fun initRecommend() {
-        swipeLayout.setOnRefreshListener(this)
-        swipeLayout.setColorSchemeColors(ColorUtils.getColor(R.color.blue_377BFF))
+        binding.swipeLayout.setOnRefreshListener(this)
+        binding.swipeLayout.setColorSchemeColors(ColorUtils.getColor(R.color.blue_377BFF))
 
         mRecommendAdapter = HomeRecommendAdapter()
-        rv_home.apply {
+        binding.rvHome.apply {
             adapter = mRecommendAdapter
             addItemDecoration(
                 DividerDecoration(
@@ -213,8 +217,8 @@ class TravelHomeActivity : BaseMvpActivity<TravelHomePresenter>(), TravelHomeVie
 
 
     override fun bindTopBannerData(bannerUrls: ArrayList<String>, response: ArrayList<BannerResponse>) {
-        top_banner.setImageUrls(bannerUrls)
-        top_banner.setBannerPageListener(object : XBanner.BannerPageListener {
+        binding.topBanner.setImageUrls(bannerUrls)
+        binding.topBanner.setBannerPageListener(object : XBanner.BannerPageListener {
 
 
             override fun onBannerDragging(item: Int) = Unit
@@ -234,7 +238,7 @@ class TravelHomeActivity : BaseMvpActivity<TravelHomePresenter>(), TravelHomeVie
     }
 
     override fun bindRecommendData(data: MutableList<HomeRecommendResponse>, lastPage: Boolean) {
-        swipeLayout.isRefreshing = false
+        binding.swipeLayout.isRefreshing = false
         val loadMoreModule = mRecommendAdapter.loadMoreModule
         if (data.isNullOrEmpty()) {
             emptyView.showEmptyContainer()
@@ -244,10 +248,10 @@ class TravelHomeActivity : BaseMvpActivity<TravelHomePresenter>(), TravelHomeVie
     }
 
     override fun onRefresh() {
-        top_banner.pause()
+        binding.topBanner.pause()
         presenter.getTopBanner()
 
-        swipeLayout.isRefreshing = true
+        binding.swipeLayout.isRefreshing = true
         page = Constant.DEFAULT_FIRST_PAGE
         presenter.getRecommendList()
     }
@@ -255,17 +259,17 @@ class TravelHomeActivity : BaseMvpActivity<TravelHomePresenter>(), TravelHomeVie
 
     override fun onPause() {
         super.onPause()
-        top_banner?.pause()
+        binding.topBanner?.pause()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        top_banner?.releaseBanner()
+        binding.topBanner?.releaseBanner()
     }
 
     override fun onResume() {
         super.onResume()
-        top_banner?.startPlayIfNeeded()
+        binding.topBanner?.startPlayIfNeeded()
     }
 
 

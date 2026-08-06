@@ -10,14 +10,16 @@ import com.jiechengsheng.city.R
 import com.jiechengsheng.city.api.response.store.comment.StoreCommentCount
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.store.detail.comment.chiild.StoreCommentChildFragment
-import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_store_comment.*
-
+import com.jiechengsheng.city.utils.Constant
+import com.jiechengsheng.city.databinding.ActivityStoreCommentBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/7/17 15:54.
  * 全部评价
  */
 class StoreCommentActivity : BaseMvpActivity<StoreCommentListPresenter>(), StoreCommentListView {
+
+    private lateinit var binding: ActivityStoreCommentBinding
 
     var shop_id: Int = 0
 
@@ -32,6 +34,7 @@ class StoreCommentActivity : BaseMvpActivity<StoreCommentListPresenter>(), Store
     override fun isStatusDark() = true
 
     override fun initView() {
+        binding = ActivityStoreCommentBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         val bundle = intent.extras
         if (bundle == null) {
@@ -40,8 +43,8 @@ class StoreCommentActivity : BaseMvpActivity<StoreCommentListPresenter>(), Store
         }
         shop_id = bundle.getInt(Constant.PARAM_SHOP_ID, 0)
 
-        pager.offscreenPageLimit = TAB_TITLES.size
-        pager.adapter = InnerPagerAdapter(supportFragmentManager, 0)
+        binding.pager.offscreenPageLimit = TAB_TITLES.size
+        binding.pager.adapter = InnerPagerAdapter(supportFragmentManager, 0)
     }
 
     override fun initData() {
@@ -51,21 +54,21 @@ class StoreCommentActivity : BaseMvpActivity<StoreCommentListPresenter>(), Store
 
     override fun bindListener() {
 
-        type_rg.setOnCheckedChangeListener { group, checkedId ->
+        binding.typeRg.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
-                R.id.all_rb -> pager.setCurrentItem(0, true)
-                R.id.image_rb -> pager.setCurrentItem(1, true)
-                R.id.newest_rb -> pager.setCurrentItem(2, true)
+                R.id.all_rb -> binding.pager.setCurrentItem(0, true)
+                R.id.image_rb -> binding.pager.setCurrentItem(1, true)
+                R.id.newest_rb -> binding.pager.setCurrentItem(2, true)
             }
         }
-        pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding.pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
 
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
 
             override fun onPageScrollStateChanged(state: Int) = Unit
 
             override fun onPageSelected(position: Int) {
-                val child = type_rg.getChildAt(position) as MaterialRadioButton
+                val child = binding.typeRg.getChildAt(position) as MaterialRadioButton
                 child.isChecked = true
             }
 
@@ -87,9 +90,9 @@ class StoreCommentActivity : BaseMvpActivity<StoreCommentListPresenter>(), Store
     }
 
     override fun bindCount(response: StoreCommentCount) {
-        all_rb.text = getString(R.string.all_format , response.all)
-        image_rb.text = getString(R.string.has_image_format , response.image)
-        newest_rb.text = getString(R.string.newest_format , response.newest)
+        binding.allRb.text = getString(R.string.all_format , response.all)
+        binding.imageRb.text = getString(R.string.has_image_format , response.image)
+        binding.newestRb.text = getString(R.string.newest_format , response.newest)
     }
 
 }

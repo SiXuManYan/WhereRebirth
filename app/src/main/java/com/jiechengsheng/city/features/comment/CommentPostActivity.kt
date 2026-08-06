@@ -19,8 +19,9 @@ import com.jiechengsheng.city.utils.FeaturesUtil
 import com.jiechengsheng.city.utils.GlideUtil
 import com.zhihu.matisse.Matisse
 
-import kotlinx.android.synthetic.main.activity_comment_post_2.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityCommentPost2Binding
+import android.view.ViewGroup
 
 
 /**
@@ -31,6 +32,8 @@ import org.greenrobot.eventbus.EventBus
  * 2 商城
  */
 class CommentPostActivity : BaseMvpActivity<CommentPostPresenter>(), CommentView {
+
+    private lateinit var binding: ActivityCommentPost2Binding
 
     /** 订单id */
     private var orderId = 0
@@ -107,6 +110,7 @@ class CommentPostActivity : BaseMvpActivity<CommentPostPresenter>(), CommentView
 
 
     override fun initView() {
+        binding = ActivityCommentPost2Binding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         intent.extras?.let {
             commentType = it.getInt(Constant.PARAM_TYPE, 0)
             targetId = it.getInt(Constant.PARAM_ID, 0)
@@ -125,22 +129,22 @@ class CommentPostActivity : BaseMvpActivity<CommentPostPresenter>(), CommentView
             }
         }
 
-        image_rv.apply {
+        binding.imageRv.apply {
             adapter = mImageAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
 
         if (name.isNotBlank()) {
-            target_user_ll.visibility = View.VISIBLE
-            name_tv.text = name
-            GlideUtil.load(this, avatar, image_iv, 5)
+            binding.targetUserLl.visibility = View.VISIBLE
+            binding.nameTv.text = name
+            GlideUtil.load(this, avatar, binding.imageIv, 5)
         } else {
-            target_user_ll.visibility = View.GONE
+            binding.targetUserLl.visibility = View.GONE
         }
 
 
         if (commentType == 0) {
-            comment_star_view.apply {
+            binding.commentStarView.apply {
                 setCheckStarDrawable(R.mipmap.ic_comment_diamond_yellow)
                 setStarDrawable(R.mipmap.ic_comment_diamond_gray)
                 refreshView()
@@ -156,7 +160,7 @@ class CommentPostActivity : BaseMvpActivity<CommentPostPresenter>(), CommentView
     }
 
     override fun bindListener() {
-        select_iv.setOnClickListener {
+        binding.selectIv.setOnClickListener {
             val size = mImageAdapter.data.size
             if (size == 6) {
                 ToastUtils.showShort(R.string.refund_image_max_6)
@@ -165,10 +169,10 @@ class CommentPostActivity : BaseMvpActivity<CommentPostPresenter>(), CommentView
             val max = 6 - size
             FeaturesUtil.handleMediaSelect(this, Constant.IMG, max)
         }
-        commit_tv.setOnClickListener {
-            commit_tv.isClickable = false
-            val rating = comment_star_view.checkStarCount
-            val content = content_et.text.toString().trim()
+        binding.commitTv.setOnClickListener {
+            binding.commitTv.isClickable = false
+            val rating = binding.commentStarView.checkStarCount
+            val content = binding.contentEt.text.toString().trim()
 
             if (mImageAdapter.data.isNotEmpty()) {
                 presenter.upLoadImage(commentType, orderId, rating, content, ArrayList(mImageAdapter.data))
@@ -186,10 +190,10 @@ class CommentPostActivity : BaseMvpActivity<CommentPostPresenter>(), CommentView
 
         }
 
-        comment_star_view.setStoreItemOnClickListener {
-            comment_value_tv.text = BusinessUtils.getCommentRatingText(it + 1)
+        binding.commentStarView.setStoreItemOnClickListener {
+            binding.commentValueTv.text = BusinessUtils.getCommentRatingText(it + 1)
         }
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             finish()
         }
     }
@@ -214,7 +218,7 @@ class CommentPostActivity : BaseMvpActivity<CommentPostPresenter>(), CommentView
 
     override fun onError(errorResponse: ErrorResponse?) {
         super.onError(errorResponse)
-        commit_tv.isClickable = true
+        binding.commitTv.isClickable = true
     }
 
 }

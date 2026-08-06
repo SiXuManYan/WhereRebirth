@@ -16,14 +16,17 @@ import com.jiechengsheng.city.utils.FeaturesUtil
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.widget.ratingstar.OnChangeRatingByClickListener
 import com.zhihu.matisse.Matisse
-import kotlinx.android.synthetic.main.activity_store_comment_post.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityStoreCommentPostBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/7/14 14:42.
  * 商城发布评价
  */
 class StoreCommentPostActivity : BaseMvpActivity<StoreCommentPostPresenter>(), StoreCommentPostView {
+
+    private lateinit var binding: ActivityStoreCommentPostBinding
 
     private var orderId = 0
     private var name = ""
@@ -36,6 +39,7 @@ class StoreCommentPostActivity : BaseMvpActivity<StoreCommentPostPresenter>(), S
     override fun isStatusDark(): Boolean = true
 
     override fun initView() {
+        binding = ActivityStoreCommentPostBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         intent.extras?.let {
             orderId = it.getInt(Constant.PARAM_ORDER_ID)
@@ -57,7 +61,7 @@ class StoreCommentPostActivity : BaseMvpActivity<StoreCommentPostPresenter>(), S
             }
         }
 
-        image_rv.apply {
+        binding.imageRv.apply {
             adapter = mImageAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
@@ -65,13 +69,13 @@ class StoreCommentPostActivity : BaseMvpActivity<StoreCommentPostPresenter>(), S
 
     override fun initData() {
         presenter = StoreCommentPostPresenter(this)
-        GlideUtil.load(this, image, image_iv, 5)
-        name_tv.text = name
+        GlideUtil.load(this, image, binding.imageIv, 5)
+        binding.nameTv.text = name
     }
 
     override fun bindListener() {
 
-        select_iv.setOnClickListener {
+        binding.selectIv.setOnClickListener {
             val size = mImageAdapter.data.size
             if (size == 6) {
                 ToastUtils.showShort(R.string.refund_image_max_6)
@@ -81,10 +85,10 @@ class StoreCommentPostActivity : BaseMvpActivity<StoreCommentPostPresenter>(), S
             FeaturesUtil.handleMediaSelect(this, Constant.IMG, max)
         }
 
-        commit_tv.setOnClickListener {
+        binding.commitTv.setOnClickListener {
 
-            val rating = star_view.rating.toInt()
-            val content = content_et.text.toString().trim()
+            val rating = binding.starView.rating.toInt()
+            val content = binding.contentEt.text.toString().trim()
 
             if (mImageAdapter.data.isNotEmpty()) {
                 presenter.upLoadImage(orderId, rating, content, ArrayList(mImageAdapter.data))
@@ -94,9 +98,9 @@ class StoreCommentPostActivity : BaseMvpActivity<StoreCommentPostPresenter>(), S
         }
 
 
-        star_view.onChangeRatingByClickListener = object : OnChangeRatingByClickListener {
+        binding.starView.onChangeRatingByClickListener = object : OnChangeRatingByClickListener {
             override fun clickRatingResult(rating: Int) {
-                comment_value_tv.text = BusinessUtils.getCommentRatingText(rating)
+                binding.commentValueTv.text = BusinessUtils.getCommentRatingText(rating)
             }
 
         }

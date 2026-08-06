@@ -14,15 +14,17 @@ import com.jiechengsheng.city.features.mall.cart.MallCartActivity
 import com.jiechengsheng.city.features.mall.home.child.MallRecommendAdapter
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_mall_search_result.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityMallSearchResultBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/12/10 10:16.
  * 商城搜索结果
  * 商城首页、商城二级分类页、商城店铺页
  */
 class MallSearchResultActivity : BaseMvpActivity<MallSearchPresenter>(), MallSearchView {
+
+    private lateinit var binding: ActivityMallSearchResultBinding
 
     private var searchInput: String? = null
 
@@ -44,12 +46,13 @@ class MallSearchResultActivity : BaseMvpActivity<MallSearchPresenter>(), MallSea
     override fun isStatusDark() = true
 
     override fun initView() {
+        binding = ActivityMallSearchResultBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         intent.extras?.let {
             searchInput = it.getString(Constant.PARAM_NAME)
             categoryId = it.getString(Constant.PARAM_CATEGORY_ID)
             shopId = it.getInt(Constant.PARAM_SHOP_ID)
         }
-        search_tv.text = searchInput
+        binding.searchTv.text = searchInput
         initContent()
     }
 
@@ -71,7 +74,7 @@ class MallSearchResultActivity : BaseMvpActivity<MallSearchPresenter>(), MallSea
         }
         val gridLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         val decoration = DividerDecoration(ColorUtils.getColor(R.color.transplant), SizeUtils.dp2px(10f), 0, 0)
-        content_rv.apply {
+        binding.contentRv.apply {
             adapter = mAdapter
             layoutManager = gridLayoutManager
             addItemDecoration(decoration)
@@ -84,10 +87,10 @@ class MallSearchResultActivity : BaseMvpActivity<MallSearchPresenter>(), MallSea
     }
 
     override fun bindListener() {
-        cart_iv.setOnClickListener {
+        binding.cartIv.setOnClickListener {
             startActivityAfterLogin(MallCartActivity::class.java)
         }
-        search_rl.setOnClickListener {
+        binding.searchRl.setOnClickListener {
             finish()
         }
     }

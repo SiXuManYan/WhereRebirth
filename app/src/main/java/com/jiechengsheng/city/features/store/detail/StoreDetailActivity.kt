@@ -30,34 +30,39 @@ import com.jiechengsheng.city.frames.common.Html5Url
 import com.jiechengsheng.city.utils.*
 import com.jiechengsheng.city.view.XBanner.AbstractUrlLoader
 import com.jiechengsheng.city.view.XBanner.XBanner
-import kotlinx.android.synthetic.main.activity_store_detail.*
-import kotlinx.android.synthetic.main.layout_store_good_detail_cart.*
 import org.greenrobot.eventbus.EventBus
 import pl.droidsonroids.gif.GifImageView
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivityStoreDetailBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/6/15 10:33.
- * 商城店铺详情
+ * 鍟嗗煄搴楅摵璇︽儏
  */
 class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetailView {
+
+    private lateinit var binding: ActivityStoreDetailBinding
+
+    private val pager: com.jiechengsheng.city.widget.NoScrollViewPager
+        get() = findViewById(R.id.pager)
 
     var shop_id: Int = 0
     var shop_name: String = ""
 
     /**
-     * 配送费
+     * 閰嶉€佽垂
      */
     var delivery_fee: Float = 0f
 
 
     /**
-     * 配送时间
+     * 閰嶉€佹椂闂?
      */
     var delivery_times = ""
 
     /**
-     * 自取时间
+     * 鑷彇鏃堕棿
      */
     var take_times = ""
 
@@ -78,7 +83,7 @@ class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetail
     var good_name = ""
 
     /**
-     * 收藏状态（1：未收藏，2：已收藏）
+     * 鏀惰棌鐘舵€侊紙1锛氭湭鏀惰棌锛?锛氬凡鏀惰棌锛?
      */
     private var collect_status = 0
 
@@ -107,13 +112,14 @@ class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetail
     override fun isStatusDark() = true
 
     override fun initView() {
+        binding = ActivityStoreDetailBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
 
-        val bannerParams = ll_banner.layoutParams.apply {
+        val bannerParams = binding.llBanner.layoutParams.apply {
             height = ScreenUtils.getScreenWidth() * 206 / 375
         }
-        ll_banner.layoutParams = bannerParams
-        top_banner.setBannerTypes(XBanner.CIRCLE_INDICATOR)
+        binding.llBanner.layoutParams = bannerParams
+        binding.topBanner.setBannerTypes(XBanner.CIRCLE_INDICATOR)
             .setTitleHeight(50)
             .isAutoPlay(true)
             .setDelay(5000)
@@ -130,14 +136,14 @@ class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetail
                 }
             })
 
-        pager.setNoScroll(true)
-        pager.offscreenPageLimit = TAB_TITLES.size
-        pager.adapter = InnerPagerAdapter(supportFragmentManager, 0)
-        tabs_type.setViewPager(pager)
+        binding.pager.setNoScroll(true)
+        binding.pager.offscreenPageLimit = TAB_TITLES.size
+        binding.pager.adapter = InnerPagerAdapter(supportFragmentManager, 0)
+        binding.tabsType.setViewPager(binding.pager)
 
         // number
 
-        number_view.apply {
+        binding.storeCart.numberView.apply {
             MIN_GOOD_NUM = 1
             alwaysEnableCut = true
             MIN_GOOD_NUM = 1
@@ -147,22 +153,22 @@ class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetail
             cut_iv.visibility = View.VISIBLE
         }
 
-        handle_tv.text = getString(R.string.buy_now)
+        binding.storeCart.handleTv.text = getString(R.string.buy_now)
     }
 
     override fun onResume() {
         super.onResume()
-        top_banner.startPlayIfNeeded()
+        binding.topBanner.startPlayIfNeeded()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        top_banner?.releaseBanner()
+        binding.topBanner?.releaseBanner()
     }
 
     override fun onPause() {
         super.onPause()
-        top_banner.pause()
+        binding.topBanner.pause()
     }
 
     override fun initData() {
@@ -177,44 +183,44 @@ class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetail
     }
 
     override fun bindListener() {
-        fold_ll.setOnClickListener {
-            if (hide_ll.visibility != View.VISIBLE) {
-                hide_ll.visibility = View.VISIBLE
-                fold_tv.text = getString(R.string.collapse_details)
-                fold_iv.rotation = 180f
+        binding.foldLl.setOnClickListener {
+            if (binding.hideLl.visibility != View.VISIBLE) {
+                binding.hideLl.visibility = View.VISIBLE
+                binding.foldTv.text = getString(R.string.collapse_details)
+                binding.foldIv.rotation = 180f
             } else {
-                hide_ll.visibility = View.GONE
-                fold_tv.text = getString(R.string.look_more)
-                fold_iv.rotation = 0f
+                binding.hideLl.visibility = View.GONE
+                binding.foldTv.text = getString(R.string.look_more)
+                binding.foldIv.rotation = 0f
             }
         }
 
 
 
-        close_cart_v.setOnClickListener {
-            cart_ll.visibility = View.GONE
+        binding.storeCart.closeCartV.setOnClickListener {
+            binding.storeCart.cartLl.visibility = View.GONE
         }
 
-        business_service_rg.setOnCheckedChangeListener { group, checkedId ->
+        binding.storeCart.businessServiceRg.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
-                R.id.express_rb -> time_tv.text = delivery_times
-                R.id.self_rb -> time_tv.text = take_times
+                R.id.express_rb -> binding.storeCart.timeTv.text = delivery_times
+                R.id.self_rb -> binding.storeCart.timeTv.text = take_times
             }
         }
 
-        handle_tv.setOnClickListener {
-            if (!express_rb.isChecked && !self_rb.isChecked) {
+        binding.storeCart.handleTv.setOnClickListener {
+            if (!binding.storeCart.expressRb.isChecked && !binding.storeCart.selfRb.isChecked) {
                 ToastUtils.showShort(R.string.delivery_method_none)
                 return@setOnClickListener
             }
 
-            val deliveryType = if (express_rb.isChecked) {
+            val deliveryType = if (binding.storeCart.expressRb.isChecked) {
                 2
             } else {
                 1
             }
 
-            val goodNum = number_view.goodNum
+            val goodNum = binding.storeCart.numberView.goodNum
 
 
             val finalPrice = BigDecimalUtil.mul(now_price, BigDecimal(goodNum))
@@ -243,15 +249,15 @@ class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetail
                 startActivityAfterLogin(StoreOrderCommitActivity::class.java, Bundle().apply {
                     putSerializable(Constant.PARAM_ORDER_COMMIT_DATA, appList)
                 })
-                cart_ll.visibility = View.GONE
-                number_view.updateNumberJudgeMin(1)
+                binding.storeCart.cartLl.visibility = View.GONE
+                binding.storeCart.numberView.updateNumberJudgeMin(1)
             }
 
 
         }
 
 
-        like_iv.setOnClickListener {
+        binding.likeIv.setOnClickListener {
             if (collect_status == 1) {
                 presenter.collection(shop_id)
             } else {
@@ -259,7 +265,7 @@ class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetail
             }
         }
 
-        share_iv.setOnClickListener {
+        binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_E_STORE, shop_id)
             MobUtil.shareFacebookWebPage(url, this@StoreDetailActivity)
         }
@@ -268,24 +274,24 @@ class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetail
 
     override fun bindDetail(data: StoreDetail) {
 
-        top_banner.setImageUrls(data.images).start()
-        title_tv.text = data.title
+        binding.topBanner.setImageUrls(data.images).start()
+        binding.titleTv.text = data.title
         shop_name = data.title
 
-        nav_ll.setOnClickListener {
+        binding.navLl.setOnClickListener {
             if (data.lat != 0f && data.lng != 0f) {
                 FeaturesUtil.startNaviGoogle(this, data.lat, data.lng)
             }
         }
 
         if (data.im_status == 1 && !TextUtils.isEmpty(data.mer_uuid)) {
-            phone_value_iv.setImageResource(R.mipmap.ic_phone_bold)
-            phone_ll.setOnClickListener {
+            binding.phoneValueIv.setImageResource(R.mipmap.ic_phone_bold)
+            binding.phoneLl.setOnClickListener {
                 BusinessUtils.showImUnavailableDialog(this)
             }
         } else {
-            phone_value_iv.setImageResource(R.mipmap.ic_phone_bold)
-            phone_ll.setOnClickListener {
+            binding.phoneValueIv.setImageResource(R.mipmap.ic_phone_bold)
+            binding.phoneLl.setOnClickListener {
                 val tel = data.tel
                 if (!TextUtils.isEmpty(tel)) {
                     val intent = Intent(Intent.ACTION_DIAL).apply {
@@ -297,18 +303,18 @@ class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetail
         }
 
         val stringArray = StringUtils.getStringArray(R.array.weeks)
-        time_value_tv.text = getString(
+        binding.timeValueTv.text = getString(
             R.string.mechanism_to_format,
             data.start_time,
             data.end_time,
             stringArray[data.week_start - 1],
             stringArray[data.week_end - 1]
         )
-        phone_value_tv.text = data.tel
-        web_value_tv.text = data.web_site
-        email_value_tv.text = data.email
-        facebook_value_tv.text = data.facebook
-        address_name_tv.text = data.address
+        binding.phoneValueTv.text = data.tel
+        binding.webValueTv.text = data.web_site
+        binding.emailValueTv.text = data.email
+        binding.facebookValueTv.text = data.facebook
+        binding.addressNameTv.text = data.address
         delivery_fee = data.delivery_fee
         EventBus.getDefault().post(BaseEvent<StoreShopRequest>(StoreShopRequest(shop_name, delivery_fee)))
 
@@ -323,7 +329,7 @@ class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetail
 
     private fun setLikeImage() {
 
-        like_iv.setImageResource(
+        binding.likeIv.setImageResource(
             if (collect_status == 1) {
                 R.mipmap.ic_like_red_night
             } else {
@@ -356,12 +362,12 @@ class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetail
         if (data is StoreGoods) {
 
 
-            number_view.apply {
+            binding.storeCart.numberView.apply {
                 updateNumber(1)
                 MAX_GOOD_NUM = data.inventory
             }
 
-            cart_ll.visibility = View.VISIBLE
+            binding.storeCart.cartLl.visibility = View.VISIBLE
             isBuyNow = true
             now_price = data.price
             good_id = data.id
@@ -375,20 +381,20 @@ class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetail
 
             when (data.delivery_type) {
                 1 -> {
-                    express_rb.visibility = View.GONE
-                    self_rb.visibility = View.VISIBLE
+                    binding.storeCart.expressRb.visibility = View.GONE
+                    binding.storeCart.selfRb.visibility = View.VISIBLE
                 }
                 2 -> {
-                    express_rb.visibility = View.VISIBLE
-                    self_rb.visibility = View.GONE
+                    binding.storeCart.expressRb.visibility = View.VISIBLE
+                    binding.storeCart.selfRb.visibility = View.GONE
                 }
                 3 -> {
-                    express_rb.visibility = View.VISIBLE
-                    self_rb.visibility = View.VISIBLE
+                    binding.storeCart.expressRb.visibility = View.VISIBLE
+                    binding.storeCart.selfRb.visibility = View.VISIBLE
                 }
             }
 
-            stock_tv.text = getString(R.string.stock_format, data.inventory)
+            binding.storeCart.stockTv.text = getString(R.string.stock_format, data.inventory)
         }
 
     }

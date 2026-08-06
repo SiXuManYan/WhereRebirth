@@ -12,14 +12,16 @@ import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.features.category.edit.CategoryEditActivity
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.fragment_category_2.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentCategory2Binding
 /**
  * Created by Wangsw  2021/4/15 15:12.
  *
  */
 class CategoryFragment2 : BaseMvpFragment<CategoryPresenter>(), CategoryView {
+
+    private var _binding: FragmentCategory2Binding? = null
+    private val binding get() = _binding!!
 
 
     private lateinit var mAdapter: CategoryAdapter2
@@ -29,11 +31,12 @@ class CategoryFragment2 : BaseMvpFragment<CategoryPresenter>(), CategoryView {
     override fun getLayoutId() = R.layout.fragment_category_2
 
     override fun initView(view: View?) {
+        _binding = FragmentCategory2Binding.bind(requireNotNull(view))
         view?.let {
             BarUtils.addMarginTopEqualStatusBarHeight(view.findViewById(R.id.title_rl))
         }
 
-        swipe_layout.setOnRefreshListener {
+        binding.swipeLayout.setOnRefreshListener {
             presenter.getCategoryList()
         }
 
@@ -45,7 +48,7 @@ class CategoryFragment2 : BaseMvpFragment<CategoryPresenter>(), CategoryView {
             setEmptyView(emptyView)
         }
 
-        recycler_view.apply {
+        binding.recyclerView.apply {
             adapter = mAdapter
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.white), SizeUtils.dp2px(5f), 0, 0))
         }
@@ -58,18 +61,25 @@ class CategoryFragment2 : BaseMvpFragment<CategoryPresenter>(), CategoryView {
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun loadOnVisible() {
         presenter.getCategoryList()
     }
 
     override fun bindListener() {
-        more_category_tv.setOnClickListener {
+        binding.moreCategoryTv.setOnClickListener {
             startActivity(CategoryEditActivity::class.java)
         }
     }
 
     override fun bindData(response: ArrayList<Category>) {
-        swipe_layout.isRefreshing = false
+        binding.swipeLayout.isRefreshing = false
         if (response.isEmpty()) {
             emptyView.showEmptyContainer()
         }
@@ -111,10 +121,10 @@ class CategoryFragment2 : BaseMvpFragment<CategoryPresenter>(), CategoryView {
     }
 
     override fun onError(errorResponse: ErrorResponse?) {
-        swipe_layout.isRefreshing = false
+        binding.swipeLayout.isRefreshing = false
         super.onError(errorResponse)
         emptyView.showNetworkError {
-            swipe_layout.isRefreshing = true
+            binding.swipeLayout.isRefreshing = true
             presenter.getCategoryList()
         }
     }

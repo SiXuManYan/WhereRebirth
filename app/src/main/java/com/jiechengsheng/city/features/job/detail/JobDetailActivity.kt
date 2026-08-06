@@ -32,23 +32,25 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.utils.MobUtil
 import com.jiechengsheng.city.utils.image.GlideRoundedCornersTransform
-import kotlinx.android.synthetic.main.activity_job_detail.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityJobDetailBinding
 
 /**
  * Created by Wangsw  2022/9/28 14:04.
- *  职位详情
+ *  鑱屼綅璇︽儏
  */
 class JobDetailActivity : BaseMvpActivity<JobDetailPresenter>(), JobDetailView {
+
+    private lateinit var binding: ActivityJobDetailBinding
 
 
     var jobId = 0
     var isCollect = false
 
-    /** 添加简历后，刷新本页状态 */
+    /** 娣诲姞绠€鍘嗗悗锛屽埛鏂版湰椤电姸鎬?*/
     private var needRefreshForCv = false
 
-    /** 是否通过招聘首页点击 */
+    /** 鏄惁閫氳繃鎷涜仒棣栭〉鐐瑰嚮 */
     private var isFromJobHome = false
 
     private var degreeDialog: BottomSheetDialog? = null
@@ -81,6 +83,7 @@ class JobDetailActivity : BaseMvpActivity<JobDetailPresenter>(), JobDetailView {
 
 
     override fun initView() {
+        binding = ActivityJobDetailBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         jobId = intent.getIntExtra(Constant.PARAM_ID, 0)
         isFromJobHome = intent.getBooleanExtra(Constant.PARAM_TYPE, false)
@@ -95,7 +98,7 @@ class JobDetailActivity : BaseMvpActivity<JobDetailPresenter>(), JobDetailView {
     }
 
     override fun bindListener() {
-        collect_iv.setOnClickListener {
+        binding.collectIv.setOnClickListener {
             if (!User.isLogon()) {
                 startActivity(LoginActivity::class.java)
                 return@setOnClickListener
@@ -103,32 +106,32 @@ class JobDetailActivity : BaseMvpActivity<JobDetailPresenter>(), JobDetailView {
             presenter.handleCollection(isCollect, jobId)
         }
 
-        report_iv.setOnClickListener {
+        binding.reportIv.setOnClickListener {
             startActivityAfterLogin(ReportActivity::class.java, Bundle().apply {
                 putInt(Constant.PARAM_ID, jobId)
             })
         }
 
-        share_iv.setOnClickListener {
+        binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_JOB, jobId)
             MobUtil.shareFacebookWebPage(url, this)
         }
 
-        company_rv.setOnClickListener {
+        binding.companyRv.setOnClickListener {
             CompanyActivity.navigation(this, jobId)
         }
 
     }
 
     override fun bindDetail(response: JobDetail) {
-        job_title_tv.text = response.job_title
-        duty_tv.text = response.duty
-        job_rq_tv.text = response.requirement
+        binding.jobTitleTv.text = response.job_title
+        binding.dutyTv.text = response.duty
+        binding.jobRqTv.text = response.requirement
 
 
-        salary_tv.text = response.salary
-        city_tv.text = response.city
-        create_time_tv.text = response.created_at
+        binding.salaryTv.text = response.salary
+        binding.cityTv.text = response.city
+        binding.createTimeTv.text = response.created_at
 
         isCollect = response.is_collect
         setLikeImage()
@@ -137,17 +140,17 @@ class JobDetailActivity : BaseMvpActivity<JobDetailPresenter>(), JobDetailView {
         if (response.is_send) {
             setSendSuccessUi()
         } else {
-            apply_tv.text = getString(R.string.apply_now)
-            apply_tv.alpha = 1.0f
-            apply_tv.isClickable = true
-            apply_tv.setOnClickListener {
+            binding.applyTv.text = getString(R.string.apply_now)
+            binding.applyTv.alpha = 1.0f
+            binding.applyTv.isClickable = true
+            binding.applyTv.setOnClickListener {
 
                 if (!User.isLogon()) {
                     startActivity(LoginActivity::class.java)
                     return@setOnClickListener
                 }
                 if (response.is_complete && response.is_complete_pdf) {
-                    // 申请职位
+                    // 鐢宠鑱屼綅
                     presenter.sendCV(jobId)
                 } else {
                     if (degreeDialog != null) {
@@ -160,18 +163,18 @@ class JobDetailActivity : BaseMvpActivity<JobDetailPresenter>(), JobDetailView {
         }
 
         response.company_info?.let {
-            GlideUtil.load(this, it.logo, logo_iv, 24, GlideRoundedCornersTransform.CornerType.ALL, R.mipmap.ic_company_default_logo)
-            company_name_tv.text = it.company_title
-            company_desc_tv.text = it.profile
+            GlideUtil.load(this, it.logo, binding.logoIv, 24, GlideRoundedCornersTransform.CornerType.ALL, R.mipmap.ic_company_default_logo)
+            binding.companyNameTv.text = it.company_title
+            binding.companyDescTv.text = it.profile
         }
 
 
     }
 
     private fun setSendSuccessUi() {
-        apply_tv.text = getString(R.string.applied)
-        apply_tv.alpha = 0.5f
-        apply_tv.isClickable = false
+        binding.applyTv.text = getString(R.string.applied)
+        binding.applyTv.alpha = 0.5f
+        binding.applyTv.isClickable = false
     }
 
 
@@ -223,7 +226,7 @@ class JobDetailActivity : BaseMvpActivity<JobDetailPresenter>(), JobDetailView {
 
     private fun setLikeImage() {
 
-        collect_iv.setImageResource(
+        binding.collectIv.setImageResource(
             if (isCollect) {
 
                 R.mipmap.ic_like_red_night
@@ -276,7 +279,7 @@ class JobDetailPresenter(var view: JobDetailView) : BaseMvpPresenter(view) {
 
 
     /**
-     * 发送简历 ， 申请职位
+     * 鍙戦€佺畝鍘?锛?鐢宠鑱屼綅
      */
     fun sendCV(jobId: Int) {
 
@@ -292,7 +295,7 @@ class JobDetailPresenter(var view: JobDetailView) : BaseMvpPresenter(view) {
     }
 
     /**
-     * 统计从招聘首页职位列表入口点击
+     * 缁熻浠庢嫑鑱橀椤佃亴浣嶅垪琛ㄥ叆鍙ｇ偣鍑?
      */
     fun handleCollection(collect: Boolean, jobId: Int) {
         val apply = JobCollection().apply {

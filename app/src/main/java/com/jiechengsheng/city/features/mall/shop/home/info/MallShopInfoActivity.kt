@@ -18,14 +18,17 @@ import com.jiechengsheng.city.features.mall.shop.home.MallShopHomePresenter
 import com.jiechengsheng.city.features.mall.shop.home.MallShopHomeView
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
-import kotlinx.android.synthetic.main.activity_mall_shop_info.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityMallShopInfoBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/5/31 15:12.
  * 店铺信息
  */
 class MallShopInfoActivity : BaseMvpActivity<MallShopHomePresenter>(), MallShopHomeView {
+
+    private lateinit var binding: ActivityMallShopInfoBinding
 
 
     /** 收藏状态（0：未收藏，1：已收藏） */
@@ -58,30 +61,31 @@ class MallShopInfoActivity : BaseMvpActivity<MallShopHomePresenter>(), MallShopH
     override fun getLayoutId() = R.layout.activity_mall_shop_info
 
     override fun initView() {
+        binding = ActivityMallShopInfoBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         intent.extras?.let {
             data = it.getParcelable<MallShop>(Constant.PARAM_DATA)!!
             collectCount = data.collect_count
         }
-        GlideUtil.load(this, data.logo, shop_logo_iv)
-        shop_name_tv.text = data.title
+        GlideUtil.load(this, data.logo, binding.shopLogoIv)
+        binding.shopNameTv.text = data.title
         updateFanCount(collectCount)
 
 
         collectStatus = data.collect_status
         setLikeImage()
-        service_name_tv.text = data.nickname
-        address_tv.text = data.address
+        binding.serviceNameTv.text = data.nickname
+        binding.addressTv.text = data.address
         if (TextUtils.isEmpty(data.qualification)) {
-            qualification_rl.visibility = View.GONE
+            binding.qualificationRl.visibility = View.GONE
         } else {
-            qualification_rl.visibility = View.VISIBLE
+            binding.qualificationRl.visibility = View.VISIBLE
         }
 
 
     }
 
     private fun updateFanCount(count: Int) {
-        fans_number_tv.text = getString(R.string.fans_format, count)
+        binding.fansNumberTv.text = getString(R.string.fans_format, count)
     }
 
     override fun initData() {
@@ -89,15 +93,15 @@ class MallShopInfoActivity : BaseMvpActivity<MallShopHomePresenter>(), MallShopH
     }
 
     override fun bindListener() {
-        follow_bt.setOnClickListener {
+        binding.followBt.setOnClickListener {
             if (collectStatus == 0) {
-                presenter.collection(data.id, follow_bt)
+                presenter.collection(data.id, binding.followBt)
             } else {
-                presenter.unCollection(data.id, follow_bt)
+                presenter.unCollection(data.id, binding.followBt)
             }
         }
 
-        qualification_rl.setOnClickListener {
+        binding.qualificationRl.setOnClickListener {
             QualificationActivity.navigation(this, data.qualification)
         }
     }
@@ -127,13 +131,13 @@ class MallShopInfoActivity : BaseMvpActivity<MallShopHomePresenter>(), MallShopH
     private fun setLikeImage() {
 
         if (collectStatus == 0) {
-            follow_bt.setBackgroundResource(R.drawable.shape_blue_radius_16)
-            follow_bt.text = getString(R.string.shop_follow)
-            follow_bt.setTextColor(ColorUtils.getColor(R.color.white))
+            binding.followBt.setBackgroundResource(R.drawable.shape_blue_radius_16)
+            binding.followBt.text = getString(R.string.shop_follow)
+            binding.followBt.setTextColor(ColorUtils.getColor(R.color.white))
         } else {
-            follow_bt.setBackgroundResource(R.drawable.stock_blue_radius_16)
-            follow_bt.text = getString(R.string.shop_following)
-            follow_bt.setTextColor(ColorUtils.getColor(R.color.blue_377BFF))
+            binding.followBt.setBackgroundResource(R.drawable.stock_blue_radius_16)
+            binding.followBt.text = getString(R.string.shop_following)
+            binding.followBt.setTextColor(ColorUtils.getColor(R.color.blue_377BFF))
         }
 
     }

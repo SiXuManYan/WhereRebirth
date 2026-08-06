@@ -84,7 +84,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_17"
                     android:textStyle="bold"
-                    tools:text="交易关闭" />
+                    tools:text="浜ゆ槗鍏抽棴" />
 
                 <TextView
                     android:id="@+id/status_desc_tv"
@@ -109,7 +109,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_17"
                     android:textStyle="bold"
-                    tools:text="₱1098.00" />
+                    tools:text="鈧?098.00" />
 
 
             </RelativeLayout>
@@ -208,7 +208,7 @@
                 android:textSize="@dimen/sp_14"
                 android:textStyle="bold" />
 
-            <include layout="@layout/item_dishes_for_order_submit_mall" />
+            <include layout="@layout/item_dishes_for_order_submit_mall"  android:id="@+id/dishes_item"/>
 
 
             <View

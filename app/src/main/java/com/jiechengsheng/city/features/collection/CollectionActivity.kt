@@ -8,14 +8,16 @@ import com.jiechengsheng.city.R
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.collection.city.CollectionFragment
 import com.jiechengsheng.city.features.collection.good.CollectionGoodFragment
-import com.jiechengsheng.city.features.collection.shop.CollectionShopFragment
-import kotlinx.android.synthetic.main.actitiy_collection.*
-
+import com.jiechengsheng.city.features.collection.shop.CollectionShopFragment
+import com.jiechengsheng.city.databinding.ActitiyCollectionBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/11/16 15:48.
  * 我的收藏
  */
 class CollectionActivity : BaseMvpActivity<CollectionPresenter>(), CollectionView {
+
+    private lateinit var binding: ActitiyCollectionBinding
 
     val TAB_TITLES =
         arrayOf(
@@ -31,11 +33,12 @@ class CollectionActivity : BaseMvpActivity<CollectionPresenter>(), CollectionVie
     override fun getLayoutId() = R.layout.actitiy_collection
 
     override fun initView() {
-        pager.apply {
+        binding = ActitiyCollectionBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
+        binding.pager.apply {
             offscreenPageLimit = TAB_TITLES.size
             adapter = InnerPagerAdapter(supportFragmentManager, 0)
         }
-        tabs.setViewPager(pager)
+        binding.tabs.setViewPager(binding.pager)
 
     }
 

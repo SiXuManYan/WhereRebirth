@@ -20,8 +20,9 @@ import com.jiechengsheng.city.features.mine.MineFragment
 import com.jiechengsheng.city.features.order.parent.OrderFragment
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.SPKey
-import kotlinx.android.synthetic.main.activity_main.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityMainBinding
+import android.view.ViewGroup
 
 
 /**
@@ -29,6 +30,8 @@ import org.greenrobot.eventbus.EventBus
  *
  */
 class MainActivity : BaseMvpActivity<MainPresenter>(), MainView, AppBarStateChanged {
+
+    private lateinit var binding: ActivityMainBinding
 
     private var mTapTime = 0L
 
@@ -46,7 +49,10 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainView, AppBarStateChan
 
     override fun getLayoutId() = R.layout.activity_main
 
-    override fun initView() = initTabs()
+    override fun initView() {
+        binding = ActivityMainBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
+        initTabs()
+    }
 
     override fun initData() {
         presenter = MainPresenter(this)
@@ -70,7 +76,7 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainView, AppBarStateChan
         val bundle = intent.extras
         if (bundle != null) {
             val tabIndex = bundle.getInt(Constant.PARAM_TAB, 0)
-            tabs_navigator.currentTab = tabIndex
+            binding.tabsNavigator.currentTab = tabIndex
             if (tabIndex == 2) {
                 EventBus.getDefault().post(BaseEvent<Any>(EventCode.EVENT_SCROLL_TO_TOP))
             }
@@ -100,12 +106,12 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainView, AppBarStateChan
             add(MineFragment())
         }
 
-        tabs_navigator.setTabData(tabs, this, R.id.fl_content, frList)
+        binding.tabsNavigator.setTabData(tabs, this, R.id.fl_content, frList)
 
-        tabs_navigator.setOnTabSelectListener(object : OnTabSelectListener {
+        binding.tabsNavigator.setOnTabSelectListener(object : OnTabSelectListener {
             override fun onTabSelect(position: Int) {
-                tabs_navigator.currentTab = position
-                val titleView = tabs_navigator.getTitleView(0)
+                binding.tabsNavigator.currentTab = position
+                val titleView = binding.tabsNavigator.getTitleView(0)
 
                 if (isTopStyle || position == 0) {
                     titleView.setText(R.string.main_tab_title_home_top)
@@ -124,7 +130,7 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainView, AppBarStateChan
 
         val languageTabIndex = SPUtils.getInstance().getInt(SPKey.K_LANGUAGE_TAB, 0)
         if (languageTabIndex > 0) {
-            tabs_navigator.currentTab = languageTabIndex
+            binding.tabsNavigator.currentTab = languageTabIndex
             SPUtils.getInstance().put(SPKey.K_LANGUAGE_TAB, 0)
         }
 
@@ -139,7 +145,7 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainView, AppBarStateChan
             homeTab.selectedResId = R.mipmap.ic_home_press
             homeTab.titleStr = getString(R.string.main_tab_title_home)
         }
-        tabs_navigator.notifyDataSetChanged()
+        binding.tabsNavigator.notifyDataSetChanged()
     }
 
     override fun scrolling() = setTopStyle(true)

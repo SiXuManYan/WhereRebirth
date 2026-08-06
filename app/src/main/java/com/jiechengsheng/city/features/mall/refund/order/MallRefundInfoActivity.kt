@@ -27,20 +27,22 @@ import com.jiechengsheng.city.features.store.refund.image.StoreRefundAdapter2
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
-import kotlinx.android.synthetic.main.activity_mall_refund_order_detail.*
-import kotlinx.android.synthetic.main.item_dishes_for_order_submit_mall.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityMallRefundOrderDetailBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/3/25 14:26.
- * 商品售后详情
+ * 鍟嗗搧鍞悗璇︽儏
  */
 class MallRefundInfoActivity : BaseMvpActivity<MallRefundInfoPresenter>(), MallRefundInfoIVniew {
 
-    /** 商品订单id */
+    private lateinit var binding: ActivityMallRefundOrderDetailBinding
+
+    /** 鍟嗗搧璁㈠崟id */
     private var goodOrderId = 0
 
-    /** 售后ID */
+    /** 鍞悗ID */
     private var refundId = 0
 
     override fun isStatusDark() = true
@@ -69,7 +71,7 @@ class MallRefundInfoActivity : BaseMvpActivity<MallRefundInfoPresenter>(), MallR
     private var alreadyComplaint = false
 
 
-    /** 处理申诉 */
+    /** 澶勭悊鐢宠瘔 */
     private val searchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == Activity.RESULT_OK) {
             alreadyComplaint = true
@@ -81,6 +83,7 @@ class MallRefundInfoActivity : BaseMvpActivity<MallRefundInfoPresenter>(), MallR
     override fun getLayoutId() = R.layout.activity_mall_refund_order_detail
 
     override fun initView() {
+        binding = ActivityMallRefundOrderDetailBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         initExtra()
         initContent()
@@ -96,9 +99,9 @@ class MallRefundInfoActivity : BaseMvpActivity<MallRefundInfoPresenter>(), MallR
 
 
     private fun initContent() {
-        // 相册
+        // 鐩稿唽
         mImageAdapter = StoreRefundAdapter2()
-        image_rv.apply {
+        binding.imageRv.apply {
             adapter = mImageAdapter
             layoutManager = GridLayoutManager(context, 4, GridLayoutManager.VERTICAL, false)
         }
@@ -111,8 +114,8 @@ class MallRefundInfoActivity : BaseMvpActivity<MallRefundInfoPresenter>(), MallR
     }
 
     override fun bindListener() {
-        // 取消申请
-        left_tv.setOnClickListener {
+        // 鍙栨秷鐢宠
+        binding.leftTv.setOnClickListener {
 
             AlertDialog.Builder(this@MallRefundInfoActivity)
                 .setTitle(R.string.prompt)
@@ -127,13 +130,13 @@ class MallRefundInfoActivity : BaseMvpActivity<MallRefundInfoPresenter>(), MallR
 
         }
 
-        // 修改申请
-        right_tv.setOnClickListener {
+        // 淇敼鐢宠
+        binding.rightTv.setOnClickListener {
             MallRefundEditActivity.navigation(this, goodOrderId, refundId, true)
         }
 
-        // 申诉
-        complaint_tv.setOnClickListener {
+        // 鐢宠瘔
+        binding.complaintTv.setOnClickListener {
             if (alreadyComplaint) {
                 ToastUtils.showShort(R.string.complained_success)
             } else {
@@ -148,54 +151,54 @@ class MallRefundInfoActivity : BaseMvpActivity<MallRefundInfoPresenter>(), MallR
     override fun bindDetail(response: MallRefundInfo) {
         val goods = response.goods
         val goodStatus = goods.status
-        status_tv.text = BusinessUtils.getMallGoodRefundStatusText(goodStatus)
-        status_desc_tv.text = BusinessUtils.getMallGoodRefundStatusDescText(goodStatus)
+        binding.statusTv.text = BusinessUtils.getMallGoodRefundStatusText(goodStatus)
+        binding.statusDescTv.text = BusinessUtils.getMallGoodRefundStatusDescText(goodStatus)
 
         val moneyInfo = response.money_info
-        price_tv.text = getString(R.string.price_unit_format, moneyInfo.refund_money)
+        binding.priceTv.text = getString(R.string.price_unit_format, moneyInfo.refund_money)
 
-        // 物流
+        // 鐗╂祦
         val addressInfo = response.address_info
         val name = addressInfo.name
         val tel = addressInfo.tel
         val address = addressInfo.address
 
-        // 3~8 状态显示收货地址 2022-08-04
+        // 3~8 鐘舵€佹樉绀烘敹璐у湴鍧€ 2022-08-04
         if (goodStatus >= 3 || goodStatus <= 8) {
             if (name.isNotBlank() || tel.isNotBlank() || address.isNotBlank()) {
-                logistics_container_ll.visibility = View.VISIBLE
+                binding.logisticsContainerLl.visibility = View.VISIBLE
 
-                logistics_info_tv.text = StringBuilder()
+                binding.logisticsInfoTv.text = StringBuilder()
                     .append(getString(R.string.contact_name_format, name)).append("\r\n")
                     .append(getString(R.string.contact_number_format, tel)).append("\r\n")
                     .append(getString(R.string.contact_address_format, address))
             } else {
-                logistics_container_ll.visibility = View.GONE
+                binding.logisticsContainerLl.visibility = View.GONE
             }
 
         } else {
-            logistics_container_ll.visibility = View.GONE
+            binding.logisticsContainerLl.visibility = View.GONE
         }
 
 
-        // 售后商品
-        GlideUtil.load(this, goods.good_image, order_image_iv, 4)
-        good_name_tv.text = goods.good_title
-        count_tv.text = getString(R.string.count_format, goods.good_num)
-        now_price_tv.text = getString(R.string.price_unit_format, goods.good_price)
+        // 鍞悗鍟嗗搧
+        GlideUtil.load(this, goods.good_image, binding.dishesItem.orderImageIv, 4)
+        binding.dishesItem.goodNameTv.text = goods.good_title
+        binding.dishesItem.countTv.text = getString(R.string.count_format, goods.good_num)
+        binding.dishesItem.nowPriceTv.text = getString(R.string.price_unit_format, goods.good_price)
 
-        // 售后信息
+        // 鍞悗淇℃伅
         response.money_info.let {
-            amount_tv.text = getString(R.string.price_unit_format, it.refund_money)
-            good_price_tv.text = getString(R.string.price_unit_format, it.goods_total)
-            shop_offers_tv.text = getString(R.string.price_unit_format, it.shop_coupon_money)
-            platform_offers_tv.text = getString(R.string.price_unit_format, it.order_coupon_money)
-            refund_time_tv.text = it.refund_time
-            refund_number_tv.text = it.serial_number
+            binding.amountTv.text = getString(R.string.price_unit_format, it.refund_money)
+            binding.goodPriceTv.text = getString(R.string.price_unit_format, it.goods_total)
+            binding.shopOffersTv.text = getString(R.string.price_unit_format, it.shop_coupon_money)
+            binding.platformOffersTv.text = getString(R.string.price_unit_format, it.order_coupon_money)
+            binding.refundTimeTv.text = it.refund_time
+            binding.refundNumberTv.text = it.serial_number
         }
 
-        // 售后原因
-        desc_tv.text = response.cancel_reason
+        // 鍞悗鍘熷洜
+        binding.descTv.text = response.cancel_reason
         val photos = ArrayList<RefundImage>()
         response.cancel_images.forEach {
             val apply = RefundImage().apply {
@@ -207,61 +210,61 @@ class MallRefundInfoActivity : BaseMvpActivity<MallRefundInfoPresenter>(), MallR
         }
         mImageAdapter.setNewInstance(photos)
 
-        // 处理底部按钮
+        // 澶勭悊搴曢儴鎸夐挳
         when (goodStatus) {
             2 -> {
-                bottom_container_rl.visibility = View.VISIBLE
-                left_tv.visibility = View.VISIBLE
-                right_tv.visibility = View.GONE
+                binding.bottomContainerRl.visibility = View.VISIBLE
+                binding.leftTv.visibility = View.VISIBLE
+                binding.rightTv.visibility = View.GONE
             }
             4 -> {
-                bottom_container_rl.visibility = View.VISIBLE
-                left_tv.visibility = View.VISIBLE
-                right_tv.visibility = View.VISIBLE
+                binding.bottomContainerRl.visibility = View.VISIBLE
+                binding.leftTv.visibility = View.VISIBLE
+                binding.rightTv.visibility = View.VISIBLE
             }
             8 -> {
-                bottom_container_rl.visibility = View.VISIBLE
-                left_tv.visibility = View.GONE
-                right_tv.visibility = View.VISIBLE
+                binding.bottomContainerRl.visibility = View.VISIBLE
+                binding.leftTv.visibility = View.GONE
+                binding.rightTv.visibility = View.VISIBLE
             }
             else -> {
-                bottom_container_rl.visibility = View.GONE
+                binding.bottomContainerRl.visibility = View.GONE
             }
         }
 
-        bottom_v.visibility = bottom_container_rl.visibility
+        binding.bottomV.visibility = binding.bottomContainerRl.visibility
 
-        // 投诉
+        // 鎶曡瘔
         if (goodStatus == 4 && response.complaint == 0) {
-            complaint_tv.visibility = View.VISIBLE
+            binding.complaintTv.visibility = View.VISIBLE
         } else {
-            complaint_tv.visibility = View.GONE
+            binding.complaintTv.visibility = View.GONE
         }
 
-        // 退款方式
+        // 閫€娆炬柟寮?
         val refundMethod = response.remit_info
         refundMethod?.let {
             //
-            refund_name_tv.text = refundMethod.name
-            refund_user_name_tv.text = refundMethod.user_name
-            refund_account_tv.text = refundMethod.account
-            refund_method_ll.visibility = View.VISIBLE
+            binding.refundNameTv.text = refundMethod.name
+            binding.refundUserNameTv.text = refundMethod.user_name
+            binding.refundAccountTv.text = refundMethod.account
+            binding.refundMethodLl.visibility = View.VISIBLE
         }
 
-        // 退款失败
+        // 閫€娆惧け璐?
         if (goodStatus == 8) {
-            fail_reason_rl.visibility = View.VISIBLE
-            reason_split_v.visibility = View.VISIBLE
-            fail_reason_tv.text = response.error_reason
+            binding.failReasonRl.visibility = View.VISIBLE
+            binding.reasonSplitV.visibility = View.VISIBLE
+            binding.failReasonTv.text = response.error_reason
         } else {
-            reason_split_v.visibility = View.GONE
+            binding.reasonSplitV.visibility = View.GONE
         }
 
 
     }
 
     override fun cancelSuccess() {
-        // 刷新订单详情以及订单列表
+        // 鍒锋柊璁㈠崟璇︽儏浠ュ強璁㈠崟鍒楄〃
         EventBus.getDefault().post(BaseEvent<Any>(EventCode.EVENT_REFRESH_ORDER_LIST))
         finish()
     }
@@ -275,7 +278,7 @@ class MallRefundInfoActivity : BaseMvpActivity<MallRefundInfoPresenter>(), MallR
 
         when (baseEvent.code) {
             EventCode.EVENT_REFRESH_ORDER_LIST -> {
-                // 完成修改、提交售后，刷新页面
+                // 瀹屾垚淇敼銆佹彁浜ゅ敭鍚庯紝鍒锋柊椤甸潰
                 presenter.getData(goodOrderId, refundId)
             }
             else -> {

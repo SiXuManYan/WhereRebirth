@@ -12,14 +12,16 @@ import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.features.hotel.comment.child.HotelCommentAdapter
 import com.jiechengsheng.city.features.store.detail.comment.StoreCommentActivity
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.view.empty.EmptyView
-import kotlinx.android.synthetic.main.fragment_refresh_list.*
-
+import com.jiechengsheng.city.view.empty.EmptyView
+import com.jiechengsheng.city.databinding.FragmentRefreshListBinding
 /**
  * Created by Wangsw  2021/7/16 15:24.
  * 商城评论
  */
 class StoreCommentChildFragment : BaseMvpFragment<StoreCommentPresenter>(), StoreCommentView, SwipeRefreshLayout.OnRefreshListener, OnLoadMoreListener {
+
+    private var _binding: FragmentRefreshListBinding? = null
+    private val binding get() = _binding!!
 
 
     /** 商家id */
@@ -70,6 +72,7 @@ class StoreCommentChildFragment : BaseMvpFragment<StoreCommentPresenter>(), Stor
     override fun getLayoutId() = R.layout.fragment_refresh_list
 
     override fun initView(view: View) {
+        _binding = FragmentRefreshListBinding.bind(requireNotNull(view))
         arguments?.let {
             shop_id = it.getInt(Constant.PARAM_SHOP_ID, 0)
             showAll = it.getBoolean(Constant.PARAM_ACCOUNT, true)
@@ -79,9 +82,9 @@ class StoreCommentChildFragment : BaseMvpFragment<StoreCommentPresenter>(), Stor
 
         // list
         if (showAll) {
-            swipe_layout.setOnRefreshListener(this)
+            binding.swipeLayout.setOnRefreshListener(this)
         } else {
-            swipe_layout.isEnabled = false
+            binding.swipeLayout.isEnabled = false
         }
 
         emptyView = EmptyView(context).apply {
@@ -119,7 +122,7 @@ class StoreCommentChildFragment : BaseMvpFragment<StoreCommentPresenter>(), Stor
             setEmptyView(emptyView)
         }
 
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
         }
 
@@ -129,12 +132,19 @@ class StoreCommentChildFragment : BaseMvpFragment<StoreCommentPresenter>(), Stor
         presenter = StoreCommentPresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun bindListener() {
 
     }
 
     override fun onRefresh() {
-        swipe_layout.isRefreshing = true
+        binding.swipeLayout.isRefreshing = true
         page = Constant.DEFAULT_FIRST_PAGE
         loadOnVisible()
     }
@@ -150,8 +160,8 @@ class StoreCommentChildFragment : BaseMvpFragment<StoreCommentPresenter>(), Stor
 
 
     override fun bindCommentData(data: MutableList<HotelComment>, isLastPage: Boolean, total: Int) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
         val loadMoreModule = mAdapter.loadMoreModule
         if (data.isEmpty()) {

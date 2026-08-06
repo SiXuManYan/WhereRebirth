@@ -19,15 +19,17 @@ import com.jiechengsheng.city.features.search.SearchAllActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.LocalLanguageUtil
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.fragment_job_home.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentJobHomeBinding
 /**
  * Created by Wangsw  2022/12/15 10:47.
  * 新版招聘首页
  *
  */
 class JobHomeFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView, SwipeRefreshLayout.OnRefreshListener {
+
+    private var _binding: FragmentJobHomeBinding? = null
+    private val binding get() = _binding!!
 
 
     private var page = Constant.DEFAULT_FIRST_PAGE
@@ -58,9 +60,9 @@ class JobHomeFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView, SwipeR
                 if (select.salaryType == 0 && select.areas.isEmpty() && select.companyTypes.isEmpty() &&
                     select.eduLevel.isEmpty() && select.experienceLevel.isEmpty()
                 ) {
-                    filter_iv.setImageResource(R.mipmap.ic_job_filter_normal)
+                    binding.filterIv.setImageResource(R.mipmap.ic_job_filter_normal)
                 } else {
-                    filter_iv.setImageResource(R.mipmap.ic_job_filter_blue)
+                    binding.filterIv.setImageResource(R.mipmap.ic_job_filter_blue)
                 }
             }
 
@@ -69,14 +71,15 @@ class JobHomeFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView, SwipeR
     }
 
     override fun initView(view: View?) {
+        _binding = FragmentJobHomeBinding.bind(requireNotNull(view))
         initContent()
     }
 
 
     private fun initContent() {
 
-        swipe_layout.setOnRefreshListener(this)
-        swipe_layout.setColorSchemeColors(ColorUtils.getColor(R.color.color_1c1380))
+        binding.swipeLayout.setOnRefreshListener(this)
+        binding.swipeLayout.setColorSchemeColors(ColorUtils.getColor(R.color.color_1c1380))
         emptyView = EmptyView(requireContext())
         emptyView.showEmptyDefault()
         addEmptyList(emptyView)
@@ -93,7 +96,7 @@ class JobHomeFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView, SwipeR
 
 
         val manager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        recycler_view.apply {
+        binding.recyclerView.apply {
             adapter = mAdapter
             layoutManager = manager
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.grey_F5F5F5),
@@ -108,9 +111,9 @@ class JobHomeFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView, SwipeR
     private fun initDefaultUI() {
         val languageLocale = LocalLanguageUtil.getInstance().getSetLanguageLocale(requireContext())
         if (languageLocale.language == "zh") {
-            back_iv.setImageResource(R.mipmap.ic_job_cn)
+            binding.backIv.setImageResource(R.mipmap.ic_job_cn)
         } else {
-            back_iv.setImageResource(R.mipmap.ic_job_en)
+            binding.backIv.setImageResource(R.mipmap.ic_job_en)
         }
 
     }
@@ -120,16 +123,23 @@ class JobHomeFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView, SwipeR
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun loadOnVisible() {
         onRefresh()
     }
 
     override fun bindListener() {
 
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             activity?.finish()
         }
-        search_ll.setOnClickListener {
+        binding.searchLl.setOnClickListener {
             startActivity(SearchAllActivity::class.java, Bundle().apply {
                 putInt(Constant.PARAM_TYPE, 9)
                 putBoolean(Constant.PARAM_HIDE, true)
@@ -139,7 +149,7 @@ class JobHomeFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView, SwipeR
 //            startActivityAfterLogin(CvHomeActivity::class.java)
 //        }
 
-        filter_iv.setOnClickListener {
+        binding.filterIv.setOnClickListener {
             searchLauncher.launch(Intent(requireContext(), JobFilterActivity::class.java)
                 .putExtras(Bundle().apply {
                     putString(Constant.PARAM_DATA, selectedFilterJson)
@@ -155,8 +165,8 @@ class JobHomeFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView, SwipeR
     }
 
     override fun bindJobList(toMutableList: MutableList<Job>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
         val loadMoreModule = mAdapter.loadMoreModule
         if (toMutableList.isEmpty()) {

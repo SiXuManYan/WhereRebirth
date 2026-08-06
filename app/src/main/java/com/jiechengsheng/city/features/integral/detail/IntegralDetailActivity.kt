@@ -28,8 +28,9 @@ import com.jiechengsheng.city.features.integral.place.IntegralOrderView
 import com.jiechengsheng.city.features.integral.result.ExchangeResultActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
-import kotlinx.android.synthetic.main.activity_integral_detail.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityIntegralDetailBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/9/22 10:23.
@@ -37,6 +38,8 @@ import org.greenrobot.eventbus.EventBus
  * 2023-2-10 , 普通优惠券可以直接在此页面兑换
  */
 class IntegralDetailActivity : BaseMvpActivity<IntegralOrderPresenter>(), IntegralOrderView {
+
+    private lateinit var binding: ActivityIntegralDetailBinding
 
     var goodId = 0
     var goodTitle = ""
@@ -64,6 +67,7 @@ class IntegralDetailActivity : BaseMvpActivity<IntegralOrderPresenter>(), Integr
     override fun getLayoutId() = R.layout.activity_integral_detail
 
     override fun initView() {
+        binding = ActivityIntegralDetailBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         goodId = intent.getIntExtra(Constant.PARAM_ID, 0)
 
@@ -82,61 +86,61 @@ class IntegralDetailActivity : BaseMvpActivity<IntegralOrderPresenter>(), Integr
 
     override fun bindDetail(response: IntegralGoodDetail) {
         val image = response.image
-        GlideUtil.load(this, image, good_iv)
+        GlideUtil.load(this, image, binding.goodIv)
 
         /** 1：商品 其他：优惠券 */
         val couponType = response.type
         if (couponType == 1) {
             mJcsTitle.setMiddleTitle(getString(R.string.exchange_product_details))
-            desc_title_tv.setText(R.string.product_description)
+            binding.descTitleTv.setText(R.string.product_description)
         } else {
             mJcsTitle.setMiddleTitle(getString(R.string.coupon_details))
-            desc_title_tv.setText(R.string.use_rule)
+            binding.descTitleTv.setText(R.string.use_rule)
         }
 
         val status = response.operation_status
 
-        tag_tv.visibility = if (status == 3) {
+        binding.tagTv.visibility = if (status == 3) {
             View.VISIBLE
         } else {
             View.GONE
         }
 
         val goodTitle = response.title
-        good_name_tv.text = goodTitle
-        (response.start_time + "-" + response.end_time).also { time_tv.text = it }
+        binding.goodNameTv.text = goodTitle
+        (response.start_time + "-" + response.end_time).also { binding.timeTv.text = it }
         val price = response.price
-        point_tv.text = getString(R.string.points_format, price)
-        balance_tv.text = getString(R.string.points_format, response.user_integral)
+        binding.pointTv.text = getString(R.string.points_format, price)
+        binding.balanceTv.text = getString(R.string.points_format, response.user_integral)
 
-        desc_tv.text = response.desc
+        binding.descTv.text = response.desc
 
         /** 0积分不足 1可以兑换 2超出限制 3即将上线 */
         when (status) {
             0 -> {
-                confirm_tv.alpha = 0.5f
-                confirm_tv.isClickable = false
-                confirm_tv.text = getString(R.string.insufficient_points)
+                binding.confirmTv.alpha = 0.5f
+                binding.confirmTv.isClickable = false
+                binding.confirmTv.text = getString(R.string.insufficient_points)
             }
 
             2 -> {
-                confirm_tv.alpha = 1.0f
-                confirm_tv.isClickable = true
-                confirm_tv.text = getString(R.string.exchange)
-                confirm_tv.setOnClickListener {
+                binding.confirmTv.alpha = 1.0f
+                binding.confirmTv.isClickable = true
+                binding.confirmTv.text = getString(R.string.exchange)
+                binding.confirmTv.setOnClickListener {
                     ToastUtils.showShort(R.string.quantity_over)
                 }
             }
             3 -> {
-                confirm_tv.alpha = 0.5f
-                confirm_tv.isClickable = false
-                confirm_tv.text = getString(R.string.exchange)
+                binding.confirmTv.alpha = 0.5f
+                binding.confirmTv.isClickable = false
+                binding.confirmTv.text = getString(R.string.exchange)
             }
             1 -> {
-                confirm_tv.alpha = 1.0f
-                confirm_tv.isClickable = true
-                confirm_tv.text = getString(R.string.exchange)
-                confirm_tv.setOnClickListener {
+                binding.confirmTv.alpha = 1.0f
+                binding.confirmTv.isClickable = true
+                binding.confirmTv.text = getString(R.string.exchange)
+                binding.confirmTv.setOnClickListener {
                     if (couponType == 1) {
                         IntegralOrderActivity.navigation(this, goodId, goodTitle, image, price, couponType)
                     } else {

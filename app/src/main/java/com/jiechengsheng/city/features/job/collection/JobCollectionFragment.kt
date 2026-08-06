@@ -16,14 +16,16 @@ import com.jiechengsheng.city.features.job.home.JobHomeView
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.fragment_job_collection.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentJobCollectionBinding
 /**
  * Created by Wangsw  2022/12/15 11:05.
  * 职位收藏
  */
 class JobCollectionFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView, SwipeRefreshLayout.OnRefreshListener {
+
+    private var _binding: FragmentJobCollectionBinding? = null
+    private val binding get() = _binding!!
 
     private var page = Constant.DEFAULT_FIRST_PAGE
     private lateinit var mAdapter: JobHomeAdapter
@@ -33,12 +35,13 @@ class JobCollectionFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView, 
 
     override fun getLayoutId() = R.layout.fragment_job_collection
     override fun initView(view: View?) {
+        _binding = FragmentJobCollectionBinding.bind(requireNotNull(view))
         initContent()
     }
 
     private fun initContent() {
-        swipe_layout.setOnRefreshListener(this)
-        swipe_layout.setColorSchemeColors(ColorUtils.getColor(R.color.color_1c1380))
+        binding.swipeLayout.setOnRefreshListener(this)
+        binding.swipeLayout.setColorSchemeColors(ColorUtils.getColor(R.color.color_1c1380))
         emptyView = EmptyView(requireContext()).apply {
             setEmptyImage(R.mipmap.ic_empty_job_collection)
             setEmptyHint(R.string.empty_data_default)
@@ -57,7 +60,7 @@ class JobCollectionFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView, 
 
 
         val manager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             layoutManager = manager
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.grey_F5F5F5), SizeUtils.dp2px(4f), 0, 0))
@@ -69,6 +72,13 @@ class JobCollectionFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView, 
         presenter = JobHomePresenter(this)
 
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
 
     override fun loadOnVisible() {
         onRefresh()
@@ -82,7 +92,7 @@ class JobCollectionFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView, 
     }
 
     override fun bindListener() {
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             activity?.finish()
         }
     }
@@ -96,8 +106,8 @@ class JobCollectionFragment : BaseMvpFragment<JobHomePresenter>(), JobHomeView, 
     }
 
     override fun bindJobCollectionList(toMutableList: MutableList<Job>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
         val loadMoreModule = mAdapter.loadMoreModule
         if (toMutableList.isEmpty()) {

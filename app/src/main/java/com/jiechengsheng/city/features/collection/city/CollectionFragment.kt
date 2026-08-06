@@ -18,14 +18,16 @@ import com.jiechengsheng.city.news.NewsVideoActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.fragment_refresh_list.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentRefreshListBinding
 /**
  * Created by Wangsw  2021/11/16 16:13.
  * 收藏列表
  */
 class CollectionFragment : BaseMvpFragment<CollectionPresenter>(), CollectionView, OnItemClickListener {
+
+    private var _binding: FragmentRefreshListBinding? = null
+    private val binding get() = _binding!!
 
     /** type 类型（1：同城，2：文章，3：视频） */
     var type = 0
@@ -37,7 +39,8 @@ class CollectionFragment : BaseMvpFragment<CollectionPresenter>(), CollectionVie
     override fun getLayoutId() = R.layout.fragment_refresh_list
 
     override fun initView(view: View) {
-        swipe_layout.apply {
+        _binding = FragmentRefreshListBinding.bind(requireNotNull(view))
+        binding.swipeLayout.apply {
             setBackgroundColor(Color.WHITE)
             setOnRefreshListener {
                 page = Constant.DEFAULT_FIRST_PAGE
@@ -59,7 +62,7 @@ class CollectionFragment : BaseMvpFragment<CollectionPresenter>(), CollectionVie
                 loadOnVisible()
             }
         }
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             addItemDecoration(DividerDecoration(Color.WHITE, SizeUtils.dp2px(15f), 0, 0))
         }
@@ -70,6 +73,13 @@ class CollectionFragment : BaseMvpFragment<CollectionPresenter>(), CollectionVie
         presenter = CollectionPresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun bindListener() = Unit
 
     override fun loadOnVisible() {
@@ -77,8 +87,8 @@ class CollectionFragment : BaseMvpFragment<CollectionPresenter>(), CollectionVie
     }
 
     override fun bindData(data: MutableList<MyCollection>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
 
         val loadMoreModule = mAdapter.loadMoreModule

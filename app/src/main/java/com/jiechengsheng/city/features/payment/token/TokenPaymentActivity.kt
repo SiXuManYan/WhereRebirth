@@ -15,14 +15,16 @@ import com.jiechengsheng.city.features.payment.counter.PayCounterPresenter
 import com.jiechengsheng.city.features.payment.counter.PayCounterView
 import com.jiechengsheng.city.features.payment.result.PayResultActivity
 import com.jiechengsheng.city.storage.entity.User
-import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_token_payment.*
-
+import com.jiechengsheng.city.utils.Constant
+import com.jiechengsheng.city.databinding.ActivityTokenPaymentBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2023/3/14 14:07.
  * 令牌支付
  */
 class TokenPaymentActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterView {
+
+    private lateinit var binding: ActivityTokenPaymentBinding
 
 
     /** 订单 Id */
@@ -84,6 +86,7 @@ class TokenPaymentActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterV
     }
 
     override fun initView() {
+        binding = ActivityTokenPaymentBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         overridePendingTransition(R.anim.bottom_in, R.anim.bottom_silent)
         initExtra()
     }
@@ -99,8 +102,8 @@ class TokenPaymentActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterV
             amountToPaid = it.getString(Constant.PARAM_AMOUNT, "0")
             channelName = it.getString(Constant.PARAM_CHANNEL_NAME, "")
             channelCode = it.getString(Constant.PARAM_CHANNEL_CODE, "")
-            amount_tv.text = amountToPaid
-            channel_name_tv.text = channelName
+            binding.amountTv.text = amountToPaid
+            binding.channelNameTv.text = channelName
 
         }
     }
@@ -120,12 +123,12 @@ class TokenPaymentActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterV
 
     override fun bindChannelBalance(response: PayCounterChannelDetail,channelName:String) {
 
-        balance_tv.text = response.balance.stripTrailingZeros().toPlainString()
+        binding.balanceTv.text = response.balance.stripTrailingZeros().toPlainString()
     }
 
 
     override fun bindListener() {
-        pay_bt.setOnClickListener {
+        binding.payBt.setOnClickListener {
             presenter.doWherePay(moduleType, orderIds, channelCode, PayUrlGet.TOKENIZED_PAYMENT)
         }
     }

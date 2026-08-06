@@ -10,13 +10,15 @@ import com.jiechengsheng.city.R
 import com.jiechengsheng.city.api.response.feedback.About
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.web.WebViewActivity
-import com.jiechengsheng.city.utils.FeaturesUtil
-import kotlinx.android.synthetic.main.activity_about.*
-
+import com.jiechengsheng.city.utils.FeaturesUtil
+import com.jiechengsheng.city.databinding.ActivityAboutBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/2/3 16:48.
  */
 class AboutActivity : BaseMvpActivity<AboutPresenter>(), AboutView {
+
+    private lateinit var binding: ActivityAboutBinding
 
 
     private lateinit var userAgreementTv: TextView
@@ -28,12 +30,13 @@ class AboutActivity : BaseMvpActivity<AboutPresenter>(), AboutView {
     override fun getLayoutId() = R.layout.activity_about
 
     override fun initView() {
+        binding = ActivityAboutBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         val buffer = StringBuffer(BuildConfig.VERSION_NAME)
         if (BuildConfig.FLAVOR == "dev") {
             buffer.append("_测试服务器")
         }
-        version_tv.text = getString(R.string.version_format, buffer.toString())
+        binding.versionTv.text = getString(R.string.version_format, buffer.toString())
 
 
         userAgreementTv = findViewById(R.id.user_agreement_tv)
@@ -112,9 +115,9 @@ class AboutActivity : BaseMvpActivity<AboutPresenter>(), AboutView {
     }
 
     override fun bindMessage(response: About) {
-        call_us_tv.append("\r\n" + response.contact_tell)
-        message_us_tv.append("\r\n" + response.contact_facebook)
-        email_us_tv.append("\r\n" + response.contact_email)
+        binding.callUsTv.append("\r\n" + response.contact_tell)
+        binding.messageUsTv.append("\r\n" + response.contact_facebook)
+        binding.emailUsTv.append("\r\n" + response.contact_email)
     }
 
 

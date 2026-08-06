@@ -22,15 +22,18 @@ import com.jiechengsheng.city.features.web.WebViewActivity
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_mall_order_detail.*
 import org.greenrobot.eventbus.EventBus
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivityMallOrderDetailBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2021/12/16 10:43.
  * 新版商城订单详情
  */
 class MallOrderDetailActivity : BaseMvpActivity<MallOrderDetailPresenter>(), MallOrderDetailView {
+
+    private lateinit var binding: ActivityMallOrderDetailBinding
 
 
     override fun getLayoutId() = R.layout.activity_mall_order_detail
@@ -48,6 +51,7 @@ class MallOrderDetailActivity : BaseMvpActivity<MallOrderDetailPresenter>(), Mal
 
 
     override fun initView() {
+        binding = ActivityMallOrderDetailBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         intent.extras?.let {
             orderId = it.getInt(Constant.PARAM_ORDER_ID, 0)
@@ -73,7 +77,7 @@ class MallOrderDetailActivity : BaseMvpActivity<MallOrderDetailPresenter>(), Mal
 
             }
         }
-        good_rv.apply {
+        binding.goodRv.apply {
             isNestedScrollingEnabled = true
             layoutManager = object : LinearLayoutManager(context, VERTICAL, false) {
                 override fun canScrollVertically() = false
@@ -90,7 +94,7 @@ class MallOrderDetailActivity : BaseMvpActivity<MallOrderDetailPresenter>(), Mal
     }
 
     override fun bindListener() {
-        copy_tv.setOnClickListener {
+        binding.copyTv.setOnClickListener {
             if (logistics.isNotBlank()) {
                 BusinessUtils.copyText(this, logistics)
             }
@@ -99,115 +103,115 @@ class MallOrderDetailActivity : BaseMvpActivity<MallOrderDetailPresenter>(), Mal
 
 
     override fun bindData(data: MallOrderDetail) {
-        status_tv.text = presenter.getStatusText(data.order_status)
-        presenter.getStatusDescText(status_desc_tv, data.order_status)
-        order_number_tv.text = data.trade_no
-        created_date_tv.text = data.created_at
+        binding.statusTv.text = presenter.getStatusText(data.order_status)
+        presenter.getStatusDescText(binding.statusDescTv, data.order_status)
+        binding.orderNumberTv.text = data.trade_no
+        binding.createdDateTv.text = data.created_at
 
         val price = data.price
 
         totalPrice = price
-        price_tv.text = getString(R.string.price_unit_format, price.toPlainString())
+        binding.priceTv.text = getString(R.string.price_unit_format, price.toPlainString())
 
 
         // 商家服务
-        recipient_info_ll.visibility = View.VISIBLE
+        binding.recipientInfoLl.visibility = View.VISIBLE
         data.address?.let {
-            address_name_tv.text = it.address
-            recipient_tv.text = getString(R.string.star_text_format, it.contact_name, it.contact_number)
+            binding.addressNameTv.text = it.address
+            binding.recipientTv.text = getString(R.string.star_text_format, it.contact_name, it.contact_number)
         }
 
         // 商品备注
-        delivery_rl.visibility = View.VISIBLE
-        remark_rl.visibility = View.VISIBLE
-        delivery_price_tv.text = getString(R.string.price_unit_format, data.delivery_fee)
-        remarks_value_tv.text = data.remark
+        binding.deliveryRl.visibility = View.VISIBLE
+        binding.remarkRl.visibility = View.VISIBLE
+        binding.deliveryPriceTv.text = getString(R.string.price_unit_format, data.delivery_fee)
+        binding.remarksValueTv.text = data.remark
 
         // 支付信息
         if (data.order_status != 1 && data.order_status != 6) {
-            pay_way_tv.text = data.pay_channel
+            binding.payWayTv.text = data.pay_channel
 //            payment_name_tv.text = getString(R.string.payment_name_format, data.bank_card_account)
 //            payment_account_tv.text = getString(R.string.payment_account_format, data.bank_card_number)
-            pay_container_ll.visibility = View.VISIBLE
+            binding.payContainerLl.visibility = View.VISIBLE
         } else {
-            pay_container_ll.visibility = View.GONE
+            binding.payContainerLl.visibility = View.GONE
         }
 
 
         val shopName = data.shop_title
         val shopImage = data.shop_images
-        business_name_tv.text = shopName
+        binding.businessNameTv.text = shopName
 
 
         mAdapter.setNewInstance(data.goods)
 
         // 商品信息
         if (data.im_status == 1 && !TextUtils.isEmpty(data.mer_uuid)) {
-            im_ll.visibility = View.VISIBLE
-            im_ll.setOnClickListener {
+            binding.imLl.visibility = View.VISIBLE
+            binding.imLl.setOnClickListener {
                 BusinessUtils.showImUnavailableDialog(this)
             }
         } else {
-            im_ll.visibility = View.GONE
+            binding.imLl.visibility = View.GONE
         }
 
         // 物流
         val companyName = data.company_name
 
         if (companyName.isNotBlank()) {
-            logistics_container_ll.visibility = View.VISIBLE
-            logistics_company_tv.text = getString(R.string.logistics_company_format, companyName)
+            binding.logisticsContainerLl.visibility = View.VISIBLE
+            binding.logisticsCompanyTv.text = getString(R.string.logistics_company_format, companyName)
             this.logistics = data.logistics
-            logistics_number_tv.text = getString(R.string.logistics_number_format, logistics)
+            binding.logisticsNumberTv.text = getString(R.string.logistics_number_format, logistics)
 
         } else {
-            logistics_container_ll.visibility = View.GONE
+            binding.logisticsContainerLl.visibility = View.GONE
         }
 
         // ## 价格明细 ##
         // 优惠前的总价
-        total_price_old_tv.text = getString(R.string.price_unit_format, data.total_price)
+        binding.totalPriceOldTv.text = getString(R.string.price_unit_format, data.total_price)
 
         // 总运费
-        total_delivery_fee_tv.text = getString(R.string.price_unit_format, data.delivery_fee)
+        binding.totalDeliveryFeeTv.text = getString(R.string.price_unit_format, data.delivery_fee)
 
         // 商家优惠
-        shop_offers_tv.text = getString(R.string.price_unit_format, data.shop_coupon_money)
+        binding.shopOffersTv.text = getString(R.string.price_unit_format, data.shop_coupon_money)
 
         // 平台优惠
-        coupon_tv.text = getString(R.string.price_unit_format, data.platform_coupon_money)
+        binding.couponTv.text = getString(R.string.price_unit_format, data.platform_coupon_money)
 
         // 合计
-        total_price_copy_tv.text = getString(R.string.price_unit_format, price.toPlainString())
+        binding.totalPriceCopyTv.text = getString(R.string.price_unit_format, price.toPlainString())
 
 
         // 底部
         when (data.order_status) {
             1 -> {
-                bottom_container_rl.visibility = View.VISIBLE
-                left_tv.visibility = View.VISIBLE
-                left_tv.text = getString(R.string.to_cancel_order)
-                left_tv.setOnClickListener {
+                binding.bottomContainerRl.visibility = View.VISIBLE
+                binding.leftTv.visibility = View.VISIBLE
+                binding.leftTv.text = getString(R.string.to_cancel_order)
+                binding.leftTv.setOnClickListener {
                     // 取消订单
                     cancelOrder(data.id)
                 }
 
-                right_tv.visibility = View.VISIBLE
-                right_tv.text = getString(R.string.to_pay_2)
-                right_tv.setOnClickListener {
+                binding.rightTv.visibility = View.VISIBLE
+                binding.rightTv.text = getString(R.string.to_pay_2)
+                binding.rightTv.setOnClickListener {
                     // 去付款
                     handlePay(data.id, price)
                 }
             }
             3 -> {
-                bottom_container_rl.visibility = View.GONE
+                binding.bottomContainerRl.visibility = View.GONE
             }
             4 -> {
-                bottom_container_rl.visibility = View.VISIBLE
+                binding.bottomContainerRl.visibility = View.VISIBLE
 
-                right_tv.visibility = View.VISIBLE
-                right_tv.text = getString(R.string.confirm_receipt)
-                right_tv.setOnClickListener {
+                binding.rightTv.visibility = View.VISIBLE
+                binding.rightTv.text = getString(R.string.confirm_receipt)
+                binding.rightTv.setOnClickListener {
                     // 确认收货
                     AlertDialog.Builder(this@MallOrderDetailActivity)
                         .setTitle(R.string.prompt)
@@ -228,42 +232,42 @@ class MallOrderDetailActivity : BaseMvpActivity<MallOrderDetailPresenter>(), Mal
                 val orderCommentStatus = data.order_comment_status
                 if (commentStatus == 1 && orderCommentStatus == 1) {
                     // 去评价
-                    bottom_container_rl.visibility = View.VISIBLE
-                    right_tv.visibility = View.VISIBLE
-                    right_tv.text = getString(R.string.evaluation_go)
-                    right_tv.setOnClickListener {
+                    binding.bottomContainerRl.visibility = View.VISIBLE
+                    binding.rightTv.visibility = View.VISIBLE
+                    binding.rightTv.text = getString(R.string.evaluation_go)
+                    binding.rightTv.setOnClickListener {
                         BatchCommentActivity.navigation2(this, orderId, mAdapter.data)
                     }
 
                 } else {
-                    bottom_container_rl.visibility = View.GONE
+                    binding.bottomContainerRl.visibility = View.GONE
                 }
                 handleLogistics(data.wl_url)
             }
             8, 9, 10, 11, 12 -> {
                 // 新增了单独的售后详情页，订单详情不处理售后相关
 
-                bottom_container_rl.visibility = View.GONE
+                binding.bottomContainerRl.visibility = View.GONE
 
             }
             else -> {
-                bottom_container_rl.visibility = View.GONE
+                binding.bottomContainerRl.visibility = View.GONE
             }
         }
-        bottom_v.visibility = bottom_container_rl.visibility
+        binding.bottomV.visibility = binding.bottomContainerRl.visibility
 
     }
 
     private fun handleLogistics(wlUrl: String) {
 
         if (wlUrl.isNotBlank()) {
-            left_tv.visibility = View.VISIBLE
-            left_tv.setText(R.string.express_check)
-            left_tv.setOnClickListener {
+            binding.leftTv.visibility = View.VISIBLE
+            binding.leftTv.setText(R.string.express_check)
+            binding.leftTv.setOnClickListener {
                 WebViewActivity.navigation(this, wlUrl, true)
             }
         } else {
-            left_tv.visibility = View.GONE
+            binding.leftTv.visibility = View.GONE
         }
 
 

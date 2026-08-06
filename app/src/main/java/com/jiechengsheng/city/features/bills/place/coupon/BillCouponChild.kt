@@ -16,8 +16,8 @@ import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.fragment_order_coupon.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.FragmentOrderCouponBinding
 
 /**
  * Created by Wangsw  2022/3/9 15:05.
@@ -25,6 +25,9 @@ import org.greenrobot.eventbus.EventBus
  *  平台优惠券或店铺优惠券
  */
 class BillCouponChild : BaseMvpFragment<BillCouponChildPresenter>(), BillCouponChildView {
+
+    private var _binding: FragmentOrderCouponBinding? = null
+    private val binding get() = _binding!!
 
     /** type 类型  1可使用 2 不可使用  */
     var listType = 0
@@ -48,6 +51,7 @@ class BillCouponChild : BaseMvpFragment<BillCouponChildPresenter>(), BillCouponC
     override fun getLayoutId() = R.layout.fragment_order_coupon
 
     override fun initView(view: View?) {
+        _binding = FragmentOrderCouponBinding.bind(requireNotNull(view))
 
 
         emptyView = EmptyView(requireContext()).apply {
@@ -62,7 +66,7 @@ class BillCouponChild : BaseMvpFragment<BillCouponChildPresenter>(), BillCouponC
             setEmptyView(emptyView)
         }
 
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             addItemDecoration(DividerDecoration(Color.TRANSPARENT, SizeUtils.dp2px(15f), 0, 0))
         }
@@ -79,6 +83,13 @@ class BillCouponChild : BaseMvpFragment<BillCouponChildPresenter>(), BillCouponC
         presenter = BillCouponChildPresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun loadOnVisible() {
         presenter.getData(listType, module, price, account, selectedCouponId)
     }
@@ -86,7 +97,7 @@ class BillCouponChild : BaseMvpFragment<BillCouponChildPresenter>(), BillCouponC
 
     override fun bindListener() {
 
-        confirm_tv.setOnClickListener {
+        binding.confirmTv.setOnClickListener {
             EventBus.getDefault().post(BaseEvent<Int>(EventCode.EVENT_SELECTED_PLATFORM_COUPON, selectedCouponId))
         }
     }
@@ -96,11 +107,11 @@ class BillCouponChild : BaseMvpFragment<BillCouponChildPresenter>(), BillCouponC
         if (data.isEmpty()) {
             mAdapter.setNewInstance(null)
             emptyView.showEmptyContainer()
-            confirm_tv.visibility = View.GONE
+            binding.confirmTv.visibility = View.GONE
             return
         }
         if (listType == 1) {
-            confirm_tv.visibility = View.VISIBLE
+            binding.confirmTv.visibility = View.VISIBLE
         }
         mAdapter.setNewInstance(data)
 

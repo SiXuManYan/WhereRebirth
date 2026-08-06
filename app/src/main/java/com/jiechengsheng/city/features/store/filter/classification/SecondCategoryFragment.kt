@@ -9,15 +9,18 @@ import com.jiechengsheng.city.api.response.category.Category
 import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.single_recycler_view.*
 import org.greenrobot.eventbus.EventBus
-import java.util.*
+import java.util.*
+import com.jiechengsheng.city.databinding.SingleRecyclerViewBinding
 
 /**
  * Created by Wangsw  2021/6/9 15:04.
  * 二级分类
  */
 class SecondCategoryFragment : BaseMvpFragment<SecondCategoryPresenter>(), SecondCategoryView, OnItemClickListener {
+
+    private var _binding: SingleRecyclerViewBinding? = null
+    private val binding get() = _binding!!
 
     private var pid = 0
     lateinit var mAdapter: SecondCategoryAdapter
@@ -43,19 +46,27 @@ class SecondCategoryFragment : BaseMvpFragment<SecondCategoryPresenter>(), Secon
     override fun getLayoutId() = R.layout.single_recycler_view
 
     override fun initView(view: View) {
+        _binding = SingleRecyclerViewBinding.bind(requireNotNull(view))
         arguments?.let {
             pid = it.getInt(Constant.PARAM_PID, 0)
         }
 
         mAdapter = SecondCategoryAdapter()
         mAdapter.setOnItemClickListener(this@SecondCategoryFragment)
-        content_rv.adapter = mAdapter
+        binding.contentRv.adapter = mAdapter
     }
 
     override fun initData() {
         presenter = SecondCategoryPresenter(this)
         presenter.getSecondCategory(pid)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
 
     override fun bindListener() = Unit
 

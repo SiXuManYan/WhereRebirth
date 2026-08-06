@@ -24,9 +24,10 @@ import com.zhihu.matisse.Matisse
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_comment_post_batch.*
 import org.greenrobot.eventbus.EventBus
-import top.zibin.luban.Luban
+import top.zibin.luban.Luban
+import com.jiechengsheng.city.databinding.ActivityCommentPostBatchBinding
+import android.view.ViewGroup
 
 
 /**
@@ -34,6 +35,8 @@ import top.zibin.luban.Luban
  *
  */
 class BatchCommentActivity : BaseMvpActivity<BatchCommentPresenter>(), BatchCommentView, OnImageAddClickListener {
+
+    private lateinit var binding: ActivityCommentPostBatchBinding
 
     /** 订单id */
     private var orderId = 0
@@ -105,6 +108,7 @@ class BatchCommentActivity : BaseMvpActivity<BatchCommentPresenter>(), BatchComm
     override fun getLayoutId() = R.layout.activity_comment_post_batch
 
     override fun initView() {
+        binding = ActivityCommentPostBatchBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initContent()
         initExtra()
     }
@@ -122,7 +126,7 @@ class BatchCommentActivity : BaseMvpActivity<BatchCommentPresenter>(), BatchComm
         mAdapter = BatchCommentAdapter().apply {
             onImageAddClickListener = this@BatchCommentActivity
         }
-        batch_comment_rv.apply {
+        binding.batchCommentRv.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             addItemDecoration(DividerDecoration(getColor(R.color.grey_F5F5F5), SizeUtils.dp2px(16f), 0, 0))
@@ -135,9 +139,9 @@ class BatchCommentActivity : BaseMvpActivity<BatchCommentPresenter>(), BatchComm
 
     override fun bindListener() {
 
-        commit_tv.setOnClickListener {
+        binding.commitTv.setOnClickListener {
             showLoadingDialog(false)
-            commit_tv.isClickable = false
+            binding.commitTv.isClickable = false
             ToastUtils.showLong(R.string.submitting)
             presenter.handleComment2(mAdapter, orderId)
         }
@@ -202,7 +206,7 @@ class BatchCommentActivity : BaseMvpActivity<BatchCommentPresenter>(), BatchComm
 
     override fun commentSuccess() {
         dismissLoadingDialog()
-        commit_tv.isClickable = true
+        binding.commitTv.isClickable = true
         ToastUtils.showShort(R.string.comment_success)
         EventBus.getDefault().post(BaseEvent<Any>(EventCode.EVENT_REFRESH_ORDER_LIST))
         finish()
@@ -211,7 +215,7 @@ class BatchCommentActivity : BaseMvpActivity<BatchCommentPresenter>(), BatchComm
 
     override fun onError(errorResponse: ErrorResponse?) {
         super.onError(errorResponse)
-        commit_tv.isClickable = true
+        binding.commitTv.isClickable = true
         dismissLoadingDialog()
     }
 

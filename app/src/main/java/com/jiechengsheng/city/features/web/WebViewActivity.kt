@@ -16,10 +16,12 @@ import com.jiechengsheng.city.view.WebLayout
 import com.just.agentweb.AgentWeb
 import com.just.agentweb.DefaultWebClient
 import com.just.agentweb.WebChromeClient
-import com.just.agentweb.WebViewClient
-import kotlinx.android.synthetic.main.activtiy_webview.*
-
+import com.just.agentweb.WebViewClient
+import com.jiechengsheng.city.databinding.ActivtiyWebviewBinding
+import android.view.ViewGroup
 class WebViewActivity : BaseActivity() {
+
+    private lateinit var binding: ActivtiyWebviewBinding
 
     private var url = ""
     private var isFromLogistics = false
@@ -56,16 +58,17 @@ class WebViewActivity : BaseActivity() {
     override fun getLayoutId() = R.layout.activtiy_webview
 
     override fun initView() {
+        binding = ActivtiyWebviewBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         intent.extras?.let {
             url = it.getString(Constant.PARAM_URL, "")
             isFromLogistics = it.getBoolean(Constant.PARAM_TYPE, false)
 
             if (isFromLogistics) {
-                bottom_ll.visibility = View.VISIBLE
+                binding.bottomLl.visibility = View.VISIBLE
                 mJcsTitle.setMiddleTitle(R.string.express_details)
             } else {
-                bottom_ll.visibility = View.GONE
+                binding.bottomLl.visibility = View.GONE
             }
 
 
@@ -140,8 +143,8 @@ class WebViewActivity : BaseActivity() {
 
 
     override fun bindListener() {
-        close_hint_tv.setOnClickListener {
-            bottom_ll.visibility = View.GONE
+        binding.closeHintTv.setOnClickListener {
+            binding.bottomLl.visibility = View.GONE
         }
 
     }

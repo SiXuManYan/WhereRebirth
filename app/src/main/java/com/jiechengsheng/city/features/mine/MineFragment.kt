@@ -37,14 +37,16 @@ import com.jiechengsheng.city.mine.activity.LanguageActivity
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.*
 import com.jiechengsheng.city.utils.image.GlideRoundedCornersTransform
-import com.jiechengsheng.city.utils.zxing.ZxingUtil
-import kotlinx.android.synthetic.main.fragment_mine_2.*
-
+import com.jiechengsheng.city.utils.zxing.ZxingUtil
+import com.jiechengsheng.city.databinding.FragmentMine2Binding
 /**
  * Created by Wangsw  2021/8/13 14:14.
  * 用户页
  */
 class MineFragment : BaseMvpFragment<MinePresenter>(), MineView {
+
+    private var _binding: FragmentMine2Binding? = null
+    private val binding get() = _binding!!
 
     /** 雇主申请状态 */
     private var isSendEmployer = false
@@ -63,9 +65,10 @@ class MineFragment : BaseMvpFragment<MinePresenter>(), MineView {
     override fun needChangeStatusBarStatus() = true
 
     override fun initView(view: View) {
-        BarUtils.addMarginTopEqualStatusBarHeight(top_ll)
+        _binding = FragmentMine2Binding.bind(requireNotNull(view))
+        BarUtils.addMarginTopEqualStatusBarHeight(binding.topLl)
         val topPadding = BarUtils.getStatusBarHeight() + SizeUtils.dp2px(40f)
-        content_ll.setPaddingRelative(0, topPadding, 0, 0)
+        binding.contentLl.setPaddingRelative(0, topPadding, 0, 0)
 
         initDefaultUi()
         qrBgView = LayoutInflater.from(requireContext()).inflate(R.layout.view_qr, null) as LinearLayout
@@ -76,6 +79,13 @@ class MineFragment : BaseMvpFragment<MinePresenter>(), MineView {
         presenter = MinePresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
 
     override fun loadOnVisible() {
         presenter.getUserInfo()
@@ -84,46 +94,46 @@ class MineFragment : BaseMvpFragment<MinePresenter>(), MineView {
 
     override fun bindListener() {
 
-        setting_iv.setOnClickListener {
+        binding.settingIv.setOnClickListener {
             startActivityAfterLogin(SettingActivity::class.java)
         }
-        message_view.setOnClickListener {
+        binding.messageView.setOnClickListener {
             MessageCenterActivity.navigation(requireContext(), systemMessageCount)
         }
-        user_info_rl.setOnClickListener {
+        binding.userInfoRl.setOnClickListener {
             startActivityAfterLogin(ModifyInfoActivity::class.java)
         }
 
-        integral_iv.setOnClickListener {
+        binding.integralIv.setOnClickListener {
             startActivityAfterLogin(SignInActivity::class.java)
         }
-        integral_tv.setOnClickListener {
+        binding.integralTv.setOnClickListener {
             startActivityAfterLogin(ScoreActivity::class.java)
         }
-        collect_tv.setOnClickListener {
+        binding.collectTv.setOnClickListener {
             startActivityAfterLogin(CollectionActivity::class.java)
         }
-        viewed_tv.setOnClickListener {
+        binding.viewedTv.setOnClickListener {
             startActivityAfterLogin(FootprintActivity::class.java)
         }
-        vouchers_tv.setOnClickListener {
+        binding.vouchersTv.setOnClickListener {
             startActivityAfterLogin(MyCouponActivity::class.java)
         }
-        merchant_rl.setOnClickListener {
+        binding.merchantRl.setOnClickListener {
             startActivityAfterLogin(MerchantSettledActivity::class.java)
 
         }
-        language_rl.setOnClickListener {
+        binding.languageRl.setOnClickListener {
             startActivity(LanguageActivity::class.java)
         }
-        address_rl.setOnClickListener {
+        binding.addressRl.setOnClickListener {
             startActivityAfterLogin(AddressActivity::class.java)
         }
 
-        about_rl.setOnClickListener {
+        binding.aboutRl.setOnClickListener {
             startActivity(AboutActivity::class.java)
         }
-        share_rl.setOnClickListener {
+        binding.shareRl.setOnClickListener {
             if (!User.isLogon()) {
                 startActivity(LoginActivity::class.java)
                 return@setOnClickListener
@@ -132,15 +142,15 @@ class MineFragment : BaseMvpFragment<MinePresenter>(), MineView {
             showShareDialog(inviteLink)
         }
 
-        activity_center_iv.setOnClickListener {
+        binding.activityCenterIv.setOnClickListener {
             startActivityAfterLogin(ActivityCenterActivity::class.java)
         }
 
-        feedback_rl.setOnClickListener {
+        binding.feedbackRl.setOnClickListener {
             startActivityAfterLogin(FeedbackHomeActivity::class.java)
         }
 
-        employer_rl.setOnClickListener {
+        binding.employerRl.setOnClickListener {
             startActivityAfterLogin(EmployerActivity::class.java, Bundle().apply {
                 putBoolean(Constant.PARAM_STATUS, isSendEmployer)
             })
@@ -150,7 +160,7 @@ class MineFragment : BaseMvpFragment<MinePresenter>(), MineView {
 
 
     override fun bindUnreadMessageCount(totalCount: Int, systemCount: Int) {
-        message_view.setMessageCount(totalCount)
+        binding.messageView.setMessageCount(totalCount)
         systemMessageCount = systemCount
     }
 
@@ -161,8 +171,8 @@ class MineFragment : BaseMvpFragment<MinePresenter>(), MineView {
 
 
     private fun updateUserData(nickname: String, createdAt: String, avatar: String) {
-        name_tv.text = nickname
-        create_time_tv.apply {
+        binding.nameTv.text = nickname
+        binding.createTimeTv.apply {
             text = createdAt
             visibility = View.VISIBLE
         }
@@ -171,7 +181,7 @@ class MineFragment : BaseMvpFragment<MinePresenter>(), MineView {
             .fallback(R.drawable.ic_noheader)
             .placeholder(R.drawable.ic_noheader)
 
-        Glide.with(requireContext()).load(avatar).apply(options).into(avatar_iv)
+        Glide.with(requireContext()).load(avatar).apply(options).into(binding.avatarIv)
     }
 
 
@@ -205,16 +215,16 @@ class MineFragment : BaseMvpFragment<MinePresenter>(), MineView {
             updateUserData(user.nickName, user.createdAt, user.avatar)
         } else {
             updateUserData(getString(R.string.mine_login_register), "", "")
-            create_time_tv.visibility = View.GONE
-            message_view.setMessageCount(0)
+            binding.createTimeTv.visibility = View.GONE
+            binding.messageView.setMessageCount(0)
         }
-        message_view.setMessageImageResource(R.mipmap.ic_mine_message)
+        binding.messageView.setMessageImageResource(R.mipmap.ic_mine_message)
 
         val languageLocale = LocalLanguageUtil.getInstance().getSetLanguageLocale(context)
         if (languageLocale.language == "zh") {
-            activity_center_iv.setImageResource(R.mipmap.ic_mine_activity)
+            binding.activityCenterIv.setImageResource(R.mipmap.ic_mine_activity)
         } else {
-            activity_center_iv.setImageResource(R.mipmap.ic_mine_activity_en)
+            binding.activityCenterIv.setImageResource(R.mipmap.ic_mine_activity_en)
         }
 
     }

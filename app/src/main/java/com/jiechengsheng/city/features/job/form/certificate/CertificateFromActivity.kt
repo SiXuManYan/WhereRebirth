@@ -24,14 +24,17 @@ import com.jiechengsheng.city.features.store.refund.StoreRefundAdapter
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
 import com.zhihu.matisse.Matisse
-import kotlinx.android.synthetic.main.activity_job_cv_certificate.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityJobCvCertificateBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2023/2/6 11:00.
  * 资格证书
  */
 class CertificateFromActivity : BaseMvpActivity<CertificatePresenter>(), CertificateView {
+
+    private lateinit var binding: ActivityJobCvCertificateBinding
 
 
     /**
@@ -66,6 +69,7 @@ class CertificateFromActivity : BaseMvpActivity<CertificatePresenter>(), Certifi
 
 
     override fun initView() {
+        binding = ActivityJobCvCertificateBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         draftData = intent.getParcelableExtra(Constant.PARAM_DATA)
         initImage()
         initDraft()
@@ -74,11 +78,11 @@ class CertificateFromActivity : BaseMvpActivity<CertificatePresenter>(), Certifi
     private fun initDraft() {
         draftData?.let {
             draftId = it.id
-            name_et.setText(it.title)
+            binding.nameEt.setText(it.title)
             mImageAdapter.setNewInstance(it.images)
             handleImageSize()
             if (draftId > 0) {
-                delete_tv.visibility = View.VISIBLE
+                binding.deleteTv.visibility = View.VISIBLE
             }
         }
     }
@@ -97,7 +101,7 @@ class CertificateFromActivity : BaseMvpActivity<CertificatePresenter>(), Certifi
             }
         }
 
-        image_rv.apply {
+        binding.imageRv.apply {
             adapter = mImageAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
@@ -112,7 +116,7 @@ class CertificateFromActivity : BaseMvpActivity<CertificatePresenter>(), Certifi
 
     override fun bindListener() {
 
-        select_iv.setOnClickListener {
+        binding.selectIv.setOnClickListener {
             val size = mImageAdapter.data.size
             if (size == 1) {
                 ToastUtils.showShort(R.string.refund_image_max_6)
@@ -122,7 +126,7 @@ class CertificateFromActivity : BaseMvpActivity<CertificatePresenter>(), Certifi
             FeaturesUtil.handleMediaSelect(this, Constant.IMG, max)
         }
 
-        delete_tv.setOnClickListener {
+        binding.deleteTv.setOnClickListener {
             AlertDialog.Builder(this, R.style.JobAlertDialogTheme)
                 .setCancelable(false)
                 .setTitle(R.string.hint)
@@ -137,12 +141,12 @@ class CertificateFromActivity : BaseMvpActivity<CertificatePresenter>(), Certifi
                 .create().show()
         }
 
-        save_tv.setOnClickListener(object : ClickUtils.OnDebouncingClickListener(500) {
+        binding.saveTv.setOnClickListener(object : ClickUtils.OnDebouncingClickListener(500) {
 
             override fun onDebouncingClick(v: View?) {
 
 
-                val name = name_et.text.toString().trim()
+                val name = binding.nameEt.text.toString().trim()
                 if (name.isBlank()) {
                     ToastUtils.showShort(R.string.please_enter)
                     return
@@ -165,9 +169,9 @@ class CertificateFromActivity : BaseMvpActivity<CertificatePresenter>(), Certifi
                         images = descImages
                     }
 
-                    save_tv.isClickable = false
+                    binding.saveTv.isClickable = false
                     Handler(Looper.getMainLooper()).postDelayed({
-                        save_tv.isClickable = true
+                        binding.saveTv.isClickable = true
                     }, 500)
                     presenter.handleCertificate(draftId, apply)
                 }
@@ -193,9 +197,9 @@ class CertificateFromActivity : BaseMvpActivity<CertificatePresenter>(), Certifi
 
     private fun handleImageSize() {
         if (mImageAdapter.data.isNullOrEmpty()) {
-            select_iv.visibility = View.VISIBLE
+            binding.selectIv.visibility = View.VISIBLE
         } else {
-            select_iv.visibility = View.GONE
+            binding.selectIv.visibility = View.GONE
         }
     }
 

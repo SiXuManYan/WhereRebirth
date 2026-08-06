@@ -20,16 +20,18 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
 import com.jiechengsheng.city.utils.time.TimeUtil
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_job_cv_pdf_preview.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityJobCvPdfPreviewBinding
 
 /**
  * Created by Wangsw  2023/2/23 14:27.
- * pdf预览
+ * pdf棰勮
  */
 class CvPdfActivity : BaseMvpActivity<CvPdfPresenter>(), CvPdfView {
 
-    /** 个人信息 */
+    private lateinit var binding: ActivityJobCvPdfPreviewBinding
+
+    /** 涓汉淇℃伅 */
     private var profileDetail: ProfileDetail? = null
     private var jobData = ArrayList<JobExperience>()
     private lateinit var header: PdfHeader
@@ -41,6 +43,7 @@ class CvPdfActivity : BaseMvpActivity<CvPdfPresenter>(), CvPdfView {
     override fun getLayoutId() = R.layout.activity_job_cv_pdf_preview
 
     override fun initView() {
+        binding = ActivityJobCvPdfPreviewBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initExtra()
         initContent()
     }
@@ -59,7 +62,7 @@ class CvPdfActivity : BaseMvpActivity<CvPdfPresenter>(), CvPdfView {
         }
 
         jobData.forEach {
-            // 更改列表类型
+            // 鏇存敼鍒楄〃绫诲瀷
             when (it.nativeItemViewType) {
                 JobExperience.TYPE_TITLE ->
                     it.nativeItemViewType = JobExperience.TYPE_TITLE_PDF
@@ -86,7 +89,7 @@ class CvPdfActivity : BaseMvpActivity<CvPdfPresenter>(), CvPdfView {
         mAdapter = JobExperienceEduAdapter()
         mAdapter.addHeaderView(header)
         val manager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        content_rv.apply {
+        binding.contentRv.apply {
             adapter = mAdapter
             layoutManager = manager
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.grey_F5F5F5),
@@ -94,7 +97,7 @@ class CvPdfActivity : BaseMvpActivity<CvPdfPresenter>(), CvPdfView {
                 0, 0))
         }
 
-        // 个人信息
+        // 涓汉淇℃伅
         profileDetail?.let {
             header.apply {
 
@@ -131,7 +134,7 @@ class CvPdfActivity : BaseMvpActivity<CvPdfPresenter>(), CvPdfView {
             }
         }
 
-        // 简历
+        // 绠€鍘?
         mAdapter.setNewInstance(jobData)
 
     }
@@ -142,7 +145,7 @@ class CvPdfActivity : BaseMvpActivity<CvPdfPresenter>(), CvPdfView {
     }
 
     override fun bindListener() {
-        apply_tv.setOnClickListener {
+        binding.applyTv.setOnClickListener {
             presenter.generatePdf()
         }
     }

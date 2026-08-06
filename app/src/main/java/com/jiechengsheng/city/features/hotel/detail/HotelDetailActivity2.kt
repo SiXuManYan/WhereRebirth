@@ -36,15 +36,16 @@ import com.jiechengsheng.city.utils.MobUtil
 import com.jiechengsheng.city.widget.calendar.JcsCalendarAdapter.CalendarBean
 import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import com.shuyu.gsyvideoplayer.GSYVideoManager
-import kotlinx.android.synthetic.main.activity_hotel_detail_new_2.*
-
-
+import com.shuyu.gsyvideoplayer.GSYVideoManager
+import com.jiechengsheng.city.databinding.ActivityHotelDetailNew2Binding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/10/8 11:33.
  * 酒店详情
  */
 class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetailView, JcsCalendarDialog.OnDateSelectedListener {
+
+    private lateinit var binding: ActivityHotelDetailNew2Binding
 
 
     private var hotelId = 0
@@ -131,6 +132,7 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
 
 
     override fun initView() {
+        binding = ActivityHotelDetailNew2Binding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         initExtra()
         initScroll()
@@ -155,12 +157,12 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
 
     private fun initScroll() {
         // alpha
-        useView.setBackgroundColor(getColor(R.color.white))
-        toolbar.setBackgroundColor(getColor(R.color.white))
-        useView.background.alpha = 0
-        toolbar.background.alpha = 0
-        scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
-            val headHeight = media_fl.measuredHeight - toolbar.measuredHeight
+        binding.useView.setBackgroundColor(getColor(R.color.white))
+        binding.toolbar.setBackgroundColor(getColor(R.color.white))
+        binding.useView.background.alpha = 0
+        binding.toolbar.background.alpha = 0
+        binding.scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
+            val headHeight = binding.mediaFl.measuredHeight - binding.toolbar.measuredHeight
             var alpha = (y.toFloat() / headHeight * 255).toInt()
             if (alpha >= 255) {
                 alpha = 255
@@ -173,8 +175,8 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
             setBackImage()
             setShareImage()
 
-            useView.background.alpha = alpha
-            toolbar.background.alpha = alpha
+            binding.useView.background.alpha = alpha
+            binding.toolbar.background.alpha = alpha
 
             changeStatusTextColor()
         }
@@ -186,7 +188,7 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
             val data = mRoomAdapter.data[position]
             val roomShowStatus = data.room_show_status
             RoomDetailFragment.newInstance(
-                name_tv.text.toString(),
+                binding.nameTv.text.toString(),
                 hotelId,
                 data.id,
                 mStartDateBean,
@@ -234,7 +236,7 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
                     breakFastType = breakfast_type,
                     roomArea = roomData.room_area,
                     roomPeople = getString(R.string.people_number_format, roomData.people),
-                    hotelName = name_tv.text.toString(),
+                    hotelName = binding.nameTv.text.toString(),
                     cancelable = cancelable,
                     roomNumber = roomNumber,
                     roomImage = imageStr,
@@ -247,28 +249,28 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
 
         }
 
-        room_rv.layoutManager = object : LinearLayoutManager(this, VERTICAL, false) {
+        binding.roomRv.layoutManager = object : LinearLayoutManager(this, VERTICAL, false) {
             override fun canScrollVertically(): Boolean = false
         }
-        room_rv.addItemDecoration(
+        binding.roomRv.addItemDecoration(
             DividerDecoration(Color.TRANSPARENT, SizeUtils.dp2px(16f), 0, 0)
         )
-        room_rv.adapter = mRoomAdapter
+        binding.roomRv.adapter = mRoomAdapter
 
         mCommentAdapter = HotelCommentAdapter().apply {
             isDiamond = true
         }
-        comment_rv.layoutManager = object : LinearLayoutManager(this, VERTICAL, false) {
+        binding.commentRv.layoutManager = object : LinearLayoutManager(this, VERTICAL, false) {
             override fun canScrollVertically(): Boolean = false
         }
-        comment_rv.adapter = mCommentAdapter
+        binding.commentRv.adapter = mCommentAdapter
 
 
         mFacilitiesAdapter = HotelFacilitiesAdapter()
-        facility_rv.layoutManager = object : GridLayoutManager(this, 2, VERTICAL, false) {
+        binding.facilityRv.layoutManager = object : GridLayoutManager(this, 2, VERTICAL, false) {
             override fun canScrollVertically(): Boolean = false
         }
-        facility_rv.adapter = mFacilitiesAdapter
+        binding.facilityRv.adapter = mFacilitiesAdapter
     }
 
     /**
@@ -276,13 +278,13 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
      */
     private fun initMedia() {
         mMediaAdapter = DetailMediaAdapter()
-        PagerSnapHelper().attachToRecyclerView(media_rv)
+        PagerSnapHelper().attachToRecyclerView(binding.mediaRv)
 
-        media_rv.apply {
+        binding.mediaRv.apply {
             layoutManager = LinearLayoutManager(this@HotelDetailActivity2, LinearLayoutManager.HORIZONTAL, false)
             adapter = mMediaAdapter
         }
-        media_rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.mediaRv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             @SuppressLint("NotifyDataSetChanged")
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
 
@@ -308,7 +310,7 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
 
                 }
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    point_view.onPageSelected(firstItemPosition)
+                    binding.pointView.onPageSelected(firstItemPosition)
                 }
 
 
@@ -337,23 +339,23 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
     }
 
     override fun bindListener() {
-        phone_ll.setOnClickListener {
+        binding.phoneLl.setOnClickListener {
             val data = Uri.parse("tel:$businessPhone")
             val intent = Intent(Intent.ACTION_DIAL)
             intent.data = data
             startActivity(intent)
         }
-        nav_ll.setOnClickListener {
+        binding.navLl.setOnClickListener {
             FeaturesUtil.startNaviGoogle(this, mLat.toFloat(), mLng.toFloat())
         }
-        facebook_tv.setOnClickListener {
+        binding.facebookTv.setOnClickListener {
             WebViewActivity.navigation(this, facebook)
         }
-        share_iv.setOnClickListener {
+        binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_HOTEL, hotelId)
             MobUtil.shareFacebookWebPage(url, this@HotelDetailActivity2)
         }
-        like_iv.setOnClickListener {
+        binding.likeIv.setOnClickListener {
             if (!User.isLogon()) {
                 startActivity(LoginActivity::class.java)
                 return@setOnClickListener
@@ -364,13 +366,13 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
                 presenter.collection(hotelId)
             }
         }
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             finish()
         }
-        more_comment_tv.setOnClickListener {
+        binding.moreCommentTv.setOnClickListener {
             CommentComplexActivity.navigation(this, hotelId, CommentComplexActivity.USE_TYPE_HOTEL)
         }
-        right_date_tv.setOnClickListener {
+        binding.rightDateTv.setOnClickListener {
             mJcsCalendarDialog.show(supportFragmentManager)
         }
     }
@@ -378,7 +380,7 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
 
     private fun setLikeImage() {
 
-        like_iv.setImageResource(
+        binding.likeIv.setImageResource(
             if (collect_status == 1) {
                 if (isToolbarDark) {
                     R.mipmap.ic_like_red_night
@@ -396,7 +398,7 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
     }
 
     private fun setBackImage() {
-        back_iv.setImageResource(
+        binding.backIv.setImageResource(
             if (isToolbarDark) {
                 R.mipmap.ic_back_black
             } else {
@@ -406,7 +408,7 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
     }
 
     private fun setShareImage() {
-        share_iv.setImageResource(
+        binding.shareIv.setImageResource(
             if (isToolbarDark) {
                 R.mipmap.ic_share_night
             } else {
@@ -447,32 +449,32 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
 
         // 轮播
         mMediaAdapter.setNewInstance(mediaList)
-        point_view.setPointCount(mediaList.size)
+        binding.pointView.setPointCount(mediaList.size)
 
-        star_view.rating = FeaturesUtil.getSafeStarLevel(response.star_level)
-        name_tv.text = response.name
-        score_tv.text = response.grade.toString()
-        score_retouch_tv.text = FeaturesUtil.getGradeRetouchString(response.grade)
+        binding.starView.rating = FeaturesUtil.getSafeStarLevel(response.star_level)
+        binding.nameTv.text = response.name
+        binding.scoreTv.text = response.grade.toString()
+        binding.scoreRetouchTv.text = FeaturesUtil.getGradeRetouchString(response.grade)
 
         val startBusinessTime = response.start_business_time
         if (startBusinessTime.isEmpty()) {
-            time_tv.visibility = View.GONE
+            binding.timeTv.visibility = View.GONE
         } else {
-            time_tv.text = startBusinessTime
-            time_tv.visibility = View.VISIBLE
+            binding.timeTv.text = startBusinessTime
+            binding.timeTv.visibility = View.VISIBLE
         }
 
 
-        phone_tv.text = response.tel
-        address_name_tv.text = response.address
+        binding.phoneTv.text = response.tel
+        binding.addressNameTv.text = response.address
 
         response.facebook_link.apply {
-            facebook_tv.visibility = if (isEmpty()) {
+            binding.facebookTv.visibility = if (isEmpty()) {
                 View.GONE
             } else {
                 View.VISIBLE
             }
-            facebook_tv.text = this
+            binding.facebookTv.text = this
         }
 
         // 评价
@@ -480,17 +482,17 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
 
         // 政策
         response.policy?.let {
-            hotel_clock_tv.text =
+            binding.hotelClockTv.text =
                 getString(R.string.check_in_out_time_format, it.check_in_time, it.check_out_time)
 
-            hotel_child_tv.text = getString(R.string.children_format, it.children)
+            binding.hotelChildTv.text = getString(R.string.children_format, it.children)
         }
 
         // 设施
         mFacilitiesAdapter.setNewInstance(response.facilities)
 
         // 介绍
-        desc_tv.text = response.desc
+        binding.descTv.text = response.desc
 
 
     }
@@ -510,9 +512,9 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
 
 
     private fun setDate() {
-        (mStartDateBean.showMonthDayDate + " / " + mEndDateBean.showMonthDayDate).also { select_date_tv.text = it }
+        (mStartDateBean.showMonthDayDate + " / " + mEndDateBean.showMonthDayDate).also { binding.selectDateTv.text = it }
         val span = (mEndDateBean.time - mStartDateBean.time) / (1000 * 60 * 60 * 24)
-        right_date_tv.text = getString(R.string.total_date_format, span.toString())
+        binding.rightDateTv.text = getString(R.string.total_date_format, span.toString())
     }
 
     override fun onDateSelected(startDate: CalendarBean, endDate: CalendarBean) {
@@ -532,8 +534,8 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
         when (baseEvent.code) {
             EventCode.EVENT_POSITION  -> {
                 val position = baseEvent.data as Int
-                media_rv.scrollToPosition(position)
-                point_view.onPageSelected(position)
+                binding.mediaRv.scrollToPosition(position)
+                binding.pointView.onPageSelected(position)
             }
             else -> {}
         }

@@ -7,14 +7,16 @@ import android.os.Bundle
 import com.jiechengsheng.city.R
 import com.jiechengsheng.city.base.BaseActivity
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.utils.GlideUtil
-import kotlinx.android.synthetic.main.activity_qualification.*
-
+import com.jiechengsheng.city.utils.GlideUtil
+import com.jiechengsheng.city.databinding.ActivityQualificationBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/5/31 16:25.
  * 企业资质
  */
 class QualificationActivity : BaseActivity() {
+
+    private lateinit var binding: ActivityQualificationBinding
 
     companion object {
 
@@ -38,8 +40,9 @@ class QualificationActivity : BaseActivity() {
     override fun getLayoutId() = R.layout.activity_qualification
 
     override fun initView() {
+        binding = ActivityQualificationBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         val url = intent.getStringExtra(Constant.PARAM_IMAGE)
-        GlideUtil.load(this, url, qualification_iv)
+        GlideUtil.load(this, url, binding.qualificationIv)
 
     }
 

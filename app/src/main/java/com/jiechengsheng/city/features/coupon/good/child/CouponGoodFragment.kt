@@ -11,14 +11,16 @@ import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.features.mall.home.child.MallRecommendAdapter
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.fragment_refresh_list.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentRefreshListBinding
 /**
  * Created by Wangsw  2022/3/4 14:40.
  *
  */
 class CouponGoodFragment : BaseMvpFragment<CouponGoodPresenter>(), CouponGoodView {
+
+    private var _binding: FragmentRefreshListBinding? = null
+    private val binding get() = _binding!!
 
 
     /** 优惠券 id */
@@ -44,6 +46,7 @@ class CouponGoodFragment : BaseMvpFragment<CouponGoodPresenter>(), CouponGoodVie
     override fun getLayoutId() = R.layout.fragment_refresh_list
 
     override fun initView(view: View?) {
+        _binding = FragmentRefreshListBinding.bind(requireNotNull(view))
 
         goodRequest = MallGoodListRequest().apply {
             categoryId = mCategoryId
@@ -58,7 +61,7 @@ class CouponGoodFragment : BaseMvpFragment<CouponGoodPresenter>(), CouponGoodVie
     }
 
     private fun initContent() {
-        swipe_layout.apply {
+        binding.swipeLayout.apply {
             setOnRefreshListener {
                 page = Constant.DEFAULT_FIRST_PAGE
                 goodRequest.page = page
@@ -82,7 +85,7 @@ class CouponGoodFragment : BaseMvpFragment<CouponGoodPresenter>(), CouponGoodVie
         }
         val gridLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         val decoration = DividerDecoration(ColorUtils.getColor(R.color.transplant), SizeUtils.dp2px(10f), 0, 0)
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             layoutManager = gridLayoutManager
             addItemDecoration(decoration)
@@ -94,6 +97,13 @@ class CouponGoodFragment : BaseMvpFragment<CouponGoodPresenter>(), CouponGoodVie
         presenter = CouponGoodPresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun bindListener() = Unit
 
     override fun loadOnVisible() {
@@ -101,8 +111,8 @@ class CouponGoodFragment : BaseMvpFragment<CouponGoodPresenter>(), CouponGoodVie
     }
 
     override fun bindData(data: MutableList<MallGood>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
         val loadMoreModule = mAdapter.loadMoreModule
         if (data.isEmpty()) {

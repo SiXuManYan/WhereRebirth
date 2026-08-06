@@ -4,14 +4,16 @@ import android.os.Bundle
 import com.jiechengsheng.city.R
 import com.jiechengsheng.city.base.BaseActivity
 import com.jiechengsheng.city.features.main.MainActivity
-import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_store_pay_result.*
-
+import com.jiechengsheng.city.utils.Constant
+import com.jiechengsheng.city.databinding.ActivityStorePayResultBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/6/24 16:20.
  *  支付成功
  */
 class StorePayResultActivity : BaseActivity() {
+
+    private lateinit var binding: ActivityStorePayResultBinding
 
     /**
      * 0 商城订单
@@ -27,6 +29,7 @@ class StorePayResultActivity : BaseActivity() {
     override fun getLayoutId() = R.layout.activity_store_pay_result
 
     override fun initView() {
+        binding = ActivityStorePayResultBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
 
         intent.extras?.let {
@@ -46,7 +49,7 @@ class StorePayResultActivity : BaseActivity() {
 
         }
 
-        check_order_tv.setOnClickListener {
+        binding.checkOrderTv.setOnClickListener {
 
             if (useType == Constant.PAY_INFO_ESTORE ||
                 useType == Constant.PAY_INFO_FOOD ||

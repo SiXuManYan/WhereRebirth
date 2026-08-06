@@ -18,14 +18,16 @@ import com.jiechengsheng.city.news.NewsDetailActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.fragment_refresh_list.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentRefreshListBinding
 /**
  * Created by Wangsw  2022/2/10 10:33.
  *
  */
 class CityFootprintFragment : BaseMvpFragment<FootprintPresenter>(), FootprintView, OnItemClickListener {
+
+    private var _binding: FragmentRefreshListBinding? = null
+    private val binding get() = _binding!!
 
     /**
      * 0 普通足迹
@@ -40,7 +42,8 @@ class CityFootprintFragment : BaseMvpFragment<FootprintPresenter>(), FootprintVi
     override fun getLayoutId() = R.layout.fragment_refresh_list
 
     override fun initView(view: View) {
-        swipe_layout.apply {
+        _binding = FragmentRefreshListBinding.bind(requireNotNull(view))
+        binding.swipeLayout.apply {
             setBackgroundColor(Color.WHITE)
             setOnRefreshListener {
                 page = Constant.DEFAULT_FIRST_PAGE
@@ -64,7 +67,7 @@ class CityFootprintFragment : BaseMvpFragment<FootprintPresenter>(), FootprintVi
                 presenter.getData(page, type)
             }
         }
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             addItemDecoration(DividerDecoration(Color.WHITE, SizeUtils.dp2px(15f), 0, 0))
         }
@@ -76,6 +79,13 @@ class CityFootprintFragment : BaseMvpFragment<FootprintPresenter>(), FootprintVi
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun loadOnVisible() {
         presenter.getData(page, type)
     }
@@ -85,8 +95,8 @@ class CityFootprintFragment : BaseMvpFragment<FootprintPresenter>(), FootprintVi
 
 
     override fun bindData(data: MutableList<Footprint>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
 
         val loadMoreModule = mAdapter.loadMoreModule

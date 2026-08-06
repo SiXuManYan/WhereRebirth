@@ -30,9 +30,10 @@ import com.jiechengsheng.city.features.payment.counter.PayCounterActivity
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_takeaway_order_detail_2.*
 import org.greenrobot.eventbus.EventBus
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivityTakeawayOrderDetail2Binding
+import android.view.ViewGroup
 
 
 /**
@@ -40,6 +41,8 @@ import java.math.BigDecimal
  * 美食外卖模块订单详情
  */
 class TakeawayOrderDetailActivity : BaseMvpActivity<TakeawayOrderDetailPresenter>(), TakeawayOrderDetailView {
+
+    private lateinit var binding: ActivityTakeawayOrderDetail2Binding
 
     private var orderId = 0;
     private var contactNumber = "";
@@ -62,6 +65,7 @@ class TakeawayOrderDetailActivity : BaseMvpActivity<TakeawayOrderDetailPresenter
     override fun isStatusDark() = true
 
     override fun initView() {
+        binding = ActivityTakeawayOrderDetail2Binding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         BarUtils.setStatusBarColor(this, Color.WHITE)
         val bundle = intent.extras
@@ -72,7 +76,7 @@ class TakeawayOrderDetailActivity : BaseMvpActivity<TakeawayOrderDetailPresenter
         orderId = bundle.getInt(Constant.PARAM_ORDER_ID, 0)
 
         mAdapter = TakeawayGoodDataAdapter()
-        good_rv.apply {
+        binding.goodRv.apply {
             adapter = mAdapter
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.white), SizeUtils.dp2px(10f), 0, 0).apply {
                 setDrawHeaderFooter(false)
@@ -92,22 +96,22 @@ class TakeawayOrderDetailActivity : BaseMvpActivity<TakeawayOrderDetailPresenter
     }
 
     override fun bindListener() {
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             finish()
         }
-        phone_ll.setOnClickListener {
+        binding.phoneLl.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL).apply {
                 data = Uri.parse("tel:$tel")
             }
             startActivity(intent)
         }
-        service_ll.setOnClickListener {
+        binding.serviceLl.setOnClickListener {
             if (merUuid.isBlank()) {
                 return@setOnClickListener
             }
             BusinessUtils.showImUnavailableDialog(this)
         }
-        complaint_tv.setOnClickListener {
+        binding.complaintTv.setOnClickListener {
             // 投诉
             if (alreadyComplaint) {
                 ToastUtils.showShort(R.string.complained_success)
@@ -134,15 +138,15 @@ class TakeawayOrderDetailActivity : BaseMvpActivity<TakeawayOrderDetailPresenter
 
         /** 1-待支付，2-支付审核中，3-交易取消，4-交易关闭，5-待接单，6-已接单，7-待收货，8-交易成功，9-退款中，10-退款成功 11-商家审核中 12-拒绝售后 13-退款失败 */
         val status = orderData.status
-        status_tv.text = BusinessUtils.getTakeawayStatusText(status)
-        status_desc_tv.text = BusinessUtils.getTakeawayOrderStatusDesc(status)
+        binding.statusTv.text = BusinessUtils.getTakeawayStatusText(status)
+        binding.statusDescTv.text = BusinessUtils.getTakeawayOrderStatusDesc(status)
 
         val orderPrice = orderData.price
-        price_tv.text = getString(R.string.price_unit_format, orderPrice.toPlainString())
-        order_number_tv.text = orderData.trade_no
-        created_date_tv.text = orderData.created_at
+        binding.priceTv.text = getString(R.string.price_unit_format, orderPrice.toPlainString())
+        binding.orderNumberTv.text = orderData.trade_no
+        binding.createdDateTv.text = orderData.created_at
 
-        delivery_time_tv.text = if (orderData.delivery_time_type == 1) {
+        binding.deliveryTimeTv.text = if (orderData.delivery_time_type == 1) {
             getString(R.string.delivery_now)
         } else {
             orderData.delivery_time
@@ -151,22 +155,22 @@ class TakeawayOrderDetailActivity : BaseMvpActivity<TakeawayOrderDetailPresenter
         val address = orderData.address
         contactNumber = address.contact_number
         val contactName = address.contact_name
-        address_name_tv.text = address.address
-        contact_name_tv.text = getString(R.string.address_name_format, contactName, contactNumber)
+        binding.addressNameTv.text = address.address
+        binding.contactNameTv.text = getString(R.string.address_name_format, contactName, contactNumber)
 
 
         if (status != 1 && status != 3) {
-            payment_container_ll.visibility = View.VISIBLE
-            pay_way_tv.text = paymentChannel.payment_channel
+            binding.paymentContainerLl.visibility = View.VISIBLE
+            binding.payWayTv.text = paymentChannel.payment_channel
         } else {
-            payment_container_ll.visibility = View.GONE
+            binding.paymentContainerLl.visibility = View.GONE
 
         }
 
-        business_name_tv.text = restaurantName
-        packaging_fee_tv.text = getString(R.string.price_unit_format, orderData.packing_charges.toPlainString())
-        delivery_fee_tv.text = getString(R.string.price_unit_format, orderData.delivery_cost.toPlainString())
-        remarks_tv.text = orderData.remark
+        binding.businessNameTv.text = restaurantName
+        binding.packagingFeeTv.text = getString(R.string.price_unit_format, orderData.packing_charges.toPlainString())
+        binding.deliveryFeeTv.text = getString(R.string.price_unit_format, orderData.delivery_cost.toPlainString())
+        binding.remarksTv.text = orderData.remark
 
         mAdapter.setNewInstance(goodData)
 
@@ -174,16 +178,16 @@ class TakeawayOrderDetailActivity : BaseMvpActivity<TakeawayOrderDetailPresenter
         // 处理底部
         when (status) {
             1 -> {
-                bottom_container_rl.visibility = View.VISIBLE
-                left_tv.apply {
+                binding.bottomContainerRl.visibility = View.VISIBLE
+                binding.leftTv.apply {
                     text = getString(R.string.to_cancel_order)
                     visibility = View.VISIBLE
                 }
-                right_tv.apply {
+                binding.rightTv.apply {
                     text = getString(R.string.to_pay_2)
                     visibility = View.VISIBLE
                 }
-                left_tv.setOnClickListener {
+                binding.leftTv.setOnClickListener {
                     AlertDialog.Builder(this)
                         .setTitle(R.string.prompt)
                         .setMessage(R.string.cancel_order_confirm)
@@ -195,7 +199,7 @@ class TakeawayOrderDetailActivity : BaseMvpActivity<TakeawayOrderDetailPresenter
                         .create().show()
 
                 }
-                right_tv.setOnClickListener {
+                binding.rightTv.setOnClickListener {
                     val orderIds = ArrayList<Int>()
                     orderIds.add(orderId)
                     /*      startActivityAfterLogin(StorePayActivity::class.java, Bundle().apply {
@@ -210,30 +214,30 @@ class TakeawayOrderDetailActivity : BaseMvpActivity<TakeawayOrderDetailPresenter
                 }
             }
             5 -> {
-                bottom_container_rl.visibility = View.VISIBLE
-                left_tv.apply {
+                binding.bottomContainerRl.visibility = View.VISIBLE
+                binding.leftTv.apply {
                     text = getString(R.string.to_refund)
                     visibility = View.VISIBLE
                 }
-                right_tv.apply {
+                binding.rightTv.apply {
                     visibility = View.GONE
                 }
-                left_tv.setOnClickListener {
+                binding.leftTv.setOnClickListener {
                     doRefund(orderPrice)
                 }
             }
             8 -> {
                 if (orderData.comment_status == 1) {
-                    bottom_container_rl.visibility = View.VISIBLE
-                    left_tv.apply {
+                    binding.bottomContainerRl.visibility = View.VISIBLE
+                    binding.leftTv.apply {
 
                         visibility = View.GONE
                     }
-                    right_tv.apply {
+                    binding.rightTv.apply {
                         visibility = View.VISIBLE
                         text = getString(R.string.evaluation)
                     }
-                    right_tv.setOnClickListener {
+                    binding.rightTv.setOnClickListener {
                         startActivity(FoodCommentPostActivity::class.java, Bundle().apply {
                             putInt(Constant.PARAM_ORDER_ID, orderId)
                             putInt(Constant.PARAM_RESTAURANT_ID, restaurantData.id)
@@ -241,12 +245,12 @@ class TakeawayOrderDetailActivity : BaseMvpActivity<TakeawayOrderDetailPresenter
                         })
                     }
                 } else {
-                    bottom_container_rl.visibility = View.GONE
+                    binding.bottomContainerRl.visibility = View.GONE
                 }
             }
             9, 11, 12 -> {
-                bottom_container_rl.visibility = View.VISIBLE
-                left_tv.apply {
+                binding.bottomContainerRl.visibility = View.VISIBLE
+                binding.leftTv.apply {
                     visibility = View.VISIBLE
                     text = StringUtils.getString(R.string.refund_information)
                     setOnClickListener {
@@ -254,11 +258,11 @@ class TakeawayOrderDetailActivity : BaseMvpActivity<TakeawayOrderDetailPresenter
                         viewRefundInfo()
                     }
                 }
-                right_tv.visibility = View.GONE
+                binding.rightTv.visibility = View.GONE
             }
             13 -> {
-                bottom_container_rl.visibility = View.VISIBLE
-                left_tv.apply {
+                binding.bottomContainerRl.visibility = View.VISIBLE
+                binding.leftTv.apply {
                     visibility = View.VISIBLE
                     text = StringUtils.getString(R.string.refund_information)
                     setOnClickListener {
@@ -266,7 +270,7 @@ class TakeawayOrderDetailActivity : BaseMvpActivity<TakeawayOrderDetailPresenter
                         viewRefundInfo()
                     }
                 }
-                right_tv.apply {
+                binding.rightTv.apply {
                     visibility = View.VISIBLE
                     text = StringUtils.getString(R.string.apply_again)
                     setOnClickListener {
@@ -276,23 +280,23 @@ class TakeawayOrderDetailActivity : BaseMvpActivity<TakeawayOrderDetailPresenter
                 }
             }
             else -> {
-                bottom_container_rl.visibility = View.GONE
+                binding.bottomContainerRl.visibility = View.GONE
             }
         }
-        bottom_v.visibility = bottom_container_rl.visibility
+        binding.bottomV.visibility = binding.bottomContainerRl.visibility
 
 
         // 投诉
-        complaint_tv.visibility = if (status == 12) View.VISIBLE else View.GONE
+        binding.complaintTv.visibility = if (status == 12) View.VISIBLE else View.GONE
 
         // 退款失败
         if (status == 13) {
-            fail_reason_rl.visibility = View.VISIBLE
-            reason_split_v.visibility = View.VISIBLE
-            fail_reason_tv.text = orderData.error_reason
+            binding.failReasonRl.visibility = View.VISIBLE
+            binding.reasonSplitV.visibility = View.VISIBLE
+            binding.failReasonTv.text = orderData.error_reason
         } else {
-            fail_reason_rl.visibility = View.GONE
-            reason_split_v.visibility = View.GONE
+            binding.failReasonRl.visibility = View.GONE
+            binding.reasonSplitV.visibility = View.GONE
         }
 
     }

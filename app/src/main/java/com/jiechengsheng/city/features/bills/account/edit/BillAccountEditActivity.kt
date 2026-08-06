@@ -15,14 +15,17 @@ import com.jiechengsheng.city.features.bills.account.BillAccountPresenter
 import com.jiechengsheng.city.features.bills.account.BillAccountView
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_bills_account_edit.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityBillsAccountEditBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/12/9 14:53.
  * 缴费历史账号 添加和编辑
  */
 class BillAccountEditActivity : BaseMvpActivity<BillAccountPresenter>(), BillAccountView {
+
+    private lateinit var binding: ActivityBillsAccountEditBinding
 
     /** 账单类型（1-话费，2-水费，3-电费，4-网费） */
     private var billsType = 0
@@ -35,6 +38,7 @@ class BillAccountEditActivity : BaseMvpActivity<BillAccountPresenter>(), BillAcc
     override fun getLayoutId() = R.layout.activity_bills_account_edit
 
     override fun initView() {
+        binding = ActivityBillsAccountEditBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         intent.extras?.let {
             billsType = it.getInt(Constant.PARAM_TYPE)
             cacheData = it.getParcelable<BillAccount>(Constant.PARAM_DATA)
@@ -51,13 +55,13 @@ class BillAccountEditActivity : BaseMvpActivity<BillAccountPresenter>(), BillAcc
     override fun initData() {
         presenter = BillAccountPresenter(this)
         if (cacheData != null) {
-            delete_tv.visibility = View.VISIBLE
-            account_et.setText(cacheData!!.first_field)
-            account_name_et.setText(cacheData!!.second_field)
-            select_tv.isChecked = cacheData!!.status == 1
-            title_tv.setText(R.string.edit_account)
+            binding.deleteTv.visibility = View.VISIBLE
+            binding.accountEt.setText(cacheData!!.first_field)
+            binding.accountNameEt.setText(cacheData!!.second_field)
+            binding.selectTv.isChecked = cacheData!!.status == 1
+            binding.titleTv.setText(R.string.edit_account)
         } else {
-            title_tv.setText(R.string.add_account)
+            binding.titleTv.setText(R.string.add_account)
         }
 
     }
@@ -74,19 +78,19 @@ class BillAccountEditActivity : BaseMvpActivity<BillAccountPresenter>(), BillAcc
                 afterTextChanged = {
                     val result = it.toString().trim()
                     if (result.isBlank()) {
-                        BusinessUtils.setViewClickable(false, save_tv)
+                        BusinessUtils.setViewClickable(false, binding.saveTv)
                     } else {
                         val isBlank = BusinessUtils.checkEditBlank(allEditView)
-                        BusinessUtils.setViewClickable(!isBlank, save_tv)
+                        BusinessUtils.setViewClickable(!isBlank, binding.saveTv)
                     }
                 }
             )
         }
 
-        save_tv.setOnClickListener {
+        binding.saveTv.setOnClickListener {
 
-            val first = account_et.text.toString().trim()
-            val second = account_name_et.text.toString().trim()
+            val first = binding.accountEt.text.toString().trim()
+            val second = binding.accountNameEt.text.toString().trim()
             if (first.isBlank() || second.isBlank()) {
                 return@setOnClickListener
             }
@@ -95,22 +99,22 @@ class BillAccountEditActivity : BaseMvpActivity<BillAccountPresenter>(), BillAcc
                 presenter.editAccount(billsType,
                     first,
                     second,
-                    select_tv.isChecked, cacheData!!.id)
+                    binding.selectTv.isChecked, cacheData!!.id)
             } else {
                 presenter.addAccount(billsType,
                     first,
                     second,
-                    select_tv.isChecked)
+                    binding.selectTv.isChecked)
             }
         }
 
-        select_tv.setOnClickListener {
-            val checked = select_tv.isChecked
-            select_tv.isChecked = !checked
+        binding.selectTv.setOnClickListener {
+            val checked = binding.selectTv.isChecked
+            binding.selectTv.isChecked = !checked
 
         }
 
-        delete_tv.setOnClickListener {
+        binding.deleteTv.setOnClickListener {
             AlertDialog.Builder(this)
                 .setCancelable(false)
                 .setMessage(getString(R.string.confirm_delete_account))

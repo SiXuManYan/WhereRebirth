@@ -23,8 +23,9 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.address.AddressActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
-import kotlinx.android.synthetic.main.activity_integral_place_order.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityIntegralPlaceOrderBinding
+import android.view.ViewGroup
 
 
 /**
@@ -32,6 +33,8 @@ import org.greenrobot.eventbus.EventBus
  * 优惠券下单
  */
 class IntegralOrderActivity : BaseMvpActivity<IntegralOrderPresenter>(), IntegralOrderView {
+
+    private lateinit var binding: ActivityIntegralPlaceOrderBinding
 
 
     var goodId = 0
@@ -86,20 +89,21 @@ class IntegralOrderActivity : BaseMvpActivity<IntegralOrderPresenter>(), Integra
 
             val selectData = bundle.getSerializable(Constant.PARAM_DATA) as AddressResponse
             mSelectAddressData = selectData
-            select_address_tv.text = selectData.address
-            address_rl.visibility = ViewGroup.VISIBLE
+            binding.selectAddressTv.text = selectData.address
+            binding.addressRl.visibility = ViewGroup.VISIBLE
             val sex = if (selectData.sex == 1) {
                 getString(R.string.sir)
             } else {
                 getString(R.string.lady)
             }
-            address_name_tv.text = getString(R.string.recipient_format, selectData.contact_name, sex, selectData.contact_number)
-            phone_tv.text = selectData.contact_number
+            binding.addressNameTv.text = getString(R.string.recipient_format, selectData.contact_name, sex, selectData.contact_number)
+            binding.phoneTv.text = selectData.contact_number
         }
     }
 
 
     override fun initView() {
+        binding = ActivityIntegralPlaceOrderBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         initExtra()
     }
@@ -114,27 +118,27 @@ class IntegralOrderActivity : BaseMvpActivity<IntegralOrderPresenter>(), Integra
         }
 
         if (couponType == 1) {
-            address_ll.visibility = View.VISIBLE
+            binding.addressLl.visibility = View.VISIBLE
         } else {
-            address_ll.visibility = View.GONE
+            binding.addressLl.visibility = View.GONE
         }
     }
 
     override fun initData() {
         presenter = IntegralOrderPresenter(this)
 
-        GlideUtil.load(this, image, good_iv)
-        good_name_tv.text = title
-        payable_tv.text = getString(R.string.points_format, price)
+        GlideUtil.load(this, image, binding.goodIv)
+        binding.goodNameTv.text = title
+        binding.payableTv.text = getString(R.string.points_format, price)
 
     }
 
     override fun bindListener() {
-        select_address_rl.setOnClickListener {
+        binding.selectAddressRl.setOnClickListener {
             searchLauncher.launch(Intent(this, AddressActivity::class.java).putExtra(Constant.PARAM_HANDLE_SELECT, true))
         }
 
-        confirm_tv.setOnClickListener {
+        binding.confirmTv.setOnClickListener {
 
             if (couponType == 1 && mSelectAddressData == null) {
                 ToastUtils.showShort(R.string.choose_shipping_address)

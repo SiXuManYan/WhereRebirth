@@ -12,14 +12,16 @@ import com.jiechengsheng.city.features.job.home.JobHomePresenter
 import com.jiechengsheng.city.features.job.home.JobHomeView
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_job_search_result.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityJobSearchResultBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/9/28 10:08.
  * 职位搜素结果
  */
 class JobSearchResultActivity : BaseMvpActivity<JobHomePresenter>(), JobHomeView, SwipeRefreshLayout.OnRefreshListener {
+
+    private lateinit var binding: ActivityJobSearchResultBinding
 
     private var page = Constant.DEFAULT_FIRST_PAGE
     private lateinit var mAdapter: JobHomeAdapter
@@ -33,15 +35,16 @@ class JobSearchResultActivity : BaseMvpActivity<JobHomePresenter>(), JobHomeView
     override fun getLayoutId() = R.layout.activity_job_search_result
 
     override fun initView() {
+        binding = ActivityJobSearchResultBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         search = intent.getStringExtra(Constant.PARAM_NAME)
-        search_tv.text = search
+        binding.searchTv.text = search
 
         initContent()
     }
 
     private fun initContent() {
 
-        swipe_layout.setOnRefreshListener(this)
+        binding.swipeLayout.setOnRefreshListener(this)
         emptyView = EmptyView(this)
         emptyView.showEmptyDefault()
         addEmptyList(emptyView)
@@ -58,7 +61,7 @@ class JobSearchResultActivity : BaseMvpActivity<JobHomePresenter>(), JobHomeView
 
 
         val manager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        recycler_view.apply {
+        binding.recyclerView.apply {
             adapter = mAdapter
             layoutManager = manager
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.grey_F5F5F5),
@@ -75,7 +78,7 @@ class JobSearchResultActivity : BaseMvpActivity<JobHomePresenter>(), JobHomeView
     }
 
     override fun bindListener() {
-        search_ll.setOnClickListener { finish() }
+        binding.searchLl.setOnClickListener { finish() }
     }
 
 
@@ -85,8 +88,8 @@ class JobSearchResultActivity : BaseMvpActivity<JobHomePresenter>(), JobHomeView
     }
 
     override fun bindJobList(toMutableList: MutableList<Job>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
         val loadMoreModule = mAdapter.loadMoreModule
         if (toMutableList.isEmpty()) {

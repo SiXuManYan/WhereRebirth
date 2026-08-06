@@ -16,15 +16,17 @@ import com.jiechengsheng.city.features.map.MechanismAdapter
 import com.jiechengsheng.city.features.mechanism.MechanismActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_yellow_page_search_result.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityYellowPageSearchResultBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/9/3 14:57.
  * 企业黄页搜索结果
  */
 class YellowPageSearchResultActivity : BaseMvpActivity<YellowPageSearchResultPresenter>(), YellowPageSearchResultView,
     OnItemClickListener, OnLoadMoreListener {
+
+    private lateinit var binding: ActivityYellowPageSearchResultBinding
 
 
     private var search = ""
@@ -40,13 +42,14 @@ class YellowPageSearchResultActivity : BaseMvpActivity<YellowPageSearchResultPre
 
 
     override fun initView() {
+        binding = ActivityYellowPageSearchResultBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, ColorUtils.getColor(R.color.white))
         val bundle = intent.extras ?: return
         search = bundle.getString(Constant.PARAM_NAME, "")
         categoryId = bundle.getString(Constant.PARAM_CATEGORY_ID, "")
 
         //
-        search_tv.text = search
+        binding.searchTv.text = search
         emptyView = EmptyView(this).apply {
             initEmpty(R.mipmap.ic_empty_search, R.string.empty_search, R.string.empty_search_hint)
             addEmptyList(this)
@@ -59,8 +62,8 @@ class YellowPageSearchResultActivity : BaseMvpActivity<YellowPageSearchResultPre
             loadMoreModule.setOnLoadMoreListener(this@YellowPageSearchResultActivity)
         }
 
-        content_rv.adapter = mAdapter
-        content_rv.addItemDecoration(
+        binding.contentRv.adapter = mAdapter
+        binding.contentRv.addItemDecoration(
             DividerDecoration(Color.TRANSPARENT, SizeUtils.dp2px(15f), 0, 0).apply {
                 setDrawHeaderFooter(true)
             })
@@ -79,8 +82,8 @@ class YellowPageSearchResultActivity : BaseMvpActivity<YellowPageSearchResultPre
     }
 
     override fun bindListener() {
-        back_iv.setOnClickListener { finish() }
-        search_ll.setOnClickListener { finish() }
+        binding.backIv.setOnClickListener { finish() }
+        binding.searchLl.setOnClickListener { finish() }
 
     }
 

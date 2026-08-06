@@ -20,14 +20,16 @@ import com.jiechengsheng.city.features.address.AddressActivity
 import com.jiechengsheng.city.features.payment.counter.PayCounterActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_store_order_commit.*
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivityStoreOrderCommitBinding
 
 /**
  * Created by Wangsw  2021/6/21 10:26.
- *  商城提交订单
+ *  鍟嗗煄鎻愪氦璁㈠崟
  */
 class StoreOrderCommitActivity : BaseMvpActivity<StoreOrderCommitPresenter>(), StoreOrderCommitView {
+
+    private lateinit var binding: ActivityStoreOrderCommitBinding
 
 
     private var totalPrice: BigDecimal = BigDecimal.ZERO
@@ -35,28 +37,28 @@ class StoreOrderCommitActivity : BaseMvpActivity<StoreOrderCommitPresenter>(), S
 
     private var data: ArrayList<StoreOrderCommitData> = ArrayList()
 
-    /** 收货地址 */
+    /** 鏀惰揣鍦板潃 */
     var mSelectAddressData: AddressResponse? = null
 
     private lateinit var mAdapter: StoreOrderCommitAdapter
 
 
-    /** 处理选择地址 */
+    /** 澶勭悊閫夋嫨鍦板潃 */
     private val searchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == Activity.RESULT_OK) {
             val bundle = it.data?.extras ?: return@registerForActivityResult
 
             val selectData = bundle.getSerializable(Constant.PARAM_DATA) as AddressResponse
             mSelectAddressData = selectData
-            select_address_tv.text = selectData.address
-            address_value_ll.visibility = ViewGroup.VISIBLE
+            binding.selectAddressTv.text = selectData.address
+            binding.addressValueLl.visibility = ViewGroup.VISIBLE
             val sex = if (selectData.sex == 1) {
                 getString(R.string.sir)
             } else {
                 getString(R.string.lady)
             }
-            address_name_tv.text = getString(R.string.recipient_format, selectData.contact_name, sex, selectData.contact_number)
-            phone_tv.text = selectData.contact_number
+            binding.addressNameTv.text = getString(R.string.recipient_format, selectData.contact_name, sex, selectData.contact_number)
+            binding.phoneTv.text = selectData.contact_number
         }
     }
 
@@ -64,6 +66,7 @@ class StoreOrderCommitActivity : BaseMvpActivity<StoreOrderCommitPresenter>(), S
     override fun getLayoutId() = R.layout.activity_store_order_commit
 
     override fun initView() {
+        binding = ActivityStoreOrderCommitBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         val bundle = intent.extras
         bundle?.let {
@@ -76,7 +79,7 @@ class StoreOrderCommitActivity : BaseMvpActivity<StoreOrderCommitPresenter>(), S
 
     private fun initContent() {
         mAdapter = StoreOrderCommitAdapter()
-        content_rv.apply {
+        binding.contentRv.apply {
             adapter = mAdapter
             addItemDecoration(
                 DividerDecoration(
@@ -88,13 +91,13 @@ class StoreOrderCommitActivity : BaseMvpActivity<StoreOrderCommitPresenter>(), S
         if (data.isNotEmpty()) {
             mAdapter.setNewInstance(data)
             if (data[0].delivery_type == 1) {
-                delivery_value_tv.text = getString(R.string.self_extraction)
-                address_ll.visibility = View.GONE
-                phone_rl.visibility = View.VISIBLE
+                binding.deliveryValueTv.text = getString(R.string.self_extraction)
+                binding.addressLl.visibility = View.GONE
+                binding.phoneRl.visibility = View.VISIBLE
             } else {
-                delivery_value_tv.text = getString(R.string.express)
-                address_ll.visibility = View.VISIBLE
-                phone_rl.visibility = View.GONE
+                binding.deliveryValueTv.text = getString(R.string.express)
+                binding.addressLl.visibility = View.VISIBLE
+                binding.phoneRl.visibility = View.GONE
             }
         }
 
@@ -107,19 +110,19 @@ class StoreOrderCommitActivity : BaseMvpActivity<StoreOrderCommitPresenter>(), S
     override fun initData() {
         presenter = StoreOrderCommitPresenter(this)
         totalPrice = presenter.handlePrice(mAdapter)
-        total_price_tv.text = getString(R.string.price_unit_format, totalPrice.toPlainString())
+        binding.totalPriceTv.text = getString(R.string.price_unit_format, totalPrice.toPlainString())
     }
 
 
     override fun bindListener() {
-        address_ll.setOnClickListener {
+        binding.addressLl.setOnClickListener {
             searchLauncher.launch(Intent(this, AddressActivity::class.java).putExtra(Constant.PARAM_HANDLE_SELECT, true))
         }
 
-        submit_tv.setOnClickListener {
+        binding.submitTv.setOnClickListener {
 
             if (data.isNotEmpty()) {
-                val phone = phone_aet.text.toString().trim()
+                val phone = binding.phoneAet.text.toString().trim()
 
                 if (data[0].delivery_type == 1 && phone.isEmpty()) {
                     ToastUtils.showShort(getString(R.string.input_phone_empty_hint))

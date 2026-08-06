@@ -17,14 +17,16 @@ import com.jiechengsheng.city.features.payment.counter.PayCounterPresenter
 import com.jiechengsheng.city.features.payment.counter.PayCounterView
 import com.jiechengsheng.city.features.payment.result.PayResultActivity
 import com.jiechengsheng.city.storage.entity.User
-import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_web_pay.*
-
+import com.jiechengsheng.city.utils.Constant
+import com.jiechengsheng.city.databinding.ActivityWebPayBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2023/3/15 9:51.
  * 网页支付
  */
 class WebPaymentActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterView {
+
+    private lateinit var binding: ActivityWebPayBinding
 
 
     /** 订单 Id */
@@ -91,10 +93,11 @@ class WebPaymentActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterVie
     override fun isStatusDark() = true
 
     override fun initView() {
+        binding = ActivityWebPayBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         overridePendingTransition(R.anim.bottom_in, R.anim.bottom_silent)
         initExtra()
 
-        empty_view.apply {
+        binding.emptyView.apply {
             setEmptyImage(R.mipmap.ic_pay_info_error)
             setEmptyMessage(R.string.pay_error_title)
             setEmptyHint(R.string.pay_error_hint)
@@ -104,10 +107,10 @@ class WebPaymentActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterVie
     }
 
     private fun initWeb() {
-        web_view.webViewClient = object : WebViewClient() {
+        binding.webView.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                empty_view.visibility = View.GONE
+                binding.emptyView.visibility = View.GONE
             }
 
             override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
@@ -123,7 +126,7 @@ class WebPaymentActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterVie
 
 
         }
-        web_view.webChromeClient = object : WebChromeClient() {
+        binding.webView.webChromeClient = object : WebChromeClient() {
 
 
             override fun onReceivedTitle(view: WebView?, title: String?) {
@@ -140,16 +143,16 @@ class WebPaymentActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterVie
                 if (newProgress == 100) {
 
                     if (webError) {
-                        empty_view.apply {
+                        binding.emptyView.apply {
                             setEmptyImage(R.mipmap.ic_empty_system_upgrade)
                             empty_message_tv.visibility = View.GONE
                             setEmptyHint(R.string.pay_error_hint_system_update)
 
                         }
-                        empty_view.visibility = View.VISIBLE
-                        empty_view.showEmptyContainer()
+                        binding.emptyView.visibility = View.VISIBLE
+                        binding.emptyView.showEmptyContainer()
                     } else {
-                        empty_view.visibility = View.GONE
+                        binding.emptyView.visibility = View.GONE
                     }
                 }
             }
@@ -195,7 +198,7 @@ class WebPaymentActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterVie
 
 
     override fun payFinish(redirectUrl: String) {
-        web_view.loadUrl(redirectUrl)
+        binding.webView.loadUrl(redirectUrl)
     }
 
 
@@ -207,8 +210,8 @@ class WebPaymentActivity : BaseMvpActivity<PayCounterPresenter>(), PayCounterVie
 
     override fun onError(errorResponse: ErrorResponse?) {
         super.onError(errorResponse)
-        empty_view.visibility = View.VISIBLE
-        empty_view.showEmptyContainer()
+        binding.emptyView.visibility = View.VISIBLE
+        binding.emptyView.showEmptyContainer()
     }
 
 

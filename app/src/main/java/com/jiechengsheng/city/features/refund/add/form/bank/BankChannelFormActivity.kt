@@ -12,10 +12,11 @@ import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.features.refund.add.form.bank.child.BankListActivity
 import com.jiechengsheng.city.features.refund.add.verify.RefundBindVerifyActivity
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_refund_channel_bank_form.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
+import org.greenrobot.eventbus.ThreadMode
+import com.jiechengsheng.city.databinding.ActivityRefundChannelBankFormBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/4/26 9:37.
@@ -23,6 +24,8 @@ import org.greenrobot.eventbus.ThreadMode
  */
 @Deprecated("新版绑定退款渠道不必区分银行和第三方")
 class BankChannelFormActivity : BaseActivity() {
+
+    private lateinit var binding: ActivityRefundChannelBankFormBinding
 
     /** 渠道名 */
     private var channelName = ""
@@ -46,7 +49,7 @@ class BankChannelFormActivity : BaseActivity() {
             Activity.RESULT_OK -> {
                 bankShortName = bundle.getString(Constant.PARAM_BANK_SHORT_NAME, "")
                 bankAllName = bundle.getString(Constant.PARAM_BANK_ALL_NAME, "")
-                select_bank_tv.text = bankAllName
+                binding.selectBankTv.text = bankAllName
             }
 
         }
@@ -59,14 +62,15 @@ class BankChannelFormActivity : BaseActivity() {
     override fun getLayoutId() = R.layout.activity_refund_channel_bank_form
 
     override fun initView() {
+        binding = ActivityRefundChannelBankFormBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initExtra()
-        user_name_et.addTextChangedListener(
+        binding.userNameEt.addTextChangedListener(
             afterTextChanged = {
                 userName = it.toString().trim()
                 handleAlpha()
             }
         )
-        bank_account_et.addTextChangedListener(
+        binding.bankAccountEt.addTextChangedListener(
             afterTextChanged = {
                 accountNumber = it.toString().trim()
                 handleAlpha()
@@ -88,9 +92,9 @@ class BankChannelFormActivity : BaseActivity() {
 
     private fun handleAlpha() {
         if (userName.isNotBlank() && accountNumber.isNotBlank() && bankShortName.isNotBlank()) {
-            next_tv.alpha = 1.0f
+            binding.nextTv.alpha = 1.0f
         } else {
-            next_tv.alpha = 0.5f
+            binding.nextTv.alpha = 0.5f
         }
 
     }
@@ -98,11 +102,11 @@ class BankChannelFormActivity : BaseActivity() {
     override fun initData() = Unit
 
     override fun bindListener() {
-        select_bank_tv.setOnClickListener {
+        binding.selectBankTv.setOnClickListener {
             launcher.launch(Intent(this, BankListActivity::class.java).putExtra(Constant.PARAM_BANK_SHORT_NAME, bankShortName))
         }
 
-        next_tv.setOnClickListener {
+        binding.nextTv.setOnClickListener {
             if (bankShortName.isBlank()) {
                 ToastUtils.showShort(R.string.please_selected_bank_hint)
                 return@setOnClickListener

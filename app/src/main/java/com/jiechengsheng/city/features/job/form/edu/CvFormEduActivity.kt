@@ -29,26 +29,27 @@ import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.OnWorkTimeSelected
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_job_cv_edu.*
-
 import me.shaohui.bottomdialog.BottomDialog
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityJobCvEduBinding
 
 /**
  * Created by Wangsw  2022/10/20 14:48.
- * 教育背景
+ * 鏁欒偛鑳屾櫙
  */
 class CvFormEduActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView {
 
+    private lateinit var binding: ActivityJobCvEduBinding
+
     /**
-     * 教育经历id
-     * 不为0时为修改内容
+     * 鏁欒偛缁忓巻id
+     * 涓嶄负0鏃朵负淇敼鍐呭
      */
     private var draftEduId = 0
 
     private var eduRequest = EduRequest()
 
-    /** 专业标题 */
+    /** 涓撲笟鏍囬 */
     private var extendTitle: String? = ""
 
     var lastDegreeId = 0
@@ -65,9 +66,10 @@ class CvFormEduActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView {
     override fun getLayoutId() = R.layout.activity_job_cv_edu
 
     override fun initView() {
+        binding = ActivityJobCvEduBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         draftEduId = intent.getIntExtra(Constant.PARAM_ID, 0)
         if (draftEduId > 0) {
-            delete_tv.visibility = View.VISIBLE
+            binding.deleteTv.visibility = View.VISIBLE
         }
         initDegree()
 
@@ -79,26 +81,26 @@ class CvFormEduActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView {
 
             setOnItemClickListener { _, _, position ->
 
-                // 学历
+                // 瀛﹀巻
                 val degree = mDegreeAdapter.data[position]
                 val id = degree.id
                 eduRequest.educational_level_id = id
-                degree_tv.text = degree.educational_level
+                binding.degreeTv.text = degree.educational_level
 
                 mDegreeAdapter.data.forEach {
                     it.nativeSelected = it.id == id
                 }
                 mDegreeAdapter.notifyDataSetChanged()
 
-                // 显示专业
+                // 鏄剧ず涓撲笟
                 extendTitle = degree.extend_title
                 if (extendTitle.isNullOrBlank()) {
-                    extend_title_ll.visibility = View.GONE
+                    binding.extendTitleLl.visibility = View.GONE
                 } else {
-                    extend_title_ll.visibility = View.VISIBLE
-                    extend_title_tv.text = extendTitle
+                    binding.extendTitleLl.visibility = View.VISIBLE
+                    binding.extendTitleTv.text = extendTitle
                 }
-                extend_value_et.setText("")
+                binding.extendValueEt.setText("")
                 eduRequest.vocational_course = ""
 
                 degreeDialog?.dismiss()
@@ -114,13 +116,13 @@ class CvFormEduActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView {
 
         startDialog = BusinessUtils.showYearDialog(this, object : OnWorkTimeSelected {
             override fun onWorkTimeSelected(string: String) {
-                start_date_tv.text = string
+                binding.startDateTv.text = string
             }
         })
 
         endDialog = BusinessUtils.showYearDialog(this, object : OnWorkTimeSelected {
             override fun onWorkTimeSelected(string: String) {
-                end_date_tv.text = string
+                binding.endDateTv.text = string
             }
         })
 
@@ -128,26 +130,26 @@ class CvFormEduActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView {
     }
 
     override fun bindListener() {
-        school_name_et.addTextChangedListener(afterTextChanged = {
+        binding.schoolNameEt.addTextChangedListener(afterTextChanged = {
             eduRequest.educational_attainment = it.toString().trim()
             handleClickable()
         })
 
-        extend_value_et.addTextChangedListener(afterTextChanged = {
+        binding.extendValueEt.addTextChangedListener(afterTextChanged = {
             eduRequest.vocational_course = it.toString().trim()
             handleClickable()
         })
-        start_date_tv.addTextChangedListener(afterTextChanged = {
+        binding.startDateTv.addTextChangedListener(afterTextChanged = {
             eduRequest.start_date = it.toString().trim()
             handleClickable()
         })
 
-        end_date_tv.addTextChangedListener(afterTextChanged = {
+        binding.endDateTv.addTextChangedListener(afterTextChanged = {
             eduRequest.end_date = it.toString().trim()
             handleClickable()
         })
 
-        degree_tv.setOnClickListener {
+        binding.degreeTv.setOnClickListener {
             if (degreeDialog != null) {
                 degreeDialog?.show()
             } else {
@@ -156,7 +158,7 @@ class CvFormEduActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView {
         }
 
 
-        delete_tv.setOnClickListener {
+        binding.deleteTv.setOnClickListener {
             AlertDialog.Builder(this, R.style.JobAlertDialogTheme)
                 .setCancelable(false)
                 .setTitle(R.string.hint)
@@ -172,15 +174,15 @@ class CvFormEduActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView {
         }
 
 
-        start_date_tv.setOnClickListener {
+        binding.startDateTv.setOnClickListener {
             startDialog?.show()
         }
 
-        end_date_tv.setOnClickListener {
+        binding.endDateTv.setOnClickListener {
             endDialog?.show()
         }
 
-        save_tv.setOnClickListener(object : ClickUtils.OnDebouncingClickListener(500) {
+        binding.saveTv.setOnClickListener(object : ClickUtils.OnDebouncingClickListener(500) {
             override fun onDebouncingClick(v: View?) {
 
                 val startDate = eduRequest.start_date
@@ -202,14 +204,14 @@ class CvFormEduActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView {
     override fun bindEduDet(response: EduDet) {
 
         val schoolName = response.educational_attainment
-        school_name_et.setText(schoolName)
+        binding.schoolNameEt.setText(schoolName)
 
 
-        // 学历
+        // 瀛﹀巻
         val degree = response.educational_level
         lastDegreeId = degree.id
-        degree_tv.text = degree.educational_level
-        extend_title_tv.text = degree.extend_title
+        binding.degreeTv.text = degree.educational_level
+        binding.extendTitleTv.text = degree.extend_title
 
         mDegreeAdapter.data.forEach {
             if (it.id == lastDegreeId) {
@@ -221,19 +223,19 @@ class CvFormEduActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView {
 
         val vocationalCourse = response.vocational_course
         if (vocationalCourse.isNullOrBlank()) {
-            extend_title_ll.visibility = View.GONE
+            binding.extendTitleLl.visibility = View.GONE
         } else {
-            extend_value_et.setText(vocationalCourse)
-            extend_title_ll.visibility = View.VISIBLE
+            binding.extendValueEt.setText(vocationalCourse)
+            binding.extendTitleLl.visibility = View.VISIBLE
         }
 
         val startDate = response.start_date
         val endDate = response.end_date
-        start_date_tv.text = startDate
-        end_date_tv.text = endDate
+        binding.startDateTv.text = startDate
+        binding.endDateTv.text = endDate
 
 
-        // 修改备用
+        // 淇敼澶囩敤
         eduRequest.apply {
             this.educational_attainment = schoolName
             this.educational_level_id = degree.id
@@ -242,7 +244,7 @@ class CvFormEduActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView {
             this.end_date = endDate
         }
 
-        // 处理历史数据是否可提交
+        // 澶勭悊鍘嗗彶鏁版嵁鏄惁鍙彁浜?
         handleClickable()
 
     }
@@ -262,8 +264,8 @@ class CvFormEduActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView {
                 return
             } else {
                 if (course.isNullOrBlank()) {
-                    save_tv.isClickable = false
-                    save_tv.alpha = 0.5f
+                    binding.saveTv.isClickable = false
+                    binding.saveTv.alpha = 0.5f
                     return
                 } else {
                     checkDate(startDate, endDate)
@@ -272,8 +274,8 @@ class CvFormEduActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView {
             }
 
         } else {
-            save_tv.isClickable = false
-            save_tv.alpha = 0.5f
+            binding.saveTv.isClickable = false
+            binding.saveTv.alpha = 0.5f
             return
         }
 
@@ -282,11 +284,11 @@ class CvFormEduActivity : BaseMvpActivity<CvFormPresenter>(), CvFormView {
 
     private fun checkDate(startDate: String, endDate: String) {
         if (startDate.isNotBlank() && endDate.isNotBlank()) {
-            save_tv.isClickable = true
-            save_tv.alpha = 1.0f
+            binding.saveTv.isClickable = true
+            binding.saveTv.alpha = 1.0f
         } else {
-            save_tv.isClickable = false
-            save_tv.alpha = 0.5f
+            binding.saveTv.isClickable = false
+            binding.saveTv.alpha = 0.5f
         }
     }
 

@@ -8,16 +8,19 @@ import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.features.refund.add.verify.RefundBindVerifyActivity
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_refund_channel_third_form.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
+import org.greenrobot.eventbus.ThreadMode
+import com.jiechengsheng.city.databinding.ActivityRefundChannelThirdFormBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/4/26 9:37.
  * 绑定第三方退款渠道
  */
 class ThirdChannelFormActivity : BaseActivity() {
+
+    private lateinit var binding: ActivityRefundChannelThirdFormBinding
 
     /** 渠道名 */
     private var channelName = ""
@@ -35,16 +38,17 @@ class ThirdChannelFormActivity : BaseActivity() {
     override fun getLayoutId() = R.layout.activity_refund_channel_third_form
 
     override fun initView() {
+        binding = ActivityRefundChannelThirdFormBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         initExtra()
-        user_name_et.addTextChangedListener(
+        binding.userNameEt.addTextChangedListener(
             afterTextChanged = {
                 userName = it.toString().trim()
                 handleAlpha()
             }
         )
 
-        bank_account_et.addTextChangedListener(
+        binding.bankAccountEt.addTextChangedListener(
             afterTextChanged = {
                 accountNumber = it.toString().trim()
                 handleAlpha()
@@ -68,9 +72,9 @@ class ThirdChannelFormActivity : BaseActivity() {
 
     private fun handleAlpha() {
         if (userName.isNotBlank() && accountNumber.isNotBlank()) {
-            next_tv.alpha = 1.0f
+            binding.nextTv.alpha = 1.0f
         } else {
-            next_tv.alpha = 0.5f
+            binding.nextTv.alpha = 0.5f
         }
 
     }
@@ -80,7 +84,7 @@ class ThirdChannelFormActivity : BaseActivity() {
     override fun bindListener() {
 
 
-        next_tv.setOnClickListener {
+        binding.nextTv.setOnClickListener {
 
             if (userName.isBlank()) {
                 ToastUtils.showShort(R.string.edit_account_name_hint)

@@ -19,14 +19,16 @@ import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_refresh_list.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityRefreshListBinding
 
 /**
  * Created by Wangsw  2023/3/9 15:25.
- * 已绑定渠道列表
+ * 宸茬粦瀹氭笭閬撳垪琛?
  */
 class TokenizedActivity : BaseMvpActivity<TokenizedPresenter>(), TokenizedView, OnItemChildClickListener {
+
+    private lateinit var binding: ActivityRefreshListBinding
 
     private var index = -1
 
@@ -38,9 +40,10 @@ class TokenizedActivity : BaseMvpActivity<TokenizedPresenter>(), TokenizedView, 
     override fun getLayoutId() = R.layout.activity_refresh_list
 
     override fun initView() {
+        binding = ActivityRefreshListBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         mJcsTitle.setMiddleTitle(R.string.set_up_tokenized_pay)
-        container_ll.setBackgroundColor(Color.WHITE)
-        recycler.setBackgroundColor(ColorUtils.getColor(R.color.grey_F5F5F5))
+        binding.containerLl.setBackgroundColor(Color.WHITE)
+        binding.recycler.setBackgroundColor(ColorUtils.getColor(R.color.grey_F5F5F5))
 
         initContent()
     }
@@ -59,7 +62,7 @@ class TokenizedActivity : BaseMvpActivity<TokenizedPresenter>(), TokenizedView, 
         }
 
         val manager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             layoutManager = manager
             addItemDecoration(DividerDecoration(Color.TRANSPARENT, 1, SizeUtils.dp2px(16f), 0))
@@ -73,13 +76,13 @@ class TokenizedActivity : BaseMvpActivity<TokenizedPresenter>(), TokenizedView, 
     }
 
     override fun bindListener() {
-        swipe_layout.setOnRefreshListener {
+        binding.swipeLayout.setOnRefreshListener {
             presenter.getBoundList()
         }
     }
 
     override fun bindBoundList(data: MutableList<PayCounterChannel>?) {
-        swipe_layout.isRefreshing = false
+        binding.swipeLayout.isRefreshing = false
         if (data.isNullOrEmpty()) emptyView.showEmptyContainer()
         mAdapter.setNewInstance(data)
     }

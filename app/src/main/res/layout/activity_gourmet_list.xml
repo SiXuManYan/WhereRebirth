@@ -270,7 +270,9 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <include layout="@layout/layout_filter" />
+    <include
+        android:id="@+id/filter_layout"
+        layout="@layout/layout_filter" />
 
 
 </RelativeLayout>

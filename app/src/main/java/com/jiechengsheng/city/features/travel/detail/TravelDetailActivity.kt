@@ -31,15 +31,16 @@ import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
 import com.jiechengsheng.city.utils.MobUtil
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.shuyu.gsyvideoplayer.GSYVideoManager
-import kotlinx.android.synthetic.main.activity_travel_detail.*
-
-
+import com.shuyu.gsyvideoplayer.GSYVideoManager
+import com.jiechengsheng.city.databinding.ActivityTravelDetailBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/10/18 16:16.
  *  旅游详情
  */
 class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDetailView {
+
+    private lateinit var binding: ActivityTravelDetailBinding
 
 
     private var travelId = 0
@@ -93,6 +94,7 @@ class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDet
     override fun getLayoutId() = R.layout.activity_travel_detail
 
     override fun initView() {
+        binding = ActivityTravelDetailBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initExtra()
         initScroll()
         initMedia()
@@ -110,12 +112,12 @@ class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDet
 
     private fun initScroll() {
         // alpha
-        useView.setBackgroundColor(getColor(R.color.white))
-        toolbar.setBackgroundColor(getColor(R.color.white))
-        useView.background.alpha = 0
-        toolbar.background.alpha = 0
-        scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
-            val headHeight = media_fl.measuredHeight - toolbar.measuredHeight
+        binding.useView.setBackgroundColor(getColor(R.color.white))
+        binding.toolbar.setBackgroundColor(getColor(R.color.white))
+        binding.useView.background.alpha = 0
+        binding.toolbar.background.alpha = 0
+        binding.scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
+            val headHeight = binding.mediaFl.measuredHeight - binding.toolbar.measuredHeight
             var alpha = (y.toFloat() / headHeight * 255).toInt()
             if (alpha >= 255) {
                 alpha = 255
@@ -128,8 +130,8 @@ class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDet
             setBackImage()
             setShareImage()
 
-            useView.background.alpha = alpha
-            toolbar.background.alpha = alpha
+            binding.useView.background.alpha = alpha
+            binding.toolbar.background.alpha = alpha
 
             changeStatusTextColor()
         }
@@ -144,10 +146,10 @@ class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDet
         mCommentAdapter = HotelCommentAdapter().apply {
             setEmptyView(emptyView)
         }
-        comment_rv.layoutManager = object : LinearLayoutManager(this, VERTICAL, false) {
+        binding.commentRv.layoutManager = object : LinearLayoutManager(this, VERTICAL, false) {
             override fun canScrollVertically(): Boolean = false
         }
-        comment_rv.adapter = mCommentAdapter
+        binding.commentRv.adapter = mCommentAdapter
 
 
     }
@@ -157,13 +159,13 @@ class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDet
      */
     private fun initMedia() {
         mMediaAdapter = DetailMediaAdapter()
-        PagerSnapHelper().attachToRecyclerView(media_rv)
+        PagerSnapHelper().attachToRecyclerView(binding.mediaRv)
 
-        media_rv.apply {
+        binding.mediaRv.apply {
             layoutManager = LinearLayoutManager(this@TravelDetailActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = mMediaAdapter
         }
-        media_rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.mediaRv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             @SuppressLint("NotifyDataSetChanged")
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
 
@@ -189,7 +191,7 @@ class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDet
 
                 }
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    point_view.onPageSelected(firstItemPosition)
+                    binding.pointView.onPageSelected(firstItemPosition)
                 }
 
 
@@ -207,7 +209,7 @@ class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDet
 
     private fun setLikeImage() {
 
-        like_iv.setImageResource(
+        binding.likeIv.setImageResource(
             if (collect_status == 2) {
                 if (isToolbarDark) {
                     R.mipmap.ic_like_red_night
@@ -225,7 +227,7 @@ class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDet
     }
 
     private fun setBackImage() {
-        back_iv.setImageResource(
+        binding.backIv.setImageResource(
             if (isToolbarDark) {
                 R.mipmap.ic_back_black
             } else {
@@ -236,7 +238,7 @@ class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDet
 
 
     private fun setShareImage() {
-        share_iv.setImageResource(
+        binding.shareIv.setImageResource(
             if (isToolbarDark) {
                 R.mipmap.ic_share_night
             } else {
@@ -270,20 +272,20 @@ class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDet
 
 
     override fun bindListener() {
-        phone_ll.setOnClickListener {
+        binding.phoneLl.setOnClickListener {
             val data = Uri.parse("tel:$businessPhone")
             val intent = Intent(Intent.ACTION_DIAL)
             intent.data = data
             startActivity(intent)
         }
-        nav_ll.setOnClickListener {
+        binding.navLl.setOnClickListener {
             FeaturesUtil.startNaviGoogle(this, mLat.toFloat(), mLng.toFloat())
         }
-        share_iv.setOnClickListener {
+        binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_TRAVEL, travelId)
             MobUtil.shareFacebookWebPage(url, this@TravelDetailActivity)
         }
-        like_iv.setOnClickListener {
+        binding.likeIv.setOnClickListener {
             if (!User.isLogon()) {
                 startActivity(LoginActivity::class.java)
                 return@setOnClickListener
@@ -294,15 +296,15 @@ class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDet
                 presenter.unCollection(travelId)
             }
         }
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             finish()
         }
-        more_comment_tv.setOnClickListener {
+        binding.moreCommentTv.setOnClickListener {
             startActivity(TravelCommentActivity::class.java, Bundle().apply {
                 putInt(Constant.PARAM_ID, travelId)
             })
         }
-        write_comment_ll.setOnClickListener {
+        binding.writeCommentLl.setOnClickListener {
             CommentPostActivity.navigation(this, 1, travelId, null, name, image)
         }
     }
@@ -318,15 +320,15 @@ class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDet
 
         // 轮播
         mMediaAdapter.setNewInstance(mediaList)
-        point_view.setPointCount(mediaList.size)
+        binding.pointView.setPointCount(mediaList.size)
 
         name = response.name
-        name_tv.text = name
-        score_tv.text = response.grade.toString()
+        binding.nameTv.text = name
+        binding.scoreTv.text = response.grade.toString()
 
-        (response.start_time + "-" + response.end_time).also { time_tv.text = it }
-        phone_tv.text = response.phone
-        address_name_tv.text = response.address
+        (response.start_time + "-" + response.end_time).also { binding.timeTv.text = it }
+        binding.phoneTv.text = response.phone
+        binding.addressNameTv.text = response.address
 
         // 评价
         val list = response.comments
@@ -338,21 +340,21 @@ class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDet
         // 介绍
         val content = response.content
         if (content.isBlank()) {
-            desc_tv.text = StringUtils.getString(R.string.no_content)
-            desc_tv.gravity = Gravity.CENTER
+            binding.descTv.text = StringUtils.getString(R.string.no_content)
+            binding.descTv.gravity = Gravity.CENTER
         } else {
-            desc_tv.text = content
+            binding.descTv.text = content
         }
 
         val notice = response.notice
         if (notice.isBlank()) {
-            notice_tv.text = StringUtils.getString(R.string.no_content)
-            notice_tv.gravity = Gravity.CENTER
+            binding.noticeTv.text = StringUtils.getString(R.string.no_content)
+            binding.noticeTv.gravity = Gravity.CENTER
         } else {
-            notice_tv.text = notice
+            binding.noticeTv.text = notice
         }
 
-        comment_count_tv.text = getString(R.string.comment_format, response.comments_count)
+        binding.commentCountTv.text = getString(R.string.comment_format, response.comments_count)
 
     }
 
@@ -373,8 +375,8 @@ class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDet
         when (baseEvent.code) {
             EventCode.EVENT_POSITION  -> {
                 val position = baseEvent.data as Int
-                media_rv.scrollToPosition(position)
-                point_view.onPageSelected(position)
+                binding.mediaRv.scrollToPosition(position)
+                binding.pointView.onPageSelected(position)
             }
             else -> {}
         }

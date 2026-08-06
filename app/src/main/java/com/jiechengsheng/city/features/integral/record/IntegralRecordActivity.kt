@@ -17,15 +17,16 @@ import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.integral.order.IntegralOrderDetailActivity
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.view.empty.EmptyView
-import kotlinx.android.synthetic.main.activity_refresh_list.*
-
-
+import com.jiechengsheng.city.view.empty.EmptyView
+import com.jiechengsheng.city.databinding.ActivityRefreshListBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/9/26 15:08.
  * 兑换记录
  */
 class IntegralRecordActivity : BaseMvpActivity<IntegralRecordPresenter>(), IntegralRecordView, SwipeRefreshLayout.OnRefreshListener, OnItemClickListener {
+
+    private lateinit var binding: ActivityRefreshListBinding
 
 
     private var page = Constant.DEFAULT_FIRST_PAGE
@@ -37,12 +38,13 @@ class IntegralRecordActivity : BaseMvpActivity<IntegralRecordPresenter>(), Integ
     override fun getLayoutId() = R.layout.activity_refresh_list
 
     override fun initView() {
+        binding = ActivityRefreshListBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         mJcsTitle.setMiddleTitle(getString(R.string.exchange_record))
         initContent()
     }
 
     private fun initContent() {
-        swipe_layout.setOnRefreshListener(this)
+        binding.swipeLayout.setOnRefreshListener(this)
         emptyView = EmptyView(this)
         emptyView.showEmptyDefault()
         addEmptyList(emptyView)
@@ -60,7 +62,7 @@ class IntegralRecordActivity : BaseMvpActivity<IntegralRecordPresenter>(), Integ
 
 
         val gridLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             layoutManager = gridLayoutManager
         }
@@ -89,8 +91,8 @@ class IntegralRecordActivity : BaseMvpActivity<IntegralRecordPresenter>(), Integ
 
 
     override fun bindData(toMutableList: MutableList<IntegralRecord>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
         val loadMoreModule = mAdapter.loadMoreModule
         if (toMutableList.isEmpty()) {

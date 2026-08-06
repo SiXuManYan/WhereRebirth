@@ -13,15 +13,24 @@ import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.features.mall.home.child.MallRecommendAdapter
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.fragment_mall_shop_good.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentMallShopGoodBinding
 /**
  * Created by Wangsw  2022/1/24 10:22.
  * 店铺商品
  * 销量、最新、价格 三种排序互斥
  */
 class MallShopGoodFragment : BaseMvpFragment<MallShopGoodPresenter>(), MallShopGoodView {
+
+    private var _binding: FragmentMallShopGoodBinding? = null
+    private val binding get() = _binding!!
+
+    private val salesTv: android.widget.CheckedTextView
+        get() = requireView().findViewById(R.id.sales_tv)
+    private val newestTv: android.widget.CheckedTextView
+        get() = requireView().findViewById(R.id.newest_tv)
+    private val priceTv: android.widget.CheckedTextView
+        get() = requireView().findViewById(R.id.price_tv)
 
 
     /** 店铺分类ID */
@@ -66,6 +75,7 @@ class MallShopGoodFragment : BaseMvpFragment<MallShopGoodPresenter>(), MallShopG
     override fun getLayoutId() = R.layout.fragment_mall_shop_good
 
     override fun initView(view: View?) {
+        _binding = FragmentMallShopGoodBinding.bind(requireNotNull(view))
         arguments?.let {
             mShopId = it.getInt(Constant.PARAM_SHOP_ID)
             mShopCategoryId = it.getInt(Constant.PARAM_CATEGORY_ID)
@@ -91,7 +101,7 @@ class MallShopGoodFragment : BaseMvpFragment<MallShopGoodPresenter>(), MallShopG
         }
         val manager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         val decoration = DividerDecoration(ColorUtils.getColor(R.color.transplant), SizeUtils.dp2px(10f), 0, 0)
-        content_rv.apply {
+        binding.contentRv.apply {
             adapter = mAdapter
             layoutManager = manager
             addItemDecoration(decoration)
@@ -114,7 +124,7 @@ class MallShopGoodFragment : BaseMvpFragment<MallShopGoodPresenter>(), MallShopG
 
 
     override fun bindData(data: MutableList<MallGood>, lastPage: Boolean) {
-        swipe_layout.isRefreshing = false
+        binding.swipeLayout.isRefreshing = false
         val loadMoreModule = mAdapter.loadMoreModule
         if (data.isEmpty()) {
             if (mPage == Constant.DEFAULT_FIRST_PAGE) {
@@ -139,8 +149,15 @@ class MallShopGoodFragment : BaseMvpFragment<MallShopGoodPresenter>(), MallShopG
         }
     }
 
+    
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     override fun bindListener() {
-        swipe_layout.setOnRefreshListener {
+        binding.swipeLayout.setOnRefreshListener {
             goodRequest.apply {
                 page = Constant.DEFAULT_FIRST_PAGE
                 shopId = mShopId
@@ -148,18 +165,18 @@ class MallShopGoodFragment : BaseMvpFragment<MallShopGoodPresenter>(), MallShopG
             presenter.getMallList(goodRequest)
         }
 
-        sales_tv.setOnClickListener {
-            price_tv.setTextColor(ColorUtils.getColor(R.color.selector_gray666_blue))
-            sales_tv.toggle()
-            newest_tv.isChecked = false
-            price_tv.isChecked = false
-            price_up_iv.setImageResource(R.mipmap.ic_up_store)
-            price_down_iv.setImageResource(R.mipmap.ic_down_store)
+        binding.salesTv.setOnClickListener {
+            binding.priceTv.setTextColor(ColorUtils.getColor(R.color.selector_gray666_blue))
+            binding.salesTv.toggle()
+            binding.newestTv.isChecked = false
+            binding.priceTv.isChecked = false
+            binding.priceUpIv.setImageResource(R.mipmap.ic_up_store)
+            binding.priceDownIv.setImageResource(R.mipmap.ic_down_store)
 
             goodRequest.apply {
                 page = Constant.DEFAULT_FIRST_PAGE
                 //
-                sold = if (sales_tv.isChecked) {
+                sold = if (binding.salesTv.isChecked) {
                     SortEnum.desc
                 } else {
                     null
@@ -169,13 +186,13 @@ class MallShopGoodFragment : BaseMvpFragment<MallShopGoodPresenter>(), MallShopG
             presenter.getMallList(goodRequest)
         }
 
-        newest_tv.setOnClickListener {
-            price_tv.setTextColor(ColorUtils.getColor(R.color.selector_gray666_blue))
-            sales_tv.isChecked = false
-            newest_tv.toggle()
-            price_tv.isChecked = false
-            price_up_iv.setImageResource(R.mipmap.ic_up_store)
-            price_down_iv.setImageResource(R.mipmap.ic_down_store)
+        binding.newestTv.setOnClickListener {
+            binding.priceTv.setTextColor(ColorUtils.getColor(R.color.selector_gray666_blue))
+            binding.salesTv.isChecked = false
+            binding.newestTv.toggle()
+            binding.priceTv.isChecked = false
+            binding.priceUpIv.setImageResource(R.mipmap.ic_up_store)
+            binding.priceDownIv.setImageResource(R.mipmap.ic_down_store)
             goodRequest.apply {
                 page = Constant.DEFAULT_FIRST_PAGE
                 sold = null
@@ -184,23 +201,23 @@ class MallShopGoodFragment : BaseMvpFragment<MallShopGoodPresenter>(), MallShopG
             presenter.getMallList(goodRequest)
         }
 
-        price_rl.setOnClickListener {
-            sales_tv.isChecked = false
-            newest_tv.isChecked = false
-            price_tv.toggle()
+        binding.priceRl.setOnClickListener {
+            binding.salesTv.isChecked = false
+            binding.newestTv.isChecked = false
+            binding.priceTv.toggle()
             goodRequest.apply {
                 page = Constant.DEFAULT_FIRST_PAGE
                 sold = null
-                if (price_tv.isChecked) {
+                if (binding.priceTv.isChecked) {
                     order = SortEnum.desc
-                    price_up_iv.setImageResource(R.mipmap.ic_up_store)
-                    price_down_iv.setImageResource(R.mipmap.ic_down_store_pre)
-                    price_tv.setTextColor(ColorUtils.getColor(R.color.blue_377BFF))
+                    binding.priceUpIv.setImageResource(R.mipmap.ic_up_store)
+                    binding.priceDownIv.setImageResource(R.mipmap.ic_down_store_pre)
+                    binding.priceTv.setTextColor(ColorUtils.getColor(R.color.blue_377BFF))
                 } else {
                     order = SortEnum.asc
-                    price_up_iv.setImageResource(R.mipmap.ic_up_store_pre)
-                    price_down_iv.setImageResource(R.mipmap.ic_down_store)
-                    price_tv.setTextColor(ColorUtils.getColor(R.color.blue_377BFF))
+                    binding.priceUpIv.setImageResource(R.mipmap.ic_up_store_pre)
+                    binding.priceDownIv.setImageResource(R.mipmap.ic_down_store)
+                    binding.priceTv.setTextColor(ColorUtils.getColor(R.color.blue_377BFF))
                 }
             }
             presenter.getMallList(goodRequest)

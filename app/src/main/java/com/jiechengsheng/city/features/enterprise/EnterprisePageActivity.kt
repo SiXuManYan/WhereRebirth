@@ -23,15 +23,16 @@ import com.jiechengsheng.city.features.search.SearchAllActivity
 import com.jiechengsheng.city.utils.CacheUtil
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_enterprise_page.*
-
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityEnterprisePageBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/9/13 16:20.
  * 企业黄页
  */
 class EnterprisePageActivity : BaseMvpActivity<EnterprisePagePresenter>(), EnterprisePageView {
+
+    private lateinit var binding: ActivityEnterprisePageBinding
 
 
     /** 企业所有黄页一级分类id */
@@ -106,6 +107,7 @@ class EnterprisePageActivity : BaseMvpActivity<EnterprisePagePresenter>(), Enter
     override fun getLayoutId() = R.layout.activity_enterprise_page
 
     override fun initView() {
+        binding = ActivityEnterprisePageBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         initExtra()
         initFilter()
@@ -136,17 +138,17 @@ class EnterprisePageActivity : BaseMvpActivity<EnterprisePagePresenter>(), Enter
         }
         mSecondAdapter = EnterpriseCategoryAdapter()
         mThirdAdapter = EnterpriseThirdCategoryAdapter()
-        first_category_rv.apply {
+        binding.firstCategoryRv.apply {
             adapter = mFirstAdapter
             layoutManager = LinearLayoutManager(this@EnterprisePageActivity, LinearLayoutManager.VERTICAL, false)
         }
 
-        second_category_rv.apply {
+        binding.secondCategoryRv.apply {
             adapter = mSecondAdapter
             layoutManager = LinearLayoutManager(this@EnterprisePageActivity, LinearLayoutManager.VERTICAL, false)
         }
 
-        third_category_rv.apply {
+        binding.thirdCategoryRv.apply {
             adapter = mThirdAdapter
             layoutManager = LinearLayoutManager(this@EnterprisePageActivity, LinearLayoutManager.HORIZONTAL, false)
             addItemDecoration(DividerDecoration(Color.TRANSPARENT, SizeUtils.dp2px(8f), 0, 0))
@@ -165,7 +167,7 @@ class EnterprisePageActivity : BaseMvpActivity<EnterprisePagePresenter>(), Enter
 
             // 填充二级
             mSecondAdapter.setNewInstance(category.child_categories)
-            second_category_rv.visibility = View.VISIBLE
+            binding.secondCategoryRv.visibility = View.VISIBLE
 
             // 隐藏三级
             mThirdAdapter.setNewInstance(null)
@@ -188,9 +190,9 @@ class EnterprisePageActivity : BaseMvpActivity<EnterprisePagePresenter>(), Enter
             val list = category.child_categories
             mThirdAdapter.setNewInstance(list)
             if (list.isNullOrEmpty()) {
-                third_category_rv.visibility = View.GONE
+                binding.thirdCategoryRv.visibility = View.GONE
             } else {
-                third_category_rv.visibility = View.VISIBLE
+                binding.thirdCategoryRv.visibility = View.VISIBLE
             }
 
             // 刷新列表
@@ -230,12 +232,12 @@ class EnterprisePageActivity : BaseMvpActivity<EnterprisePagePresenter>(), Enter
 
 
         if (is2ndOr3rdCategory != null && is2ndOr3rdCategory && position == 0) {
-            category_tv.text = category.parentName
+            binding.categoryTv.text = category.parentName
         } else {
-            category_tv.text = category.name
+            binding.categoryTv.text = category.name
         }
 
-        category_tv.isChecked = true
+        binding.categoryTv.isChecked = true
         currentCategoryId = category.id
         onRefresh()
         if (ignoreVisibility == null || !ignoreVisibility) {
@@ -248,7 +250,7 @@ class EnterprisePageActivity : BaseMvpActivity<EnterprisePagePresenter>(), Enter
 
     /** 内容列表 */
     private fun initContent() {
-        mechanismRefresh.setOnRefreshListener(this)
+        binding.mechanismRefresh.setOnRefreshListener(this)
 
         emptyView = EmptyView(this).apply {
             showEmptyDefault()
@@ -267,7 +269,7 @@ class EnterprisePageActivity : BaseMvpActivity<EnterprisePagePresenter>(), Enter
             }
         }
 
-        mechanismRecycler.apply {
+        binding.mechanismRecycler.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(this@EnterprisePageActivity, LinearLayoutManager.VERTICAL, false)
             addItemDecoration(DividerDecoration(Color.TRANSPARENT, SizeUtils.dp2px(15f), 0, 0))
@@ -292,31 +294,31 @@ class EnterprisePageActivity : BaseMvpActivity<EnterprisePagePresenter>(), Enter
             startActivity(SearchAllActivity::class.java, bundle)
         }
 
-        category_filter_ll.setOnClickListener {
+        binding.categoryFilterLl.setOnClickListener {
             handleFilterVisibility(0)
 
         }
-        other_filter_ll.setOnClickListener {
+        binding.otherFilterLl.setOnClickListener {
             handleFilterVisibility(1)
         }
-        dismiss_view.setOnClickListener {
-            filter_ll.visibility = View.GONE
-            firstArrowIv.rotation = 0f
-            thirdArrowIv.rotation = 0f
+        binding.dismissView.setOnClickListener {
+            binding.filterLl.visibility = View.GONE
+            binding.firstArrowIv.rotation = 0f
+            binding.thirdArrowIv.rotation = 0f
         }
 
-        sort_rg.setOnCheckedChangeListener { group, checkedId ->
+        binding.sortRg.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.recommend_rb -> {
                     recommend = TYPE_RECOMMEND
-                    dismiss_view.performClick()
-                    other_filter_content_tv.setText(R.string.recommend_home)
+                    binding.dismissView.performClick()
+                    binding.otherFilterContentTv.setText(R.string.recommend_home)
                     onRefresh()
                 }
                 R.id.distance_rb -> {
                     recommend = TYPE_DISTANCE
-                    dismiss_view.performClick()
-                    other_filter_content_tv.setText(R.string.nearest)
+                    binding.dismissView.performClick()
+                    binding.otherFilterContentTv.setText(R.string.nearest)
                     onRefresh()
                 }
                 else -> {}
@@ -359,21 +361,21 @@ class EnterprisePageActivity : BaseMvpActivity<EnterprisePagePresenter>(), Enter
 
                 // 设置选中id所属二级分类列表
                 mSecondAdapter.setNewInstance(data[firstPosition].child_categories)
-                second_category_rv.visibility = View.VISIBLE
+                binding.secondCategoryRv.visibility = View.VISIBLE
 
                 // 高亮二级分类
                 val second = mSecondAdapter.data[secondPosition]
                 second.nativeIsSelected = true
                 mSecondAdapter.notifyItemChanged(secondPosition)
                 // 设置标题
-                category_tv.text = second.name
+                binding.categoryTv.text = second.name
 
                 // 显示三级分类
                 mThirdAdapter.setNewInstance(second.child_categories)
                 if (mThirdAdapter.data.isNullOrEmpty()) {
-                    third_category_rv.visibility = View.GONE
+                    binding.thirdCategoryRv.visibility = View.GONE
                 } else {
-                    third_category_rv.visibility = View.VISIBLE
+                    binding.thirdCategoryRv.visibility = View.VISIBLE
                 }
 
             }
@@ -394,8 +396,8 @@ class EnterprisePageActivity : BaseMvpActivity<EnterprisePagePresenter>(), Enter
     }
 
     override fun bindList(data: MutableList<MechanismResponse>, lastPage: Boolean) {
-        if (mechanismRefresh != null) {
-            mechanismRefresh.isRefreshing = false
+        if (binding.mechanismRefresh != null) {
+            binding.mechanismRefresh.isRefreshing = false
         }
         val loadMoreModule = mAdapter.loadMoreModule
         if (data.isEmpty()) {
@@ -423,41 +425,41 @@ class EnterprisePageActivity : BaseMvpActivity<EnterprisePagePresenter>(), Enter
 
 
     private fun handleFilterVisibility(currentPosition: Int) {
-        if (filter_ll.visibility == View.GONE) {
-            filter_ll.visibility = View.VISIBLE
+        if (binding.filterLl.visibility == View.GONE) {
+            binding.filterLl.visibility = View.VISIBLE
 
             if (currentPosition == 0) {
-                category_parent_ll.visibility = View.VISIBLE
-                sort_rg.visibility = View.GONE
+                binding.categoryParentLl.visibility = View.VISIBLE
+                binding.sortRg.visibility = View.GONE
             } else {
-                category_parent_ll.visibility = View.GONE
-                sort_rg.visibility = View.VISIBLE
+                binding.categoryParentLl.visibility = View.GONE
+                binding.sortRg.visibility = View.VISIBLE
             }
 
         } else {
 
-            if (filter_content_sw.getChildAt(currentPosition).visibility == View.VISIBLE) {
-                filter_ll.visibility = View.GONE
+            if (binding.filterContentSw.getChildAt(currentPosition).visibility == View.VISIBLE) {
+                binding.filterLl.visibility = View.GONE
             } else {
 
                 if (currentPosition == 0) {
-                    category_parent_ll.visibility = View.VISIBLE
-                    sort_rg.visibility = View.GONE
+                    binding.categoryParentLl.visibility = View.VISIBLE
+                    binding.sortRg.visibility = View.GONE
                 } else {
-                    category_parent_ll.visibility = View.GONE
-                    sort_rg.visibility = View.VISIBLE
+                    binding.categoryParentLl.visibility = View.GONE
+                    binding.sortRg.visibility = View.VISIBLE
                 }
             }
         }
 
-        if (filter_ll.visibility == View.GONE) {
-            firstArrowIv.rotation = 0f
-            thirdArrowIv.rotation = 0f
+        if (binding.filterLl.visibility == View.GONE) {
+            binding.firstArrowIv.rotation = 0f
+            binding.thirdArrowIv.rotation = 0f
         } else {
             if (currentPosition == 0) {
-                firstArrowIv.rotation = 180f
+                binding.firstArrowIv.rotation = 180f
             } else {
-                thirdArrowIv.rotation = 180f
+                binding.thirdArrowIv.rotation = 180f
             }
         }
 

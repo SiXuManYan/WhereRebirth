@@ -32,43 +32,44 @@ import com.jiechengsheng.city.features.payment.counter.PayCounterActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.time.TimeUtil
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_order_submit_takeaway.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityOrderSubmitTakeawayBinding
 /**
  * Created by Wangsw  2021/4/26 17:54.
- * 外卖订单提交页
+ * 澶栧崠璁㈠崟鎻愪氦椤?
  */
 class OrderSubmitTakeawayActivity : BaseMvpActivity<OrderSubmitTakeawayPresenter>(), OrderSubmitTakeawayView {
 
+    private lateinit var binding: ActivityOrderSubmitTakeawayBinding
 
-    /** 餐厅id */
+
+    /** 椁愬巺id */
     private var mRestaurantId: String = "0"
 
-    /** 包装费 */
+    /** 鍖呰璐?*/
     private var packing_charges: String = "0"
 
-    /** 配送费 */
+    /** 閰嶉€佽垂 */
     private var delivery_cost: String = "0"
 
-    /** 总金额 */
+    /** 鎬婚噾棰?*/
     private var totalPrice: String = "0"
 
-    /** 商家名称 */
+    /** 鍟嗗鍚嶇О */
     private var restaurant_name: String = ""
 
-    /** 菜品列表 */
+    /** 鑿滃搧鍒楄〃 */
     private lateinit var dish_list: ArrayList<DishResponse>
 
     var timeDialog: BottomSheetDialog? = null
 
-    /** 收货地址 */
+    /** 鏀惰揣鍦板潃 */
     var mSelectAddressData: AddressResponse? = null
 
-    /** 配送时间类型（1：立即配送，2：选定时间） */
+    /** 閰嶉€佹椂闂寸被鍨嬶紙1锛氱珛鍗抽厤閫侊紝2锛氶€夊畾鏃堕棿锛?*/
     private var mDeliveryTimeType = 0
 
-    /** 配送时间 */
+    /** 閰嶉€佹椂闂?*/
     private var mDeliveryTime = ""
 
     private lateinit var emptyView: EmptyView
@@ -82,6 +83,7 @@ class OrderSubmitTakeawayActivity : BaseMvpActivity<OrderSubmitTakeawayPresenter
     override fun isStatusDark() = true
 
     override fun initView() {
+        binding = ActivityOrderSubmitTakeawayBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         BarUtils.setStatusBarColor(this, Color.WHITE)
         // extra
@@ -95,12 +97,12 @@ class OrderSubmitTakeawayActivity : BaseMvpActivity<OrderSubmitTakeawayPresenter
 
         // list
         initRecyclerView()
-        business_name_tv.text = restaurant_name
-        packing_charges_tv.text = getString(R.string.price_unit_format, packing_charges)
-        delivery_cost_tv.text = getString(R.string.price_unit_format, delivery_cost)
+        binding.businessNameTv.text = restaurant_name
+        binding.packingChargesTv.text = getString(R.string.price_unit_format, packing_charges)
+        binding.deliveryCostTv.text = getString(R.string.price_unit_format, delivery_cost)
         val total = getString(R.string.price_unit_format, totalPrice)
-        actual_payment_tv.text = total
-        total_price_tv.text = total
+        binding.actualPaymentTv.text = total
+        binding.totalPriceTv.text = total
 
     }
 
@@ -115,7 +117,7 @@ class OrderSubmitTakeawayActivity : BaseMvpActivity<OrderSubmitTakeawayPresenter
             setEmptyView(emptyView)
         }
 
-        dish_rv.apply {
+        binding.dishRv.apply {
             isNestedScrollingEnabled = true
             layoutManager = object : LinearLayoutManager(this@OrderSubmitTakeawayActivity, VERTICAL, false) {
                 override fun canScrollVertically(): Boolean {
@@ -132,7 +134,7 @@ class OrderSubmitTakeawayActivity : BaseMvpActivity<OrderSubmitTakeawayPresenter
         }
 
 
-        // 送达时间
+        // 閫佽揪鏃堕棿
         mTimeAdapter = TimeAdapter().apply {
             setOnItemClickListener { _, _, position ->
                 val timeData = mTimeAdapter.data[position]
@@ -142,7 +144,7 @@ class OrderSubmitTakeawayActivity : BaseMvpActivity<OrderSubmitTakeawayPresenter
                     2
                 }
                 mDeliveryTime = timeData.time
-                delivery_time_tv.text = getString(R.string.delivery_time_format2, TimeUtil.getFormatTimeHM(timeData.time))
+                binding.deliveryTimeTv.text = getString(R.string.delivery_time_format2, TimeUtil.getFormatTimeHM(timeData.time))
 
 
                 mTimeAdapter.data.forEachIndexed { index, deliveryTimeRetouch ->
@@ -168,14 +170,14 @@ class OrderSubmitTakeawayActivity : BaseMvpActivity<OrderSubmitTakeawayPresenter
     }
 
     override fun bindListener() {
-        select_address_rl.setOnClickListener {
+        binding.selectAddressRl.setOnClickListener {
             showAddress()
         }
-        time_tv.setOnClickListener {
+        binding.timeTv.setOnClickListener {
             showTime()
         }
 
-        buy_after_tv.setOnClickListener {
+        binding.buyAfterTv.setOnClickListener {
             if (mSelectAddressData == null) {
                 ToastUtils.showShort(R.string.choose_shipping_address)
                 return@setOnClickListener
@@ -201,7 +203,7 @@ class OrderSubmitTakeawayActivity : BaseMvpActivity<OrderSubmitTakeawayPresenter
                 restaurant_id = mRestaurantId
                 delivery_time_type = mDeliveryTimeType
                 delivery_time = mDeliveryTime
-                remark = remarks_et.text.toString().trim()
+                remark = binding.remarksEt.text.toString().trim()
             }
 
             presenter.submitOrder(apply)
@@ -212,22 +214,22 @@ class OrderSubmitTakeawayActivity : BaseMvpActivity<OrderSubmitTakeawayPresenter
     }
 
 
-    /** 处理选择地址 */
+    /** 澶勭悊閫夋嫨鍦板潃 */
     private val searchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == Activity.RESULT_OK) {
             val bundle = it.data?.extras ?: return@registerForActivityResult
 
             val selectData = bundle.getSerializable(Constant.PARAM_DATA) as AddressResponse
             mSelectAddressData = selectData
-            select_address_tv.text = selectData.address
-            address_rl.visibility = ViewGroup.VISIBLE
+            binding.selectAddressTv.text = selectData.address
+            binding.addressRl.visibility = ViewGroup.VISIBLE
             val sex = if (selectData.sex == 1) {
                 getString(R.string.sir)
             } else {
                 getString(R.string.lady)
             }
-            address_name_tv.text = getString(R.string.recipient_format, selectData.contact_name, sex, selectData.contact_number)
-            phone_tv.text = selectData.contact_number
+            binding.addressNameTv.text = getString(R.string.recipient_format, selectData.contact_name, sex, selectData.contact_number)
+            binding.phoneTv.text = selectData.contact_number
         }
     }
 

@@ -11,14 +11,16 @@ import com.jiechengsheng.city.api.response.PageResponse
 import com.jiechengsheng.city.api.response.merchant.MerchantApplyRecord
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.view.empty.EmptyView
-import kotlinx.android.synthetic.main.activity_refresh_list.*
-
+import com.jiechengsheng.city.view.empty.EmptyView
+import com.jiechengsheng.city.databinding.ActivityRefreshListBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/1/11 15:02.
  * 申请记录
  */
 class MerchantRecordActivity :BaseMvpActivity<MerchantRecordPresenter>(),MerchantRecordView, SwipeRefreshLayout.OnRefreshListener {
+
+    private lateinit var binding: ActivityRefreshListBinding
 
     private var page = Constant.DEFAULT_FIRST_PAGE
     private lateinit var emptyView: EmptyView
@@ -29,8 +31,9 @@ class MerchantRecordActivity :BaseMvpActivity<MerchantRecordPresenter>(),Merchan
     override fun getLayoutId() = R.layout.activity_refresh_list
 
     override fun initView() {
+        binding = ActivityRefreshListBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         mJcsTitle.setMiddleTitle(getString(R.string.apply_record))
-        swipe_layout.apply {
+        binding.swipeLayout.apply {
             setOnRefreshListener(this@MerchantRecordActivity)
             setColorSchemeColors(ColorUtils.getColor(R.color.blue_4C9EF2))
         }
@@ -41,7 +44,7 @@ class MerchantRecordActivity :BaseMvpActivity<MerchantRecordPresenter>(),Merchan
         mAdapter = MerchantRecordAdapter().apply {
             setEmptyView(emptyView)
         }
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
@@ -59,8 +62,8 @@ class MerchantRecordActivity :BaseMvpActivity<MerchantRecordPresenter>(),Merchan
     }
 
     override fun bindData(data: MutableList<MerchantApplyRecord>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
 
         val loadMoreModule = mAdapter.loadMoreModule

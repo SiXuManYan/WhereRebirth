@@ -13,15 +13,16 @@ import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.mall.cart.MallCartActivity
 import com.jiechengsheng.city.features.mall.home.child.MallHomeChildFragment
 import com.jiechengsheng.city.features.search.SearchAllActivity
-import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_mall_home.*
-
-
+import com.jiechengsheng.city.utils.Constant
+import com.jiechengsheng.city.databinding.ActivityMallHomeBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/11/30 16:22.
  * 商城首页
  */
 class MallHomeActivity : BaseMvpActivity<MallHomePresenter>(), MallHomeView {
+
+    private lateinit var binding: ActivityMallHomeBinding
 
     private lateinit var mAdapter: TopCategoryAdapter
 
@@ -32,6 +33,7 @@ class MallHomeActivity : BaseMvpActivity<MallHomePresenter>(), MallHomeView {
     override fun isStatusDark() = true
 
     override fun initView() {
+        binding = ActivityMallHomeBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initTop()
     }
 
@@ -42,12 +44,12 @@ class MallHomeActivity : BaseMvpActivity<MallHomePresenter>(), MallHomeView {
                 val selectCategory = mAdapter.data[position]
 
                 // 更新标题
-                pager_vp.currentItem = position
+                binding.pagerVp.currentItem = position
                 showFilter(false)
             }
         }
 
-        top_category_rv.apply {
+        binding.topCategoryRv.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = mAdapter
         }
@@ -56,11 +58,11 @@ class MallHomeActivity : BaseMvpActivity<MallHomePresenter>(), MallHomeView {
 
     private fun showFilter(show: Boolean) {
         if (show) {
-            top_category_ll.visibility = View.VISIBLE
-            all_iv.setImageResource(R.mipmap.ic_up_black)
+            binding.topCategoryLl.visibility = View.VISIBLE
+            binding.allIv.setImageResource(R.mipmap.ic_up_black)
         } else {
-            top_category_ll.visibility = View.GONE
-            all_iv.setImageResource(R.mipmap.ic_down_black)
+            binding.topCategoryLl.visibility = View.GONE
+            binding.allIv.setImageResource(R.mipmap.ic_down_black)
 
         }
     }
@@ -73,19 +75,19 @@ class MallHomeActivity : BaseMvpActivity<MallHomePresenter>(), MallHomeView {
 
     override fun bindListener() {
 
-        cart_iv.setOnClickListener {
+        binding.cartIv.setOnClickListener {
             startActivityAfterLogin(MallCartActivity::class.java)
         }
 
-        search_ll.setOnClickListener {
+        binding.searchLl.setOnClickListener {
             startActivity(SearchAllActivity::class.java, Bundle().apply {
                 putInt(Constant.PARAM_TYPE, 6)
             })
         }
-        all_iv.setOnClickListener {
-            showFilter(top_category_ll.visibility != View.VISIBLE)
+        binding.allIv.setOnClickListener {
+            showFilter(binding.topCategoryLl.visibility != View.VISIBLE)
         }
-        dismiss_view.setOnClickListener {
+        binding.dismissView.setOnClickListener {
             showFilter(false)
         }
 
@@ -101,8 +103,8 @@ class MallHomeActivity : BaseMvpActivity<MallHomePresenter>(), MallHomeView {
         firstCategory.addAll(response)
 
 
-        pager_vp.offscreenPageLimit = response.size
-        pager_vp.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding.pagerVp.offscreenPageLimit = response.size
+        binding.pagerVp.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
 
             override fun onPageSelected(position: Int) {
@@ -114,9 +116,9 @@ class MallHomeActivity : BaseMvpActivity<MallHomePresenter>(), MallHomeView {
 
         val innerPagerAdapter = InnerPagerAdapter(supportFragmentManager, 0)
         innerPagerAdapter.notifyDataSetChanged()
-        pager_vp.adapter = innerPagerAdapter
+        binding.pagerVp.adapter = innerPagerAdapter
 
-        tabs_stl.setViewPager(pager_vp, titles.toTypedArray())
+        binding.tabsStl.setViewPager(binding.pagerVp, titles.toTypedArray())
 
         mAdapter.setNewInstance(firstCategory)
     }

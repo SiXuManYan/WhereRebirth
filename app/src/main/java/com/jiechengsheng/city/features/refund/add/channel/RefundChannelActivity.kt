@@ -13,14 +13,16 @@ import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.features.refund.add.form.third.ThirdChannelFormActivity
-import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_refund_channel_selected.*
-
+import com.jiechengsheng.city.utils.Constant
+import com.jiechengsheng.city.databinding.ActivityRefundChannelSelectedBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/4/25 19:03.
  * 退款渠道
  */
 class RefundChannelActivity : BaseMvpActivity<RefundChannelPresenter>(), RefundChannelView, OnItemClickListener {
+
+    private lateinit var binding: ActivityRefundChannelSelectedBinding
 
 
     private var channelCode = ""
@@ -35,11 +37,12 @@ class RefundChannelActivity : BaseMvpActivity<RefundChannelPresenter>(), RefundC
 
     @SuppressLint("NotifyDataSetChanged")
     override fun initView() {
+        binding = ActivityRefundChannelSelectedBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         mAdapter = RefundChannelAdapter().apply {
 
             setOnItemClickListener(this@RefundChannelActivity)
         }
-        channel_rv.adapter = mAdapter
+        binding.channelRv.adapter = mAdapter
     }
 
     override fun initData() {
@@ -53,7 +56,7 @@ class RefundChannelActivity : BaseMvpActivity<RefundChannelPresenter>(), RefundC
     }
 
     override fun bindListener() {
-        next_tv.setOnClickListener {
+        binding.nextTv.setOnClickListener {
             if (channelCode.isBlank()) {
                 ToastUtils.showShort(R.string.please_selected_channel)
                 return@setOnClickListener

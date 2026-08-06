@@ -15,14 +15,16 @@ import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseBottomSheetDialogFragment
 import com.jiechengsheng.city.base.mvp.FixedHeightBottomSheetDialog
-import com.jiechengsheng.city.features.mall.buy.coupon.child.OrderCouponFragment
-import kotlinx.android.synthetic.main.fragment_order_coupon_home.*
-
+import com.jiechengsheng.city.features.mall.buy.coupon.child.OrderCouponFragment
+import com.jiechengsheng.city.databinding.FragmentOrderCouponHomeBinding
 /**
  * Created by Wangsw  2022/3/9 14:38.
  *
  */
 class OrderCouponHomeFragment : BaseBottomSheetDialogFragment<OrderCouponHomePresenter>(), OrderCouponHomeView {
+
+    private var _binding: FragmentOrderCouponHomeBinding? = null
+    private val binding get() = _binding!!
 
     var alreadySelectedCouponId: Int? = 0
 
@@ -47,19 +49,27 @@ class OrderCouponHomeFragment : BaseBottomSheetDialogFragment<OrderCouponHomePre
     override fun getLayoutId() = R.layout.fragment_order_coupon_home
 
     override fun initView(parent: View) {
-        pager.apply {
+        _binding = FragmentOrderCouponHomeBinding.bind(requireNotNull(view))
+        binding.pager.apply {
             offscreenPageLimit = titles.size
             adapter = InnerPagerAdapter(childFragmentManager, 0)
         }
-        tabs.setViewPager(pager)
+        binding.tabs.setViewPager(binding.pager)
     }
 
     override fun initData() {
         presenter = OrderCouponHomePresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun bindListener() {
-        close_iv.setOnClickListener {
+        binding.closeIv.setOnClickListener {
             dismiss()
         }
     }

@@ -20,14 +20,17 @@ import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_employer.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.ActivityEmployerBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/10/25 13:55.
  * 雇主注册
  */
 class EmployerActivity : BaseMvpActivity<EmployerPresenter>(), EmployerView {
+
+    private lateinit var binding: ActivityEmployerBinding
 
     private var allEditView: ArrayList<AppCompatEditText> = ArrayList()
 
@@ -38,6 +41,7 @@ class EmployerActivity : BaseMvpActivity<EmployerPresenter>(), EmployerView {
     override fun getLayoutId() = R.layout.activity_employer
 
     override fun initView() {
+        binding = ActivityEmployerBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         isSendEmployer = intent.getBooleanExtra(Constant.PARAM_STATUS, false)
         switchContent(isSendEmployer)
@@ -45,11 +49,11 @@ class EmployerActivity : BaseMvpActivity<EmployerPresenter>(), EmployerView {
 
     private fun switchContent(isSendEmployer: Boolean) {
         if (isSendEmployer) {
-            form_nsv.visibility = View.GONE
-            already_commit_ll.visibility = View.VISIBLE
+            binding.formNsv.visibility = View.GONE
+            binding.alreadyCommitLl.visibility = View.VISIBLE
         } else {
-            form_nsv.visibility = View.VISIBLE
-            already_commit_ll.visibility = View.GONE
+            binding.formNsv.visibility = View.VISIBLE
+            binding.alreadyCommitLl.visibility = View.GONE
         }
     }
 
@@ -61,8 +65,8 @@ class EmployerActivity : BaseMvpActivity<EmployerPresenter>(), EmployerView {
     }
 
     override fun bindListener() {
-        for (index in 0 until container_ll.childCount) {
-            val child = container_ll.getChildAt(index)
+        for (index in 0 until binding.containerLl.childCount) {
+            val child = binding.containerLl.getChildAt(index)
             if (child is AppCompatEditText && child.id != R.id.middle_name_et) {
                 allEditView.add(child)
             }
@@ -72,23 +76,23 @@ class EmployerActivity : BaseMvpActivity<EmployerPresenter>(), EmployerView {
                 afterTextChanged = {
                     val result = it.toString().trim()
                     if (result.isBlank()) {
-                        BusinessUtils.setViewClickable(false, commit_tv)
+                        BusinessUtils.setViewClickable(false, binding.commitTv)
                     } else {
                         val isBlank = BusinessUtils.checkEditBlank(allEditView)
-                        BusinessUtils.setViewClickable(!isBlank, commit_tv)
+                        BusinessUtils.setViewClickable(!isBlank, binding.commitTv)
                     }
                 }
             )
         }
 
-        commit_tv.setOnClickListener {
-            val first = first_name_et.text.toString().trim()
-            val middle = middle_name_et.text.toString().trim()
-            val last = last_name_et.text.toString().trim()
-            val number = contact_number_et.text.toString().trim()
-            val email = email_et.text.toString().trim()
-            val password = password_et.text.toString().trim()
-            val company = company_name_et.text.toString().trim()
+        binding.commitTv.setOnClickListener {
+            val first = binding.firstNameEt.text.toString().trim()
+            val middle = binding.middleNameEt.text.toString().trim()
+            val last = binding.lastNameEt.text.toString().trim()
+            val number = binding.contactNumberEt.text.toString().trim()
+            val email = binding.emailEt.text.toString().trim()
+            val password = binding.passwordEt.text.toString().trim()
+            val company = binding.companyNameEt.text.toString().trim()
 
             val apply = EmployerRequest().apply {
                 first_name = first
@@ -157,7 +161,7 @@ class EmployerActivity : BaseMvpActivity<EmployerPresenter>(), EmployerView {
     }
 
     override fun showEmployerEmail(email: String) {
-        email_tv.text = getString(R.string.application_email_format, email)
+        binding.emailTv.text = getString(R.string.application_email_format, email)
     }
 
 

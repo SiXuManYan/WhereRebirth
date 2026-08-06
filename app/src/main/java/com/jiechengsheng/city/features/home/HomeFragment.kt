@@ -55,9 +55,9 @@ import com.jiechengsheng.city.news.NewsVideoActivity
 import com.jiechengsheng.city.utils.*
 import com.jiechengsheng.city.view.XBanner.AbstractUrlLoader
 import com.jiechengsheng.city.view.XBanner.XBanner
-import kotlinx.android.synthetic.main.fragment_home4.*
 import org.greenrobot.eventbus.EventBus
-import pl.droidsonroids.gif.GifImageView
+import pl.droidsonroids.gif.GifImageView
+import com.jiechengsheng.city.databinding.FragmentHome4Binding
 
 
 /**
@@ -66,6 +66,12 @@ import pl.droidsonroids.gif.GifImageView
  *
  */
 class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLayout.OnRefreshListener {
+
+    private var _binding: FragmentHome4Binding? = null
+    private val binding get() = _binding!!
+
+    private val tabsType: com.flyco.tablayout.CommonTabLayout
+        get() = requireView().findViewById(R.id.tabs_type)
 
 
     /** 选择城市 */
@@ -95,6 +101,7 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
     override fun getLayoutId() = R.layout.fragment_home4
 
     override fun initView(view: View) {
+        _binding = FragmentHome4Binding.bind(requireNotNull(view))
         view.let {
             BarUtils.addMarginTopEqualStatusBarHeight(view.findViewById(R.id.parent_abl))
         }
@@ -106,7 +113,7 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
     }
 
     private fun initEmpty() {
-        home_empty.apply {
+        binding.homeEmpty.apply {
             hideEmptyContainer()
         }
     }
@@ -114,9 +121,9 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
 
     /** 轮播图 */
     private fun initBanner() {
-        message_view.setMessageImageResource(R.mipmap.ic_home_message)
+        binding.messageView.setMessageImageResource(R.mipmap.ic_home_message)
 
-        top_banner.setBannerTypes(XBanner.CIRCLE_INDICATOR)
+        binding.topBanner.setBannerTypes(XBanner.CIRCLE_INDICATOR)
             .setTitleHeight(50)
             .isAutoPlay(true)
             .setDelay(5000)
@@ -137,7 +144,7 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
     /** 金刚区相关 */
     private fun initPlate() {
         mModulesAdapter = ModulesAdapter()
-        moduleRecycler.apply {
+        binding.moduleRecycler.apply {
             addItemDecoration(HomeModulesItemDecoration())
             layoutManager = object : GridLayoutManager(context, 5, RecyclerView.VERTICAL, false) {
                 override fun canScrollVertically(): Boolean {
@@ -216,21 +223,21 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
                 }
             }
         }
-        news_rv.apply {
+        binding.newsRv.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = mNewsAdapter
         }
         val pagerSnapHelper = PagerSnapHelper()
-        pagerSnapHelper.attachToRecyclerView(news_rv)
+        pagerSnapHelper.attachToRecyclerView(binding.newsRv)
 
         // tab
-        tabs_type.setOnTabSelectListener(object : OnTabSelectListener {
+        binding.tabsType.setOnTabSelectListener(object : OnTabSelectListener {
 
             override fun onTabSelect(position: Int) {
                 if (mNewsAdapterDataList.isNotEmpty()) {
 
                     scrollPosition = 0
-                    news_rv.scrollToPosition(0)
+                    binding.newsRv.scrollToPosition(0)
                     mNewsAdapter.setNewInstance(mNewsAdapterDataList[position].news_list)
                     startScroll()
                 }
@@ -241,10 +248,10 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
 
 
         // 更多新闻
-        more_news_iv.setOnClickListener {
+        binding.moreNewsIv.setOnClickListener {
             startActivity(NewsActivity::class.java)
         }
-        more_news_tv.setOnClickListener {
+        binding.moreNewsTv.setOnClickListener {
             startActivity(NewsActivity::class.java)
         }
 
@@ -253,12 +260,12 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
 
     private fun initScroll() {
 
-        swipeLayout?.setOnRefreshListener(this)
-        swipeLayout?.setColorSchemeColors(ColorUtils.getColor(R.color.blue_377BFF))
+        binding.swipeLayout?.setOnRefreshListener(this)
+        binding.swipeLayout?.setColorSchemeColors(ColorUtils.getColor(R.color.blue_377BFF))
 
-        moduleRecycler.isNestedScrollingEnabled = false
+        binding.moduleRecycler.isNestedScrollingEnabled = false
 
-        child_abl.addOnOffsetChangedListener(object : AppBarStateChangeListener() {
+        binding.childAbl.addOnOffsetChangedListener(object : AppBarStateChangeListener() {
 
             override fun onStateChanged(appBarLayout: AppBarLayout, expanded: State, verticalOffset: Int) {
                 Log.e("onStateChanged", "verticalOffset == $verticalOffset")
@@ -266,17 +273,17 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
 
                 when (expanded) {
                     State.EXPANDED -> {
-                        swipeLayout?.isEnabled = true
+                        binding.swipeLayout?.isEnabled = true
                         appBarStateChangeListener?.expanded()
                     }
 
                     State.COLLAPSED -> {
-                        swipeLayout?.isEnabled = false
+                        binding.swipeLayout?.isEnabled = false
                         appBarStateChangeListener?.scrolling()
                     }
 
                     State.IDLE -> {
-                        swipeLayout?.isEnabled = false
+                        binding.swipeLayout?.isEnabled = false
                         appBarStateChangeListener?.scrolling()
                     }
                 }
@@ -285,7 +292,7 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
             }
         })
 
-        swipeLayout?.postDelayed({ swipeLayout?.isEnabled = false }, 200)
+        binding.swipeLayout?.postDelayed({ binding.swipeLayout?.isEnabled = false }, 200)
 
     }
 
@@ -296,6 +303,13 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
         rxTimer = RxTimer()
 
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
 
 
     override fun loadOnVisible() {
@@ -316,15 +330,15 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
 
     override fun bindListener() {
 
-        city_ll.setOnClickListener(object : ClickUtils.OnDebouncingClickListener(500) {
+        binding.cityLl.setOnClickListener(object : ClickUtils.OnDebouncingClickListener(500) {
             override fun onDebouncingClick(v: View?) {
                 startActivityForResult(CityPickerActivity::class.java, REQ_SELECT_CITY, null)
             }
         })
-        search_ll.setOnClickListener {
+        binding.searchLl.setOnClickListener {
             startActivity(SearchAllActivity::class.java)
         }
-        message_view.setOnClickListener {
+        binding.messageView.setOnClickListener {
             MessageCenterActivity.navigation(requireContext(), systemMessageCount)
         }
     }
@@ -341,24 +355,24 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
         super.onHiddenChanged(hidden)
         if (hidden) {
             rxTimer.cancel()
-            top_banner?.pause()
+            binding.topBanner?.pause()
         } else {
             startScroll()
-            top_banner?.start()
+            binding.topBanner?.start()
             presenter.getMessageCount()
         }
     }
 
     override fun onDestroy() {
         rxTimer.cancel()
-        top_banner?.releaseBanner()
+        binding.topBanner?.releaseBanner()
         super.onDestroy()
     }
 
     override fun onRefresh() {
         rxTimer.cancel()
-        top_banner.pause()
-        swipeLayout?.isRefreshing = true
+        binding.topBanner.pause()
+        binding.swipeLayout?.isRefreshing = true
         presenter.getMessageCount()
         presenter.getTopBanner()
         presenter.getPlateData()
@@ -368,7 +382,7 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
 
     override fun onPause() {
         rxTimer.cancel()
-        top_banner.pause()
+        binding.topBanner.pause()
         super.onPause()
     }
 
@@ -382,7 +396,7 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
         when (requestCode) {
             REQ_SELECT_CITY -> {
                 // 选择城市
-                city_tv.text = data.getStringExtra(Constant.PARAM_SELECT_AREA_NAME)
+                binding.cityTv.text = data.getStringExtra(Constant.PARAM_SELECT_AREA_NAME)
                 onRefresh()
             }
             else -> {
@@ -391,14 +405,14 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
     }
 
     override fun setMessageCount(i: Int, systemUnreadMessageCount: Int) {
-        message_view.setMessageCount(i)
+        binding.messageView.setMessageCount(i)
         systemMessageCount = systemUnreadMessageCount
     }
 
     override fun bindTopBannerData(bannerUrls: ArrayList<String>, response: ArrayList<BannerResponse>) {
-        home_empty.visibility = View.GONE
-        top_banner.setImageUrls(bannerUrls)
-        top_banner.setBannerPageListener(object : XBanner.BannerPageListener {
+        binding.homeEmpty.visibility = View.GONE
+        binding.topBanner.setImageUrls(bannerUrls)
+        binding.topBanner.setBannerPageListener(object : XBanner.BannerPageListener {
 
             override fun onBannerDragging(item: Int) = Unit
 
@@ -416,22 +430,22 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
     var needRequest4Tablet = true
 
     override fun bindPlateData(toMutableList: MutableList<ModulesResponse>) {
-        home_empty.visibility = View.GONE
+        binding.homeEmpty.visibility = View.GONE
         mModulesAdapter.setNewInstance(toMutableList)
     }
 
     var scrollPosition = 0
 
     override fun bindNewsData(newsData: List<HomeNewsResponse>?) {
-        home_empty.visibility = View.GONE
+        binding.homeEmpty.visibility = View.GONE
         scrollPosition = 0
         if (newsData.isNullOrEmpty()) {
-            news_rl.visibility = View.GONE
-            news_rv.visibility = View.GONE
+            binding.newsRl.visibility = View.GONE
+            binding.newsRv.visibility = View.GONE
             return
         }
-        news_rl.visibility = View.VISIBLE
-        news_rv.visibility = View.VISIBLE
+        binding.newsRl.visibility = View.VISIBLE
+        binding.newsRv.visibility = View.VISIBLE
 
         mNewsTabDataList.clear()
         mNewsAdapterDataList.clear()
@@ -441,7 +455,7 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
         newsData.forEach {
             mNewsTabDataList.add(TabEntity(it.category_name, 0, 0))
         }
-        tabs_type.setTabData(mNewsTabDataList)
+        binding.tabsType.setTabData(mNewsTabDataList)
 
         // adapter
         mNewsAdapter.setNewInstance(newsData[0].news_list)
@@ -458,10 +472,10 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
         rxTimer.interval(5000) {
             scrollPosition++
             if (scrollPosition <= mNewsAdapter.data.size - 1) {
-                news_rv?.smoothScrollToPosition(scrollPosition)
+                binding.newsRv?.smoothScrollToPosition(scrollPosition)
             } else {
                 scrollPosition = 0
-                news_rv?.scrollToPosition(0)
+                binding.newsRv?.scrollToPosition(0)
             }
         }
     }
@@ -471,10 +485,10 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
         super.onEventReceived(baseEvent)
         when (baseEvent.code) {
             EventCode.EVENT_SIGN_OUT -> {
-                message_view.setMessageCount(0)
+                binding.messageView.setMessageCount(0)
             }
             EventCode.EVENT_SCROLL_TO_TOP -> {
-                child_abl.setExpanded(true, true)
+                binding.childAbl.setExpanded(true, true)
 
             }
             else -> {
@@ -486,8 +500,8 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
     var isInit = true
 
     override fun bindHomeChild(response: ArrayList<HomeChild>, titles: ArrayList<String>) {
-        swipeLayout?.isRefreshing = false
-        home_empty.visibility = View.GONE
+        binding.swipeLayout?.isRefreshing = false
+        binding.homeEmpty.visibility = View.GONE
         isInit = when {
             mType.isEmpty() -> {
                 true
@@ -504,12 +518,12 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
 
 
         if (isInit) {
-            home_vp.offscreenPageLimit = response.size
+            binding.homeVp.offscreenPageLimit = response.size
             val innerPagerAdapter = InnerPagerAdapter(childFragmentManager, 0)
             innerPagerAdapter.notifyDataSetChanged()
-            home_vp.adapter = innerPagerAdapter
-            recommend_tabs.setViewPager(home_vp, titles.toTypedArray())
-            recommend_tabs.currentTab = 0
+            binding.homeVp.adapter = innerPagerAdapter
+            binding.recommendTabs.setViewPager(binding.homeVp, titles.toTypedArray())
+            binding.recommendTabs.currentTab = 0
         }
     }
 
@@ -536,26 +550,26 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
 
     private fun initCity() {
         val cityName = SPUtils.getInstance().getString(SPKey.SELECT_AREA_NAME, StringUtils.getString(R.string.default_city_name))
-        city_tv.text = cityName
+        binding.cityTv.text = cityName
     }
 
 
     override fun bindDefaultCity(cityName: String) {
-        city_tv.text = cityName
+        binding.cityTv.text = cityName
         EventBus.getDefault().post(BaseEvent<Any>(EventCode.EVENT_REFRESH_HOME_NEARBY))
     }
 
 
     override fun onError(errorResponse: ErrorResponse?) {
         super.onError(errorResponse)
-        swipeLayout?.isRefreshing = false
+        binding.swipeLayout?.isRefreshing = false
         if (presenter.isChildError && presenter.isPlateDataError && presenter.isTopBannerError) {
-            if (home_empty.visibility != View.VISIBLE) {
-                home_empty.visibility = View.VISIBLE
-                home_empty.showNetworkError {
+            if (binding.homeEmpty.visibility != View.VISIBLE) {
+                binding.homeEmpty.visibility = View.VISIBLE
+                binding.homeEmpty.showNetworkError {
                     requestData()
-                    home_empty.visibility = View.GONE
-                    swipeLayout?.isRefreshing = true
+                    binding.homeEmpty.visibility = View.GONE
+                    binding.swipeLayout?.isRefreshing = true
                 }
             }
 

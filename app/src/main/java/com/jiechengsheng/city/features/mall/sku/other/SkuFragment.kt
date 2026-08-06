@@ -16,14 +16,16 @@ import com.jiechengsheng.city.features.mall.sku.bean.Sku
 import com.jiechengsheng.city.features.mall.sku.bean.SkuAttribute
 import com.jiechengsheng.city.features.mall.sku.view.OnSkuListener
 import com.jiechengsheng.city.utils.BusinessUtils
-import com.jiechengsheng.city.utils.GlideUtil
-import kotlinx.android.synthetic.main.dialog_product_sku.*
-
+import com.jiechengsheng.city.utils.GlideUtil
+import com.jiechengsheng.city.databinding.DialogProductSkuBinding
 /**
  * Created by Wangsw  2022/7/26 15:46.
  *
  */
 class SkuFragment : BaseBottomSheetDialogFragment<SkuPresenter>(), SkuView {
+
+    private var _binding: DialogProductSkuBinding? = null
+    private val binding get() = _binding!!
 
 
     private var product: Product? = null
@@ -40,9 +42,10 @@ class SkuFragment : BaseBottomSheetDialogFragment<SkuPresenter>(), SkuView {
         FixedHeightBottomSheetDialog(requireContext(), theme, ScreenUtils.getScreenHeight() * 88 / 100)
 
     override fun initView(parent: View) {
+        _binding = DialogProductSkuBinding.bind(requireNotNull(view))
         // 不可编辑
-        number_value_et.isFocusable = false
-        number_value_et.isFocusableInTouchMode = false
+        binding.numberValueEt.isFocusable = false
+        binding.numberValueEt.isFocusableInTouchMode = false
 
     }
 
@@ -55,26 +58,33 @@ class SkuFragment : BaseBottomSheetDialogFragment<SkuPresenter>(), SkuView {
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun bindListener() {
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             dismissAllowingStateLoss()
         }
-        number_cut_iv.setOnClickListener {
-            val quantity = number_value_et.getText().toString()
+        binding.numberCutIv.setOnClickListener {
+            val quantity = binding.numberValueEt.getText().toString()
             if (TextUtils.isEmpty(quantity)) {
                 return@setOnClickListener
             }
             val quantityInt = quantity.toInt()
             if (quantityInt > 1) {
                 val newQuantity = (quantityInt - 1).toString()
-                number_value_et.setText(newQuantity)
-                number_value_et.setSelection(newQuantity.length)
+                binding.numberValueEt.setText(newQuantity)
+                binding.numberValueEt.setSelection(newQuantity.length)
                 updateQuantityOperator(quantityInt - 1)
             }
         }
 
-        number_add_iv.setOnClickListener {
-            val quantity = number_value_et.text.toString()
+        binding.numberAddIv.setOnClickListener {
+            val quantity = binding.numberValueEt.text.toString()
 
             if (TextUtils.isEmpty(quantity) || selectedSku == null) {
                 return@setOnClickListener
@@ -82,35 +92,35 @@ class SkuFragment : BaseBottomSheetDialogFragment<SkuPresenter>(), SkuView {
             val quantityInt = quantity.toInt()
             if (quantityInt < selectedSku!!.stockQuantity) {
                 val newQuantity = (quantityInt + 1).toString()
-                number_value_et.setText(newQuantity)
-                number_value_et.setSelection(newQuantity.length)
+                binding.numberValueEt.setText(newQuantity)
+                binding.numberValueEt.setSelection(newQuantity.length)
                 updateQuantityOperator(quantityInt + 1)
             }
         }
 
-        number_value_et.setOnEditorActionListener { _, actionId, _ ->
+        binding.numberValueEt.setOnEditorActionListener { _, actionId, _ ->
             if (actionId != EditorInfo.IME_ACTION_DONE || selectedSku == null) {
                 return@setOnEditorActionListener false
             }
-            val quantity = number_value_et.getText().toString()
+            val quantity = binding.numberValueEt.getText().toString()
             if (TextUtils.isEmpty(quantity)) {
                 return@setOnEditorActionListener false
             }
             val quantityInt = quantity.toInt()
             when {
                 quantityInt <= 1 -> {
-                    number_value_et.setText("1")
-                    number_value_et.setSelection(1)
+                    binding.numberValueEt.setText("1")
+                    binding.numberValueEt.setSelection(1)
                     updateQuantityOperator(1)
                 }
                 quantityInt >= selectedSku!!.stockQuantity -> {
                     val newQuantity = selectedSku!!.stockQuantity.toString()
-                    number_value_et.setText(newQuantity)
-                    number_value_et.setSelection(newQuantity.length)
+                    binding.numberValueEt.setText(newQuantity)
+                    binding.numberValueEt.setSelection(newQuantity.length)
                     updateQuantityOperator(selectedSku!!.stockQuantity)
                 }
                 else -> {
-                    number_value_et.setSelection(quantity.length)
+                    binding.numberValueEt.setSelection(quantity.length)
                     updateQuantityOperator(quantityInt)
                 }
             }
@@ -118,22 +128,22 @@ class SkuFragment : BaseBottomSheetDialogFragment<SkuPresenter>(), SkuView {
 
         }
 
-        scroll_sku_list.setListener(object : OnSkuListener {
+        binding.scrollSkuList.setListener(object : OnSkuListener {
             override fun onUnselected(unselectedAttribute: SkuAttribute?) {
                 selectedSku = null
 
                 product?.let {
-                    GlideUtil.load(context, it.main_image, iv_sku_logo)
-                    tv_sku_quantity.text = StringUtils.getString(R.string.stock_format, it.stock)
+                    GlideUtil.load(context, it.main_image, binding.ivSkuLogo)
+                    binding.tvSkuQuantity.text = StringUtils.getString(R.string.stock_format, it.stock)
                 }
 
 
-                val firstUnselectedAttributeName = scroll_sku_list.firstUnelectedAttributeName
-                tv_sku_info.text = "请选择：$firstUnselectedAttributeName"
-//                confirm_tv.isEnabled = false
+                val firstUnselectedAttributeName = binding.scrollSkuList.firstUnelectedAttributeName
+                binding.tvSkuInfo.text = "请选择：$firstUnselectedAttributeName"
+//                binding.confirmTv.isEnabled = false
 
 
-                val quantity = number_value_et.text.toString()
+                val quantity = binding.numberValueEt.text.toString()
                 if (!TextUtils.isEmpty(quantity)) {
                     updateQuantityOperator(Integer.valueOf(quantity))
                 } else {
@@ -142,8 +152,8 @@ class SkuFragment : BaseBottomSheetDialogFragment<SkuPresenter>(), SkuView {
             }
 
             override fun onSelect(selectAttribute: SkuAttribute?) {
-                val firstUnselectedAttributeName = scroll_sku_list.getFirstUnelectedAttributeName()
-                tv_sku_info.setText("请选择：$firstUnselectedAttributeName")
+                val firstUnselectedAttributeName = binding.scrollSkuList.getFirstUnelectedAttributeName()
+                binding.tvSkuInfo.setText("请选择：$firstUnselectedAttributeName")
             }
 
             override fun onSkuSelected(sku: Sku?) {
@@ -152,7 +162,7 @@ class SkuFragment : BaseBottomSheetDialogFragment<SkuPresenter>(), SkuView {
                     return
                 }
 
-                GlideUtil.load(context, selectedSku!!.mainImage, iv_sku_logo)
+                GlideUtil.load(context, selectedSku!!.mainImage, binding.ivSkuLogo)
                 val attributeList = selectedSku!!.attributes
                 val builder = StringBuilder()
                 for (i in attributeList.indices) {
@@ -162,17 +172,17 @@ class SkuFragment : BaseBottomSheetDialogFragment<SkuPresenter>(), SkuView {
                     val attribute = attributeList[i]
                     builder.append("\"" + attribute.value + "\"")
                 }
-                tv_sku_info.text = "已选：$builder"
+                binding.tvSkuInfo.text = "已选：$builder"
 
-                tv_sku_quantity.text = StringUtils.getString(R.string.stock_format, selectedSku!!.stockQuantity)
+                binding.tvSkuQuantity.text = StringUtils.getString(R.string.stock_format, selectedSku!!.stockQuantity)
 
                 val sellingPrice = selectedSku!!.sellingPrice
                 val originPrice = selectedSku!!.originPrice
 
-                BusinessUtils.setNowPriceAndOldPrice(sellingPrice, originPrice, tv_sku_selling_price, original_price_tv)
+                BusinessUtils.setNowPriceAndOldPrice(sellingPrice, originPrice, binding.tvSkuSellingPrice, binding.originalPriceTv)
 
-//                confirm_tv.isEnabled = true
-                val quantity = number_value_et.text.toString()
+//                binding.confirmTv.isEnabled = true
+                val quantity = binding.numberValueEt.text.toString()
                 if (!TextUtils.isEmpty(quantity)) {
                     updateQuantityOperator(Integer.valueOf(quantity))
                 } else {
@@ -182,7 +192,7 @@ class SkuFragment : BaseBottomSheetDialogFragment<SkuPresenter>(), SkuView {
 
         })
 
-        confirm_tv.setOnClickListener {
+        binding.confirmTv.setOnClickListener {
 
             if (selectedSku == null) {
                 ToastUtils.showShort(R.string.please_selected)
@@ -201,7 +211,7 @@ class SkuFragment : BaseBottomSheetDialogFragment<SkuPresenter>(), SkuView {
             }
 
 
-            val quantity = number_value_et.text.toString()
+            val quantity = binding.numberValueEt.text.toString()
 
             if (TextUtils.isEmpty(quantity)) {
                 return@setOnClickListener
@@ -230,18 +240,18 @@ class SkuFragment : BaseBottomSheetDialogFragment<SkuPresenter>(), SkuView {
         if (lastSku.stockQuantity > 0) {
             selectedSku = lastSku
             // 选中第一个sku
-            scroll_sku_list.selectedSku = selectedSku
-            GlideUtil.load(context, selectedSku?.mainImage, iv_sku_logo)
+            binding.scrollSkuList.selectedSku = selectedSku
+            GlideUtil.load(context, selectedSku?.mainImage, binding.ivSkuLogo)
 
             val sellingPrice = selectedSku!!.sellingPrice
             val originPrice = selectedSku!!.originPrice
 
-            BusinessUtils.setNowPriceAndOldPrice(sellingPrice, originPrice, tv_sku_selling_price, original_price_tv)
+            BusinessUtils.setNowPriceAndOldPrice(sellingPrice, originPrice, binding.tvSkuSellingPrice, binding.originalPriceTv)
 
 
-            tv_sku_quantity.text = StringUtils.getString(R.string.stock_format, selectedSku!!.stockQuantity)
+            binding.tvSkuQuantity.text = StringUtils.getString(R.string.stock_format, selectedSku!!.stockQuantity)
 
-//            confirm_tv.isEnabled = selectedSku!!.stockQuantity > 0
+//            binding.confirmTv.isEnabled = selectedSku!!.stockQuantity > 0
             val attributeList = selectedSku!!.attributes
             val builder = StringBuilder()
             for (i in attributeList.indices) {
@@ -251,7 +261,7 @@ class SkuFragment : BaseBottomSheetDialogFragment<SkuPresenter>(), SkuView {
                 val attribute = attributeList[i]
                 builder.append("\"" + attribute.value + "\"")
             }
-            tv_sku_info.text = "已选：$builder"
+            binding.tvSkuInfo.text = "已选：$builder"
 
         }
 
@@ -267,19 +277,19 @@ class SkuFragment : BaseBottomSheetDialogFragment<SkuPresenter>(), SkuView {
         if (product!!.skus.isEmpty()) {
             return
         }
-        GlideUtil.load(context, product!!.main_image, iv_sku_logo)
+        GlideUtil.load(context, product!!.main_image, binding.ivSkuLogo)
 
         val sellingPrice = product!!.price
         val originalCost = product!!.original_cost
 
-        BusinessUtils.setNowPriceAndOldPrice(sellingPrice, originalCost, tv_sku_selling_price, original_price_tv)
+        BusinessUtils.setNowPriceAndOldPrice(sellingPrice, originalCost, binding.tvSkuSellingPrice, binding.originalPriceTv)
 
-        tv_sku_quantity.text = StringUtils.getString(R.string.stock)
+        binding.tvSkuQuantity.text = StringUtils.getString(R.string.stock)
 
-//        confirm_tv.isEnabled = false
+//        binding.confirmTv.isEnabled = false
 
         if (!skuListData.isNullOrEmpty() && !skuListData!![0].attributes.isNullOrEmpty()) {
-            tv_sku_info.text = "请选择：" + skuListData!![0].attributes[0].key
+            binding.tvSkuInfo.text = "请选择：" + skuListData!![0].attributes[0].key
         }
 
         // 处理sku 属性为空
@@ -288,7 +298,7 @@ class SkuFragment : BaseBottomSheetDialogFragment<SkuPresenter>(), SkuView {
             updateQuantityOperator(0)
 
         }
-        scroll_sku_list.setSkuList(product!!.skus)
+        binding.scrollSkuList.setSkuList(product!!.skus)
 
 
     }
@@ -296,39 +306,39 @@ class SkuFragment : BaseBottomSheetDialogFragment<SkuPresenter>(), SkuView {
 
     public fun updateQuantityOperator(newQuantity: Int) {
         if (selectedSku == null) {
-            number_cut_iv.isEnabled = false
-            number_add_iv.isEnabled = false
-            number_value_et.isEnabled = false
+            binding.numberCutIv.isEnabled = false
+            binding.numberAddIv.isEnabled = false
+            binding.numberValueEt.isEnabled = false
 
-            number_cut_iv.setImageResource(R.mipmap.ic_cut_blue_transparent)
-            number_add_iv.setImageResource(R.mipmap.ic_add_blue_transparent)
+            binding.numberCutIv.setImageResource(R.mipmap.ic_cut_blue_transparent)
+            binding.numberAddIv.setImageResource(R.mipmap.ic_add_blue_transparent)
 
 
         } else {
             when {
                 newQuantity <= 1 -> {
-                    number_cut_iv.isEnabled = false
-                    number_add_iv.isEnabled = true
+                    binding.numberCutIv.isEnabled = false
+                    binding.numberAddIv.isEnabled = true
 
-                    number_cut_iv.setImageResource(R.mipmap.ic_cut_blue_transparent)
-                    number_add_iv.setImageResource(R.mipmap.ic_add_blue)
+                    binding.numberCutIv.setImageResource(R.mipmap.ic_cut_blue_transparent)
+                    binding.numberAddIv.setImageResource(R.mipmap.ic_add_blue)
                 }
                 newQuantity >= selectedSku!!.stockQuantity -> {
-                    number_cut_iv.isEnabled = true
-                    number_add_iv.isEnabled = false
+                    binding.numberCutIv.isEnabled = true
+                    binding.numberAddIv.isEnabled = false
 
-                    number_cut_iv.setImageResource(R.mipmap.ic_cut_blue)
-                    number_add_iv.setImageResource(R.mipmap.ic_add_blue_transparent)
+                    binding.numberCutIv.setImageResource(R.mipmap.ic_cut_blue)
+                    binding.numberAddIv.setImageResource(R.mipmap.ic_add_blue_transparent)
                 }
                 else -> {
-                    number_cut_iv.isEnabled = true
-                    number_add_iv.isEnabled = true
+                    binding.numberCutIv.isEnabled = true
+                    binding.numberAddIv.isEnabled = true
 
-                    number_cut_iv.setImageResource(R.mipmap.ic_cut_blue)
-                    number_add_iv.setImageResource(R.mipmap.ic_add_blue)
+                    binding.numberCutIv.setImageResource(R.mipmap.ic_cut_blue)
+                    binding.numberAddIv.setImageResource(R.mipmap.ic_add_blue)
                 }
             }
-            number_value_et.isEnabled = true
+            binding.numberValueEt.isEnabled = true
         }
     }
 

@@ -24,14 +24,16 @@ import com.jiechengsheng.city.features.travel.detail.TravelDetailActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.fragment_home_child.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentHomeChildBinding
 /**
  * Created by Wangsw  2022/6/21 14:25.
  * 首页综合推荐
  */
 class ComplexChildFragment : BaseMvpFragment<HomeChildPresenter>(), HomeChildView, OnChildCategoryClick {
+
+    private var _binding: FragmentHomeChildBinding? = null
+    private val binding get() = _binding!!
 
 
     /** 轮播图 */
@@ -67,6 +69,7 @@ class ComplexChildFragment : BaseMvpFragment<HomeChildPresenter>(), HomeChildVie
     override fun getLayoutId() = R.layout.fragment_home_child
 
     override fun initView(view: View) {
+        _binding = FragmentHomeChildBinding.bind(requireNotNull(view))
         initContent()
         initHeader()
     }
@@ -87,7 +90,7 @@ class ComplexChildFragment : BaseMvpFragment<HomeChildPresenter>(), HomeChildVie
                 getData()
             }
         }
-        home_child_rv.apply {
+        binding.homeChildRv.apply {
             adapter = mAdapter
             addItemDecoration(
                 DividerDecoration(Color.TRANSPARENT, SizeUtils.dp2px(16f),
@@ -145,6 +148,13 @@ class ComplexChildFragment : BaseMvpFragment<HomeChildPresenter>(), HomeChildVie
         getData()
 
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
 
 
 
@@ -212,7 +222,7 @@ class ComplexChildFragment : BaseMvpFragment<HomeChildPresenter>(), HomeChildVie
                 getData()
             }
             EventCode.EVENT_SCROLL_TO_TOP -> {
-                home_child_rv.scrollToPosition(0)
+                binding.homeChildRv.scrollToPosition(0)
             }
             else -> {}
         }

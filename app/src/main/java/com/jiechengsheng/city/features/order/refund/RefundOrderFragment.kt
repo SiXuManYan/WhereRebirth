@@ -15,15 +15,17 @@ import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.features.mall.refund.order.MallRefundInfoActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.fragment_order_child.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentOrderChildBinding
 /**
  * Created by Wangsw  2022/3/26 10:41.
  *
  */
 class RefundOrderFragment : BaseMvpFragment<RefundOrderPresenter>(), RefundOrderView, SwipeRefreshLayout.OnRefreshListener,
     OnLoadMoreListener, OnItemClickListener {
+
+    private var _binding: FragmentOrderChildBinding? = null
+    private val binding get() = _binding!!
 
 
     private lateinit var emptyView: EmptyView
@@ -35,8 +37,9 @@ class RefundOrderFragment : BaseMvpFragment<RefundOrderPresenter>(), RefundOrder
     override fun getLayoutId() = R.layout.fragment_order_child
 
     override fun initView(view: View) {
-        swipe_layout.setOnRefreshListener(this)
-        swipe_layout.setBackgroundColor(ColorUtils.getColor(R.color.white))
+        _binding = FragmentOrderChildBinding.bind(requireNotNull(view))
+        binding.swipeLayout.setOnRefreshListener(this)
+        binding.swipeLayout.setBackgroundColor(ColorUtils.getColor(R.color.white))
         emptyView = EmptyView(requireContext()).apply {
             showEmptyDefault()
             addEmptyList(this)
@@ -53,7 +56,7 @@ class RefundOrderFragment : BaseMvpFragment<RefundOrderPresenter>(), RefundOrder
         }
 
 
-        recycler_view.apply {
+        binding.recyclerView.apply {
             adapter = mAdapter
 
             addItemDecoration(DividerDecoration(ColorUtils.getColor(R.color.white),
@@ -70,6 +73,13 @@ class RefundOrderFragment : BaseMvpFragment<RefundOrderPresenter>(), RefundOrder
         presenter = RefundOrderPresenter(this)
 
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
 
     override fun bindListener() = Unit
 
@@ -95,8 +105,8 @@ class RefundOrderFragment : BaseMvpFragment<RefundOrderPresenter>(), RefundOrder
 
     override fun bindList(toMutableList: MutableList<RefundOrder>, lastPage: Boolean) {
 
-        if (swipe_layout != null) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout != null) {
+            binding.swipeLayout.isRefreshing = false
         }
 
         val loadMoreModule = mAdapter.loadMoreModule

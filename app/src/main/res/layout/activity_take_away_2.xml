@@ -164,6 +164,7 @@
 
     <!-- 购物车 -->
     <include
+        android:id="@+id/take_away_cart"
         layout="@layout/layout_take_away_shopping_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

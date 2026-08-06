@@ -19,14 +19,17 @@ import com.jiechengsheng.city.features.bills.account.edit.BillAccountEditActivit
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_bills_account.*
-import java.util.ArrayList
+import java.util.ArrayList
+import com.jiechengsheng.city.databinding.ActivityBillsAccountBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/12/9 13:46.
  * 缴费账号列表
  */
 class BillAccountActivity : BaseMvpActivity<BillAccountPresenter>(), BillAccountView, OnItemClickListener, OnItemChildClickListener {
+
+    private lateinit var binding: ActivityBillsAccountBinding
 
     /** 账单类型（1-话费，2-水费，3-电费，4-网费） */
     private var billsType = 0
@@ -39,6 +42,7 @@ class BillAccountActivity : BaseMvpActivity<BillAccountPresenter>(), BillAccount
     override fun getLayoutId() = R.layout.activity_bills_account
 
     override fun initView() {
+        binding = ActivityBillsAccountBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         billsType = intent.getIntExtra(Constant.PARAM_TYPE , 0)
         initContent()
     }
@@ -55,7 +59,7 @@ class BillAccountActivity : BaseMvpActivity<BillAccountPresenter>(), BillAccount
             setOnItemChildClickListener(this@BillAccountActivity)
             setEmptyView(emptyView)
         }
-        content_rv.apply {
+        binding.contentRv.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(this@BillAccountActivity, LinearLayoutManager.VERTICAL, false)
 
@@ -73,7 +77,7 @@ class BillAccountActivity : BaseMvpActivity<BillAccountPresenter>(), BillAccount
     }
 
     override fun bindListener() {
-        add_tv.setOnClickListener {
+        binding.addTv.setOnClickListener {
             startActivity(BillAccountEditActivity::class.java, Bundle().apply {
                 putInt(Constant.PARAM_TYPE , billsType)
             })

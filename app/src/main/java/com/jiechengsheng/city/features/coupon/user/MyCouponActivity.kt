@@ -7,14 +7,16 @@ import com.blankj.utilcode.util.StringUtils
 import com.jiechengsheng.city.R
 import com.jiechengsheng.city.base.BaseActivity
 import com.jiechengsheng.city.features.coupon.center.CouponCenterActivity
-import com.jiechengsheng.city.features.coupon.user.child.MyCouponFragment
-import kotlinx.android.synthetic.main.activity_card_coupon.*
-
+import com.jiechengsheng.city.features.coupon.user.child.MyCouponFragment
+import com.jiechengsheng.city.databinding.ActivityCardCouponBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/8/16 11:19.
  * 我的卡券
  */
 class MyCouponActivity : BaseActivity() {
+
+    private lateinit var binding: ActivityCardCouponBinding
 
     val TAB_TITLES =
         arrayOf(
@@ -28,17 +30,18 @@ class MyCouponActivity : BaseActivity() {
     override fun getLayoutId() = R.layout.activity_card_coupon
 
     override fun initView() {
-        pager.apply {
+        binding = ActivityCardCouponBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
+        binding.pager.apply {
             offscreenPageLimit = TAB_TITLES.size
             adapter = InnerPagerAdapter(supportFragmentManager, 0)
         }
-        tabs.setViewPager(pager)
+        binding.tabs.setViewPager(binding.pager)
     }
 
     override fun initData() = Unit
 
     override fun bindListener() {
-        coupon_center.setOnClickListener {
+        binding.couponCenter.setOnClickListener {
             startActivity(CouponCenterActivity::class.java)
         }
 

@@ -23,15 +23,17 @@ import com.jiechengsheng.city.view.empty.EmptyView
 import com.jiechengsheng.city.widget.NumberView2
 import com.jiechengsheng.city.widget.calendar.JcsCalendarAdapter
 import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_hotel_home.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityHotelHomeBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2021/9/13 14:47.
  * 酒店首页
  */
 class HotelHomeActivity : BaseMvpActivity<HotelDetailPresenter>(), HotelHomeView, NumberView2.OnValueChangeListener,
     HotelStarDialog.HotelStarCallback, JcsCalendarDialog.OnDateSelectedListener {
+
+    private lateinit var binding: ActivityHotelHomeBinding
 
     /** 酒店分类 id ,用户获取酒店下的子分类 */
     private var hotelCategoryId = 0
@@ -65,16 +67,17 @@ class HotelHomeActivity : BaseMvpActivity<HotelDetailPresenter>(), HotelHomeView
             val bundle = it.data?.extras
             if (bundle != null) {
                 val city = bundle.getString(Constant.PARAM_SELECT_AREA_NAME)
-                name_tv.text = city
+                binding.nameTv.text = city
             }
         }
     }
 
     override fun initView() {
+        binding = ActivityHotelHomeBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         initExtra()
         initList()
         initScroll()
-        number_view.apply {
+        binding.numberView.apply {
             alwaysEnableCut = true
             MIN_GOOD_NUM = 1
             MAX_GOOD_NUM = 20
@@ -90,9 +93,9 @@ class HotelHomeActivity : BaseMvpActivity<HotelDetailPresenter>(), HotelHomeView
         }
         val city = SPUtils.getInstance().getString(SPKey.SELECT_AREA_NAME, "")
         if (city.isNotBlank()) {
-            name_tv.text = city
+            binding.nameTv.text = city
         } else {
-            name_tv.text = getString(R.string.please_choose_the_city)
+            binding.nameTv.text = getString(R.string.please_choose_the_city)
         }
 
     }
@@ -131,7 +134,7 @@ class HotelHomeActivity : BaseMvpActivity<HotelDetailPresenter>(), HotelHomeView
         }
 
 
-        rv_home.apply {
+        binding.rvHome.apply {
             adapter = mAdapter
             addItemDecoration(
                 DividerDecoration(
@@ -153,23 +156,23 @@ class HotelHomeActivity : BaseMvpActivity<HotelDetailPresenter>(), HotelHomeView
 
     private fun initScroll() {
         // alpha
-        useView.setBackgroundColor(getColor(R.color.white))
-        toolbar.setBackgroundColor(getColor(R.color.white))
-        useView.background.alpha = 0
-        toolbar.background.alpha = 0
-        scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
-            val headHeight = media_fl.measuredHeight - toolbar.measuredHeight
+        binding.useView.setBackgroundColor(getColor(R.color.white))
+        binding.toolbar.setBackgroundColor(getColor(R.color.white))
+        binding.useView.background.alpha = 0
+        binding.toolbar.background.alpha = 0
+        binding.scrollView.setOnScrollChangeListener { _, _, y, _, _ ->
+            val headHeight = binding.mediaFl.measuredHeight - binding.toolbar.measuredHeight
             var alpha = (y.toFloat() / headHeight * 255).toInt()
             if (alpha >= 255) {
                 alpha = 255
-                hotel_title_tv.visibility = View.VISIBLE
+                binding.hotelTitleTv.visibility = View.VISIBLE
             }
             if (alpha <= 5) {
                 alpha = 0
-                hotel_title_tv.visibility = View.GONE
+                binding.hotelTitleTv.visibility = View.GONE
             }
             isToolbarDark = alpha > 130
-            back_iv.setImageResource(
+            binding.backIv.setImageResource(
                 if (isToolbarDark) {
                     R.mipmap.ic_back_black
                 } else {
@@ -177,8 +180,8 @@ class HotelHomeActivity : BaseMvpActivity<HotelDetailPresenter>(), HotelHomeView
                 }
             )
 
-            useView.background.alpha = alpha
-            toolbar.background.alpha = alpha
+            binding.useView.background.alpha = alpha
+            binding.toolbar.background.alpha = alpha
 
             changeStatusTextColor()
         }
@@ -208,19 +211,19 @@ class HotelHomeActivity : BaseMvpActivity<HotelDetailPresenter>(), HotelHomeView
     override fun bindListener() {
 
 
-        score_tv.setOnClickListener(object : ClickUtils.OnDebouncingClickListener(500) {
+        binding.scoreTv.setOnClickListener(object : ClickUtils.OnDebouncingClickListener(500) {
             override fun onDebouncingClick(v: View?) {
                 mHotelStarDialog.show(supportFragmentManager)
             }
         })
 
-        date_tv.setOnClickListener(object : ClickUtils.OnDebouncingClickListener(500) {
+        binding.dateTv.setOnClickListener(object : ClickUtils.OnDebouncingClickListener(500) {
             override fun onDebouncingClick(v: View?) {
                 mJcsCalendarDialog.show(supportFragmentManager)
             }
         })
 
-        inquire_tv.setOnClickListener {
+        binding.inquireTv.setOnClickListener {
             HotelMapActivity.navigation(
                 this,
                 hotelCategoryId,
@@ -232,11 +235,11 @@ class HotelHomeActivity : BaseMvpActivity<HotelDetailPresenter>(), HotelHomeView
                 mJcsCalendarDialog.endBean
             )
         }
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             finish()
         }
 
-        city_rl.setOnClickListener {
+        binding.cityRl.setOnClickListener {
             launcher.launch(Intent(this, CityPickerActivity::class.java))
         }
 
@@ -275,7 +278,7 @@ class HotelHomeActivity : BaseMvpActivity<HotelDetailPresenter>(), HotelHomeView
         }
 
 
-        ("$priceShow / $starShow / $scoreString").also { score_tv.text = it }
+        ("$priceShow / $starShow / $scoreString").also { binding.scoreTv.text = it }
 
 
         // 价格
@@ -325,10 +328,10 @@ class HotelHomeActivity : BaseMvpActivity<HotelDetailPresenter>(), HotelHomeView
         val startBean = mJcsCalendarDialog.startBean
         val endBean = mJcsCalendarDialog.endBean
         (startBean.showMonthDayDate + " - " + endBean.showMonthDayDate).also {
-            date_tv.text = it
+            binding.dateTv.text = it
         }
         val span = (endBean.time - startBean.time) / (1000 * 60 * 60 * 24)
-        total_time_tv.text = getString(R.string.total_date_format, span.toString())
+        binding.totalTimeTv.text = getString(R.string.total_date_format, span.toString())
     }
 
 

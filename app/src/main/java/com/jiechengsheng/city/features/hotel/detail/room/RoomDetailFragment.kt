@@ -20,9 +20,9 @@ import com.jiechengsheng.city.features.hotel.detail.media.MediaData
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.widget.calendar.JcsCalendarAdapter
 import com.shuyu.gsyvideoplayer.GSYVideoManager
-import kotlinx.android.synthetic.main.fragment_hotel_room.*
 import java.math.BigDecimal
-import java.util.*
+import java.util.*
+import com.jiechengsheng.city.databinding.FragmentHotelRoomBinding
 
 
 /**
@@ -30,6 +30,9 @@ import java.util.*
  *  房间详情
  */
 class RoomDetailFragment : BaseBottomSheetDialogFragment<RoomDetailPresenter>(), RoomDetailView {
+
+    private var _binding: FragmentHotelRoomBinding? = null
+    private val binding get() = _binding!!
 
 
     private var hotelId = 0
@@ -123,6 +126,7 @@ class RoomDetailFragment : BaseBottomSheetDialogFragment<RoomDetailPresenter>(),
 
 
     override fun initView(parent: View) {
+        _binding = FragmentHotelRoomBinding.bind(requireNotNull(view))
         initExtra()
         initMedia()
         initList()
@@ -143,10 +147,10 @@ class RoomDetailFragment : BaseBottomSheetDialogFragment<RoomDetailPresenter>(),
             mEndDateBean = getSerializable(Constant.PARAM_END_DATE) as JcsCalendarAdapter.CalendarBean
             roomStatus =  getInt(Constant.PARAM_STATUS,0)
         }
-        name_tv.text = hotelName
-        title_name_tv.text = hotelName
+        binding.nameTv.text = hotelName
+        binding.titleNameTv.text = hotelName
 
-//        booking_tv.visibility = if (roomStatus == 1) {
+//        binding.bookingTv.visibility = if (roomStatus == 1) {
 //            View.VISIBLE
 //        }else {
 //            View.GONE
@@ -166,17 +170,24 @@ class RoomDetailFragment : BaseBottomSheetDialogFragment<RoomDetailPresenter>(),
         )
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
 
     private fun initMedia() {
         mMediaAdapter = DetailMediaAdapter()
-        PagerSnapHelper().attachToRecyclerView(media_rv)
-        media_rv.isNestedScrollingEnabled = true
+        PagerSnapHelper().attachToRecyclerView(binding.mediaRv)
+        binding.mediaRv.isNestedScrollingEnabled = true
 
-        media_rv.apply {
+        binding.mediaRv.apply {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = mMediaAdapter
         }
-        media_rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.mediaRv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             @SuppressLint("NotifyDataSetChanged")
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
 
@@ -202,7 +213,7 @@ class RoomDetailFragment : BaseBottomSheetDialogFragment<RoomDetailPresenter>(),
 
                 }
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    point_view.onPageSelected(firstItemPosition)
+                    binding.pointView.onPageSelected(firstItemPosition)
                 }
 
 
@@ -216,11 +227,11 @@ class RoomDetailFragment : BaseBottomSheetDialogFragment<RoomDetailPresenter>(),
     private fun initList() {
         mFacilitiesAdapter = HotelFacilitiesAdapter()
 
-        facility_rv.layoutManager = object : GridLayoutManager(requireContext(), 2, VERTICAL, false) {
+        binding.facilityRv.layoutManager = object : GridLayoutManager(requireContext(), 2, VERTICAL, false) {
             override fun canScrollVertically(): Boolean = true
         }
-        facility_rv.adapter = mFacilitiesAdapter
-        facility_rv.isNestedScrollingEnabled = true
+        binding.facilityRv.adapter = mFacilitiesAdapter
+        binding.facilityRv.isNestedScrollingEnabled = true
 
     }
 
@@ -228,25 +239,25 @@ class RoomDetailFragment : BaseBottomSheetDialogFragment<RoomDetailPresenter>(),
 
         // 轮播
         mMediaAdapter.setNewInstance(mediaList)
-        point_view.setPointCount(mediaList.size)
+        binding.pointView.setPointCount(mediaList.size)
         if (mediaList.isNotEmpty()) {
           roomImage =   mediaList[0].src
         }
 
         hotelRoomType = response.hotel_room_type
-        bed_tv.text = hotelRoomType
+        binding.bedTv.text = hotelRoomType
         when (response.breakfast_type) {
-            1 -> breakfast_tv.text = getString(R.string.breakfast_support)
-            2 -> breakfast_tv.text = getString(R.string.breakfast_un_support)
+            1 -> binding.breakfastTv.text = getString(R.string.breakfast_support)
+            2 -> binding.breakfastTv.text = getString(R.string.breakfast_un_support)
         }
-        area_tv.text = response.room_area
+        binding.areaTv.text = response.room_area
 
-        people_tv.text = getString(R.string.people_number_format, response.people)
+        binding.peopleTv.text = getString(R.string.people_number_format, response.people)
 
         mFacilitiesAdapter.setNewInstance(response.facilities)
         singlePrice = response.price
-        price_tv.text = getString(R.string.price_unit_format, response.price.toPlainString())
-        note_tv.text = if (response.is_cancel == 1) {
+        binding.priceTv.text = getString(R.string.price_unit_format, response.price.toPlainString())
+        binding.noteTv.text = if (response.is_cancel == 1) {
             getString(R.string.cancelable)
         } else {
             getString(R.string.not_cancelable)
@@ -255,21 +266,21 @@ class RoomDetailFragment : BaseBottomSheetDialogFragment<RoomDetailPresenter>(),
     }
 
     override fun bindListener() {
-        back_iv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             dismissAllowingStateLoss()
         }
-        booking_tv.setOnClickListener {
+        binding.bookingTv.setOnClickListener {
 
             HotelBookActivity.navigation(
                 requireContext(),
                 hotelRoomId = roomId,
                 singlePrice = singlePrice.toDouble(),
                 roomType = hotelRoomType,
-                breakFastType = breakfast_tv.text.toString(),
-                roomArea = area_tv.text.toString(),
-                roomPeople = people_tv.text.toString(),
+                breakFastType = binding.breakfastTv.text.toString(),
+                roomArea = binding.areaTv.text.toString(),
+                roomPeople = binding.peopleTv.text.toString(),
                 hotelName = hotelName,
-                cancelable = note_tv.text.toString(),
+                cancelable = binding.noteTv.text.toString(),
                 roomNumber = roomNumber,
                 roomImage= roomImage,
                 startDate = mStartDateBean,

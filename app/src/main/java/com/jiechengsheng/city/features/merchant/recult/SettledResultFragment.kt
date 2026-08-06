@@ -8,14 +8,17 @@ import com.jiechengsheng.city.api.request.merchant.MerchantSettledData
 import com.jiechengsheng.city.base.BaseEvent
 import com.jiechengsheng.city.base.EventCode
 import com.jiechengsheng.city.base.mvp.BaseMvpFragment
-import kotlinx.android.synthetic.main.fragemnt_settled_result.*
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
+import com.jiechengsheng.city.databinding.FragemntSettledResultBinding
 
 /**
  * Created by Wangsw  2021/11/19 18:15.
  * 商家入驻审核中、审核结果
  */
 class SettledResultFragment : BaseMvpFragment<SettledResultPresenter>(), SettledResultView {
+
+    private var _binding: FragemntSettledResultBinding? = null
+    private val binding get() = _binding!!
 
 
     /**
@@ -27,6 +30,7 @@ class SettledResultFragment : BaseMvpFragment<SettledResultPresenter>(), Settled
     override fun getLayoutId() = R.layout.fragemnt_settled_result
 
     override fun initView(view: View) {
+        _binding = FragemntSettledResultBinding.bind(requireNotNull(view))
         changeContent(type)
     }
 
@@ -34,6 +38,13 @@ class SettledResultFragment : BaseMvpFragment<SettledResultPresenter>(), Settled
 
 
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
 
     override fun bindListener() = Unit
 
@@ -44,31 +55,31 @@ class SettledResultFragment : BaseMvpFragment<SettledResultPresenter>(), Settled
     private fun changeContent(type: Int) {
         when (type) {
             2 -> {
-                type_image_iv.setImageResource(R.mipmap.ic_audit_success)
-                type_text_tv.text = getString(R.string.merchant_verify_success_title)
-                type_desc_tv.text = getString(R.string.merchant_verify_success_desc)
+                binding.typeImageIv.setImageResource(R.mipmap.ic_audit_success)
+                binding.typeTextTv.text = getString(R.string.merchant_verify_success_title)
+                binding.typeDescTv.text = getString(R.string.merchant_verify_success_desc)
                 // 再次提交暂时隐藏
-                recommit_tv.visibility = View.GONE
-//                recommit_tv.text = getString(R.string.commit_again)
-//                recommit_tv.setOnClickListener {
+                binding.recommitTv.visibility = View.GONE
+//                binding.recommitTv.text = getString(R.string.commit_again)
+//                binding.recommitTv.setOnClickListener {
 //                    EventBus.getDefault().post(BaseEvent<Boolean>(EventCode.EVENT_MERCHANT_COMMIT_NEW))
 //                }
             }
             3 -> {
-                type_image_iv.setImageResource(R.mipmap.ic_audit_fail)
-                type_text_tv.text = getString(R.string.merchant_verify_faild_title)
-                type_desc_tv.text = getString(R.string.merchant_verify_faild_desc)
-                recommit_tv.visibility = View.VISIBLE
-                recommit_tv.text = getString(R.string.recommit)
-                recommit_tv.setOnClickListener {
+                binding.typeImageIv.setImageResource(R.mipmap.ic_audit_fail)
+                binding.typeTextTv.text = getString(R.string.merchant_verify_faild_title)
+                binding.typeDescTv.text = getString(R.string.merchant_verify_faild_desc)
+                binding.recommitTv.visibility = View.VISIBLE
+                binding.recommitTv.text = getString(R.string.recommit)
+                binding.recommitTv.setOnClickListener {
                     EventBus.getDefault().post(BaseEvent<Boolean>(EventCode.EVENT_MERCHANT_RECOMMIT))
                 }
             }
             else -> {
-                type_image_iv.setImageResource(R.mipmap.ic_auditing)
-                type_text_tv.text = getString(R.string.merchant_verify_ing_title)
-                type_desc_tv.text = getString(R.string.merchant_verify_ing_desc)
-                recommit_tv.visibility = View.GONE
+                binding.typeImageIv.setImageResource(R.mipmap.ic_auditing)
+                binding.typeTextTv.text = getString(R.string.merchant_verify_ing_title)
+                binding.typeDescTv.text = getString(R.string.merchant_verify_ing_desc)
+                binding.recommitTv.visibility = View.GONE
 
             }
         }

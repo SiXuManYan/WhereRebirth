@@ -20,9 +20,8 @@ import com.jiechengsheng.city.features.map.MechanismAdapter
 import com.jiechengsheng.city.features.mechanism.MechanismActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.fragment_mechanism_list.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.FragmentMechanismListBinding
 /**
  * Created by Wangsw  2022/9/8 18:31.
  * 综合服务子分类
@@ -31,6 +30,9 @@ class ConvenienceChildFragment : BaseMvpFragment<ConvenienceChildPresenter>(), C
     SwipeRefreshLayout.OnRefreshListener,
     OnLoadMoreListener,
     OnItemClickListener {
+
+    private var _binding: FragmentMechanismListBinding? = null
+    private val binding get() = _binding!!
 
     private var page = Constant.DEFAULT_FIRST_PAGE
     private lateinit var emptyView: EmptyView
@@ -74,6 +76,7 @@ class ConvenienceChildFragment : BaseMvpFragment<ConvenienceChildPresenter>(), C
     }
 
     override fun initView(view: View?) {
+        _binding = FragmentMechanismListBinding.bind(requireNotNull(view))
 
         initExtra()
         initContent()
@@ -87,7 +90,7 @@ class ConvenienceChildFragment : BaseMvpFragment<ConvenienceChildPresenter>(), C
     }
 
     private fun initContent() {
-        mechanismRefresh.setOnRefreshListener(this@ConvenienceChildFragment)
+        binding.mechanismRefresh.setOnRefreshListener(this@ConvenienceChildFragment)
 
         emptyView = EmptyView(requireContext()).apply {
             showEmptyDefault()
@@ -101,7 +104,7 @@ class ConvenienceChildFragment : BaseMvpFragment<ConvenienceChildPresenter>(), C
             setOnItemClickListener(this@ConvenienceChildFragment)
         }
 
-        mechanismRecycler.apply {
+        binding.mechanismRecycler.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
             addItemDecoration(DividerDecoration(Color.TRANSPARENT, SizeUtils.dp2px(15f), 0, 0))
@@ -112,9 +115,16 @@ class ConvenienceChildFragment : BaseMvpFragment<ConvenienceChildPresenter>(), C
         presenter = ConvenienceChildPresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun bindListener() {
-        mechanismRadioGroup.setOnCheckedChangeListener { group, checkedId ->
-            if (mechanismRefresh.isRefreshing) {
+        binding.mechanismRadioGroup.setOnCheckedChangeListener { group, checkedId ->
+            if (binding.mechanismRefresh.isRefreshing) {
                 return@setOnCheckedChangeListener
             }
             when (checkedId) {
@@ -171,13 +181,13 @@ class ConvenienceChildFragment : BaseMvpFragment<ConvenienceChildPresenter>(), C
     override fun bindChildCategory(response: List<CategoryResponse>) {
 
         if (response.isNullOrEmpty()) {
-            radioScroll.visibility = View.GONE
-            mechanismRadioGroup.visibility = View.GONE
+            binding.radioScroll.visibility = View.GONE
+            binding.mechanismRadioGroup.visibility = View.GONE
             return
         }
-        radioScroll.visibility = View.VISIBLE
-        mechanismRadioGroup.visibility = View.VISIBLE
-        val allRadio = mechanismRadioGroup.getChildAt(0)
+        binding.radioScroll.visibility = View.VISIBLE
+        binding.mechanismRadioGroup.visibility = View.VISIBLE
+            val allRadio = binding.mechanismRadioGroup.getChildAt(0)
         mChildCategories.clear()
         mChildCategories.addAll(response)
 
@@ -188,12 +198,12 @@ class ConvenienceChildFragment : BaseMvpFragment<ConvenienceChildPresenter>(), C
                 setBackgroundResource(R.drawable.selector_store_third_category)
                 text = categoryResponse.name;
                 setTextColor(resources.getColorStateList(R.color.selector_grey_blue, null))
-                layoutParams = allRadio.layoutParams
+                layoutParams = binding.allRadio.layoutParams
                 id = Integer.parseInt(categoryResponse.id)
-                setPadding(allRadio.paddingLeft, allRadio.paddingTop, allRadio.paddingRight, allRadio.paddingBottom);
+                setPadding(binding.allRadio.paddingLeft, binding.allRadio.paddingTop, binding.allRadio.paddingRight, binding.allRadio.paddingBottom);
                 textSize = 12f
             }
-            mechanismRadioGroup.addView(temp, mechanismRadioGroup.childCount)
+            binding.mechanismRadioGroup.addView(temp, binding.mechanismRadioGroup.childCount)
 
         }
 
@@ -201,8 +211,8 @@ class ConvenienceChildFragment : BaseMvpFragment<ConvenienceChildPresenter>(), C
 
     override fun bindList(data: MutableList<MechanismResponse>, lastPage: Boolean) {
 
-        if (mechanismRefresh != null) {
-            mechanismRefresh.isRefreshing = false
+        if (binding.mechanismRefresh != null) {
+            binding.mechanismRefresh.isRefreshing = false
         }
 
 

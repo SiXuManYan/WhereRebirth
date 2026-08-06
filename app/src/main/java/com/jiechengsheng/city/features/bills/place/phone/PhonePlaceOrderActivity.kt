@@ -27,14 +27,17 @@ import com.jiechengsheng.city.features.bills.place.coupon.BillCouponHome
 import com.jiechengsheng.city.features.payment.counter.PayCounterActivity
 import com.jiechengsheng.city.utils.CacheUtil
 import com.jiechengsheng.city.utils.Constant
-import kotlinx.android.synthetic.main.activity_bills_place_order_charges.*
-import java.math.BigDecimal
+import java.math.BigDecimal
+import com.jiechengsheng.city.databinding.ActivityBillsPlaceOrderChargesBinding
+import android.view.ViewGroup
 
 /**
  * Created by Wangsw  2022/7/7 15:14.
  * 话费充值下单
  */
 class PhonePlaceOrderActivity : BaseMvpActivity<PhonePlacePresenter>(), PhonePlaceOrderView {
+
+    private lateinit var binding: ActivityBillsPlaceOrderChargesBinding
 
 
     var phone = ""
@@ -73,6 +76,7 @@ class PhonePlaceOrderActivity : BaseMvpActivity<PhonePlacePresenter>(), PhonePla
     override fun getLayoutId() = R.layout.activity_bills_place_order_charges
 
     override fun initView() {
+        binding = ActivityBillsPlaceOrderChargesBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         initExtra()
     }
@@ -81,15 +85,15 @@ class PhonePlaceOrderActivity : BaseMvpActivity<PhonePlacePresenter>(), PhonePla
     private fun initExtra() {
         intent.extras?.let {
             phone = it.getString(Constant.PARAM_PHONE, "")
-            phone_tv.text = phone
+            binding.phoneTv.text = phone
             CacheUtil.getShareDefault().put(Constant.SP_CHARGES_PHONE, phone)
 
             val data = it.getParcelable<CallChargeChannelItem>(Constant.PARAM_DATA)
 
             data?.let { item ->
                 selectItem = item
-                // total_money_tv.text = item.Denomination
-                channel_tv.text = item.TelcoName
+                // binding.totalMoneyTv.text = item.Denomination
+                binding.channelTv.text = item.TelcoName
             }
 
         }
@@ -102,12 +106,12 @@ class PhonePlaceOrderActivity : BaseMvpActivity<PhonePlacePresenter>(), PhonePla
     }
 
     override fun bindListener() {
-        confirm_tv.setOnClickListener {
+        binding.confirmTv.setOnClickListener {
             showLoadingDialog(false)
             presenter.placeOrder(phone, selectItem, finalPrice, currentCouponId)
         }
 
-        coupon_rl.setOnClickListener {
+        binding.couponRl.setOnClickListener {
 
             mSelectedCouponDialog.apply {
                 alreadySelectedCouponId = currentCouponId
@@ -167,32 +171,32 @@ class PhonePlaceOrderActivity : BaseMvpActivity<PhonePlacePresenter>(), PhonePla
     override fun bindOrderDiscount(response: BillsOrderDiscount) {
         val price = response.price
         finalPrice = price
-        total_money_tv.text = price
+        binding.totalMoneyTv.text = price
 
         if (BigDecimal(response.discounts_price).compareTo(BigDecimal.ZERO) == 1) {
-            discount_rl.visibility = View.VISIBLE
-            discount_tv.text = response.discount
-            discount_price_tv.text = StringUtils.getString(R.string.price_unit_discount_format, response.discounts_price)
+            binding.discountRl.visibility = View.VISIBLE
+            binding.discountTv.text = response.discount
+            binding.discountPriceTv.text = StringUtils.getString(R.string.price_unit_discount_format, response.discounts_price)
         } else {
-            discount_rl.visibility = View.GONE
+            binding.discountRl.visibility = View.GONE
         }
 
         val hint = response.hint
         if (hint.isNullOrBlank()) {
-            user_hint_tv.visibility = View.GONE
+            binding.userHintTv.visibility = View.GONE
         } else {
-            user_hint_tv.visibility = View.VISIBLE
-            user_hint_tv.text = hint
+            binding.userHintTv.visibility = View.VISIBLE
+            binding.userHintTv.text = hint
         }
 
         // 优惠券
         val couponId = response.coupon_id
         if (couponId != 0) {
             currentCouponId = couponId
-            coupon_rl.visibility = View.VISIBLE
-            coupon_price_tv.text = getString(R.string.price_unit_discount_format, response.coupon_price)
+            binding.couponRl.visibility = View.VISIBLE
+            binding.couponPriceTv.text = getString(R.string.price_unit_discount_format, response.coupon_price)
         } else {
-            coupon_rl.visibility = View.GONE
+            binding.couponRl.visibility = View.GONE
         }
 
 

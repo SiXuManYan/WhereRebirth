@@ -13,14 +13,16 @@ import com.jiechengsheng.city.features.account.login.LoginActivity
 import com.jiechengsheng.city.features.hotel.comment.child.HotelCommentAdapter
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.view.empty.EmptyView
-import kotlinx.android.synthetic.main.activity_refresh_list.*
-
+import com.jiechengsheng.city.view.empty.EmptyView
+import com.jiechengsheng.city.databinding.ActivityRefreshListBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/5/19 15:43.
  * 商城评价
  */
 class CommentComplexActivity : BaseMvpActivity<CommentComplexPresenter>(), CommentComplexView {
+
+    private lateinit var binding: ActivityRefreshListBinding
 
 
     /**
@@ -89,6 +91,7 @@ class CommentComplexActivity : BaseMvpActivity<CommentComplexPresenter>(), Comme
     override fun getLayoutId() = R.layout.activity_refresh_list
 
     override fun initView() {
+        binding = ActivityRefreshListBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
 
         initExtra()
         mJcsTitle.setMiddleTitle(getString(R.string.evaluation))
@@ -98,7 +101,7 @@ class CommentComplexActivity : BaseMvpActivity<CommentComplexPresenter>(), Comme
     }
 
     private fun initList() {
-        swipe_layout.setOnRefreshListener(this)
+        binding.swipeLayout.setOnRefreshListener(this)
         emptyView = EmptyView(this).apply {
             setEmptyImage(R.mipmap.ic_empty_refund_comment)
             setEmptyHint(R.string.no_comments_yet)
@@ -116,7 +119,7 @@ class CommentComplexActivity : BaseMvpActivity<CommentComplexPresenter>(), Comme
             loadMoreModule.setOnLoadMoreListener(this@CommentComplexActivity)
             setEmptyView(emptyView)
         }
-        recycler.adapter = mAdapter
+        binding.recycler.adapter = mAdapter
 
 
         header = MallCommentHeader(this).apply {
@@ -143,7 +146,7 @@ class CommentComplexActivity : BaseMvpActivity<CommentComplexPresenter>(), Comme
     override fun bindListener() = Unit
 
     override fun onRefresh() {
-        swipe_layout.isRefreshing = true
+        binding.swipeLayout.isRefreshing = true
         page = Constant.DEFAULT_FIRST_PAGE
         loadData()
     }
@@ -176,8 +179,8 @@ class CommentComplexActivity : BaseMvpActivity<CommentComplexPresenter>(), Comme
 
 
     override fun bindData(data: MutableList<HotelComment>, lastPage: Boolean) {
-        if (swipe_layout.isRefreshing) {
-            swipe_layout.isRefreshing = false
+        if (binding.swipeLayout.isRefreshing) {
+            binding.swipeLayout.isRefreshing = false
         }
         val loadMoreModule = mAdapter.loadMoreModule
         if (data.isEmpty()) {

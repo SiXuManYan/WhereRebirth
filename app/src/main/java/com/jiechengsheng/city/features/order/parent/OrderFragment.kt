@@ -13,14 +13,19 @@ import com.jiechengsheng.city.base.mvp.BaseMvpFragment
 import com.jiechengsheng.city.features.account.login.LoginActivity
 import com.jiechengsheng.city.features.order.OrderChildFragment
 import com.jiechengsheng.city.features.order.refund.RefundOrderFragment
-import com.jiechengsheng.city.storage.entity.User
-import kotlinx.android.synthetic.main.fragment_order_parent.*
-
+import com.jiechengsheng.city.storage.entity.User
+import com.jiechengsheng.city.databinding.FragmentOrderParentBinding
 /**
  * Created by Wangsw  2021/7/30 10:57.
  *
  */
 class OrderFragment : BaseMvpFragment<OrderPresenter>(), OrderView {
+
+    private var _binding: FragmentOrderParentBinding? = null
+    private val binding get() = _binding!!
+
+    private val tabsType: com.jiechengsheng.city.widget.tabs.SlidingTabLayout
+        get() = requireView().findViewById(R.id.tabs_type)
 
     var needBack = false
 
@@ -29,25 +34,26 @@ class OrderFragment : BaseMvpFragment<OrderPresenter>(), OrderView {
     override fun getLayoutId() = R.layout.fragment_order_parent
 
     override fun initView(view: View?) {
+        _binding = FragmentOrderParentBinding.bind(requireNotNull(view))
 
         view?.let {
             BarUtils.addMarginTopEqualStatusBarHeight(view.findViewById(R.id.title_rl))
         }
 
-        login_rl.visibility = if (User.isLogon()) {
+        binding.loginRl.visibility = if (User.isLogon()) {
             View.GONE
         } else {
             View.VISIBLE
         }
 
-        order_back_iv.visibility = if (needBack) {
+        binding.orderBackIv.visibility = if (needBack) {
             View.VISIBLE
         } else {
             View.GONE
         }
-        tabs_type.setSelectTextScale(1.0f)
+        binding.tabsType.setSelectTextScale(1.0f)
 
-        order_empty.apply {
+        binding.orderEmpty.apply {
             hideEmptyContainer()
         }
 
@@ -59,35 +65,42 @@ class OrderFragment : BaseMvpFragment<OrderPresenter>(), OrderView {
         presenter = OrderPresenter(this)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    
+
     override fun loadOnVisible() {
         presenter.getTabs(true)
     }
 
     override fun bindListener() {
-        login_tv.setOnClickListener {
+        binding.loginTv.setOnClickListener {
             startActivity(LoginActivity::class.java)
         }
 
-        order_back_iv.setOnClickListener {
+        binding.orderBackIv.setOnClickListener {
             activity?.finish()
         }
     }
 
     override fun bindTab(response: ArrayList<OrderTabResponse>, titles: ArrayList<String>, isInit: Boolean) {
-        order_empty.visibility = View.GONE
+        binding.orderEmpty.visibility = View.GONE
         mType.clear()
         mType.addAll(response)
 
         if (isInit) {
-            viewpager.offscreenPageLimit = response.size
+            binding.viewpager.offscreenPageLimit = response.size
             val innerPagerAdapter = InnerPagerAdapter(childFragmentManager, 0)
             innerPagerAdapter.notifyDataSetChanged()
-            viewpager.adapter = innerPagerAdapter
-            tabs_type.setViewPager(viewpager, titles.toTypedArray())
+            binding.viewpager.adapter = innerPagerAdapter
+            binding.tabsType.setViewPager(binding.viewpager, titles.toTypedArray())
         } else {
-            tabs_type.mTitles.clear()
-            tabs_type.mTitles.addAll(titles)
-            tabs_type.notifyDataSetChanged()
+            binding.tabsType.mTitles.clear()
+            binding.tabsType.mTitles.addAll(titles)
+            binding.tabsType.notifyDataSetChanged()
         }
 
     }
@@ -97,13 +110,13 @@ class OrderFragment : BaseMvpFragment<OrderPresenter>(), OrderView {
         super.onEventReceived(baseEvent)
         when (baseEvent.code) {
             EventCode.EVENT_LOGIN_SUCCESS -> {
-                login_rl.visibility = View.GONE
+                binding.loginRl.visibility = View.GONE
                 val isInit = mType.isEmpty()
 
                 presenter.getTabs(isInit)
             }
             EventCode.EVENT_SIGN_OUT -> {
-                login_rl.visibility = View.VISIBLE
+                binding.loginRl.visibility = View.VISIBLE
             }
             EventCode.EVENT_REFRESH_ORDER_LIST,
             EventCode.EVENT_ORDER_COMMIT_SUCCESS,
@@ -139,11 +152,11 @@ class OrderFragment : BaseMvpFragment<OrderPresenter>(), OrderView {
     }
 
     override fun getTabError() {
-        if (order_empty.visibility != View.VISIBLE) {
-            order_empty.visibility = View.VISIBLE
-            order_empty.showNetworkError {
+        if (binding.orderEmpty.visibility != View.VISIBLE) {
+            binding.orderEmpty.visibility = View.VISIBLE
+            binding.orderEmpty.showNetworkError {
                 presenter.getTabs(true)
-                order_empty.visibility = View.GONE
+                binding.orderEmpty.visibility = View.GONE
             }
 
         }

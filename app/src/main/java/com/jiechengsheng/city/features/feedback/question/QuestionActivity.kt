@@ -19,14 +19,16 @@ import com.jiechengsheng.city.features.feedback.home.CategoryQuestionAdapter
 import com.jiechengsheng.city.features.feedback.question.det.QuestionDetActivity
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.view.empty.EmptyView
-import com.jiechengsheng.city.widget.list.DividerDecoration
-import kotlinx.android.synthetic.main.activity_feedback_question_and_search_result.*
-
+import com.jiechengsheng.city.widget.list.DividerDecoration
+import com.jiechengsheng.city.databinding.ActivityFeedbackQuestionAndSearchResultBinding
+import android.view.ViewGroup
 /**
  * Created by Wangsw  2022/10/12 17:03.
  * 问题列表、搜索问题结果列表
  */
 class QuestionActivity : BaseMvpActivity<QuestionPresenter>(), QuestionView, OnItemClickListener {
+
+    private lateinit var binding: ActivityFeedbackQuestionAndSearchResultBinding
 
 
     private var categoryId = 0
@@ -80,6 +82,7 @@ class QuestionActivity : BaseMvpActivity<QuestionPresenter>(), QuestionView, OnI
     }
 
     override fun initView() {
+        binding = ActivityFeedbackQuestionAndSearchResultBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)!!)
         BarUtils.setStatusBarColor(this, Color.WHITE)
         initContent()
     }
@@ -97,12 +100,12 @@ class QuestionActivity : BaseMvpActivity<QuestionPresenter>(), QuestionView, OnI
         // 页面模式区分
         if (searchName.isBlank()) {
             // 问题列表
-            title_rl.visibility = View.VISIBLE
-            category_name_tv.text = categoryName
+            binding.titleRl.visibility = View.VISIBLE
+            binding.categoryNameTv.text = categoryName
             emptyView.showEmptyDefault()
         } else {
-            search_ll.visibility = View.VISIBLE
-            search_content_tv.text = searchName
+            binding.searchLl.visibility = View.VISIBLE
+            binding.searchContentTv.text = searchName
             emptyView.setEmptyImage(R.mipmap.ic_empty_search)
             emptyView.setEmptyMessage(R.string.empty_search_message)
             emptyView.setEmptyHint(R.string.empty_search_hint)
@@ -118,7 +121,7 @@ class QuestionActivity : BaseMvpActivity<QuestionPresenter>(), QuestionView, OnI
 
         val gridLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         val decoration = DividerDecoration(ColorUtils.getColor(R.color.colorPrimary), 1, SizeUtils.dp2px(15f), 0)
-        recycler.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             layoutManager = gridLayoutManager
             addItemDecoration(decoration)
@@ -133,7 +136,7 @@ class QuestionActivity : BaseMvpActivity<QuestionPresenter>(), QuestionView, OnI
     }
 
     override fun bindListener() {
-        search_ll.setOnClickListener { finish() }
+        binding.searchLl.setOnClickListener { finish() }
     }
 
     override fun onItemClick(adapter: BaseQuickAdapter<*, *>, view: View, position: Int) {
