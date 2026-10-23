@@ -16,8 +16,6 @@
 package com.jiechengsheng.city.utils;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -28,12 +26,13 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.jiechengsheng.city.R;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 /**
  * Utility class for access to runtime permissions.
@@ -192,25 +191,94 @@ public abstract class PermissionUtils {
 
 
 
-    @SuppressLint("CheckResult")
+    /**
+     * 请求一组运行时权限。已授权时同步回调；否则由一个无界面 Fragment 承接系统回调，
+     * 避免调用方各自重写 onRequestPermissionsResult。离线演示不依赖 RxPermissions。
+     */
     public static void permissionAny(Context context, @NonNull OnPermissionCallBack onPermissionCallBack, String... permissions) {
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || permissions.length == 0) {
             onPermissionCallBack.onPermissionCallBack(true);
-        } else {
-            if (context == null) {
-                return;
+            return;
+        }
+        if (!(context instanceof FragmentActivity)) {
+            onPermissionCallBack.onPermissionCallBack(false);
+            return;
+        }
+        FragmentActivity activity = (FragmentActivity) context;
+        boolean allGranted = true;
+        for (String permission : permissions) {
+            if (ActivityCompat.checkSelfPermission(activity, permission) != PackageManager.PERMISSION_GRANTED) {
+                allGranted = false;
+                break;
             }
-            new RxPermissions((Activity) context)
-                    .request(permissions)
-                    .subscribe(onPermissionCallBack::onPermissionCallBack);
+        }
+        if (allGranted) {
+            onPermissionCallBack.onPermissionCallBack(true);
+            return;
         }
 
-
+        PermissionRequestFragment fragment = new PermissionRequestFragment();
+        fragment.callback = onPermissionCallBack;
+        fragment.permissions = permissions;
+        activity.getSupportFragmentManager()
+                .beginTransaction()
+                .add(fragment, PermissionRequestFragment.TAG)
+                .commitNowAllowingStateLoss();
     }
 
     public interface OnPermissionCallBack {
         void onPermissionCallBack(boolean granted);
+    }
+
+    /** 无界面 Fragment，用于承接系统权限回调。 */
+    public static class PermissionRequestFragment extends Fragment {
+
+        static final String TAG = "where-permission-request";
+        private static final int REQUEST_CODE = 0x51;
+
+        private OnPermissionCallBack callback;
+        private String[] permissions = new String[0];
+        private boolean requested = false;
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setRetainInstance(true);
+        }
+
+        @Override
+        public void onStart() {
+            super.onStart();
+            if (!requested) {
+                requested = true;
+                requestPermissions(permissions, REQUEST_CODE);
+            }
+        }
+
+        @Override
+        public void onRequestPermissionsResult(int requestCode, @NonNull String[] requestPermissions,
+                                               @NonNull int[] grantResults) {
+            super.onRequestPermissionsResult(requestCode, requestPermissions, grantResults);
+            if (requestCode != REQUEST_CODE) {
+                return;
+            }
+            boolean granted = true;
+            for (int result : grantResults) {
+                if (result != PackageManager.PERMISSION_GRANTED) {
+                    granted = false;
+                    break;
+                }
+            }
+            if (callback != null) {
+                callback.onPermissionCallBack(granted);
+                callback = null;
+            }
+            if (isAdded()) {
+                getParentFragmentManager().beginTransaction()
+                        .remove(this)
+                        .commitAllowingStateLoss();
+            }
+        }
     }
 
 }

@@ -4,38 +4,38 @@
   "data": [
     {
       "id": 1,
-      "user_name": "Where Rebirth Demo 1",
-      "account": "Local mock 1",
-      "channel_category": "Local mock 1",
-      "name": "Where Rebirth Demo 1"
+      "user_name": "Juan Dela Cruz",
+      "account": "157",
+      "channel_category": "Bataan 1",
+      "name": "Balanga"
     },
     {
       "id": 2,
-      "user_name": "Where Rebirth Demo 2",
-      "account": "Local mock 2",
-      "channel_category": "Local mock 2",
-      "name": "Where Rebirth Demo 2"
+      "user_name": "Maria Santos",
+      "account": "194",
+      "channel_category": "Bataan 2",
+      "name": "Bataan"
     },
     {
       "id": 3,
-      "user_name": "Where Rebirth Demo 3",
-      "account": "Local mock 3",
-      "channel_category": "Local mock 3",
-      "name": "Where Rebirth Demo 3"
+      "user_name": "Where Demo",
+      "account": "231",
+      "channel_category": "Bataan 3",
+      "name": "Mariveles"
     },
     {
       "id": 4,
-      "user_name": "Where Rebirth Demo 4",
-      "account": "Local mock 4",
-      "channel_category": "Local mock 4",
-      "name": "Where Rebirth Demo 4"
+      "user_name": "Juan Dela Cruz",
+      "account": "268",
+      "channel_category": "Bataan 4",
+      "name": "Dinalupihan"
     },
     {
       "id": 5,
-      "user_name": "Where Rebirth Demo 5",
-      "account": "Local mock 5",
-      "channel_category": "Local mock 5",
-      "name": "Where Rebirth Demo 5"
+      "user_name": "Maria Santos",
+      "account": "305",
+      "channel_category": "Bataan 5",
+      "name": "Hermosa"
     }
   ]
 }

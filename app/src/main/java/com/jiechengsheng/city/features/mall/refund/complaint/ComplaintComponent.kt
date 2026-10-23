@@ -9,9 +9,12 @@ import com.jiechengsheng.city.api.request.hotel.ComplaintRequest
 import com.jiechengsheng.city.api.response.UploadFileResponse2
 import com.jiechengsheng.city.features.store.refund.image.StoreRefundAdapter2
 import com.jiechengsheng.city.utils.BusinessUtils
-import okhttp3.MediaType
-import okhttp3.RequestBody
 import java.io.File
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 
 /**
  * Created by Wangsw  2022/3/29 14:46.
@@ -37,13 +40,13 @@ class ComplaintPresenter(private var view: ComplaintView) : BaseMvpPresenter(vie
             if (!RegexUtils.isURL(it)) {
                 // 只上传本地相册选中的图片
                 val file = File(it)
-                val requestFile = RequestBody.create(MediaType.parse("image/jpg"), file)
+                val requestFile = file.asRequestBody("image/jpg".toMediaType())
                 // 多图上传的key 由 file改成　file[]
                 map["file[]\"; filename=\"" + file.name] = requestFile;
             }
         }
 
-        val description = RequestBody.create(MediaType.parse("multipart/form-data"), "2")
+        val description = "2".toRequestBody("multipart/form-data".toMediaType())
         if (map.isEmpty()) {
             view.upLoadImageSuccess(ArrayList<String>(), orderId, desc)
             return

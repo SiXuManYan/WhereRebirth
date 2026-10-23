@@ -258,7 +258,7 @@ class MineFragment : BaseMvpFragment<MinePresenter>(), MineView {
             timeDialog.dismiss()
         }
         view.findViewById<LinearLayout>(R.id.share_facebook_ll).setOnClickListener {
-            MobUtil.shareFacebookWebPage(inviteLink, activity)
+            ShareUtil.shareLink(inviteLink, activity)
             timeDialog.dismiss()
         }
         view.findViewById<LinearLayout>(R.id.copy_link_ll).setOnClickListener {

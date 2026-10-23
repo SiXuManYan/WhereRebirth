@@ -3,23 +3,23 @@
   "message": "local mock",
   "data": {
     "id": 1,
-    "star": 1.0,
-    "content": "Local mock 1",
-    "merchant_review": "Local mock 1",
-    "shop_title": "Where Rebirth Demo 1",
+    "star": 4.1,
+    "content": "Everything you need in one convenient place.",
+    "merchant_review": "157",
+    "shop_title": "SM City Bataan",
     "shop_images": [
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
     ],
     "images": [
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
     ]
   }
 }

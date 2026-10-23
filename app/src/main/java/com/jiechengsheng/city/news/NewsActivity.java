@@ -30,7 +30,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.jzvd.Jzvd;
+import com.shuyu.gsyvideoplayer.GSYVideoManager;
 
 /**
  * 新闻页
@@ -244,7 +244,7 @@ public class NewsActivity extends BaseActivity {
      */
     @Override
     public void onBackPressed() {
-        if (Jzvd.backPress()) {
+        if (GSYVideoManager.backFromWindowFull(this)) {
             return;
         }
         super.onBackPressed();
@@ -256,7 +256,7 @@ public class NewsActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        Jzvd.releaseAllVideos();
+        GSYVideoManager.releaseAllVideos();
     }
 
     @Override

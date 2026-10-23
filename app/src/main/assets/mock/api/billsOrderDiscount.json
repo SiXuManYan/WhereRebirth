@@ -2,11 +2,11 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "price": "Local mock 1",
-    "discounts_price": "Local mock 1",
-    "discount": "Local mock 1",
-    "hint": "Local mock 1",
+    "price": "399.00",
+    "discounts_price": "399.00",
+    "discount": "157",
+    "hint": "Bataan 1",
     "coupon_id": 1,
-    "coupon_price": "Local mock 1"
+    "coupon_price": "399.00"
   }
 }

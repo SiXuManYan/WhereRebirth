@@ -3,15 +3,15 @@
   "message": "local mock",
   "data": {
     "id": 1,
-    "title": "Where Rebirth Demo 1",
-    "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-    "logo": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-    "desc": "Local mock 1",
+    "title": "SM City Bataan",
+    "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+    "logo": "android.resource://com.jiechengsheng.city/drawable/ic_module_mall",
+    "desc": "Everything you need in one convenient place.",
     "status": 1,
     "collect_status": 1,
-    "address": "Manila, Philippines",
-    "qualification": "Local mock 1",
-    "nickname": "Where Rebirth Demo 1",
-    "collect_count": 1
+    "address": "Balanga City, Bataan",
+    "qualification": "SM City Bataan 1",
+    "nickname": "SM City Bataan",
+    "collect_count": 157
   }
 }

@@ -4,45 +4,45 @@
   "data": [
     {
       "id": 1,
-      "title": "Where Rebirth Demo 1",
-      "channel_code": "Local mock 1",
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "title": "Balanga",
+      "channel_code": "200",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
       "is_tokenized_pay": false,
       "is_auth": false,
       "nativeIsSelected": false
     },
     {
       "id": 2,
-      "title": "Where Rebirth Demo 2",
-      "channel_code": "Local mock 2",
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "title": "Bataan",
+      "channel_code": "200",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
       "is_tokenized_pay": false,
       "is_auth": false,
       "nativeIsSelected": false
     },
     {
       "id": 3,
-      "title": "Where Rebirth Demo 3",
-      "channel_code": "Local mock 3",
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "title": "Mariveles",
+      "channel_code": "200",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
       "is_tokenized_pay": false,
       "is_auth": false,
       "nativeIsSelected": false
     },
     {
       "id": 4,
-      "title": "Where Rebirth Demo 4",
-      "channel_code": "Local mock 4",
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "title": "Dinalupihan",
+      "channel_code": "200",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
       "is_tokenized_pay": false,
       "is_auth": false,
       "nativeIsSelected": false
     },
     {
       "id": 5,
-      "title": "Where Rebirth Demo 5",
-      "channel_code": "Local mock 5",
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "title": "Hermosa",
+      "channel_code": "200",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
       "is_tokenized_pay": false,
       "is_auth": false,
       "nativeIsSelected": false

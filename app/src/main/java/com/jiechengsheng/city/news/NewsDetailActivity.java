@@ -2,7 +2,7 @@ package com.jiechengsheng.city.news;
 
 import com.jiechengsheng.city.R;
 import com.jiechengsheng.city.frames.common.Html5Url;
-import com.jiechengsheng.city.utils.MobUtil;
+import com.jiechengsheng.city.utils.ShareUtil;
 
 /**
  * 新闻详情页面（不是展示视频的页面）
@@ -35,7 +35,7 @@ public class NewsDetailActivity extends BaseNewsDetailActivity {
         super.bindListener();
         mJcsTitle.setFirstRightIvClickListener(v -> {
             String url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_NEWS, mNewsId);
-            MobUtil.shareFacebookWebPage(url, this);
+            ShareUtil.shareLink(url, this);
         });
     }
 }

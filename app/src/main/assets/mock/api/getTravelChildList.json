@@ -3,12 +3,12 @@
   "message": "local mock",
   "data": {
     "current_page": 1,
-    "first_page_url": "https://example.com/local/1",
+    "first_page_url": "https://1bataan.com",
     "from": 1,
     "last_page": 1,
-    "last_page_url": "https://example.com/local/1",
+    "last_page_url": "https://1bataan.com",
     "next_page_url": {},
-    "path": "Local mock 1",
+    "path": "https://1bataan.com",
     "per_page": 5,
     "prev_page_url": {},
     "to": 5,
@@ -17,122 +17,122 @@
       {
         "id": 1,
         "image": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_1"
         ],
-        "name": "Where Rebirth Demo 1",
-        "address": "Manila, Philippines",
+        "name": "Mount Samat",
+        "address": "Bataan, Philippines",
         "lat": 14.6005,
         "lng": 120.9852,
-        "grade": 1.0,
+        "grade": 4.1,
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
-        "comments_count": 1,
-        "distance": "Local mock 1"
+        "comments_count": 157,
+        "distance": "1.2 km"
       },
       {
         "id": 2,
         "image": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_1"
         ],
-        "name": "Where Rebirth Demo 2",
-        "address": "Manila, Philippines",
+        "name": "Las Casas Filipinas",
+        "address": "Bataan, Philippines",
         "lat": 14.601500000000001,
         "lng": 120.9862,
-        "grade": 2.0,
+        "grade": 4.2,
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
-        "comments_count": 2,
-        "distance": "Local mock 2"
+        "comments_count": 194,
+        "distance": "1.6 km"
       },
       {
         "id": 3,
         "image": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_1"
         ],
-        "name": "Where Rebirth Demo 3",
-        "address": "Manila, Philippines",
+        "name": "Five Fingers Cove",
+        "address": "Bataan, Philippines",
         "lat": 14.602500000000001,
         "lng": 120.9872,
-        "grade": 3.0,
+        "grade": 4.3,
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
-        "comments_count": 3,
-        "distance": "Local mock 3"
+        "comments_count": 231,
+        "distance": "2.0 km"
       },
       {
         "id": 4,
         "image": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_1"
         ],
-        "name": "Where Rebirth Demo 4",
-        "address": "Manila, Philippines",
+        "name": "Bataan National Park",
+        "address": "Bataan, Philippines",
         "lat": 14.6035,
         "lng": 120.9882,
-        "grade": 4.0,
+        "grade": 4.4,
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
-        "comments_count": 4,
-        "distance": "Local mock 4"
+        "comments_count": 268,
+        "distance": "2.4 km"
       },
       {
         "id": 5,
         "image": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_travel_1"
         ],
-        "name": "Where Rebirth Demo 5",
-        "address": "Manila, Philippines",
+        "name": "Balanga Wetland Park",
+        "address": "Bataan, Philippines",
         "lat": 14.604500000000002,
         "lng": 120.9892,
-        "grade": 5.0,
+        "grade": 4.5,
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
-        "comments_count": 5,
-        "distance": "Local mock 5"
+        "comments_count": 305,
+        "distance": "2.8 km"
       }
     ]
   }

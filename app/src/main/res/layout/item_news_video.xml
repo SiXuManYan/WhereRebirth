@@ -32,8 +32,6 @@
             android:id="@+id/newsVideoPlayer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            app:riv_corner_radius="@dimen/dp_4"
             tools:background="@color/colorPrimary" />
 
 

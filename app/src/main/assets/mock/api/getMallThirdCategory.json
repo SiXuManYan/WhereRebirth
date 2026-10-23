@@ -4,8 +4,8 @@
   "data": [
     {
       "id": 1,
-      "name": "Where Rebirth Demo 1",
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "name": "SM City Bataan",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_mall",
       "second_level": [
         {},
         {},
@@ -17,8 +17,8 @@
     },
     {
       "id": 2,
-      "name": "Where Rebirth Demo 2",
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "name": "Ayala Harbor Point",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_mall",
       "second_level": [
         {},
         {},
@@ -30,8 +30,8 @@
     },
     {
       "id": 3,
-      "name": "Where Rebirth Demo 3",
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "name": "Robinsons Balanga",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_mall",
       "second_level": [
         {},
         {},
@@ -43,8 +43,8 @@
     },
     {
       "id": 4,
-      "name": "Where Rebirth Demo 4",
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "name": "Bataan Public Market",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_mall",
       "second_level": [
         {},
         {},
@@ -56,8 +56,8 @@
     },
     {
       "id": 5,
-      "name": "Where Rebirth Demo 5",
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "name": "The Strip Mall",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_mall",
       "second_level": [
         {},
         {},

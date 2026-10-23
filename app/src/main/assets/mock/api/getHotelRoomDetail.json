@@ -4,24 +4,24 @@
   "data": {
     "id": 1,
     "images": [
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
     ],
-    "name": "Where Rebirth Demo 1",
-    "hotel_room_type": "Local mock 1",
-    "room_area": "Local mock 1",
-    "floor": "Local mock 1",
-    "policy": "Local mock 1",
-    "shower_room": "Local mock 1",
-    "facility": "Local mock 1",
-    "media": "Local mock 1",
-    "food": "Local mock 1",
-    "scene": "Local mock 1",
-    "other": "Local mock 1",
-    "cancel_time": "2026-08-04 12:00:00",
+    "name": "Bataan Bay Resort",
+    "hotel_room_type": "3",
+    "room_area": "3",
+    "floor": "Bataan Bay Resort 1",
+    "policy": "Bataan Bay Resort 1",
+    "shower_room": "3",
+    "facility": "Bataan Bay Resort 1",
+    "media": "Bataan Bay Resort 1",
+    "food": "Bataan Bay Resort 1",
+    "scene": "Bataan Bay Resort 1",
+    "other": "Bataan Bay Resort 1",
+    "cancel_time": "2026-10-20 10:30:00",
     "breakfast_type": 1,
     "window_type": 1,
     "wifi_type": 1,
@@ -29,27 +29,27 @@
     "room_num": 1,
     "remain_room_num": 1,
     "is_cancel": 1,
-    "price": 19.90,
+    "price": 399.0,
     "facilities": [
       {
-        "name": "Where Rebirth Demo 1",
-        "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "name": "Bataan Bay Resort",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
       },
       {
-        "name": "Where Rebirth Demo 2",
-        "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "name": "Sea Breeze Hotel",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
       },
       {
-        "name": "Where Rebirth Demo 3",
-        "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "name": "Casa Marina",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
       },
       {
-        "name": "Where Rebirth Demo 4",
-        "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "name": "Mango Grove Inn",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
       },
       {
-        "name": "Where Rebirth Demo 5",
-        "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "name": "The Peninsula Suites",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
       }
     ]
   }

@@ -3,35 +3,35 @@
   "message": "local mock",
   "data": {
     "id": 1,
-    "company": "Local mock 1",
-    "job_title": "Where Rebirth Demo 1",
-    "salary": "Local mock 1",
-    "city": "Local mock 1",
-    "created_at": "2026-08-04 12:00:00",
-    "job_desc": "Local mock 1",
-    "company_desc": "Local mock 1",
+    "company": "Where Tech 1",
+    "job_title": "Android Developer",
+    "salary": "Where Tech 1",
+    "city": "Where Tech 1",
+    "created_at": "2026-10-20 10:30:00",
+    "job_desc": "Join a growing team and build your career with us.",
+    "company_desc": "Join a growing team and build your career with us.",
     "is_send": false,
     "is_complete": false,
     "is_complete_pdf": false,
-    "duty": "Local mock 1",
-    "requirement": "Local mock 1",
+    "duty": "Where Tech 1",
+    "requirement": "Where Tech 1",
     "is_collect": false,
     "company_info": {
       "id": 1,
-      "company_title": "Where Rebirth Demo 1",
-      "logo": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "company_type": "Local mock 1",
-      "company_size": "Local mock 1",
-      "profile": "Local mock 1",
-      "address": "Manila, Philippines",
+      "company_title": "Android Developer",
+      "logo": "android.resource://com.jiechengsheng.city/drawable/ic_module_job",
+      "company_type": "Full-time",
+      "company_size": "Where Tech 1",
+      "profile": "Juan Dela Cruz 1",
+      "address": "Balanga City, Bataan",
       "images": [
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "android.resource://com.jiechengsheng.city/drawable/mock_job_1",
+        "android.resource://com.jiechengsheng.city/drawable/mock_job_2",
+        "android.resource://com.jiechengsheng.city/drawable/mock_job_1",
+        "android.resource://com.jiechengsheng.city/drawable/mock_job_2",
+        "android.resource://com.jiechengsheng.city/drawable/mock_job_1"
       ],
-      "website": "Local mock 1"
+      "website": "Where Tech 1"
     }
   }
 }

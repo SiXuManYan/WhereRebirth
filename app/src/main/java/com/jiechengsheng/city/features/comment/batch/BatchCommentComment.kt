@@ -10,9 +10,12 @@ import com.jiechengsheng.city.api.network.BaseMvpView
 import com.jiechengsheng.city.api.request.hotel.BatchComment
 import com.jiechengsheng.city.api.response.UploadFileResponse2
 import com.jiechengsheng.city.features.store.refund.image.RefundImage
-import okhttp3.MediaType
-import okhttp3.RequestBody
 import java.io.File
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 
 
 /**
@@ -67,7 +70,7 @@ class BatchCommentPresenter(private var view: BatchCommentView) : BaseMvpPresent
             // 只上传相册
             if (!RegexUtils.isURL(it)) {
                 val file = File(it)
-                val requestFile = RequestBody.create(MediaType.parse("image/jpg"), file)
+                val requestFile = file.asRequestBody("image/jpg".toMediaType())
                 // 多图上传的key 由 file改成　file[]
                 map["file[]\"; filename=\"" + file.name] = requestFile;
             }
@@ -101,7 +104,7 @@ class BatchCommentPresenter(private var view: BatchCommentView) : BaseMvpPresent
             return
         }
 
-        val description = RequestBody.create(MediaType.parse("multipart/form-data"), "2")
+        val description = "2".toRequestBody("multipart/form-data".toMediaType())
 
         val partMap = getPartMap(nativeImageData)
 
@@ -217,7 +220,7 @@ class BatchCommentPresenter(private var view: BatchCommentView) : BaseMvpPresent
         }
 
 
-        val description = RequestBody.create(MediaType.parse("multipart/form-data"), "2")
+        val description = "2".toRequestBody("multipart/form-data".toMediaType())
 
         val partMap = getPartMap(nativeImageData)
 

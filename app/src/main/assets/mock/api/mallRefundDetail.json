@@ -5,137 +5,137 @@
     "id": 1,
     "status": 1,
     "shop": {
-      "contact_cell_phone": "09171234561",
-      "contact_name": "Where Rebirth Demo 1",
-      "address": "Manila, Philippines"
+      "contact_cell_phone": "0917 555 0101",
+      "contact_name": "SM City Bataan",
+      "address": "Balanga City, Bataan"
     },
     "goods": [
       {
         "order_id": 1,
         "good_id": 1,
-        "good_title": "Where Rebirth Demo 1",
-        "good_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "good_title": "SM City Bataan",
+        "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
         "good_num": 1,
-        "good_price": "Local mock 1",
+        "good_price": "399.00",
         "good_specs": {
-          "key_1": "Local mock 1",
-          "key_2": "Local mock 2",
-          "key_3": "Local mock 3",
-          "key_4": "Local mock 4",
-          "key_5": "Local mock 5"
+          "key_1": "SM City Bataan 1",
+          "key_2": "SM City Bataan 2",
+          "key_3": "SM City Bataan 3",
+          "key_4": "SM City Bataan 4",
+          "key_5": "SM City Bataan 5"
         },
-        "created_at": "2026-08-04 12:00:00",
+        "created_at": "2026-10-20 10:30:00",
         "delete_status": 1,
         "good_status": 1,
         "specs_id": 1,
         "status": 1,
         "order_good_status": 1,
         "refund_id": 1,
-        "refund_money": "Local mock 1"
+        "refund_money": "SM City Bataan 1"
       },
       {
         "order_id": 2,
         "good_id": 2,
-        "good_title": "Where Rebirth Demo 2",
-        "good_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "good_title": "Ayala Harbor Point",
+        "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
         "good_num": 2,
-        "good_price": "Local mock 2",
+        "good_price": "499.00",
         "good_specs": {
-          "key_1": "Local mock 1",
-          "key_2": "Local mock 2",
-          "key_3": "Local mock 3",
-          "key_4": "Local mock 4",
-          "key_5": "Local mock 5"
+          "key_1": "SM City Bataan 1",
+          "key_2": "SM City Bataan 2",
+          "key_3": "SM City Bataan 3",
+          "key_4": "SM City Bataan 4",
+          "key_5": "SM City Bataan 5"
         },
-        "created_at": "2026-08-04 12:00:00",
+        "created_at": "2026-10-20 10:30:00",
         "delete_status": 2,
         "good_status": 2,
         "specs_id": 2,
         "status": 2,
         "order_good_status": 2,
         "refund_id": 2,
-        "refund_money": "Local mock 2"
+        "refund_money": "SM City Bataan 2"
       },
       {
         "order_id": 3,
         "good_id": 3,
-        "good_title": "Where Rebirth Demo 3",
-        "good_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "good_title": "Robinsons Balanga",
+        "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
         "good_num": 3,
-        "good_price": "Local mock 3",
+        "good_price": "599.00",
         "good_specs": {
-          "key_1": "Local mock 1",
-          "key_2": "Local mock 2",
-          "key_3": "Local mock 3",
-          "key_4": "Local mock 4",
-          "key_5": "Local mock 5"
+          "key_1": "SM City Bataan 1",
+          "key_2": "SM City Bataan 2",
+          "key_3": "SM City Bataan 3",
+          "key_4": "SM City Bataan 4",
+          "key_5": "SM City Bataan 5"
         },
-        "created_at": "2026-08-04 12:00:00",
+        "created_at": "2026-10-20 10:30:00",
         "delete_status": 1,
         "good_status": 1,
         "specs_id": 3,
         "status": 1,
         "order_good_status": 1,
         "refund_id": 3,
-        "refund_money": "Local mock 3"
+        "refund_money": "SM City Bataan 3"
       },
       {
         "order_id": 4,
         "good_id": 4,
-        "good_title": "Where Rebirth Demo 4",
-        "good_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "good_title": "Bataan Public Market",
+        "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
         "good_num": 4,
-        "good_price": "Local mock 4",
+        "good_price": "699.00",
         "good_specs": {
-          "key_1": "Local mock 1",
-          "key_2": "Local mock 2",
-          "key_3": "Local mock 3",
-          "key_4": "Local mock 4",
-          "key_5": "Local mock 5"
+          "key_1": "SM City Bataan 1",
+          "key_2": "SM City Bataan 2",
+          "key_3": "SM City Bataan 3",
+          "key_4": "SM City Bataan 4",
+          "key_5": "SM City Bataan 5"
         },
-        "created_at": "2026-08-04 12:00:00",
+        "created_at": "2026-10-20 10:30:00",
         "delete_status": 2,
         "good_status": 2,
         "specs_id": 4,
         "status": 2,
         "order_good_status": 2,
         "refund_id": 4,
-        "refund_money": "Local mock 4"
+        "refund_money": "SM City Bataan 4"
       },
       {
         "order_id": 5,
         "good_id": 5,
-        "good_title": "Where Rebirth Demo 5",
-        "good_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "good_title": "The Strip Mall",
+        "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
         "good_num": 5,
-        "good_price": "Local mock 5",
+        "good_price": "799.00",
         "good_specs": {
-          "key_1": "Local mock 1",
-          "key_2": "Local mock 2",
-          "key_3": "Local mock 3",
-          "key_4": "Local mock 4",
-          "key_5": "Local mock 5"
+          "key_1": "SM City Bataan 1",
+          "key_2": "SM City Bataan 2",
+          "key_3": "SM City Bataan 3",
+          "key_4": "SM City Bataan 4",
+          "key_5": "SM City Bataan 5"
         },
-        "created_at": "2026-08-04 12:00:00",
+        "created_at": "2026-10-20 10:30:00",
         "delete_status": 1,
         "good_status": 1,
         "specs_id": 5,
         "status": 1,
         "order_good_status": 1,
         "refund_id": 5,
-        "refund_money": "Local mock 5"
+        "refund_money": "SM City Bataan 5"
       }
     ],
-    "refund_price": 19.90,
-    "refund_time": "2026-08-04 12:00:00",
-    "cancel_reason": "Local mock 1",
-    "trade_no": "Local mock 1",
+    "refund_price": 399.0,
+    "refund_time": "2026-10-20 10:30:00",
+    "cancel_reason": "SM City Bataan 1",
+    "trade_no": "SM City Bataan 1",
     "cancel_images": [
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
     ]
   }
 }

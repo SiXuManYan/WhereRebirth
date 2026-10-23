@@ -32,7 +32,7 @@ import com.jiechengsheng.city.frames.common.Html5Url
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
-import com.jiechengsheng.city.utils.MobUtil
+import com.jiechengsheng.city.utils.ShareUtil
 import com.jiechengsheng.city.widget.calendar.JcsCalendarAdapter.CalendarBean
 import com.jiechengsheng.city.widget.calendar.JcsCalendarDialog
 import com.jiechengsheng.city.widget.list.DividerDecoration
@@ -353,7 +353,7 @@ class HotelDetailActivity2 : BaseMvpActivity<HotelDetailPresenter>(), HotelDetai
         }
         binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_HOTEL, hotelId)
-            MobUtil.shareFacebookWebPage(url, this@HotelDetailActivity2)
+            ShareUtil.shareLink(url, this@HotelDetailActivity2)
         }
         binding.likeIv.setOnClickListener {
             if (!User.isLogon()) {

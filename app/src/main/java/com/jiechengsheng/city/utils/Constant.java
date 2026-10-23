@@ -7,8 +7,6 @@ package com.jiechengsheng.city.utils;
 public class Constant {
 
 
-    public static final String PUSH_RECEIVER_ACTION = "com.jcs.where.push";
-
     /**
      * 防连点时间间隔
      **/
@@ -212,7 +210,6 @@ public class Constant {
     public static final String SP_PRICE_SELECTED = "SP_PRICE_SELECTED";
     public static final String SP_STAR_SELECTED = "SP_STAR_SELECTED";
     public static final String SP_SCORE_SELECTED = "SP_SCORE_SELECTED";
-    public static final String SP_PUSH_SEQUENCE = "sp_push_sequence";
     public static final String SP_YELLOW_PAGE_ALL_FIRST_CATEGORY_ID = "sp_yellow_page_all_first_category_id";
     public static final String SP_CHARGES_PHONE = "sp_charges_phone";
 

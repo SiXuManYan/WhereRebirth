@@ -2,15 +2,15 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "price": "Local mock 1",
-    "total_price": "Local mock 1",
-    "cancel_time": "2026-08-04 12:00:00",
+    "price": "399.00",
+    "total_price": "399.00",
+    "cancel_time": "2026-10-20 10:30:00",
     "remit_info": {
       "id": 1,
-      "user_name": "Where Rebirth Demo 1",
-      "account": "Local mock 1",
-      "channel_category": "Local mock 1",
-      "name": "Where Rebirth Demo 1"
+      "user_name": "Juan Dela Cruz",
+      "account": "157",
+      "channel_category": "Bataan 1",
+      "name": "Electricity Bill"
     }
   }
 }

@@ -3,12 +3,12 @@
   "message": "local mock",
   "data": {
     "current_page": 1,
-    "first_page_url": "https://example.com/local/1",
+    "first_page_url": "https://1bataan.com",
     "from": 1,
     "last_page": 1,
-    "last_page_url": "https://example.com/local/1",
+    "last_page_url": "https://1bataan.com",
     "next_page_url": {},
-    "path": "Local mock 1",
+    "path": "https://1bataan.com",
     "per_page": 5,
     "prev_page_url": {},
     "to": 5,
@@ -16,126 +16,116 @@
     "data": [
       {
         "id": 1,
-        "title": "Where Rebirth Demo 1",
-        "address": "Manila, Philippines",
+        "title": "Balanga",
+        "address": "Bataan, Philippines",
         "lat": 14.6005,
         "lng": 120.9852,
-        "distance": {
-          "value": 1.0
-        },
+        "distance": 1.2000000000000002,
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
         ],
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
         "native_select": false
       },
       {
         "id": 2,
-        "title": "Where Rebirth Demo 2",
-        "address": "Manila, Philippines",
+        "title": "Bataan",
+        "address": "Bataan, Philippines",
         "lat": 14.601500000000001,
         "lng": 120.9862,
-        "distance": {
-          "value": 2.0
-        },
+        "distance": 1.6,
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
         ],
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
         "native_select": false
       },
       {
         "id": 3,
-        "title": "Where Rebirth Demo 3",
-        "address": "Manila, Philippines",
+        "title": "Mariveles",
+        "address": "Bataan, Philippines",
         "lat": 14.602500000000001,
         "lng": 120.9872,
-        "distance": {
-          "value": 3.0
-        },
+        "distance": 2.0,
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
         ],
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
         "native_select": false
       },
       {
         "id": 4,
-        "title": "Where Rebirth Demo 4",
-        "address": "Manila, Philippines",
+        "title": "Dinalupihan",
+        "address": "Bataan, Philippines",
         "lat": 14.6035,
         "lng": 120.9882,
-        "distance": {
-          "value": 4.0
-        },
+        "distance": 2.4000000000000004,
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
         ],
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
         "native_select": false
       },
       {
         "id": 5,
-        "title": "Where Rebirth Demo 5",
-        "address": "Manila, Philippines",
+        "title": "Hermosa",
+        "address": "Bataan, Philippines",
         "lat": 14.604500000000002,
         "lng": 120.9892,
-        "distance": {
-          "value": 5.0
-        },
+        "distance": 2.8,
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
         ],
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
         "native_select": false
       }

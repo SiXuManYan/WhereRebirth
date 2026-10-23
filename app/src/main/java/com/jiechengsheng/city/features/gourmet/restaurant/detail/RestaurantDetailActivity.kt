@@ -370,7 +370,7 @@ class RestaurantDetailActivity : BaseMvpActivity<RestaurantDetailPresenter>(), R
         }
         binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_RESTAURANT, mRestaurantId)
-            MobUtil.shareFacebookWebPage(url, this@RestaurantDetailActivity)
+            ShareUtil.shareLink(url, this@RestaurantDetailActivity)
         }
         binding.likeIv.setOnClickListener {
             if (!User.isLogon()) {

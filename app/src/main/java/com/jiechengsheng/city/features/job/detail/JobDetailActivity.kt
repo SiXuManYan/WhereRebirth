@@ -30,7 +30,7 @@ import com.jiechengsheng.city.frames.common.Html5Url
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
-import com.jiechengsheng.city.utils.MobUtil
+import com.jiechengsheng.city.utils.ShareUtil
 import com.jiechengsheng.city.utils.image.GlideRoundedCornersTransform
 import org.greenrobot.eventbus.EventBus
 import com.jiechengsheng.city.databinding.ActivityJobDetailBinding
@@ -114,7 +114,7 @@ class JobDetailActivity : BaseMvpActivity<JobDetailPresenter>(), JobDetailView {
 
         binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_JOB, jobId)
-            MobUtil.shareFacebookWebPage(url, this)
+            ShareUtil.shareLink(url, this)
         }
 
         binding.companyRv.setOnClickListener {

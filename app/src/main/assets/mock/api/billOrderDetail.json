@@ -5,38 +5,38 @@
     "order_type": 1,
     "id": 1,
     "order_status": 1,
-    "total_price": 19.90,
-    "bills_price": 19.90,
-    "refund_price": 19.90,
-    "service_price": "Local mock 1",
-    "trade_no": "Local mock 1",
-    "created_at": "2026-08-04 12:00:00",
-    "payment_method": "Local mock 1",
-    "refund_refuse_reason": "Local mock 1",
+    "total_price": 399.0,
+    "bills_price": 399.0,
+    "refund_price": 399.0,
+    "service_price": "399.00",
+    "trade_no": "Bataan 1",
+    "created_at": "2026-10-20 10:30:00",
+    "payment_method": "Bataan 1",
+    "refund_refuse_reason": "Bataan 1",
     "bills_params": [
       {
-        "key": "Local mock 1",
-        "value": "Local mock 1"
+        "key": "Bataan 1",
+        "value": "Bataan 1"
       },
       {
-        "key": "Local mock 2",
-        "value": "Local mock 2"
+        "key": "Bataan 2",
+        "value": "Bataan 2"
       },
       {
-        "key": "Local mock 3",
-        "value": "Local mock 3"
+        "key": "Bataan 3",
+        "value": "Bataan 3"
       },
       {
-        "key": "Local mock 4",
-        "value": "Local mock 4"
+        "key": "Bataan 4",
+        "value": "Bataan 4"
       },
       {
-        "key": "Local mock 5",
-        "value": "Local mock 5"
+        "key": "Bataan 5",
+        "value": "Bataan 5"
       }
     ],
     "type": 1,
-    "discounts": "Local mock 1",
-    "coupon_price": "Local mock 1"
+    "discounts": "157",
+    "coupon_price": "399.00"
   }
 }

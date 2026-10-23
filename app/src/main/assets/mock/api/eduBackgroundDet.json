@@ -3,15 +3,15 @@
   "message": "local mock",
   "data": {
     "id": 1,
-    "educational_attainment": "Local mock 1",
+    "educational_attainment": "Bataan 1",
     "educational_level": {
       "id": 1,
-      "educational_level": "Local mock 1",
-      "extend_title": "Where Rebirth Demo 1",
+      "educational_level": "Bataan 1",
+      "extend_title": "Balanga",
       "nativeSelected": false
     },
-    "vocational_course": "Local mock 1",
-    "start_date": "2026-08-04 12:00:00",
-    "end_date": "2026-08-04 12:00:00"
+    "vocational_course": "Bataan 1",
+    "start_date": "2026-10-20 10:30:00",
+    "end_date": "2026-10-20 10:30:00"
   }
 }

@@ -5,108 +5,108 @@
     "area": [
       {
         "id": 1,
-        "name": "Where Rebirth Demo 1",
+        "name": "Balanga",
         "nativeSelected": false
       },
       {
         "id": 2,
-        "name": "Where Rebirth Demo 2",
+        "name": "Bataan",
         "nativeSelected": false
       },
       {
         "id": 3,
-        "name": "Where Rebirth Demo 3",
+        "name": "Mariveles",
         "nativeSelected": false
       },
       {
         "id": 4,
-        "name": "Where Rebirth Demo 4",
+        "name": "Dinalupihan",
         "nativeSelected": false
       },
       {
         "id": 5,
-        "name": "Where Rebirth Demo 5",
+        "name": "Hermosa",
         "nativeSelected": false
       }
     ],
     "companyType": [
       {
         "id": 1,
-        "name": "Where Rebirth Demo 1",
+        "name": "Balanga",
         "nativeSelected": false
       },
       {
         "id": 2,
-        "name": "Where Rebirth Demo 2",
+        "name": "Bataan",
         "nativeSelected": false
       },
       {
         "id": 3,
-        "name": "Where Rebirth Demo 3",
+        "name": "Mariveles",
         "nativeSelected": false
       },
       {
         "id": 4,
-        "name": "Where Rebirth Demo 4",
+        "name": "Dinalupihan",
         "nativeSelected": false
       },
       {
         "id": 5,
-        "name": "Where Rebirth Demo 5",
+        "name": "Hermosa",
         "nativeSelected": false
       }
     ],
     "jobResumeEducationLevel": [
       {
         "id": 1,
-        "name": "Where Rebirth Demo 1",
+        "name": "Balanga",
         "nativeSelected": false
       },
       {
         "id": 2,
-        "name": "Where Rebirth Demo 2",
+        "name": "Bataan",
         "nativeSelected": false
       },
       {
         "id": 3,
-        "name": "Where Rebirth Demo 3",
+        "name": "Mariveles",
         "nativeSelected": false
       },
       {
         "id": 4,
-        "name": "Where Rebirth Demo 4",
+        "name": "Dinalupihan",
         "nativeSelected": false
       },
       {
         "id": 5,
-        "name": "Where Rebirth Demo 5",
+        "name": "Hermosa",
         "nativeSelected": false
       }
     ],
     "experience": [
       {
         "id": 1,
-        "name": "Where Rebirth Demo 1",
+        "name": "Balanga",
         "nativeSelected": false
       },
       {
         "id": 2,
-        "name": "Where Rebirth Demo 2",
+        "name": "Bataan",
         "nativeSelected": false
       },
       {
         "id": 3,
-        "name": "Where Rebirth Demo 3",
+        "name": "Mariveles",
         "nativeSelected": false
       },
       {
         "id": 4,
-        "name": "Where Rebirth Demo 4",
+        "name": "Dinalupihan",
         "nativeSelected": false
       },
       {
         "id": 5,
-        "name": "Where Rebirth Demo 5",
+        "name": "Hermosa",
         "nativeSelected": false
       }
     ]

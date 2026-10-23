@@ -31,7 +31,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-import cn.jzvd.Jzvd;
+import com.shuyu.gsyvideoplayer.GSYVideoManager;
 
 /**
  * 页面-新闻列表
@@ -236,7 +236,7 @@ public class NewsFragment extends BaseFragment implements OnLoadMoreListener {
     @Override
     public void onPause() {
         super.onPause();
-        Jzvd.releaseAllVideos();
+        GSYVideoManager.releaseAllVideos();
     }
 
     @Override

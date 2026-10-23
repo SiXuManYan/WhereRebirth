@@ -4,28 +4,28 @@
   "data": [
     {
       "id": 1,
-      "name": "Where Rebirth Demo 1",
-      "website": "Local mock 1"
+      "name": "Balanga",
+      "website": "Bataan 1"
     },
     {
       "id": 2,
-      "name": "Where Rebirth Demo 2",
-      "website": "Local mock 2"
+      "name": "Bataan",
+      "website": "Bataan 2"
     },
     {
       "id": 3,
-      "name": "Where Rebirth Demo 3",
-      "website": "Local mock 3"
+      "name": "Mariveles",
+      "website": "Bataan 3"
     },
     {
       "id": 4,
-      "name": "Where Rebirth Demo 4",
-      "website": "Local mock 4"
+      "name": "Dinalupihan",
+      "website": "Bataan 4"
     },
     {
       "id": 5,
-      "name": "Where Rebirth Demo 5",
-      "website": "Local mock 5"
+      "name": "Hermosa",
+      "website": "Bataan 5"
     }
   ]
 }

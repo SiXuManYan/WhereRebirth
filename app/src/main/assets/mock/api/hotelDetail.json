@@ -3,162 +3,162 @@
   "message": "local mock",
   "data": {
     "id": 1,
-    "name": "Where Rebirth Demo 1",
-    "start_business_time": "2026-08-04 12:00:00",
-    "address": "Manila, Philippines",
+    "name": "Bataan Bay Resort",
+    "start_business_time": "2026-10-20 10:30:00",
+    "address": "Balanga City, Bataan",
     "lat": 14.6005,
     "lng": 120.9852,
-    "tel": "Local mock 1",
-    "grade": 1.0,
-    "comment_counts": 1,
+    "tel": "Bataan Bay Resort 1",
+    "grade": 4.1,
+    "comment_counts": 157,
     "policy": {
-      "check_in_time": "2026-08-04 12:00:00",
-      "check_out_time": "2026-08-04 12:00:00",
-      "children": "Local mock 1",
-      "pet": "Local mock 1",
-      "hint": "Local mock 1",
-      "payment": "Local mock 1",
-      "breadfast": "Local mock 1",
-      "service_desc": "Local mock 1"
+      "check_in_time": "2026-10-20 10:30:00",
+      "check_out_time": "2026-10-20 10:30:00",
+      "children": "Bataan Bay Resort 1",
+      "pet": "Bataan Bay Resort 1",
+      "hint": "Bataan Bay Resort 1",
+      "payment": "Bataan Bay Resort 1",
+      "breadfast": "157",
+      "service_desc": "Comfortable rooms, warm Filipino hospitality and easy access to the city."
     },
     "collect_status": 1,
     "im_status": 1,
-    "facebook_link": "https://example.com/local/1",
-    "desc": "Local mock 1",
+    "facebook_link": "https://1bataan.com",
+    "desc": "Comfortable rooms, warm Filipino hospitality and easy access to the city.",
     "images": [
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
     ],
     "facilities": [
       {
-        "name": "Where Rebirth Demo 1",
-        "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "name": "Bataan Bay Resort",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
       },
       {
-        "name": "Where Rebirth Demo 2",
-        "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "name": "Sea Breeze Hotel",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
       },
       {
-        "name": "Where Rebirth Demo 3",
-        "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "name": "Casa Marina",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
       },
       {
-        "name": "Where Rebirth Demo 4",
-        "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "name": "Mango Grove Inn",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
       },
       {
-        "name": "Where Rebirth Demo 5",
-        "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "name": "The Peninsula Suites",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
       }
     ],
-    "video": "Local mock 1",
-    "video_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-    "star_level": "Local mock 1",
-    "uuid": "Local mock 1",
-    "mer_name": "Where Rebirth Demo 1",
+    "video": "Bataan Bay Resort 1",
+    "video_image": "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
+    "star_level": "4",
+    "uuid": "demo-uuid-1",
+    "mer_name": "Bataan Bay Resort",
     "comments": [
       {
         "id": 1,
         "user_id": 1,
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
         ],
-        "created_at": "2026-08-04 12:00:00",
+        "created_at": "2026-10-20 10:30:00",
         "comment_travel_type_id": 1,
-        "username": "Where Rebirth Demo 1",
-        "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "content": "Local mock 1",
-        "star": 1.0,
-        "star_level": 1.0,
+        "username": "Juan Dela Cruz",
+        "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_1",
+        "content": "Comfortable rooms, warm Filipino hospitality and easy access to the city.",
+        "star": 4.1,
+        "star_level": 4.1,
         "hotel_id": 1,
-        "merchant_review": "Local mock 1"
+        "merchant_review": "157"
       },
       {
         "id": 2,
         "user_id": 2,
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
         ],
-        "created_at": "2026-08-04 12:00:00",
+        "created_at": "2026-10-20 10:30:00",
         "comment_travel_type_id": 2,
-        "username": "Where Rebirth Demo 2",
-        "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "content": "Local mock 2",
-        "star": 2.0,
-        "star_level": 2.0,
+        "username": "Maria Santos",
+        "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_2",
+        "content": "Comfortable rooms, warm Filipino hospitality and easy access to the city.",
+        "star": 4.2,
+        "star_level": 4.2,
         "hotel_id": 2,
-        "merchant_review": "Local mock 2"
+        "merchant_review": "194"
       },
       {
         "id": 3,
         "user_id": 3,
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
         ],
-        "created_at": "2026-08-04 12:00:00",
+        "created_at": "2026-10-20 10:30:00",
         "comment_travel_type_id": 3,
-        "username": "Where Rebirth Demo 3",
-        "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "content": "Local mock 3",
-        "star": 3.0,
-        "star_level": 3.0,
+        "username": "Where Demo",
+        "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_1",
+        "content": "Comfortable rooms, warm Filipino hospitality and easy access to the city.",
+        "star": 4.3,
+        "star_level": 4.3,
         "hotel_id": 3,
-        "merchant_review": "Local mock 3"
+        "merchant_review": "231"
       },
       {
         "id": 4,
         "user_id": 4,
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
         ],
-        "created_at": "2026-08-04 12:00:00",
+        "created_at": "2026-10-20 10:30:00",
         "comment_travel_type_id": 4,
-        "username": "Where Rebirth Demo 4",
-        "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "content": "Local mock 4",
-        "star": 4.0,
-        "star_level": 4.0,
+        "username": "Juan Dela Cruz",
+        "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_2",
+        "content": "Comfortable rooms, warm Filipino hospitality and easy access to the city.",
+        "star": 4.4,
+        "star_level": 4.4,
         "hotel_id": 4,
-        "merchant_review": "Local mock 4"
+        "merchant_review": "268"
       },
       {
         "id": 5,
         "user_id": 5,
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
         ],
-        "created_at": "2026-08-04 12:00:00",
+        "created_at": "2026-10-20 10:30:00",
         "comment_travel_type_id": 5,
-        "username": "Where Rebirth Demo 5",
-        "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "content": "Local mock 5",
-        "star": 5.0,
-        "star_level": 5.0,
+        "username": "Maria Santos",
+        "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_1",
+        "content": "Comfortable rooms, warm Filipino hospitality and easy access to the city.",
+        "star": 4.5,
+        "star_level": 4.5,
         "hotel_id": 5,
-        "merchant_review": "Local mock 5"
+        "merchant_review": "305"
       }
     ]
   }

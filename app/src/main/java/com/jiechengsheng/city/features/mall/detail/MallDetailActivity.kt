@@ -39,7 +39,7 @@ import com.jiechengsheng.city.frames.common.Html5Url
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.BusinessUtils
 import com.jiechengsheng.city.utils.Constant
-import com.jiechengsheng.city.utils.MobUtil
+import com.jiechengsheng.city.utils.ShareUtil
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.shuyu.gsyvideoplayer.GSYVideoManager
 import org.greenrobot.eventbus.EventBus
@@ -197,7 +197,7 @@ class MallDetailActivity : BaseMvpActivity<MallDetailPresenter>(), MallDetailVie
     override fun bindListener() {
         binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_MALL, goodId)
-            MobUtil.shareFacebookWebPage(url, this@MallDetailActivity)
+            ShareUtil.shareLink(url, this@MallDetailActivity)
         }
         binding.skuRl.setOnClickListener {
             dialogHandle = 0

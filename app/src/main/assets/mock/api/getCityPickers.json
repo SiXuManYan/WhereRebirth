@@ -4,71 +4,47 @@
   "data": {
     "lists": [
       {
-        "id": 1,
-        "name": "Where Rebirth Demo 1",
-        "lat": {
-          "value": 1.0
-        },
-        "lng": {
-          "value": 1.0
-        },
+        "id": "1",
+        "name": "巴兰牙",
+        "lat": 14.676,
+        "lng": 120.536,
+        "nativeIsSelected": true
+      },
+      {
+        "id": "2",
+        "name": "马里韦莱斯",
+        "lat": 14.4333,
+        "lng": 120.4833,
         "nativeIsSelected": false
       },
       {
-        "id": 2,
-        "name": "Where Rebirth Demo 2",
-        "lat": {
-          "value": 2.0
-        },
-        "lng": {
-          "value": 2.0
-        },
+        "id": "3",
+        "name": "皮拉尔",
+        "lat": 14.6667,
+        "lng": 120.5667,
         "nativeIsSelected": false
       },
       {
-        "id": 3,
-        "name": "Where Rebirth Demo 3",
-        "lat": {
-          "value": 3.0
-        },
-        "lng": {
-          "value": 3.0
-        },
+        "id": "4",
+        "name": "迪纳卢皮汉",
+        "lat": 14.8667,
+        "lng": 120.4667,
         "nativeIsSelected": false
       },
       {
-        "id": 4,
-        "name": "Where Rebirth Demo 4",
-        "lat": {
-          "value": 4.0
-        },
-        "lng": {
-          "value": 4.0
-        },
-        "nativeIsSelected": false
-      },
-      {
-        "id": 5,
-        "name": "Where Rebirth Demo 5",
-        "lat": {
-          "value": 5.0
-        },
-        "lng": {
-          "value": 5.0
-        },
+        "id": "5",
+        "name": "奥拉尼",
+        "lat": 14.8,
+        "lng": 120.5333,
         "nativeIsSelected": false
       }
     ],
     "default": {
-      "id": 1,
-      "name": "Where Rebirth Demo 1",
-      "lat": {
-        "value": 1.0
-      },
-      "lng": {
-        "value": 1.0
-      },
-      "nativeIsSelected": false
+      "id": "1",
+      "name": "巴兰牙",
+      "lat": 14.676,
+      "lng": 120.536,
+      "nativeIsSelected": true
     }
   }
 }

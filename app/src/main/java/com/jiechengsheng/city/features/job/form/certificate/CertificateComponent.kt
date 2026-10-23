@@ -6,12 +6,15 @@ import com.google.gson.JsonElement
 import com.jiechengsheng.city.api.network.BaseMvpObserver
 import com.jiechengsheng.city.api.network.BaseMvpPresenter
 import com.jiechengsheng.city.api.network.BaseMvpView
-import com.jiechengsheng.city.api.response.UploadFileResponse2
 import com.jiechengsheng.city.api.response.job.CreateCertificate
-import okhttp3.MediaType
-import okhttp3.RequestBody
+import com.jiechengsheng.city.api.response.UploadFileResponse2
 import java.io.File
 import java.util.ArrayList
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 
 /**
  * Created by Wangsw  2023/2/6 11:00.
@@ -71,13 +74,13 @@ class CertificatePresenter(private var view: CertificateView) : BaseMvpPresenter
             if (!RegexUtils.isURL(it)) {
                 // 只上传本地图片
                 val file = File(it)
-                val requestFile = RequestBody.create(MediaType.parse("image/jpg"), file)
+                val requestFile = file.asRequestBody("image/jpg".toMediaType())
                 // 多图上传的key 由 file改成　file[]
                 map["file[]\"; filename=\"" + file.name] = requestFile;
             }
         }
         val type = "2"
-        val description = RequestBody.create(MediaType.parse("multipart/form-data"), type)
+        val description = type.toRequestBody("multipart/form-data".toMediaType())
 
         requestApi(mRetrofit.uploadMultiImages(description, map), object : BaseMvpObserver<UploadFileResponse2>(view) {
             override fun onSuccess(response: UploadFileResponse2) {

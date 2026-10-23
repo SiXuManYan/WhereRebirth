@@ -4,7 +4,7 @@
   "data": [
     {
       "id": 1,
-      "name": "Where Rebirth Demo 1",
+      "name": "SM City Bataan",
       "shop_id": 1,
       "num": 1,
       "level": [
@@ -17,7 +17,7 @@
     },
     {
       "id": 2,
-      "name": "Where Rebirth Demo 2",
+      "name": "Ayala Harbor Point",
       "shop_id": 2,
       "num": 2,
       "level": [
@@ -30,7 +30,7 @@
     },
     {
       "id": 3,
-      "name": "Where Rebirth Demo 3",
+      "name": "Robinsons Balanga",
       "shop_id": 3,
       "num": 3,
       "level": [
@@ -43,7 +43,7 @@
     },
     {
       "id": 4,
-      "name": "Where Rebirth Demo 4",
+      "name": "Bataan Public Market",
       "shop_id": 4,
       "num": 4,
       "level": [
@@ -56,7 +56,7 @@
     },
     {
       "id": 5,
-      "name": "Where Rebirth Demo 5",
+      "name": "The Strip Mall",
       "shop_id": 5,
       "num": 5,
       "level": [

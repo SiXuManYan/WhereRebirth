@@ -3,45 +3,31 @@ package com.jiechengsheng.city.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.jiechengsheng.city.R;
-
-import cn.jzvd.JzvdStd;
+import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
 /**
- * create by zyf on 2021/1/19 11:02 下午
+ * 统一的新闻视频播放器，基于工程中已有的 GSYVideoPlayer。
+ * 移除了旧的饺子播放器依赖，避免同时打包两份 ijkplayer 内核。
  */
-public class JcsVideoPlayer extends JzvdStd {
+public class JcsVideoPlayer extends StandardGSYVideoPlayer {
     private boolean mHasSetUp = false;
 
     public JcsVideoPlayer(Context context) {
         super(context);
-        jcsInit();
     }
 
     public JcsVideoPlayer(Context context, AttributeSet attrs) {
         super(context, attrs);
-        jcsInit();
     }
 
-    @Override
     public void setUp(String url, String title) {
-        super.setUp(url, title);
+        setUp(url, true, title);
         mHasSetUp = true;
     }
 
-    private void jcsInit() {
-
-    }
-
-    @Override
     public void startVideo() {
         if (mHasSetUp) {
-            super.startVideo();
+            startPlayLogic();
         }
-    }
-
-    @Override
-    public int getLayoutId() {
-        return R.layout.wight_jzvd_no_title;
     }
 }

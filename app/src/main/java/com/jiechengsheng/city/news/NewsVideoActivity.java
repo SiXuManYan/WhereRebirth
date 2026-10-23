@@ -15,7 +15,7 @@ import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import cn.jzvd.Jzvd;
+import com.shuyu.gsyvideoplayer.GSYVideoManager;
 
 /**
  * 新闻视频详情页
@@ -105,7 +105,7 @@ public class NewsVideoActivity extends BaseNewsDetailActivity {
      */
     @Override
     public void onBackPressed() {
-        if (Jzvd.backPress()) {
+        if (GSYVideoManager.backFromWindowFull(this)) {
             return;
         }
         super.onBackPressed();
@@ -117,6 +117,6 @@ public class NewsVideoActivity extends BaseNewsDetailActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        Jzvd.releaseAllVideos();
+        GSYVideoManager.releaseAllVideos();
     }
 }

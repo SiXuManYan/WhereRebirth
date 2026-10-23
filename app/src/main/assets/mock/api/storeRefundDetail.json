@@ -5,87 +5,87 @@
     "id": 1,
     "status": 1,
     "shop": {
-      "contact_cell_phone": "09171234561",
-      "contact_name": "Where Rebirth Demo 1",
-      "address": "Manila, Philippines"
+      "contact_cell_phone": "0917 555 0101",
+      "contact_name": "SM City Bataan",
+      "address": "Balanga City, Bataan"
     },
     "goods": [
       {
         "id": 1,
-        "title": "Where Rebirth Demo 1",
+        "title": "SM City Bataan",
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
         ],
         "good_num": 1,
-        "price": 1.0
+        "price": 399.0
       },
       {
         "id": 2,
-        "title": "Where Rebirth Demo 2",
+        "title": "Ayala Harbor Point",
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
         ],
         "good_num": 2,
-        "price": 2.0
+        "price": 499.0
       },
       {
         "id": 3,
-        "title": "Where Rebirth Demo 3",
+        "title": "Robinsons Balanga",
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
         ],
         "good_num": 3,
-        "price": 3.0
+        "price": 599.0
       },
       {
         "id": 4,
-        "title": "Where Rebirth Demo 4",
+        "title": "Bataan Public Market",
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
         ],
         "good_num": 4,
-        "price": 4.0
+        "price": 699.0
       },
       {
         "id": 5,
-        "title": "Where Rebirth Demo 5",
+        "title": "The Strip Mall",
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
         ],
         "good_num": 5,
-        "price": 5.0
+        "price": 799.0
       }
     ],
-    "refund_price": 19.90,
-    "cancel_time": "2026-08-04 12:00:00",
-    "cancel_reason": "Local mock 1",
+    "refund_price": 399.0,
+    "cancel_time": "2026-10-20 10:30:00",
+    "cancel_reason": "SM City Bataan 1",
     "trade_no": 1.0,
     "cancel_images": [
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
     ]
   }
 }

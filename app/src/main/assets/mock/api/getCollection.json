@@ -3,12 +3,12 @@
   "message": "local mock",
   "data": {
     "current_page": 1,
-    "first_page_url": "https://example.com/local/1",
+    "first_page_url": "https://1bataan.com",
     "from": 1,
     "last_page": 1,
-    "last_page_url": "https://example.com/local/1",
+    "last_page_url": "https://1bataan.com",
     "next_page_url": {},
-    "path": "Local mock 1",
+    "path": "https://1bataan.com",
     "per_page": 5,
     "prev_page_url": {},
     "to": 5,
@@ -18,85 +18,85 @@
         "type": 1,
         "hotel": {
           "id": 1,
-          "comment_num": 1,
-          "grade": 1.0,
-          "name": "Where Rebirth Demo 1",
-          "address": "Manila, Philippines",
+          "comment_num": 157,
+          "grade": 4.1,
+          "name": "Balanga",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "travel": {
           "id": 1,
-          "comment_num": 1,
-          "grade": 1.0,
-          "name": "Where Rebirth Demo 1",
-          "address": "Manila, Philippines",
+          "comment_num": 157,
+          "grade": 4.1,
+          "name": "Balanga",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "news": {
           "id": 1,
           "content_type": 1,
-          "title": "Where Rebirth Demo 1",
-          "video_time": "2026-08-04 12:00:00",
-          "video_link": "https://example.com/local/1",
-          "created_at": "2026-08-04 12:00:00",
+          "title": "Balanga",
+          "video_time": "2026-10-20 10:30:00",
+          "video_link": "https://1bataan.com",
+          "created_at": "2026-10-20 10:30:00",
           "cover_images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ],
           "publisher": {
             "id": 1,
-            "nickname": "Where Rebirth Demo 1"
+            "nickname": "Balanga"
           }
         },
         "general": {
           "id": 1,
-          "name": "Where Rebirth Demo 1",
-          "address": "Manila, Philippines",
+          "name": "Balanga",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "restaurant": {
           "id": 1,
-          "name": "Where Rebirth Demo 1",
-          "address": "Manila, Philippines",
+          "name": "Balanga",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "estore": {
           "id": 1,
-          "name": "Where Rebirth Demo 1",
-          "address": "Manila, Philippines",
+          "name": "Balanga",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         }
       },
@@ -104,85 +104,85 @@
         "type": 2,
         "hotel": {
           "id": 2,
-          "comment_num": 2,
-          "grade": 2.0,
-          "name": "Where Rebirth Demo 2",
-          "address": "Manila, Philippines",
+          "comment_num": 194,
+          "grade": 4.2,
+          "name": "Bataan",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "travel": {
           "id": 2,
-          "comment_num": 2,
-          "grade": 2.0,
-          "name": "Where Rebirth Demo 2",
-          "address": "Manila, Philippines",
+          "comment_num": 194,
+          "grade": 4.2,
+          "name": "Bataan",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "news": {
           "id": 2,
           "content_type": 2,
-          "title": "Where Rebirth Demo 2",
-          "video_time": "2026-08-04 12:00:00",
-          "video_link": "https://example.com/local/2",
-          "created_at": "2026-08-04 12:00:00",
+          "title": "Bataan",
+          "video_time": "2026-10-20 10:30:00",
+          "video_link": "https://1bataan.com",
+          "created_at": "2026-10-20 10:30:00",
           "cover_images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ],
           "publisher": {
             "id": 2,
-            "nickname": "Where Rebirth Demo 2"
+            "nickname": "Bataan"
           }
         },
         "general": {
           "id": 2,
-          "name": "Where Rebirth Demo 2",
-          "address": "Manila, Philippines",
+          "name": "Bataan",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "restaurant": {
           "id": 2,
-          "name": "Where Rebirth Demo 2",
-          "address": "Manila, Philippines",
+          "name": "Bataan",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "estore": {
           "id": 2,
-          "name": "Where Rebirth Demo 2",
-          "address": "Manila, Philippines",
+          "name": "Bataan",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         }
       },
@@ -190,85 +190,85 @@
         "type": 1,
         "hotel": {
           "id": 3,
-          "comment_num": 3,
-          "grade": 3.0,
-          "name": "Where Rebirth Demo 3",
-          "address": "Manila, Philippines",
+          "comment_num": 231,
+          "grade": 4.3,
+          "name": "Mariveles",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "travel": {
           "id": 3,
-          "comment_num": 3,
-          "grade": 3.0,
-          "name": "Where Rebirth Demo 3",
-          "address": "Manila, Philippines",
+          "comment_num": 231,
+          "grade": 4.3,
+          "name": "Mariveles",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "news": {
           "id": 3,
           "content_type": 3,
-          "title": "Where Rebirth Demo 3",
-          "video_time": "2026-08-04 12:00:00",
-          "video_link": "https://example.com/local/3",
-          "created_at": "2026-08-04 12:00:00",
+          "title": "Mariveles",
+          "video_time": "2026-10-20 10:30:00",
+          "video_link": "https://1bataan.com",
+          "created_at": "2026-10-20 10:30:00",
           "cover_images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ],
           "publisher": {
             "id": 3,
-            "nickname": "Where Rebirth Demo 3"
+            "nickname": "Mariveles"
           }
         },
         "general": {
           "id": 3,
-          "name": "Where Rebirth Demo 3",
-          "address": "Manila, Philippines",
+          "name": "Mariveles",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "restaurant": {
           "id": 3,
-          "name": "Where Rebirth Demo 3",
-          "address": "Manila, Philippines",
+          "name": "Mariveles",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "estore": {
           "id": 3,
-          "name": "Where Rebirth Demo 3",
-          "address": "Manila, Philippines",
+          "name": "Mariveles",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         }
       },
@@ -276,85 +276,85 @@
         "type": 2,
         "hotel": {
           "id": 4,
-          "comment_num": 4,
-          "grade": 4.0,
-          "name": "Where Rebirth Demo 4",
-          "address": "Manila, Philippines",
+          "comment_num": 268,
+          "grade": 4.4,
+          "name": "Dinalupihan",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "travel": {
           "id": 4,
-          "comment_num": 4,
-          "grade": 4.0,
-          "name": "Where Rebirth Demo 4",
-          "address": "Manila, Philippines",
+          "comment_num": 268,
+          "grade": 4.4,
+          "name": "Dinalupihan",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "news": {
           "id": 4,
           "content_type": 4,
-          "title": "Where Rebirth Demo 4",
-          "video_time": "2026-08-04 12:00:00",
-          "video_link": "https://example.com/local/4",
-          "created_at": "2026-08-04 12:00:00",
+          "title": "Dinalupihan",
+          "video_time": "2026-10-20 10:30:00",
+          "video_link": "https://1bataan.com",
+          "created_at": "2026-10-20 10:30:00",
           "cover_images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ],
           "publisher": {
             "id": 4,
-            "nickname": "Where Rebirth Demo 4"
+            "nickname": "Dinalupihan"
           }
         },
         "general": {
           "id": 4,
-          "name": "Where Rebirth Demo 4",
-          "address": "Manila, Philippines",
+          "name": "Dinalupihan",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "restaurant": {
           "id": 4,
-          "name": "Where Rebirth Demo 4",
-          "address": "Manila, Philippines",
+          "name": "Dinalupihan",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "estore": {
           "id": 4,
-          "name": "Where Rebirth Demo 4",
-          "address": "Manila, Philippines",
+          "name": "Dinalupihan",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         }
       },
@@ -362,85 +362,85 @@
         "type": 1,
         "hotel": {
           "id": 5,
-          "comment_num": 5,
-          "grade": 5.0,
-          "name": "Where Rebirth Demo 5",
-          "address": "Manila, Philippines",
+          "comment_num": 305,
+          "grade": 4.5,
+          "name": "Hermosa",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "travel": {
           "id": 5,
-          "comment_num": 5,
-          "grade": 5.0,
-          "name": "Where Rebirth Demo 5",
-          "address": "Manila, Philippines",
+          "comment_num": 305,
+          "grade": 4.5,
+          "name": "Hermosa",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "news": {
           "id": 5,
           "content_type": 5,
-          "title": "Where Rebirth Demo 5",
-          "video_time": "2026-08-04 12:00:00",
-          "video_link": "https://example.com/local/5",
-          "created_at": "2026-08-04 12:00:00",
+          "title": "Hermosa",
+          "video_time": "2026-10-20 10:30:00",
+          "video_link": "https://1bataan.com",
+          "created_at": "2026-10-20 10:30:00",
           "cover_images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ],
           "publisher": {
             "id": 5,
-            "nickname": "Where Rebirth Demo 5"
+            "nickname": "Hermosa"
           }
         },
         "general": {
           "id": 5,
-          "name": "Where Rebirth Demo 5",
-          "address": "Manila, Philippines",
+          "name": "Hermosa",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "restaurant": {
           "id": 5,
-          "name": "Where Rebirth Demo 5",
-          "address": "Manila, Philippines",
+          "name": "Hermosa",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         },
         "estore": {
           "id": 5,
-          "name": "Where Rebirth Demo 5",
-          "address": "Manila, Philippines",
+          "name": "Hermosa",
+          "address": "Bataan, Philippines",
           "images": [
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-            "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+            "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
           ]
         }
       }

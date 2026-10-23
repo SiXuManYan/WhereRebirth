@@ -1,66 +1,46 @@
 [versions]
 agp = "8.13.0"
 kotlin = "2.0.21"
-appcompat = "1.4.2"
-constraintlayout = "2.1.4"
+appcompat = "1.7.1"
+constraintlayout = "2.2.1"
 brvah = "3.0.4"
-retrofit = "2.9.0"
+retrofit = "2.11.0"
 utilcodex = "1.31.1"
-rxjava = "2.2.6"
+rxjava = "2.2.21"
 rxandroid = "2.1.1"
-okhttp = "3.14.9"
-okhttpLogging = "3.10.0"
+okhttp = "4.12.0"
+okhttpLogging = "4.12.0"
 coordinatorlayout = "1.2.0"
 swiperefreshlayout = "1.1.0"
-material = "1.6.1"
-junit4 = "4.12"
-androidxJunit = "1.1.3"
-espresso = "3.4.0"
+material = "1.12.0"
+junit4 = "4.13.2"
+androidxJunit = "1.2.1"
+espresso = "3.6.1"
 androidGifDrawable = "1.2.12"
-glide = "4.13.2"
+glide = "4.16.0"
 ptrLoadMore = "1.0.6"
-marqueeLibrary = "1.1.3"
 roundedImageView = "2.3.0"
-picasso = "2.5.2"
 pinyin4j = "2.5.0"
 circleImageView = "2.1.0"
-tinyPinyin = "2.0.3"
-playServicesMaps = "18.1.0"
-mapsUtils = "3.4.0"
-playServicesLocation = "21.0.1"
-eventbus = "3.2.0"
+playServicesMaps = "19.1.0"
+eventbus = "3.3.1"
 multidex = "2.0.1"
-universalImageLoader = "1.9.4"
-rebound = "0.3.8"
 agentweb = "4.1.3"
-tkrefreshlayout = "1.0.7"
-slidingUpPanel = "3.4.0"
 xbanner = "androidx_v1.1.2"
 rangeSeekBar = "3.0.0"
-calendarView = "3.7.0"
 statusBarUtil = "1.3.2"
-keyboardVisibilityEvent = "2.0.0"
-jiaoziVideoPlayer = "7.6.0"
-room = "2.4.3"
-jpush = "4.8.5"
-jcore = "4.0.0"
+room = "2.6.1"
 matisse = "0.5.3-beta3"
-rxpermissions = "0.9.5"
 flycoTabLayout = "3.0.0"
 gsyVideoPlayer = "v8.1.4-jitpack"
-banner = "2.2.2"
 expandableTextView = "v1.6.1-x"
-navigation = "2.4.1"
-coreKtx = "1.8.0"
+coreKtx = "1.16.0"
 smartRefreshLayout = "2.0.3"
-mapsKtx = "2.3.0"
 vpbs = "0.0.6"
-pinnedSection = "1.3.2-androidx"
 luban = "1.1.8"
-facebookApplinks = "[4,5)"
-photoView = "2.0.0"
+photoView = "2.3.0"
 bottomDialog = "1.1.9"
-zxing = "3.5.1"
+zxing = "3.5.3"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -82,52 +62,29 @@ androidx-test-junit = { module = "androidx.test.ext:junit", version.ref = "andro
 androidx-test-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
 android-gif-drawable = { module = "pl.droidsonroids.gif:android-gif-drawable", version.ref = "androidGifDrawable" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 ptr-load-more = { module = "in.srain.cube:ptr-load-more", version.ref = "ptrLoadMore" }
-marquee-library = { module = "com.gongwen:marqueelibrary", version.ref = "marqueeLibrary" }
 rounded-image-view = { module = "com.makeramen:roundedimageview", version.ref = "roundedImageView" }
-picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 pinyin4j = { module = "com.belerweb:pinyin4j", version.ref = "pinyin4j" }
 circle-image-view = { module = "de.hdodenhof:circleimageview", version.ref = "circleImageView" }
-tiny-pinyin = { module = "com.github.promeg:tinypinyin", version.ref = "tinyPinyin" }
 play-services-maps = { module = "com.google.android.gms:play-services-maps", version.ref = "playServicesMaps" }
-android-maps-utils = { module = "com.google.maps.android:android-maps-utils", version.ref = "mapsUtils" }
-play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
 eventbus = { module = "org.greenrobot:eventbus", version.ref = "eventbus" }
 androidx-multidex = { module = "androidx.multidex:multidex", version.ref = "multidex" }
-universal-image-loader = { module = "com.nostra13.universalimageloader:universal-image-loader", version.ref = "universalImageLoader" }
-rebound = { module = "com.facebook.rebound:rebound", version.ref = "rebound" }
 agentweb = { module = "com.just.agentweb:agentweb", version.ref = "agentweb" }
-tkrefreshlayout = { module = "com.lcodecorex:tkrefreshlayout", version.ref = "tkrefreshlayout" }
-sliding-up-panel = { module = "com.sothree.slidinguppanel:library", version.ref = "slidingUpPanel" }
 xbanner = { module = "com.github.xiaohaibin:XBanner", version.ref = "xbanner" }
 range-seek-bar = { module = "com.github.Jay-Goo:RangeSeekBar", version.ref = "rangeSeekBar" }
-calendar-view = { module = "com.haibin:calendarview", version.ref = "calendarView" }
 status-bar-util = { module = "com.jaeger.statusbaruitl:library", version.ref = "statusBarUtil" }
-keyboard-visibility-event = { module = "net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent", version.ref = "keyboardVisibilityEvent" }
-jiaozi-video-player = { module = "cn.jzvd:jiaozivideoplayer", version.ref = "jiaoziVideoPlayer" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
-jpush-google = { module = "cn.jiguang.sdk:jpush-google", version.ref = "jpush" }
-jcore-google = { module = "cn.jiguang.sdk:jcore-google", version.ref = "jcore" }
 matisse = { module = "com.zhihu.android:matisse", version.ref = "matisse" }
-rxpermissions2 = { module = "com.tbruyelle.rxpermissions2:rxpermissions", version.ref = "rxpermissions" }
 flyco-tab-layout = { module = "io.github.h07000223:flycoTabLayout", version.ref = "flycoTabLayout" }
 gsy-video-player-java = { module = "com.github.CarGuo.GSYVideoPlayer:gsyVideoPlayer-java", version.ref = "gsyVideoPlayer" }
 gsy-video-player-arm64 = { module = "com.github.CarGuo.GSYVideoPlayer:gsyVideoPlayer-armv64", version.ref = "gsyVideoPlayer" }
 gsy-video-player-armv7a = { module = "com.github.CarGuo.GSYVideoPlayer:gsyVideoPlayer-armv7a", version.ref = "gsyVideoPlayer" }
-banner = { module = "io.github.youth5201314:banner", version.ref = "banner" }
 expandable-text-view = { module = "com.github.MZCretin:ExpandableTextView", version.ref = "expandableTextView" }
-androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
-androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 smart-refresh-layout-kernel = { module = "com.scwang.smart:refresh-layout-kernel", version.ref = "smartRefreshLayout" }
-maps-ktx = { module = "com.google.maps.android:maps-ktx", version.ref = "mapsKtx" }
-maps-utils-ktx = { module = "com.google.maps.android:maps-utils-ktx", version.ref = "mapsKtx" }
 vpbs = { module = "biz.laenger.android:vpbs", version.ref = "vpbs" }
-pinned-section-item-decoration = { module = "com.oushangfeng:PinnedSectionItemDecoration", version.ref = "pinnedSection" }
 luban = { module = "top.zibin:Luban", version.ref = "luban" }
-facebook-applinks = { module = "com.facebook.android:facebook-applinks", version.ref = "facebookApplinks" }
 photo-view = { module = "com.github.chrisbanes:PhotoView", version.ref = "photoView" }
 bottom-dialog = { module = "me.shaohui:bottomdialog", version.ref = "bottomDialog" }
 zxing-core = { module = "com.google.zxing:core", version.ref = "zxing" }

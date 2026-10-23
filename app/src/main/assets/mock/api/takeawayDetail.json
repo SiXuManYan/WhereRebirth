@@ -3,101 +3,101 @@
   "message": "local mock",
   "data": {
     "id": 1,
-    "restaurant_name": "Where Rebirth Demo 1",
-    "take_out_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+    "restaurant_name": "Seaside Grill",
+    "take_out_image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
     "delivery_time": 1,
-    "delivery_cost": 19.90,
-    "packing_charges": 19.90,
-    "tel": "Local mock 1",
-    "mer_uuid": "Local mock 1",
-    "mer_name": "Where Rebirth Demo 1",
+    "delivery_cost": 399.0,
+    "packing_charges": 1.0,
+    "tel": "Seaside Grill 1",
+    "mer_uuid": "demo-uuid-1",
+    "mer_name": "Seaside Grill",
     "collect_status": 1,
     "im_status": 1,
     "goods": [
       {
         "id": 1,
-        "title": "Where Rebirth Demo 1",
-        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "sale_num": "Local mock 1",
-        "inventory": "Local mock 1",
-        "price": 19.90,
-        "original_price": 19.90,
+        "title": "Seaside Grill",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
+        "sale_num": "Seaside Grill 1",
+        "inventory": "Seaside Grill 1",
+        "price": 399.0,
+        "original_price": 399.0,
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
-        "nativeSelectCount": 1
+        "nativeSelectCount": 157
       },
       {
         "id": 2,
-        "title": "Where Rebirth Demo 2",
-        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "sale_num": "Local mock 2",
-        "inventory": "Local mock 2",
-        "price": 29.90,
-        "original_price": 29.90,
+        "title": "Jollibee Balanga",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
+        "sale_num": "Seaside Grill 2",
+        "inventory": "Seaside Grill 2",
+        "price": 499.0,
+        "original_price": 499.0,
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
-        "nativeSelectCount": 2
+        "nativeSelectCount": 194
       },
       {
         "id": 3,
-        "title": "Where Rebirth Demo 3",
-        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "sale_num": "Local mock 3",
-        "inventory": "Local mock 3",
-        "price": 39.90,
-        "original_price": 39.90,
+        "title": "Cafe Bataan",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
+        "sale_num": "Seaside Grill 3",
+        "inventory": "Seaside Grill 3",
+        "price": 599.0,
+        "original_price": 599.0,
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
-        "nativeSelectCount": 3
+        "nativeSelectCount": 231
       },
       {
         "id": 4,
-        "title": "Where Rebirth Demo 4",
-        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "sale_num": "Local mock 4",
-        "inventory": "Local mock 4",
-        "price": 49.90,
-        "original_price": 49.90,
+        "title": "Mang Inasal",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
+        "sale_num": "Seaside Grill 4",
+        "inventory": "Seaside Grill 4",
+        "price": 699.0,
+        "original_price": 699.0,
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
-        "nativeSelectCount": 4
+        "nativeSelectCount": 268
       },
       {
         "id": 5,
-        "title": "Where Rebirth Demo 5",
-        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "sale_num": "Local mock 5",
-        "inventory": "Local mock 5",
-        "price": 59.90,
-        "original_price": 59.90,
+        "title": "Lola\u0027s Kitchen",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
+        "sale_num": "Seaside Grill 5",
+        "inventory": "Seaside Grill 5",
+        "price": 799.0,
+        "original_price": 799.0,
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
-        "nativeSelectCount": 5
+        "nativeSelectCount": 305
       }
     ]
   }

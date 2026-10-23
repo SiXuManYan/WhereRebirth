@@ -10,8 +10,6 @@ plugins {
     alias(libs.plugins.kotlin.kapt)
 }
 
-apply(from = "mob.gradle")
-
 fun releaseTime(): String = SimpleDateFormat("yyyyMMdd", Locale.ROOT).apply {
     timeZone = TimeZone.getTimeZone("UTC")
 }.format(Date())
@@ -30,14 +28,8 @@ android {
         multiDexEnabled = true
 
         ndk {
-            abiFilters += setOf("armeabi", "armeabi-v7a", "arm64-v8a")
+            abiFilters += setOf("armeabi-v7a", "arm64-v8a")
         }
-
-        manifestPlaceholders += mapOf(
-            "JPUSH_PKGNAME" to applicationId!!,
-            "JPUSH_APPKEY" to "c1845048016655585610609e",
-            "JPUSH_CHANNEL" to "default_developer",
-        )
     }
 
     flavorDimensions += "versionCode"
@@ -74,10 +66,6 @@ android {
     lint {
         checkReleaseBuilds = false
         abortOnError = false
-    }
-
-    packaging {
-        jniLibs.keepDebugSymbols += setOf("**/mips/*.so", "**/mips64/*.so")
     }
 
     applicationVariants.all {
@@ -130,52 +118,29 @@ dependencies {
 
     implementation(libs.android.gif.drawable)
     implementation(libs.glide)
-    kapt(libs.glide.compiler)
     implementation(libs.ptr.load.more)
-    implementation(libs.marquee.library)
     implementation(libs.rounded.image.view)
-    implementation(libs.picasso)
     implementation(libs.pinyin4j)
     implementation(libs.circle.image.view)
-    implementation(libs.tiny.pinyin)
     implementation(libs.play.services.maps)
-    implementation(libs.android.maps.utils)
-    implementation(libs.play.services.location)
     implementation(libs.eventbus)
     implementation(libs.androidx.multidex)
-    implementation(libs.universal.image.loader)
-    implementation(libs.rebound)
     implementation(libs.agentweb)
-    implementation(libs.tkrefreshlayout)
-    implementation(libs.sliding.up.panel)
     implementation(libs.xbanner)
     implementation(libs.range.seek.bar)
-    implementation(libs.calendar.view)
     implementation(libs.status.bar.util)
-    implementation(libs.keyboard.visibility.event)
-    implementation(libs.jiaozi.video.player)
     implementation(libs.room.runtime)
     kapt(libs.room.compiler)
-    implementation(libs.jpush.google)
-    implementation(libs.jcore.google)
     implementation(libs.matisse)
-    implementation(libs.rxpermissions2)
     implementation(libs.flyco.tab.layout)
     implementation(libs.gsy.video.player.java)
     implementation(libs.gsy.video.player.arm64)
     implementation(libs.gsy.video.player.armv7a)
-    implementation(libs.banner)
     implementation(libs.expandable.text.view)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.smart.refresh.layout.kernel)
-    implementation(libs.maps.ktx)
-    implementation(libs.maps.utils.ktx)
     implementation(libs.vpbs)
-    implementation(libs.pinned.section.item.decoration)
     implementation(libs.luban)
-    implementation(libs.facebook.applinks)
     implementation(libs.photo.view)
     implementation(libs.bottom.dialog)
     implementation(libs.zxing.core)

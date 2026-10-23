@@ -2,7 +2,7 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "channel_code": "Local mock 1",
-    "balance": 19.90
+    "channel_code": "200",
+    "balance": 399.0
   }
 }

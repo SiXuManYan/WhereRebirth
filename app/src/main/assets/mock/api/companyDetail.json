@@ -3,19 +3,19 @@
   "message": "local mock",
   "data": {
     "id": 1,
-    "company_title": "Where Rebirth Demo 1",
-    "logo": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-    "company_type": "Local mock 1",
-    "company_size": "Local mock 1",
-    "profile": "Local mock 1",
-    "address": "Manila, Philippines",
+    "company_title": "Android Developer",
+    "logo": "android.resource://com.jiechengsheng.city/drawable/ic_module_job",
+    "company_type": "Full-time",
+    "company_size": "Where Tech 1",
+    "profile": "Juan Dela Cruz 1",
+    "address": "Balanga City, Bataan",
     "images": [
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      "android.resource://com.jiechengsheng.city/drawable/mock_job_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_job_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_job_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_job_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_job_1"
     ],
-    "website": "Local mock 1"
+    "website": "Where Tech 1"
   }
 }

@@ -4,66 +4,66 @@
   "data": [
     {
       "isSelected": false,
-      "channel_code": "Local mock 1",
-      "channel_category": "Local mock 1",
-      "currency": "Local mock 1",
-      "name": "Where Rebirth Demo 1",
+      "channel_code": "200",
+      "channel_category": "Bataan 1",
+      "currency": "Bataan 1",
+      "name": "Balanga",
       "amount_limits": {
-        "minimum": "Local mock 1",
-        "maximum": "Local mock 1",
-        "minimum_increment": "Local mock 1"
+        "minimum": "Bataan 1",
+        "maximum": "Bataan 1",
+        "minimum_increment": "Bataan 1"
       },
       "type": 1
     },
     {
       "isSelected": false,
-      "channel_code": "Local mock 2",
-      "channel_category": "Local mock 2",
-      "currency": "Local mock 2",
-      "name": "Where Rebirth Demo 2",
+      "channel_code": "200",
+      "channel_category": "Bataan 2",
+      "currency": "Bataan 2",
+      "name": "Bataan",
       "amount_limits": {
-        "minimum": "Local mock 2",
-        "maximum": "Local mock 2",
-        "minimum_increment": "Local mock 2"
+        "minimum": "Bataan 2",
+        "maximum": "Bataan 2",
+        "minimum_increment": "Bataan 2"
       },
       "type": 2
     },
     {
       "isSelected": false,
-      "channel_code": "Local mock 3",
-      "channel_category": "Local mock 3",
-      "currency": "Local mock 3",
-      "name": "Where Rebirth Demo 3",
+      "channel_code": "200",
+      "channel_category": "Bataan 3",
+      "currency": "Bataan 3",
+      "name": "Mariveles",
       "amount_limits": {
-        "minimum": "Local mock 3",
-        "maximum": "Local mock 3",
-        "minimum_increment": "Local mock 3"
+        "minimum": "Bataan 3",
+        "maximum": "Bataan 3",
+        "minimum_increment": "Bataan 3"
       },
       "type": 1
     },
     {
       "isSelected": false,
-      "channel_code": "Local mock 4",
-      "channel_category": "Local mock 4",
-      "currency": "Local mock 4",
-      "name": "Where Rebirth Demo 4",
+      "channel_code": "200",
+      "channel_category": "Bataan 4",
+      "currency": "Bataan 4",
+      "name": "Dinalupihan",
       "amount_limits": {
-        "minimum": "Local mock 4",
-        "maximum": "Local mock 4",
-        "minimum_increment": "Local mock 4"
+        "minimum": "Bataan 4",
+        "maximum": "Bataan 4",
+        "minimum_increment": "Bataan 4"
       },
       "type": 2
     },
     {
       "isSelected": false,
-      "channel_code": "Local mock 5",
-      "channel_category": "Local mock 5",
-      "currency": "Local mock 5",
-      "name": "Where Rebirth Demo 5",
+      "channel_code": "200",
+      "channel_category": "Bataan 5",
+      "currency": "Bataan 5",
+      "name": "Hermosa",
       "amount_limits": {
-        "minimum": "Local mock 5",
-        "maximum": "Local mock 5",
-        "minimum_increment": "Local mock 5"
+        "minimum": "Bataan 5",
+        "maximum": "Bataan 5",
+        "minimum_increment": "Bataan 5"
       },
       "type": 1
     }

@@ -23,7 +23,7 @@ import com.jiechengsheng.city.frames.common.Html5Url
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
-import com.jiechengsheng.city.utils.MobUtil
+import com.jiechengsheng.city.utils.ShareUtil
 import com.jiechengsheng.city.widget.JcsBanner
 import com.jiechengsheng.city.databinding.ActivityMechanismBinding
 import android.view.ViewGroup
@@ -129,7 +129,7 @@ class MechanismActivity : BaseMvpActivity<MechanismPresenter>(), MechanismView {
         }
         binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_GENERAL, infoId)
-            MobUtil.shareFacebookWebPage(url, this@MechanismActivity)
+            ShareUtil.shareLink(url, this@MechanismActivity)
         }
         binding.likeIv.setOnClickListener {
             if (!User.isLogon()) {

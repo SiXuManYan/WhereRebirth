@@ -4,32 +4,32 @@
   "data": [
     {
       "id": 1,
-      "first_field": "Local mock 1",
-      "second_field": "Local mock 1",
+      "first_field": "Juan Dela Cruz 1",
+      "second_field": "Juan Dela Cruz 1",
       "status": 1
     },
     {
       "id": 2,
-      "first_field": "Local mock 2",
-      "second_field": "Local mock 2",
+      "first_field": "Juan Dela Cruz 2",
+      "second_field": "Juan Dela Cruz 2",
       "status": 2
     },
     {
       "id": 3,
-      "first_field": "Local mock 3",
-      "second_field": "Local mock 3",
+      "first_field": "Juan Dela Cruz 3",
+      "second_field": "Juan Dela Cruz 3",
       "status": 1
     },
     {
       "id": 4,
-      "first_field": "Local mock 4",
-      "second_field": "Local mock 4",
+      "first_field": "Juan Dela Cruz 4",
+      "second_field": "Juan Dela Cruz 4",
       "status": 2
     },
     {
       "id": 5,
-      "first_field": "Local mock 5",
-      "second_field": "Local mock 5",
+      "first_field": "Juan Dela Cruz 5",
+      "second_field": "Juan Dela Cruz 5",
       "status": 1
     }
   ]

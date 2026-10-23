@@ -17,9 +17,6 @@ import android.view.animation.Animation
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.viewpager.widget.ViewPager
-import bolts.AppLinks
-import cn.jiguang.api.utils.JCollectionAuth
-import cn.jpush.android.api.JPushInterface
 import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.SPUtils
@@ -29,7 +26,6 @@ import com.jiechengsheng.city.features.main.MainActivity
 import com.jiechengsheng.city.features.web.WebViewActivity
 import com.jiechengsheng.city.utils.*
 import com.jiechengsheng.city.widget.pager.OnIndicatorClickListener
-import com.mob.MobSDK
 import com.jiechengsheng.city.databinding.ActivitySplashBinding
 import android.view.ViewGroup
 /**
@@ -83,19 +79,11 @@ class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
 
     private fun handleWebOpen() {
 
-        // 处理 Facebook DeepAppLink
-        val targetUrl: Uri? = AppLinks.getTargetUrlFromInboundIntent(this, intent)
-        if (targetUrl != null) {
-            // 被app link启动
-
-            Log.d("AppLink", "targetUrl == $targetUrl")
-            val module = targetUrl.getQueryParameter("module")
-            val moduleId = targetUrl.getQueryParameter("id")
-
-            if (!module.isNullOrBlank()) {
-
-                handleFaceBookIntent(module, moduleId)
-            }
+        // 深链接启动：schemewhereh5://...?module=xx&id=yy
+        val targetUrl: Uri? = intent.data
+        if (targetUrl != null && !targetUrl.getQueryParameter("module").isNullOrBlank()) {
+            Log.d("DeepLink", "targetUrl == $targetUrl")
+            handleFaceBookIntent(targetUrl.getQueryParameter("module"), targetUrl.getQueryParameter("id"))
         } else {
 
             // 不是 applink启动. 获取邀请码
@@ -162,8 +150,6 @@ class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
         val userAgreement = getString(R.string.user_agreement)
         val disclaimer = getString(R.string.disclaimer)
         val privacyPolicy = getString(R.string.privacy_policy)
-        val shareSdkUrl = "https://www.mob.com/about/policy"
-        val jpushUrl = "https://www.jiguang.cn/license/privacy"
         val badanNews = "https://1bataan.com"
 
         val sb = SpannableStringBuilder(getString(R.string.personal_information_protection_guidelines_update))
@@ -208,34 +194,6 @@ class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
             }
 
         }, sb.indexOf(privacyPolicy), sb.indexOf(privacyPolicy) + privacyPolicy.length,
-            SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-        // ShareSdk
-        sb.setSpan(object : ClickableSpan() {
-            override fun onClick(p0: View) {
-                WebViewActivity.navigation(this@SplashActivity, shareSdkUrl)
-            }
-
-            override fun updateDrawState(ds: TextPaint) {
-                ds.color = getColor(R.color.blue_4C9EF2)
-                ds.isUnderlineText = true
-            }
-
-        }, sb.indexOf(shareSdkUrl), sb.indexOf(shareSdkUrl) + shareSdkUrl.length,
-            SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-        // 极光
-        sb.setSpan(object : ClickableSpan() {
-            override fun onClick(p0: View) {
-                WebViewActivity.navigation(this@SplashActivity, jpushUrl)
-            }
-
-            override fun updateDrawState(ds: TextPaint) {
-                ds.color = getColor(R.color.blue_4C9EF2)
-                ds.isUnderlineText = true
-            }
-
-        }, sb.indexOf(jpushUrl), sb.indexOf(jpushUrl) + jpushUrl.length,
             SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE)
 
         // 巴丹新闻
@@ -296,11 +254,6 @@ class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
                 dialog.dismiss()
             }
             .setNegativeButton(getString(R.string.not_yet)) { dialog: DialogInterface, which: Int ->
-
-                // 友盟隐私合规授权结果上传
-
-                // 极光推送隐私确认
-                JCollectionAuth.setAuth(this, false)
                 dialog.dismiss()
                 AppUtils.exitApp()
             }
@@ -310,16 +263,6 @@ class SplashActivity : BaseMvpActivity<SplashPresenter>(), SplashView {
 
     private fun afterAnimation() {
         CacheUtil.putIsAgreeUserAgreement(true);
-        // mob share sdk
-        MobSDK.submitPolicyGrantResult(true)
-
-        // 友盟隐私合规授权结果上传
-        // 友盟真正注册
-
-        // 极光推送隐私确认
-        JCollectionAuth.setAuth(this, true)
-        JPushInterface.init(this)
-
 
         val isFirstOpen = CacheUtil.getShareDefault().getBoolean(Constant.SP_IS_FIRST_OPEN, true)
         if (isFirstOpen) {

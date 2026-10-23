@@ -10,7 +10,7 @@ import com.jiechengsheng.city.R
 import com.jiechengsheng.city.api.response.SignListResponse
 import com.jiechengsheng.city.base.mvp.BaseMvpActivity
 import com.jiechengsheng.city.utils.LocalLanguageUtil
-import com.jiechengsheng.city.utils.MobUtil
+import com.jiechengsheng.city.utils.ShareUtil
 import com.jiechengsheng.city.utils.SPKey
 import com.jiechengsheng.city.databinding.SignInBinding
 import android.view.ViewGroup
@@ -66,7 +66,7 @@ class SignInActivity : BaseMvpActivity<SignInPresenter>(), SignInView {
             binding.signInNowTv.performClick()
         }
         binding.inviteTv.setOnClickListener {
-            MobUtil.shareFacebookWebPage(inviteLink, this)
+            ShareUtil.shareLink(inviteLink, this)
         }
     }
 

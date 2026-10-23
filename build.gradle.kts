@@ -5,16 +5,11 @@ buildscript {
         maven("https://maven.aliyun.com/repository/gradle-plugin/")
         maven("https://maven.aliyun.com/repository/jcenter/")
         maven("https://jitpack.io")
-        maven("https://mvn.mob.com/android")
         maven("https://s01.oss.sonatype.org/content/groups/public")
         maven("https://raw.github.com/laenger/maven-releases/master/releases")
         maven("https://repo1.maven.org/maven2/")
-        maven("https://developer.huawei.com/repo/")
         google()
         mavenCentral()
-    }
-    dependencies {
-        classpath("com.mob.sdk:MobSDK:2018.0319.1724")
     }
 }
 

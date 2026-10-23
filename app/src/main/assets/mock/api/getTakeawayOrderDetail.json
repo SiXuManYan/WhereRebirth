@@ -5,68 +5,68 @@
     "order_data": {
       "id": 1,
       "delivery_time_type": 1,
-      "delivery_time": "2026-08-04 12:00:00",
-      "remark": "Local mock 1",
+      "delivery_time": "2026-10-20 10:30:00",
+      "remark": "Freshly prepared local favorites served all day.",
       "address": {
         "sex": 1,
-        "address": "Manila, Philippines",
-        "contact_name": "Where Rebirth Demo 1",
-        "contact_number": "Local mock 1"
+        "address": "Pilar, Bataan",
+        "contact_name": "Seaside Grill",
+        "contact_number": "Seaside Grill 1"
       },
-      "trade_no": "Local mock 1",
-      "created_at": "2026-08-04 12:00:00",
-      "delivery_cost": 19.90,
-      "packing_charges": 19.90,
-      "price": 19.90,
+      "trade_no": "Seaside Grill 1",
+      "created_at": "2026-10-20 10:30:00",
+      "delivery_cost": 399.0,
+      "packing_charges": 1.0,
+      "price": 399.0,
       "status": 1,
       "comment_status": 1,
-      "error_reason": "Local mock 1",
+      "error_reason": "Seaside Grill 1",
       "complaint_status": 1
     },
     "restaurant_data": {
       "id": 1,
-      "name": "Where Rebirth Demo 1",
-      "mer_uuid": "Local mock 1",
-      "mer_name": "Where Rebirth Demo 1",
+      "name": "Seaside Grill",
+      "mer_uuid": "demo-uuid-1",
+      "mer_name": "Seaside Grill",
       "im_status": 1,
-      "tel": "Local mock 1"
+      "tel": "Seaside Grill 1"
     },
     "good_data": [
       {
         "good_num": 1,
-        "good_name": "Where Rebirth Demo 1",
-        "good_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "good_price": 19.90
+        "good_name": "Seaside Grill",
+        "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
+        "good_price": 399.0
       },
       {
         "good_num": 2,
-        "good_name": "Where Rebirth Demo 2",
-        "good_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "good_price": 29.90
+        "good_name": "Jollibee Balanga",
+        "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
+        "good_price": 499.0
       },
       {
         "good_num": 3,
-        "good_name": "Where Rebirth Demo 3",
-        "good_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "good_price": 39.90
+        "good_name": "Cafe Bataan",
+        "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
+        "good_price": 599.0
       },
       {
         "good_num": 4,
-        "good_name": "Where Rebirth Demo 4",
-        "good_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "good_price": 49.90
+        "good_name": "Mang Inasal",
+        "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
+        "good_price": 699.0
       },
       {
         "good_num": 5,
-        "good_name": "Where Rebirth Demo 5",
-        "good_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "good_price": 59.90
+        "good_name": "Lola\u0027s Kitchen",
+        "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
+        "good_price": 799.0
       }
     ],
     "payment_data": {
-      "payment_channel": "Local mock 1",
-      "bank_card_account": "Local mock 1",
-      "bank_card_number": "Local mock 1"
+      "payment_channel": "Seaside Grill 1",
+      "bank_card_account": "157",
+      "bank_card_number": "Seaside Grill 1"
     }
   }
 }

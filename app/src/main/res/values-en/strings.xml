@@ -4,7 +4,6 @@
     <string name="im_unavailable_message">The IM SDK has been removed, so messages cannot be sent at this time.</string>
     <string name="app_name">Where</string>
 
-    <string name="facebook_app_id">642165667008627</string>
 
     <!-- Google 服务Api密钥 -->
     <string name="maps_api_key">YOUR_GOOGLE_MAPS_API_KEY</string>
@@ -87,6 +86,8 @@
     <string name="search_none">No search related content ~</string>
     <string name="coming_soon">Coming Soon</string>
     <string name="login_success">login successful</string>
+    <string name="login_local_mode_hint">Local demo mode: any password works, account is not verified</string>
+    <string name="share_link">Share link</string>
     <string name="commit_success">Commit Successful</string>
     <string name="hint_input_phone_number_2">Please fill in your mobile phone number</string>
     <string name="mine_change_language">Language</string>
@@ -210,7 +211,7 @@
     <string name="login_rule_keyword_0">\n&#34;User Agreement&#34;</string>
     <string name="login_rule_default_and">&#160;and the &#160;</string>
     <string name="login_rule_keyword_1">&#34;Privacy Policy&#34;</string>
-    <string name="input_password_hint">Please enter 8–16 digits and letters</string>
+    <string name="input_password_hint">Enter any password (not verified in this local demo)</string>
     <string name="confirm">Confirm</string>
     <string name="philippines_63">Philippines +63</string>
     <string name="china_86">China +86</string>
@@ -396,13 +397,9 @@
     <string name="use_agreement_content_3">&#34;Privacy Policy&#34;&#160;</string>
 
     <string name="use_agreement_content_4">Please read carefully and fully understand the relevant terms before you click Agree. Clicking the agree button means that you have agreed to the foregoing agreement and the following agreement.\n\n
-1. When only browsing, we will apply for system permission to collect device information and log information for information push in order to guarantee service needs. And apply for storage permissions for caching related files during the browsing process and maintaining in-app version upgrades.\n\n
+1. When only browsing, we will apply for system permission to collect device information and log information to keep the local service running in order to guarantee service needs. And apply for storage permissions for caching related files during the browsing process and maintaining in-app version upgrades.\n\n
 2. In order to recommend content and display information to you based on your location, we may apply for location permissions from you.\n\n
 3. In order to help you call complaints or other consultation hotlines in the APP, we may apply for the call permission. This permission does not collect private information and is only used when you use the aforementioned functions.\n\n</string>
-    <string name="use_agreement_content_5">4. In order to realize the third-party login and information sharing functions, we are using the third-party MobTech [ShareSdk] product. For the privacy policy terms of this product, please refer to:</string>
-    <string name="use_agreement_content_6">https://www.mob.com/about/policy。\n\n</string>
-    <string name="use_agreement_content_10">5. In order to realize the push function, we have introduced the [JPush] product of the third-party Jiguang SDK. For the privacy policy of this product, please refer to:</string>
-    <string name="use_agreement_content_11">https://www.jiguang.cn/license/privacy \n\n</string>
 
 
 
@@ -411,13 +408,11 @@
 
     <string name="personal_information_protection_guidelines_update">Dear user, thank you for trusting and using Where, we have formulated &#160;[User Agreement]&#160;[Disclaimer]&#160; and &#160;[Privacy Policy]&#160; in accordance with relevant laws , please read carefully and fully understand the relevant terms before you click to agree. \n\n
 Clicking the Agree button means that you have agreed to the above agreement and the following agreements. \n\n
-1. When browsing only, in order to guarantee the service, we will apply for system permission to collect device information and log information for information push. And apply for storage permissions, which are used to cache related files during browsing and maintain in-app version upgrades. \n\n
+1. When browsing only, in order to guarantee the service, we will apply for system permission to collect device information and log information to keep the local service running. And apply for storage permissions, which are used to cache related files during browsing and maintain in-app version upgrades. \n\n
 2. In order to recommend content and display information to you based on your location, we may apply for location permission from you. \n\n
 3. In order to help you make complaint calls or other consultation hotlines in the APP, we may apply for the right to make calls. This permission does not collect private information and is only used when you use the aforementioned functions. \n\n
-4. In order to realize the third-party login and information sharing functions, we are using the [ShareSdk] product of the third-party MobTech. For the privacy policy terms of this product, please refer to: https://www.mob.com/about/policy. \n\n
-5. In order to realize the push function, we have introduced the [JPush] product of the third-party Jiguang SDK. For the privacy policy of this product, please refer to: https://www.jiguang.cn/license/privacy \n\n
-6. The above permissions, as well as sensitive permissions such as camera, GPS, camera, photo album, microphone, storage space, etc., will not be enabled by default or forcibly to collect information, and will only be used to implement functions or services after express authorization, and you can refuse and It does not affect your continued use of Where. \n\n
-7. Disclaimer\n
+4. The above permissions, as well as sensitive permissions such as camera, GPS, camera, photo album, microphone, storage space, etc., will not be enabled by default or forcibly to collect information, and will only be used to implement functions or services after express authorization, and you can refuse and It does not affect your continued use of Where. \n\n
+5. Disclaimer\n
 The information provided by the Where App application (hereinafter referred to as "this application") comes from government public channels, and aims to provide users with a convenient way to obtain government information. \n\n
 Sources of government news and information: \n\n
 The government information and news information conveyed by the Where application is related to the government organization of the Bataan Provincial Information Office headquartered in Bataan Province, Philippines. For more information, please visit the website registered in the https://1bataan.com domain (provided by Bataan, Philippines Published by the Bataan Provincial Information Office of the province)\n\n

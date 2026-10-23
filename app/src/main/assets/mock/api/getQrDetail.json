@@ -2,10 +2,10 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "restaurant_name": "Where Rebirth Demo 1",
-    "good_name": "Where Rebirth Demo 1",
-    "expire_date": "2026-08-04 12:00:00",
-    "coupon_no": "Local mock 1",
-    "coupon_qr_code": "Local mock 1"
+    "restaurant_name": "Seaside Grill",
+    "good_name": "Balanga",
+    "expire_date": "2026-10-20 10:30:00",
+    "coupon_no": "SM City Bataan 1",
+    "coupon_qr_code": "200"
   }
 }

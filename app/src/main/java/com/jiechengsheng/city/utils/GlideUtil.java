@@ -81,10 +81,14 @@ public class GlideUtil {
     }
 
     private static Object localImage(String source) {
-        if (source != null && (source.startsWith("http://") || source.startsWith("https://"))) {
-            return R.mipmap.ic_app_logo;
+        if (source == null || source.trim().isEmpty()) {
+            return R.drawable.mock_logo;
         }
-        return R.mipmap.ic_app_logo;
+        if (source.startsWith("android.resource://") || source.startsWith("file://")
+                || source.startsWith("content://") || source.startsWith("/")) {
+            return Uri.parse(source);
+        }
+        return source;
     }
 
 

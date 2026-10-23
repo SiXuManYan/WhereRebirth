@@ -8,9 +8,12 @@ import com.jiechengsheng.city.api.network.BaseMvpPresenter
 import com.jiechengsheng.city.api.network.BaseMvpView
 import com.jiechengsheng.city.api.request.hotel.FoodCommitComment
 import com.jiechengsheng.city.api.response.UploadFileResponse2
-import okhttp3.MediaType
-import okhttp3.RequestBody
 import java.io.File
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 
 /**
  * Created by Wangsw  2021/8/17 17:26.
@@ -44,14 +47,14 @@ class FoodCommentPostPresenter (private var view: FoodCommentPostView) : BaseMvp
             if (!RegexUtils.isURL(it)) {
                 // 只上传本地图片
                 val file = File(it)
-                val requestFile = RequestBody.create(MediaType.parse("image/jpg"), file)
+                val requestFile = file.asRequestBody("image/jpg".toMediaType())
                 // 多图上传的key 由 file改成　file[]
                 map["file[]\"; filename=\"" + file.name] = requestFile;
             }
         }
 
         val type = "2"
-        val description = RequestBody.create(MediaType.parse("multipart/form-data"), type)
+        val description = type.toRequestBody("multipart/form-data".toMediaType())
 
         requestApi(mRetrofit.uploadMultiImages(description, map), object : BaseMvpObserver<UploadFileResponse2>(view) {
             override fun onSuccess(response: UploadFileResponse2) {

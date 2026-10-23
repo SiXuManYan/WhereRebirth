@@ -4,20 +4,18 @@
   "data": [
     {
       "id": 1,
-      "name": "Where Rebirth Demo 1",
+      "name": "Balanga",
       "type": 1,
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "has_children": {
-        "value": 1
-      },
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
+      "has_children": 1,
       "child_categories": [
         {
           "id": 1,
-          "name": "Where Rebirth Demo 1",
+          "name": "Balanga",
           "parentCategory": {},
           "has_children": 1,
           "type": 1,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -29,11 +27,11 @@
         },
         {
           "id": 2,
-          "name": "Where Rebirth Demo 2",
+          "name": "Bataan",
           "parentCategory": {},
           "has_children": 2,
           "type": 2,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -45,11 +43,11 @@
         },
         {
           "id": 3,
-          "name": "Where Rebirth Demo 3",
+          "name": "Mariveles",
           "parentCategory": {},
           "has_children": 3,
           "type": 1,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -61,11 +59,11 @@
         },
         {
           "id": 4,
-          "name": "Where Rebirth Demo 4",
+          "name": "Dinalupihan",
           "parentCategory": {},
           "has_children": 4,
           "type": 2,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -77,11 +75,11 @@
         },
         {
           "id": 5,
-          "name": "Where Rebirth Demo 5",
+          "name": "Hermosa",
           "parentCategory": {},
           "has_children": 5,
           "type": 1,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -95,20 +93,18 @@
     },
     {
       "id": 2,
-      "name": "Where Rebirth Demo 2",
+      "name": "Bataan",
       "type": 2,
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "has_children": {
-        "value": 2
-      },
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
+      "has_children": 2,
       "child_categories": [
         {
           "id": 1,
-          "name": "Where Rebirth Demo 1",
+          "name": "Balanga",
           "parentCategory": {},
           "has_children": 1,
           "type": 1,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -120,11 +116,11 @@
         },
         {
           "id": 2,
-          "name": "Where Rebirth Demo 2",
+          "name": "Bataan",
           "parentCategory": {},
           "has_children": 2,
           "type": 2,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -136,11 +132,11 @@
         },
         {
           "id": 3,
-          "name": "Where Rebirth Demo 3",
+          "name": "Mariveles",
           "parentCategory": {},
           "has_children": 3,
           "type": 1,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -152,11 +148,11 @@
         },
         {
           "id": 4,
-          "name": "Where Rebirth Demo 4",
+          "name": "Dinalupihan",
           "parentCategory": {},
           "has_children": 4,
           "type": 2,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -168,11 +164,11 @@
         },
         {
           "id": 5,
-          "name": "Where Rebirth Demo 5",
+          "name": "Hermosa",
           "parentCategory": {},
           "has_children": 5,
           "type": 1,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -186,20 +182,18 @@
     },
     {
       "id": 3,
-      "name": "Where Rebirth Demo 3",
+      "name": "Mariveles",
       "type": 1,
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "has_children": {
-        "value": 3
-      },
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
+      "has_children": 3,
       "child_categories": [
         {
           "id": 1,
-          "name": "Where Rebirth Demo 1",
+          "name": "Balanga",
           "parentCategory": {},
           "has_children": 1,
           "type": 1,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -211,11 +205,11 @@
         },
         {
           "id": 2,
-          "name": "Where Rebirth Demo 2",
+          "name": "Bataan",
           "parentCategory": {},
           "has_children": 2,
           "type": 2,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -227,11 +221,11 @@
         },
         {
           "id": 3,
-          "name": "Where Rebirth Demo 3",
+          "name": "Mariveles",
           "parentCategory": {},
           "has_children": 3,
           "type": 1,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -243,11 +237,11 @@
         },
         {
           "id": 4,
-          "name": "Where Rebirth Demo 4",
+          "name": "Dinalupihan",
           "parentCategory": {},
           "has_children": 4,
           "type": 2,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -259,11 +253,11 @@
         },
         {
           "id": 5,
-          "name": "Where Rebirth Demo 5",
+          "name": "Hermosa",
           "parentCategory": {},
           "has_children": 5,
           "type": 1,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -277,20 +271,18 @@
     },
     {
       "id": 4,
-      "name": "Where Rebirth Demo 4",
+      "name": "Dinalupihan",
       "type": 2,
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "has_children": {
-        "value": 4
-      },
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
+      "has_children": 4,
       "child_categories": [
         {
           "id": 1,
-          "name": "Where Rebirth Demo 1",
+          "name": "Balanga",
           "parentCategory": {},
           "has_children": 1,
           "type": 1,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -302,11 +294,11 @@
         },
         {
           "id": 2,
-          "name": "Where Rebirth Demo 2",
+          "name": "Bataan",
           "parentCategory": {},
           "has_children": 2,
           "type": 2,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -318,11 +310,11 @@
         },
         {
           "id": 3,
-          "name": "Where Rebirth Demo 3",
+          "name": "Mariveles",
           "parentCategory": {},
           "has_children": 3,
           "type": 1,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -334,11 +326,11 @@
         },
         {
           "id": 4,
-          "name": "Where Rebirth Demo 4",
+          "name": "Dinalupihan",
           "parentCategory": {},
           "has_children": 4,
           "type": 2,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -350,11 +342,11 @@
         },
         {
           "id": 5,
-          "name": "Where Rebirth Demo 5",
+          "name": "Hermosa",
           "parentCategory": {},
           "has_children": 5,
           "type": 1,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -368,20 +360,18 @@
     },
     {
       "id": 5,
-      "name": "Where Rebirth Demo 5",
+      "name": "Hermosa",
       "type": 1,
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "has_children": {
-        "value": 5
-      },
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
+      "has_children": 5,
       "child_categories": [
         {
           "id": 1,
-          "name": "Where Rebirth Demo 1",
+          "name": "Balanga",
           "parentCategory": {},
           "has_children": 1,
           "type": 1,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -393,11 +383,11 @@
         },
         {
           "id": 2,
-          "name": "Where Rebirth Demo 2",
+          "name": "Bataan",
           "parentCategory": {},
           "has_children": 2,
           "type": 2,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -409,11 +399,11 @@
         },
         {
           "id": 3,
-          "name": "Where Rebirth Demo 3",
+          "name": "Mariveles",
           "parentCategory": {},
           "has_children": 3,
           "type": 1,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -425,11 +415,11 @@
         },
         {
           "id": 4,
-          "name": "Where Rebirth Demo 4",
+          "name": "Dinalupihan",
           "parentCategory": {},
           "has_children": 4,
           "type": 2,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},
@@ -441,11 +431,11 @@
         },
         {
           "id": 5,
-          "name": "Where Rebirth Demo 5",
+          "name": "Hermosa",
           "parentCategory": {},
           "has_children": 5,
           "type": 1,
-          "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+          "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
           "child_categories": [
             {},
             {},

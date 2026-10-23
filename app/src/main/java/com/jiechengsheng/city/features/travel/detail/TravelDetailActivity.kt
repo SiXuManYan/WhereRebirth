@@ -29,7 +29,7 @@ import com.jiechengsheng.city.frames.common.Html5Url
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.FeaturesUtil
-import com.jiechengsheng.city.utils.MobUtil
+import com.jiechengsheng.city.utils.ShareUtil
 import com.jiechengsheng.city.view.empty.EmptyView
 import com.shuyu.gsyvideoplayer.GSYVideoManager
 import com.jiechengsheng.city.databinding.ActivityTravelDetailBinding
@@ -283,7 +283,7 @@ class TravelDetailActivity : BaseMvpActivity<TravelDetailPresenter>(), TravelDet
         }
         binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_TRAVEL, travelId)
-            MobUtil.shareFacebookWebPage(url, this@TravelDetailActivity)
+            ShareUtil.shareLink(url, this@TravelDetailActivity)
         }
         binding.likeIv.setOnClickListener {
             if (!User.isLogon()) {

@@ -12,8 +12,9 @@ class GenerateApiMocksTest {
         val output = File("src/main/assets/mock/api").apply { mkdirs() }
         val methods = RetrofitApi::class.java.declaredMethods.sortedWith(compareBy({ it.name }, { it.toGenericString() }))
         methods.forEach { method ->
-            File(output, "${MockJsonFactory.apiKey(method)}.json")
-                .writeText(MockJsonFactory.responseJson(method.genericReturnType), Charsets.UTF_8)
+            val key = MockJsonFactory.apiKey(method)
+            File(output, "$key.json")
+                .writeText(MockJsonFactory.responseJson(method.genericReturnType, key), Charsets.UTF_8)
         }
         File(output, "_index.json").writeText(
             methods.joinToString(prefix = "[\n", postfix = "\n]\n", separator = ",\n") {

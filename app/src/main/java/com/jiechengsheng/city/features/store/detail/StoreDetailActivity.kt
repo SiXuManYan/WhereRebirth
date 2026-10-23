@@ -267,7 +267,7 @@ class StoreDetailActivity : BaseMvpActivity<StoreDetailPresenter>(), StoreDetail
 
         binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_E_STORE, shop_id)
-            MobUtil.shareFacebookWebPage(url, this@StoreDetailActivity)
+            ShareUtil.shareLink(url, this@StoreDetailActivity)
         }
 
     }

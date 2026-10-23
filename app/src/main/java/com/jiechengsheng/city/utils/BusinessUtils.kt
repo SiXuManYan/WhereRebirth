@@ -21,7 +21,6 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import cn.jpush.android.api.JPushInterface
 import com.blankj.utilcode.util.*
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.jiechengsheng.city.BuildConfig
@@ -303,10 +302,6 @@ object BusinessUtils {
 
             // 登出友盟
 
-            // 删除极光推送别名
-            val sequence = SPUtils.getInstance().getInt(Constant.SP_PUSH_SEQUENCE, 0)
-            JPushInterface.deleteAlias(Utils.getApp().applicationContext, sequence)
-
             EventBus.getDefault().post(BaseEvent<Any>(EventCode.EVENT_SIGN_OUT))
         } catch (e: Exception) {
 
@@ -504,61 +499,6 @@ object BusinessUtils {
 
         return channel
     } */
-
-    private var sequence = 1
-
-    /**
-     *  【友盟+】在统计用户时以设备为标准，此处切换统计标准为自身账号
-     *  @param platformName 账号来源。
-     *                      如果用户通过第三方账号登陆，则为具体平台名称，如Facebook googlePlus+
-     *                      app本身登录 可传空
-     *
-     */
-    /* fun umengOnProfileSignIn(platformName: String? = null, userId: Long) {
-
-        try {
-            // 友盟登录
-//            if (platformName.isNullOrBlank()) {
-//                MobclickAgent.onProfileSignIn(userId.toString())
-//            } else {
-//                MobclickAgent.onProfileSignIn(platformName, userId.toString())
-//            }
-
-            // ## 极光推送相关 ##
-
-            // 极光设置别名
-            // https://docs.jiguang.cn/jpush/client/Android/android_api#%E5%88%AB%E5%90%8D%E4%B8%8E%E6%A0%87%E7%AD%BE-api
-            val alias = StringBuffer()
-            if (BuildConfig.FLAVOR == "dev") {
-                alias.append("develop_")
-            } else {
-                alias.append("produce_")
-            }
-            val append = alias.append(userId.toString())
-
-            val sequence = Math.abs(System.currentTimeMillis().toInt())
-
-            JPushInterface.setAlias(Utils.getApp(), sequence, append.toString())
-
-            // 保存 sequence
-            SPUtils.getInstance().put(Constant.SP_PUSH_SEQUENCE, sequence)
-
-            // 根据开发环境设置tag
-            val tag = HashSet<String>()
-            if (BuildConfig.FLAVOR === "formal") {
-                tag.add("formal")
-            }
-            if (BuildConfig.FLAVOR === "dev") {
-                tag.add("develop")
-            }
-            JPushInterface.setTags(Utils.getApp(), sequence, tag)
-
-        } catch (e: Exception) {
-
-        }
-
-    } */
-
 
     fun getDeepLinksTargetIntent(module: String?, moduleId: String?, context: Context): Intent? {
 

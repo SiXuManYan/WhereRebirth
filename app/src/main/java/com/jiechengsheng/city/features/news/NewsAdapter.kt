@@ -65,7 +65,9 @@ class NewsAdapter : BaseMultiItemQuickAdapter<NewsResponse, BaseViewHolder>(), L
                 if (videoPlayer != null) {
                     videoPlayer.setUp(item.videoLink, item.title)
                     if (coverImages.isNotEmpty()) {
-                        GlideUtil.load(context, coverImages[0], videoPlayer.posterImageView)
+                        (videoPlayer.thumbImageView as? android.widget.ImageView)?.let {
+                            GlideUtil.load(context, coverImages[0], it)
+                        }
                     }
                     holder.setText(R.id.newsVideoDurationTv, item.videoTime)
                 }

@@ -3,11 +3,11 @@
   "message": "local mock",
   "data": {
     "images": [
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+      "android.resource://com.jiechengsheng.city/drawable/mock_job_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_job_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_job_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_job_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_job_1"
     ]
   }
 }

@@ -4,55 +4,55 @@
   "data": [
     {
       "id": 1,
-      "name": "Where Rebirth Demo 1",
-      "grade": 1.0,
-      "comment_counts": 1,
-      "address": "Manila, Philippines",
+      "name": "Balanga",
+      "grade": 4.1,
+      "comment_counts": 157,
+      "address": "Bataan, Philippines",
       "lat": 14.6005,
       "lng": 120.9852,
       "price": 1,
-      "distance": 1.0,
+      "distance": 1.2000000000000002,
       "remain_room_num": 1,
-      "star_level": 1.0,
-      "facebook_link": "https://example.com/local/1",
+      "star_level": 4.1,
+      "facebook_link": "https://1bataan.com",
       "images": [
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
       ],
       "tags": [
         {
-          "name": "Where Rebirth Demo 1",
+          "name": "Balanga",
           "pivot": {
             "hotel_id": 1,
             "hotel_tag_id": 1
           }
         },
         {
-          "name": "Where Rebirth Demo 2",
+          "name": "Bataan",
           "pivot": {
             "hotel_id": 2,
             "hotel_tag_id": 2
           }
         },
         {
-          "name": "Where Rebirth Demo 3",
+          "name": "Mariveles",
           "pivot": {
             "hotel_id": 3,
             "hotel_tag_id": 3
           }
         },
         {
-          "name": "Where Rebirth Demo 4",
+          "name": "Dinalupihan",
           "pivot": {
             "hotel_id": 4,
             "hotel_tag_id": 4
           }
         },
         {
-          "name": "Where Rebirth Demo 5",
+          "name": "Hermosa",
           "pivot": {
             "hotel_id": 5,
             "hotel_tag_id": 5
@@ -62,55 +62,55 @@
     },
     {
       "id": 2,
-      "name": "Where Rebirth Demo 2",
-      "grade": 2.0,
-      "comment_counts": 2,
-      "address": "Manila, Philippines",
+      "name": "Bataan",
+      "grade": 4.2,
+      "comment_counts": 194,
+      "address": "Bataan, Philippines",
       "lat": 14.601500000000001,
       "lng": 120.9862,
       "price": 2,
-      "distance": 2.0,
+      "distance": 1.6,
       "remain_room_num": 2,
-      "star_level": 2.0,
-      "facebook_link": "https://example.com/local/2",
+      "star_level": 4.2,
+      "facebook_link": "https://1bataan.com",
       "images": [
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
       ],
       "tags": [
         {
-          "name": "Where Rebirth Demo 1",
+          "name": "Balanga",
           "pivot": {
             "hotel_id": 1,
             "hotel_tag_id": 1
           }
         },
         {
-          "name": "Where Rebirth Demo 2",
+          "name": "Bataan",
           "pivot": {
             "hotel_id": 2,
             "hotel_tag_id": 2
           }
         },
         {
-          "name": "Where Rebirth Demo 3",
+          "name": "Mariveles",
           "pivot": {
             "hotel_id": 3,
             "hotel_tag_id": 3
           }
         },
         {
-          "name": "Where Rebirth Demo 4",
+          "name": "Dinalupihan",
           "pivot": {
             "hotel_id": 4,
             "hotel_tag_id": 4
           }
         },
         {
-          "name": "Where Rebirth Demo 5",
+          "name": "Hermosa",
           "pivot": {
             "hotel_id": 5,
             "hotel_tag_id": 5
@@ -120,55 +120,55 @@
     },
     {
       "id": 3,
-      "name": "Where Rebirth Demo 3",
-      "grade": 3.0,
-      "comment_counts": 3,
-      "address": "Manila, Philippines",
+      "name": "Mariveles",
+      "grade": 4.3,
+      "comment_counts": 231,
+      "address": "Bataan, Philippines",
       "lat": 14.602500000000001,
       "lng": 120.9872,
       "price": 3,
-      "distance": 3.0,
+      "distance": 2.0,
       "remain_room_num": 3,
-      "star_level": 3.0,
-      "facebook_link": "https://example.com/local/3",
+      "star_level": 4.3,
+      "facebook_link": "https://1bataan.com",
       "images": [
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
       ],
       "tags": [
         {
-          "name": "Where Rebirth Demo 1",
+          "name": "Balanga",
           "pivot": {
             "hotel_id": 1,
             "hotel_tag_id": 1
           }
         },
         {
-          "name": "Where Rebirth Demo 2",
+          "name": "Bataan",
           "pivot": {
             "hotel_id": 2,
             "hotel_tag_id": 2
           }
         },
         {
-          "name": "Where Rebirth Demo 3",
+          "name": "Mariveles",
           "pivot": {
             "hotel_id": 3,
             "hotel_tag_id": 3
           }
         },
         {
-          "name": "Where Rebirth Demo 4",
+          "name": "Dinalupihan",
           "pivot": {
             "hotel_id": 4,
             "hotel_tag_id": 4
           }
         },
         {
-          "name": "Where Rebirth Demo 5",
+          "name": "Hermosa",
           "pivot": {
             "hotel_id": 5,
             "hotel_tag_id": 5
@@ -178,55 +178,55 @@
     },
     {
       "id": 4,
-      "name": "Where Rebirth Demo 4",
-      "grade": 4.0,
-      "comment_counts": 4,
-      "address": "Manila, Philippines",
+      "name": "Dinalupihan",
+      "grade": 4.4,
+      "comment_counts": 268,
+      "address": "Bataan, Philippines",
       "lat": 14.6035,
       "lng": 120.9882,
       "price": 4,
-      "distance": 4.0,
+      "distance": 2.4000000000000004,
       "remain_room_num": 4,
-      "star_level": 4.0,
-      "facebook_link": "https://example.com/local/4",
+      "star_level": 4.4,
+      "facebook_link": "https://1bataan.com",
       "images": [
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
       ],
       "tags": [
         {
-          "name": "Where Rebirth Demo 1",
+          "name": "Balanga",
           "pivot": {
             "hotel_id": 1,
             "hotel_tag_id": 1
           }
         },
         {
-          "name": "Where Rebirth Demo 2",
+          "name": "Bataan",
           "pivot": {
             "hotel_id": 2,
             "hotel_tag_id": 2
           }
         },
         {
-          "name": "Where Rebirth Demo 3",
+          "name": "Mariveles",
           "pivot": {
             "hotel_id": 3,
             "hotel_tag_id": 3
           }
         },
         {
-          "name": "Where Rebirth Demo 4",
+          "name": "Dinalupihan",
           "pivot": {
             "hotel_id": 4,
             "hotel_tag_id": 4
           }
         },
         {
-          "name": "Where Rebirth Demo 5",
+          "name": "Hermosa",
           "pivot": {
             "hotel_id": 5,
             "hotel_tag_id": 5
@@ -236,55 +236,55 @@
     },
     {
       "id": 5,
-      "name": "Where Rebirth Demo 5",
-      "grade": 5.0,
-      "comment_counts": 5,
-      "address": "Manila, Philippines",
+      "name": "Hermosa",
+      "grade": 4.5,
+      "comment_counts": 305,
+      "address": "Bataan, Philippines",
       "lat": 14.604500000000002,
       "lng": 120.9892,
       "price": 5,
-      "distance": 5.0,
+      "distance": 2.8,
       "remain_room_num": 5,
-      "star_level": 5.0,
-      "facebook_link": "https://example.com/local/5",
+      "star_level": 4.5,
+      "facebook_link": "https://1bataan.com",
       "images": [
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-        "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
       ],
       "tags": [
         {
-          "name": "Where Rebirth Demo 1",
+          "name": "Balanga",
           "pivot": {
             "hotel_id": 1,
             "hotel_tag_id": 1
           }
         },
         {
-          "name": "Where Rebirth Demo 2",
+          "name": "Bataan",
           "pivot": {
             "hotel_id": 2,
             "hotel_tag_id": 2
           }
         },
         {
-          "name": "Where Rebirth Demo 3",
+          "name": "Mariveles",
           "pivot": {
             "hotel_id": 3,
             "hotel_tag_id": 3
           }
         },
         {
-          "name": "Where Rebirth Demo 4",
+          "name": "Dinalupihan",
           "pivot": {
             "hotel_id": 4,
             "hotel_tag_id": 4
           }
         },
         {
-          "name": "Where Rebirth Demo 5",
+          "name": "Hermosa",
           "pivot": {
             "hotel_id": 5,
             "hotel_tag_id": 5

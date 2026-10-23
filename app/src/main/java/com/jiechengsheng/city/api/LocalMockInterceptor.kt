@@ -4,12 +4,17 @@ import android.content.Context
 import android.util.Log
 import okhttp3.Interceptor
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Protocol
 import okhttp3.Response
-import okhttp3.ResponseBody
+import okhttp3.ResponseBody.Companion.toResponseBody
 import retrofit2.Invocation
 
-/** Serves the JSON generated in assets/mock/api without contacting the retired server. */
+/**
+ * 本地 Mock 拦截器：按 Retrofit 方法名读取 `assets/mock/api/<method>.json`。
+ * 资产缺失或无法按方法声明的 JavaBean 解析时，使用 [MockJsonFactory] 生成兜底响应，
+ * 保证旧接口在服务器停用后仍能走完整的 Retrofit/RxJava 链路。
+ */
 class LocalMockInterceptor(context: Context) : Interceptor {
     private val assets = context.applicationContext.assets
 
@@ -18,16 +23,26 @@ class LocalMockInterceptor(context: Context) : Interceptor {
         val method = request.tag(Invocation::class.java)?.method()
         val key = method?.let(MockJsonFactory::apiKey)
         val assetPath = key?.let { "mock/api/$it.json" }
-        val json = assetPath?.let(::readAsset)
-            ?: MockJsonFactory.responseJson(method?.genericReturnType, request.url().encodedPath())
+        val assetJson = assetPath?.let(::readAsset)
+        val compatible = assetJson != null && MockJsonFactory.isCompatible(assetJson, method?.genericReturnType)
+        val json = if (compatible) {
+            assetJson!!
+        } else {
+            MockJsonFactory.responseJson(method?.genericReturnType, key ?: request.url.encodedPath)
+        }
 
-        Log.d("LocalMock", "${request.method()} ${request.url().encodedPath()} -> ${assetPath ?: "generated fallback"}")
+        val source = when {
+            compatible -> assetPath
+            assetJson != null -> "asset incompatible, generated fallback"
+            else -> "generated fallback"
+        }
+        Log.d("LocalMock", "${request.method} ${request.url.encodedPath} -> $source")
         return Response.Builder()
             .request(request)
             .protocol(Protocol.HTTP_1_1)
             .code(200)
             .message("LOCAL_MOCK")
-            .body(ResponseBody.create(JSON, json))
+            .body(json.toResponseBody(JSON))
             .build()
     }
 
@@ -38,6 +53,6 @@ class LocalMockInterceptor(context: Context) : Interceptor {
     }
 
     private companion object {
-        val JSON: MediaType? = MediaType.parse("application/json; charset=utf-8")
+        val JSON: MediaType = "application/json; charset=utf-8".toMediaType()
     }
 }

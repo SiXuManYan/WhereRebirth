@@ -2,6 +2,6 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "status": 1
+    "status": false
   }
 }

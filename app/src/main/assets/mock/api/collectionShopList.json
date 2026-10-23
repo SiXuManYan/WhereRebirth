@@ -3,12 +3,12 @@
   "message": "local mock",
   "data": {
     "current_page": 1,
-    "first_page_url": "https://example.com/local/1",
+    "first_page_url": "https://1bataan.com",
     "from": 1,
     "last_page": 1,
-    "last_page_url": "https://example.com/local/1",
+    "last_page_url": "https://1bataan.com",
     "next_page_url": {},
-    "path": "Local mock 1",
+    "path": "https://1bataan.com",
     "per_page": 5,
     "prev_page_url": {},
     "to": 5,
@@ -17,32 +17,32 @@
       {
         "id": 1,
         "shop_id": 1,
-        "title": "Where Rebirth Demo 1",
-        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "title": "SM City Bataan",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
       },
       {
         "id": 2,
         "shop_id": 2,
-        "title": "Where Rebirth Demo 2",
-        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "title": "Ayala Harbor Point",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2"
       },
       {
         "id": 3,
         "shop_id": 3,
-        "title": "Where Rebirth Demo 3",
-        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "title": "Robinsons Balanga",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
       },
       {
         "id": 4,
         "shop_id": 4,
-        "title": "Where Rebirth Demo 4",
-        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "title": "Bataan Public Market",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2"
       },
       {
         "id": 5,
         "shop_id": 5,
-        "title": "Where Rebirth Demo 5",
-        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+        "title": "The Strip Mall",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
       }
     ]
   }

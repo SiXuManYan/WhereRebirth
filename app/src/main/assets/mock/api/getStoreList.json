@@ -3,12 +3,12 @@
   "message": "local mock",
   "data": {
     "current_page": 1,
-    "first_page_url": "https://example.com/local/1",
+    "first_page_url": "https://1bataan.com",
     "from": 1,
     "last_page": 1,
-    "last_page_url": "https://example.com/local/1",
+    "last_page_url": "https://1bataan.com",
     "next_page_url": {},
-    "path": "Local mock 1",
+    "path": "https://1bataan.com",
     "per_page": 5,
     "prev_page_url": {},
     "to": 5,
@@ -17,25 +17,25 @@
       {
         "id": 1,
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
         ],
-        "title": "Where Rebirth Demo 1",
-        "address": "Manila, Philippines",
+        "title": "SM City Bataan",
+        "address": "Balanga City, Bataan",
         "lat": 14.6005,
         "lng": 120.9852,
-        "distance": "Local mock 1",
+        "distance": "1.2 km",
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
-        "grade": 1.0,
+        "grade": 4.1,
         "delivery_type": 1,
         "goods": [
           {
@@ -43,15 +43,15 @@
             "sale_num": 1,
             "inventory": 1,
             "delivery_type": 1,
-            "price": 19.90,
-            "original_price": 19.90,
-            "title": "Where Rebirth Demo 1",
+            "price": 399.0,
+            "original_price": 399.0,
+            "title": "SM City Bataan",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -59,15 +59,15 @@
             "sale_num": 2,
             "inventory": 2,
             "delivery_type": 2,
-            "price": 29.90,
-            "original_price": 29.90,
-            "title": "Where Rebirth Demo 2",
+            "price": 499.0,
+            "original_price": 499.0,
+            "title": "Ayala Harbor Point",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -75,15 +75,15 @@
             "sale_num": 3,
             "inventory": 3,
             "delivery_type": 3,
-            "price": 39.90,
-            "original_price": 39.90,
-            "title": "Where Rebirth Demo 3",
+            "price": 599.0,
+            "original_price": 599.0,
+            "title": "Robinsons Balanga",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -91,15 +91,15 @@
             "sale_num": 4,
             "inventory": 4,
             "delivery_type": 4,
-            "price": 49.90,
-            "original_price": 49.90,
-            "title": "Where Rebirth Demo 4",
+            "price": 699.0,
+            "original_price": 699.0,
+            "title": "Bataan Public Market",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -107,15 +107,15 @@
             "sale_num": 5,
             "inventory": 5,
             "delivery_type": 5,
-            "price": 59.90,
-            "original_price": 59.90,
-            "title": "Where Rebirth Demo 5",
+            "price": 799.0,
+            "original_price": 799.0,
+            "title": "The Strip Mall",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           }
         ]
@@ -123,25 +123,25 @@
       {
         "id": 2,
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
         ],
-        "title": "Where Rebirth Demo 2",
-        "address": "Manila, Philippines",
+        "title": "Ayala Harbor Point",
+        "address": "Balanga City, Bataan",
         "lat": 14.601500000000001,
         "lng": 120.9862,
-        "distance": "Local mock 2",
+        "distance": "1.6 km",
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
-        "grade": 2.0,
+        "grade": 4.2,
         "delivery_type": 2,
         "goods": [
           {
@@ -149,15 +149,15 @@
             "sale_num": 1,
             "inventory": 1,
             "delivery_type": 1,
-            "price": 19.90,
-            "original_price": 19.90,
-            "title": "Where Rebirth Demo 1",
+            "price": 399.0,
+            "original_price": 399.0,
+            "title": "SM City Bataan",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -165,15 +165,15 @@
             "sale_num": 2,
             "inventory": 2,
             "delivery_type": 2,
-            "price": 29.90,
-            "original_price": 29.90,
-            "title": "Where Rebirth Demo 2",
+            "price": 499.0,
+            "original_price": 499.0,
+            "title": "Ayala Harbor Point",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -181,15 +181,15 @@
             "sale_num": 3,
             "inventory": 3,
             "delivery_type": 3,
-            "price": 39.90,
-            "original_price": 39.90,
-            "title": "Where Rebirth Demo 3",
+            "price": 599.0,
+            "original_price": 599.0,
+            "title": "Robinsons Balanga",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -197,15 +197,15 @@
             "sale_num": 4,
             "inventory": 4,
             "delivery_type": 4,
-            "price": 49.90,
-            "original_price": 49.90,
-            "title": "Where Rebirth Demo 4",
+            "price": 699.0,
+            "original_price": 699.0,
+            "title": "Bataan Public Market",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -213,15 +213,15 @@
             "sale_num": 5,
             "inventory": 5,
             "delivery_type": 5,
-            "price": 59.90,
-            "original_price": 59.90,
-            "title": "Where Rebirth Demo 5",
+            "price": 799.0,
+            "original_price": 799.0,
+            "title": "The Strip Mall",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           }
         ]
@@ -229,25 +229,25 @@
       {
         "id": 3,
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
         ],
-        "title": "Where Rebirth Demo 3",
-        "address": "Manila, Philippines",
+        "title": "Robinsons Balanga",
+        "address": "Balanga City, Bataan",
         "lat": 14.602500000000001,
         "lng": 120.9872,
-        "distance": "Local mock 3",
+        "distance": "2.0 km",
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
-        "grade": 3.0,
+        "grade": 4.3,
         "delivery_type": 3,
         "goods": [
           {
@@ -255,15 +255,15 @@
             "sale_num": 1,
             "inventory": 1,
             "delivery_type": 1,
-            "price": 19.90,
-            "original_price": 19.90,
-            "title": "Where Rebirth Demo 1",
+            "price": 399.0,
+            "original_price": 399.0,
+            "title": "SM City Bataan",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -271,15 +271,15 @@
             "sale_num": 2,
             "inventory": 2,
             "delivery_type": 2,
-            "price": 29.90,
-            "original_price": 29.90,
-            "title": "Where Rebirth Demo 2",
+            "price": 499.0,
+            "original_price": 499.0,
+            "title": "Ayala Harbor Point",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -287,15 +287,15 @@
             "sale_num": 3,
             "inventory": 3,
             "delivery_type": 3,
-            "price": 39.90,
-            "original_price": 39.90,
-            "title": "Where Rebirth Demo 3",
+            "price": 599.0,
+            "original_price": 599.0,
+            "title": "Robinsons Balanga",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -303,15 +303,15 @@
             "sale_num": 4,
             "inventory": 4,
             "delivery_type": 4,
-            "price": 49.90,
-            "original_price": 49.90,
-            "title": "Where Rebirth Demo 4",
+            "price": 699.0,
+            "original_price": 699.0,
+            "title": "Bataan Public Market",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -319,15 +319,15 @@
             "sale_num": 5,
             "inventory": 5,
             "delivery_type": 5,
-            "price": 59.90,
-            "original_price": 59.90,
-            "title": "Where Rebirth Demo 5",
+            "price": 799.0,
+            "original_price": 799.0,
+            "title": "The Strip Mall",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           }
         ]
@@ -335,25 +335,25 @@
       {
         "id": 4,
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
         ],
-        "title": "Where Rebirth Demo 4",
-        "address": "Manila, Philippines",
+        "title": "Bataan Public Market",
+        "address": "Balanga City, Bataan",
         "lat": 14.6035,
         "lng": 120.9882,
-        "distance": "Local mock 4",
+        "distance": "2.4 km",
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
-        "grade": 4.0,
+        "grade": 4.4,
         "delivery_type": 4,
         "goods": [
           {
@@ -361,15 +361,15 @@
             "sale_num": 1,
             "inventory": 1,
             "delivery_type": 1,
-            "price": 19.90,
-            "original_price": 19.90,
-            "title": "Where Rebirth Demo 1",
+            "price": 399.0,
+            "original_price": 399.0,
+            "title": "SM City Bataan",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -377,15 +377,15 @@
             "sale_num": 2,
             "inventory": 2,
             "delivery_type": 2,
-            "price": 29.90,
-            "original_price": 29.90,
-            "title": "Where Rebirth Demo 2",
+            "price": 499.0,
+            "original_price": 499.0,
+            "title": "Ayala Harbor Point",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -393,15 +393,15 @@
             "sale_num": 3,
             "inventory": 3,
             "delivery_type": 3,
-            "price": 39.90,
-            "original_price": 39.90,
-            "title": "Where Rebirth Demo 3",
+            "price": 599.0,
+            "original_price": 599.0,
+            "title": "Robinsons Balanga",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -409,15 +409,15 @@
             "sale_num": 4,
             "inventory": 4,
             "delivery_type": 4,
-            "price": 49.90,
-            "original_price": 49.90,
-            "title": "Where Rebirth Demo 4",
+            "price": 699.0,
+            "original_price": 699.0,
+            "title": "Bataan Public Market",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -425,15 +425,15 @@
             "sale_num": 5,
             "inventory": 5,
             "delivery_type": 5,
-            "price": 59.90,
-            "original_price": 59.90,
-            "title": "Where Rebirth Demo 5",
+            "price": 799.0,
+            "original_price": 799.0,
+            "title": "The Strip Mall",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           }
         ]
@@ -441,25 +441,25 @@
       {
         "id": 5,
         "images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
         ],
-        "title": "Where Rebirth Demo 5",
-        "address": "Manila, Philippines",
+        "title": "The Strip Mall",
+        "address": "Balanga City, Bataan",
         "lat": 14.604500000000002,
         "lng": 120.9892,
-        "distance": "Local mock 5",
+        "distance": "2.8 km",
         "tags": [
-          "Local mock 1",
-          "Local mock 2",
-          "Local mock 3",
-          "Local mock 4",
-          "Local mock 5"
+          "Popular",
+          "Recommended",
+          "Family friendly",
+          "Top rated",
+          "New"
         ],
-        "grade": 5.0,
+        "grade": 4.5,
         "delivery_type": 5,
         "goods": [
           {
@@ -467,15 +467,15 @@
             "sale_num": 1,
             "inventory": 1,
             "delivery_type": 1,
-            "price": 19.90,
-            "original_price": 19.90,
-            "title": "Where Rebirth Demo 1",
+            "price": 399.0,
+            "original_price": 399.0,
+            "title": "SM City Bataan",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -483,15 +483,15 @@
             "sale_num": 2,
             "inventory": 2,
             "delivery_type": 2,
-            "price": 29.90,
-            "original_price": 29.90,
-            "title": "Where Rebirth Demo 2",
+            "price": 499.0,
+            "original_price": 499.0,
+            "title": "Ayala Harbor Point",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -499,15 +499,15 @@
             "sale_num": 3,
             "inventory": 3,
             "delivery_type": 3,
-            "price": 39.90,
-            "original_price": 39.90,
-            "title": "Where Rebirth Demo 3",
+            "price": 599.0,
+            "original_price": 599.0,
+            "title": "Robinsons Balanga",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -515,15 +515,15 @@
             "sale_num": 4,
             "inventory": 4,
             "delivery_type": 4,
-            "price": 49.90,
-            "original_price": 49.90,
-            "title": "Where Rebirth Demo 4",
+            "price": 699.0,
+            "original_price": 699.0,
+            "title": "Bataan Public Market",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           },
           {
@@ -531,15 +531,15 @@
             "sale_num": 5,
             "inventory": 5,
             "delivery_type": 5,
-            "price": 59.90,
-            "original_price": 59.90,
-            "title": "Where Rebirth Demo 5",
+            "price": 799.0,
+            "original_price": 799.0,
+            "title": "The Strip Mall",
             "images": [
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-              "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+              "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
             ]
           }
         ]

@@ -4,32 +4,32 @@
   "data": [
     {
       "id": 1,
-      "educational_level": "Local mock 1",
-      "extend_title": "Where Rebirth Demo 1",
+      "educational_level": "Bataan 1",
+      "extend_title": "Balanga",
       "nativeSelected": false
     },
     {
       "id": 2,
-      "educational_level": "Local mock 2",
-      "extend_title": "Where Rebirth Demo 2",
+      "educational_level": "Bataan 2",
+      "extend_title": "Bataan",
       "nativeSelected": false
     },
     {
       "id": 3,
-      "educational_level": "Local mock 3",
-      "extend_title": "Where Rebirth Demo 3",
+      "educational_level": "Bataan 3",
+      "extend_title": "Mariveles",
       "nativeSelected": false
     },
     {
       "id": 4,
-      "educational_level": "Local mock 4",
-      "extend_title": "Where Rebirth Demo 4",
+      "educational_level": "Bataan 4",
+      "extend_title": "Dinalupihan",
       "nativeSelected": false
     },
     {
       "id": 5,
-      "educational_level": "Local mock 5",
-      "extend_title": "Where Rebirth Demo 5",
+      "educational_level": "Bataan 5",
+      "extend_title": "Hermosa",
       "nativeSelected": false
     }
   ]

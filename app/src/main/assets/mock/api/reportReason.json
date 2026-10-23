@@ -4,27 +4,27 @@
   "data": [
     {
       "id": 1,
-      "title": "Where Rebirth Demo 1",
+      "title": "Balanga",
       "nativeIsSelected": false
     },
     {
       "id": 2,
-      "title": "Where Rebirth Demo 2",
+      "title": "Bataan",
       "nativeIsSelected": false
     },
     {
       "id": 3,
-      "title": "Where Rebirth Demo 3",
+      "title": "Mariveles",
       "nativeIsSelected": false
     },
     {
       "id": 4,
-      "title": "Where Rebirth Demo 4",
+      "title": "Dinalupihan",
       "nativeIsSelected": false
     },
     {
       "id": 5,
-      "title": "Where Rebirth Demo 5",
+      "title": "Hermosa",
       "nativeIsSelected": false
     }
   ]

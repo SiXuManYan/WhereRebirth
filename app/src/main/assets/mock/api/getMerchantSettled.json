@@ -2,31 +2,31 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "first_name": "Where Rebirth Demo 1",
-    "middle_name": "Where Rebirth Demo 1",
-    "last_name": "Where Rebirth Demo 1",
-    "contact_number": "Local mock 1",
+    "first_name": "Balanga",
+    "middle_name": "Balanga",
+    "last_name": "Balanga",
+    "contact_number": "Bataan 1",
     "email": "demo1@whererebirth.local",
-    "mer_name": "Where Rebirth Demo 1",
+    "mer_name": "Balanga",
     "mer_type_id": 1,
     "area_id": 1,
-    "mer_address": "Manila, Philippines",
-    "mer_tel": "Local mock 1",
-    "mer_extension_tel": "Local mock 1",
-    "mer_site": "Local mock 1",
-    "mer_facebook": "Local mock 1",
+    "mer_address": "Bataan, Philippines",
+    "mer_tel": "Bataan 1",
+    "mer_extension_tel": "Bataan 1",
+    "mer_site": "Bataan 1",
+    "mer_facebook": "Bataan 1",
     "mer_email": "demo1@whererebirth.local",
     "has_physical_store": 1,
     "business_license": [
-      "Local mock 1",
-      "Local mock 2",
-      "Local mock 3",
-      "Local mock 4",
-      "Local mock 5"
+      "Bataan 1",
+      "Bataan 2",
+      "Bataan 3",
+      "Bataan 4",
+      "Bataan 5"
     ],
     "id": 1,
     "is_verify": 1,
-    "created_at": "2026-08-04 12:00:00",
-    "notes": "Local mock 1"
+    "created_at": "2026-10-20 10:30:00",
+    "notes": "Bataan 1"
   }
 }

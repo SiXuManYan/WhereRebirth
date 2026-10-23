@@ -35,8 +35,6 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
 
-import cn.jpush.android.api.JPushInterface;
-
 /**
  * Created by Wangsw  2021/1/28 15:13.
  * 设置
@@ -44,7 +42,6 @@ import cn.jpush.android.api.JPushInterface;
 public class SettingActivity extends BaseActivity {
 
     private TextView phone_tv, clear_cache_tv;
-    private int sequence;
 
     @Override
     protected int getLayoutId() {
@@ -59,7 +56,6 @@ public class SettingActivity extends BaseActivity {
         clear_cache_tv = findViewById(R.id.clear_cache_tv);
         TextView version_name_tv = findViewById(R.id.version_name_tv);
         version_name_tv.setText(BuildConfig.VERSION_NAME);
-        sequence = SPUtils.getInstance().getInt(Constant.SP_PUSH_SEQUENCE, 0);
     }
 
 
@@ -138,9 +134,6 @@ public class SettingActivity extends BaseActivity {
 
                     // 断开融云连接
                     BusinessUtils.INSTANCE.loginOut();
-
-                    // 删除极光推送别名
-                    JPushInterface.deleteAlias(this, sequence);
 
                     startActivity(LoginActivity.class);
                     finish();

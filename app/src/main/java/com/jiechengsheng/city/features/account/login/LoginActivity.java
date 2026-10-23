@@ -41,14 +41,11 @@ import com.jiechengsheng.city.features.account.password.PasswordResetActivity;
 import com.jiechengsheng.city.features.account.register.RegisterActivity;
 import com.jiechengsheng.city.utils.Constant;
 import com.jiechengsheng.city.utils.FeaturesUtil;
+import com.jiechengsheng.city.utils.ThreePartyAccount;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.Objects;
-
-import cn.sharesdk.facebook.Facebook;
-import cn.sharesdk.framework.PlatformDb;
-import cn.sharesdk.google.GooglePlus;
 
 /**
  * Created by Wangsw  2021/1/28 16:43.
@@ -195,13 +192,18 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
                     }
                 }).create();
 
-
+        // 离线演示默认使用密码登录，任意密码均可通过
+        if (mIsVerifyMode) {
+            onLoginTypeClick(login_type_tv);
+        }
     }
 
     @Override
     protected void bindListener() {
         country_tv.setOnClickListener(this::onCountryPrefixClick);
         login_type_tv.setOnClickListener(this::onLoginTypeClick);
+        error_hint_tv.setText(R.string.login_local_mode_hint);
+        error_hint_tv.setVisibility(View.VISIBLE);
         get_verify_tv.setOnClickListener(new ClickUtils.OnDebouncingClickListener() {
             @Override
             public void onDebouncingClick(View v) {
@@ -436,22 +438,22 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
 
     private void onFacebookLoginClick(View view) {
         showLoading();
-        presenter.threePartyAuthorize(Facebook.NAME);
+        presenter.threePartyAuthorize(LoginPresenter.PLATFORM_FACEBOOK);
     }
 
     private void onGoogleLoginClick(View view) {
         showLoading();
-        presenter.threePartyAuthorize(GooglePlus.NAME);
+        presenter.threePartyAuthorize(LoginPresenter.PLATFORM_GOOGLE);
     }
 
 
     @Override
-    public void guideToAccountBind(PlatformDb platformData, int loginType ) {
+    public void guideToAccountBind(ThreePartyAccount platformData, int loginType) {
 
         String userName = platformData.getUserName();
         String userId = platformData.getUserId();
         String userIcon = platformData.getUserIcon();
-        String platformName = platformData.getPlatformNname();
+        String platformName = platformData.getPlatformName();
 
         Bundle bundle = new Bundle();
         bundle.putString(Constant.PARAM_USER_NAME, userName);

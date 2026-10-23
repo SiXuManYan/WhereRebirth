@@ -5,46 +5,46 @@
     {
       "id": 1,
       "sex": 1,
-      "address": "Manila, Philippines",
-      "contact_name": "Where Rebirth Demo 1",
-      "contact_number": "Local mock 1",
-      "city_name": "Where Rebirth Demo 1",
+      "address": "Bataan, Philippines",
+      "contact_name": "Balanga",
+      "contact_number": "Bataan 1",
+      "city_name": "Balanga",
       "city_id": 1
     },
     {
       "id": 2,
       "sex": 2,
-      "address": "Manila, Philippines",
-      "contact_name": "Where Rebirth Demo 2",
-      "contact_number": "Local mock 2",
-      "city_name": "Where Rebirth Demo 2",
+      "address": "Bataan, Philippines",
+      "contact_name": "Bataan",
+      "contact_number": "Bataan 2",
+      "city_name": "Bataan",
       "city_id": 2
     },
     {
       "id": 3,
       "sex": 3,
-      "address": "Manila, Philippines",
-      "contact_name": "Where Rebirth Demo 3",
-      "contact_number": "Local mock 3",
-      "city_name": "Where Rebirth Demo 3",
+      "address": "Bataan, Philippines",
+      "contact_name": "Mariveles",
+      "contact_number": "Bataan 3",
+      "city_name": "Mariveles",
       "city_id": 3
     },
     {
       "id": 4,
       "sex": 4,
-      "address": "Manila, Philippines",
-      "contact_name": "Where Rebirth Demo 4",
-      "contact_number": "Local mock 4",
-      "city_name": "Where Rebirth Demo 4",
+      "address": "Bataan, Philippines",
+      "contact_name": "Dinalupihan",
+      "contact_number": "Bataan 4",
+      "city_name": "Dinalupihan",
       "city_id": 4
     },
     {
       "id": 5,
       "sex": 5,
-      "address": "Manila, Philippines",
-      "contact_name": "Where Rebirth Demo 5",
-      "contact_number": "Local mock 5",
-      "city_name": "Where Rebirth Demo 5",
+      "address": "Bataan, Philippines",
+      "contact_name": "Hermosa",
+      "contact_number": "Bataan 5",
+      "city_name": "Hermosa",
       "city_id": 5
     }
   ]

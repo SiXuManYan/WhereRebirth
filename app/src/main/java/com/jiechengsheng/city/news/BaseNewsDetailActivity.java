@@ -19,7 +19,7 @@ import com.jiechengsheng.city.frames.common.Html5Url;
 import com.jiechengsheng.city.news.model.NewsDetailModel;
 import com.jiechengsheng.city.utils.Constant;
 import com.jiechengsheng.city.utils.GlideUtil;
-import com.jiechengsheng.city.utils.MobUtil;
+import com.jiechengsheng.city.utils.ShareUtil;
 import com.jiechengsheng.city.widget.JcsTitle;
 
 /**
@@ -108,7 +108,7 @@ public abstract class BaseNewsDetailActivity extends BaseActivity {
         mJcsTitle.setSecondRightIvClickListener(this::onCollectClicked);
         mJcsTitle.setFirstRightIvClickListener(v -> {
             String url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_NEWS, mNewsId) + "&extra=news_video";
-            MobUtil.shareFacebookWebPage(url, this);
+            ShareUtil.shareLink(url, this);
         });
     }
 

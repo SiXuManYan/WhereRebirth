@@ -3,28 +3,28 @@
   "message": "local mock",
   "data": [
     {
-      "abbr": "Local mock 1",
-      "all": "Local mock 1",
+      "abbr": "Bataan 1",
+      "all": "Bataan 1",
       "isSelected": false
     },
     {
-      "abbr": "Local mock 2",
-      "all": "Local mock 2",
+      "abbr": "Bataan 2",
+      "all": "Bataan 2",
       "isSelected": false
     },
     {
-      "abbr": "Local mock 3",
-      "all": "Local mock 3",
+      "abbr": "Bataan 3",
+      "all": "Bataan 3",
       "isSelected": false
     },
     {
-      "abbr": "Local mock 4",
-      "all": "Local mock 4",
+      "abbr": "Bataan 4",
+      "all": "Bataan 4",
       "isSelected": false
     },
     {
-      "abbr": "Local mock 5",
-      "all": "Local mock 5",
+      "abbr": "Bataan 5",
+      "all": "Bataan 5",
       "isSelected": false
     }
   ]

@@ -4,43 +4,35 @@
   "data": [
     {
       "id": 1,
-      "src": "Local mock 1",
-      "redirect_type": 1,
+      "src": "android.resource://com.jiechengsheng.city/drawable/mock_banner_1",
+      "redirect_type": 0,
       "target_type": 1,
       "target_id": 1,
-      "h5_link": "https://example.com/local/1"
+      "h5_link": "https://1bataan.com"
     },
     {
       "id": 2,
-      "src": "Local mock 2",
-      "redirect_type": 2,
-      "target_type": 2,
-      "target_id": 2,
-      "h5_link": "https://example.com/local/2"
+      "src": "android.resource://com.jiechengsheng.city/drawable/mock_banner_2",
+      "redirect_type": 0,
+      "target_type": 5,
+      "target_id": 1,
+      "h5_link": "https://1bataan.com"
     },
     {
       "id": 3,
-      "src": "Local mock 3",
-      "redirect_type": 3,
-      "target_type": 3,
-      "target_id": 3,
-      "h5_link": "https://example.com/local/3"
+      "src": "android.resource://com.jiechengsheng.city/drawable/mock_banner_3",
+      "redirect_type": 0,
+      "target_type": 1,
+      "target_id": 2,
+      "h5_link": "https://1bataan.com"
     },
     {
       "id": 4,
-      "src": "Local mock 4",
-      "redirect_type": 4,
-      "target_type": 4,
-      "target_id": 4,
-      "h5_link": "https://example.com/local/4"
-    },
-    {
-      "id": 5,
-      "src": "Local mock 5",
-      "redirect_type": 5,
-      "target_type": 5,
-      "target_id": 5,
-      "h5_link": "https://example.com/local/5"
+      "src": "android.resource://com.jiechengsheng.city/drawable/mock_banner_4",
+      "redirect_type": 0,
+      "target_type": 3,
+      "target_id": 1,
+      "h5_link": "https://1bataan.com"
     }
   ]
 }

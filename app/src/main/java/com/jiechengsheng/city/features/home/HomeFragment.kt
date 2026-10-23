@@ -56,7 +56,7 @@ import com.jiechengsheng.city.utils.*
 import com.jiechengsheng.city.view.XBanner.AbstractUrlLoader
 import com.jiechengsheng.city.view.XBanner.XBanner
 import org.greenrobot.eventbus.EventBus
-import pl.droidsonroids.gif.GifImageView
+import pl.droidsonroids.gif.GifImageView
 import com.jiechengsheng.city.databinding.FragmentHome4Binding
 
 
@@ -293,6 +293,7 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
         })
 
         binding.swipeLayout?.postDelayed({ binding.swipeLayout?.isEnabled = false }, 200)
+        binding.childAbl.post { binding.childAbl.setExpanded(true, false) }
 
     }
 
@@ -458,7 +459,13 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
         binding.tabsType.setTabData(mNewsTabDataList)
 
         // adapter
-        mNewsAdapter.setNewInstance(newsData[0].news_list)
+        val firstPageNews = newsData.firstOrNull()?.news_list ?: arrayListOf()
+        if (firstPageNews.isEmpty()) {
+            binding.newsRl.visibility = View.GONE
+            binding.newsRv.visibility = View.GONE
+            return
+        }
+        mNewsAdapter.setNewInstance(firstPageNews)
 
 
         startScroll()
@@ -502,6 +509,14 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeView, SwipeRefreshLay
     override fun bindHomeChild(response: ArrayList<HomeChild>, titles: ArrayList<String>) {
         binding.swipeLayout?.isRefreshing = false
         binding.homeEmpty.visibility = View.GONE
+        if (response.isEmpty()) {
+            binding.recommendTabs.visibility = View.GONE
+            binding.homeVp.visibility = View.GONE
+            return
+        }
+        binding.recommendTabs.visibility = View.VISIBLE
+        binding.homeVp.visibility = View.VISIBLE
+        binding.childAbl.post { binding.childAbl.setExpanded(true, false) }
         isInit = when {
             mType.isEmpty() -> {
                 true

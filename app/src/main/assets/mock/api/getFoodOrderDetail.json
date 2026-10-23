@@ -4,40 +4,40 @@
   "data": {
     "order_data": {
       "id": 1,
-      "trade_no": "Local mock 1",
-      "phone": "09171234561",
-      "start_date": "2026-08-04 12:00:00",
-      "end_date": "2026-08-04 12:00:00",
-      "created_at": "2026-08-04 12:00:00",
+      "trade_no": "Seaside Grill 1",
+      "phone": "0917 555 0101",
+      "start_date": "2026-10-20 10:30:00",
+      "end_date": "2026-10-20 10:30:00",
+      "created_at": "2026-10-20 10:30:00",
       "status": 1,
-      "coupon_no": "Local mock 1",
-      "coupon_expire": "Local mock 1",
-      "coupon_qr_code": "Local mock 1",
+      "coupon_no": "Seaside Grill 1",
+      "coupon_expire": "Seaside Grill 1",
+      "coupon_qr_code": "200",
       "comment_status": 1,
-      "error_reason": "Local mock 1",
-      "price": 19.90,
+      "error_reason": "Seaside Grill 1",
+      "price": 399.0,
       "complaint_status": 1
     },
     "restaurant_data": {
       "id": 1,
-      "name": "Where Rebirth Demo 1",
-      "mer_uuid": "Local mock 1",
-      "mer_name": "Where Rebirth Demo 1",
+      "name": "Seaside Grill",
+      "mer_uuid": "demo-uuid-1",
+      "mer_name": "Seaside Grill",
       "im_status": 1,
-      "tel": "Local mock 1",
-      "price": 19.90
+      "tel": "Seaside Grill 1",
+      "price": 399.0
     },
     "good_data": {
       "id": 1,
       "good_num": 1,
-      "name": "Where Rebirth Demo 1",
-      "good_image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "price": 19.90
+      "name": "Seaside Grill",
+      "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
+      "price": 399.0
     },
     "payment_data": {
-      "payment_channel": "Local mock 1",
-      "bank_card_account": "Local mock 1",
-      "bank_card_number": "Local mock 1"
+      "payment_channel": "Seaside Grill 1",
+      "bank_card_account": "157",
+      "bank_card_number": "Seaside Grill 1"
     }
   }
 }

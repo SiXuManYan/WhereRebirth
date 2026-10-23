@@ -17,7 +17,7 @@ import com.jiechengsheng.city.features.job.home.JobHomeFragment
 import com.jiechengsheng.city.features.job.record.JobRecordFragment
 import com.jiechengsheng.city.storage.entity.User
 import com.jiechengsheng.city.utils.Constant
-import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.EventBus
 import com.jiechengsheng.city.databinding.ActivityJobMainBinding
 import android.view.ViewGroup
 
@@ -73,6 +73,7 @@ class JobMainActivity : BaseMvpActivity<JobMainPresenter>(), JobMainView {
         }
 
         binding.tabsNavigator.setTabData(tabs, this, R.id.fl_content, frList)
+        binding.tabsNavigator.currentTab = 0
         binding.tabsNavigator.setOnTabSelectListener(object : OnTabSelectListener {
             override fun onTabSelect(position: Int) {
 

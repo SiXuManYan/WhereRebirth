@@ -4,118 +4,73 @@
   "data": [
     {
       "id": 1,
-      "name": "Where Rebirth Demo 1",
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "name": "政府机构",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_government",
       "dev_status": 1,
-      "categories": [
-        {
-          "value": 1
-        },
-        {
-          "value": 2
-        },
-        {
-          "value": 3
-        },
-        {
-          "value": 4
-        },
-        {
-          "value": 5
-        }
-      ]
+      "categories": [1]
     },
     {
       "id": 2,
-      "name": "Where Rebirth Demo 2",
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "dev_status": 2,
-      "categories": [
-        {
-          "value": 1
-        },
-        {
-          "value": 2
-        },
-        {
-          "value": 3
-        },
-        {
-          "value": 4
-        },
-        {
-          "value": 5
-        }
-      ]
+      "name": "企业黄页",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_yellow",
+      "dev_status": 1,
+      "categories": [2]
     },
     {
       "id": 3,
-      "name": "Where Rebirth Demo 3",
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "name": "旅游住宿",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_travel",
       "dev_status": 1,
-      "categories": [
-        {
-          "value": 1
-        },
-        {
-          "value": 2
-        },
-        {
-          "value": 3
-        },
-        {
-          "value": 4
-        },
-        {
-          "value": 5
-        }
-      ]
+      "categories": [3]
     },
     {
       "id": 4,
-      "name": "Where Rebirth Demo 4",
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-      "dev_status": 2,
-      "categories": [
-        {
-          "value": 1
-        },
-        {
-          "value": 2
-        },
-        {
-          "value": 3
-        },
-        {
-          "value": 4
-        },
-        {
-          "value": 5
-        }
-      ]
+      "name": "便民服务",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience",
+      "dev_status": 1,
+      "categories": [4]
     },
     {
       "id": 5,
-      "name": "Where Rebirth Demo 5",
-      "icon": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+      "name": "教育机构",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_education",
       "dev_status": 1,
-      "categories": [
-        {
-          "value": 1
-        },
-        {
-          "value": 2
-        },
-        {
-          "value": 3
-        },
-        {
-          "value": 4
-        },
-        {
-          "value": 5
-        }
-      ]
+      "categories": [5]
+    },
+    {
+      "id": 6,
+      "name": "健康医疗",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_health",
+      "dev_status": 1,
+      "categories": [6]
+    },
+    {
+      "id": 8,
+      "name": "生活缴费",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_bills",
+      "dev_status": 1,
+      "categories": [8]
+    },
+    {
+      "id": 9,
+      "name": "餐饮美食",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_food",
+      "dev_status": 1,
+      "categories": [89]
+    },
+    {
+      "id": 10,
+      "name": "线上商城",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_mall",
+      "dev_status": 1,
+      "categories": [10]
+    },
+    {
+      "id": 11,
+      "name": "招聘求职",
+      "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_job",
+      "dev_status": 1,
+      "categories": [11]
     }
   ]
 }

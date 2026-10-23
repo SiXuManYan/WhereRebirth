@@ -1,8 +1,7 @@
 package com.jiechengsheng.city.features.account.login;
 
 import com.jiechengsheng.city.api.network.BaseMvpView;
-
-import cn.sharesdk.framework.PlatformDb;
+import com.jiechengsheng.city.utils.ThreePartyAccount;
 
 /**
  * Created by Wangsw  2021/1/28 16:43.
@@ -25,10 +24,11 @@ public interface LoginView extends BaseMvpView {
     /**
      * 第三方登录的新用户，
      * 引导至绑定手机号页面
+     *
      * @param platformData
      * @param loginType
      */
-    void guideToAccountBind(PlatformDb platformData, int loginType );
+    void guideToAccountBind(ThreePartyAccount platformData, int loginType);
 
     void authorizeCancel();
 

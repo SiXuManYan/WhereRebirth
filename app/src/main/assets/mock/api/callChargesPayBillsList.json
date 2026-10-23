@@ -3,227 +3,227 @@
   "message": "local mock",
   "data": [
     {
-      "channelName": "Where Rebirth Demo 1",
+      "channelName": "Electricity Bill",
       "channelItem": [
         {
           "isChecked": false,
-          "Denomination": "Local mock 1",
-          "TelcoTag": "Local mock 1",
-          "TelcoName": "Where Rebirth Demo 1",
-          "ExtTag": "Local mock 1",
-          "discount": "Local mock 1"
+          "Denomination": "Bataan 1",
+          "TelcoTag": "Popular",
+          "TelcoName": "Electricity Bill",
+          "ExtTag": "Popular",
+          "discount": "157"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 2",
-          "TelcoTag": "Local mock 2",
-          "TelcoName": "Where Rebirth Demo 2",
-          "ExtTag": "Local mock 2",
-          "discount": "Local mock 2"
+          "Denomination": "Bataan 2",
+          "TelcoTag": "Recommended",
+          "TelcoName": "Water Bill",
+          "ExtTag": "Recommended",
+          "discount": "194"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 3",
-          "TelcoTag": "Local mock 3",
-          "TelcoName": "Where Rebirth Demo 3",
-          "ExtTag": "Local mock 3",
-          "discount": "Local mock 3"
+          "Denomination": "Bataan 3",
+          "TelcoTag": "Family friendly",
+          "TelcoName": "Internet Bill",
+          "ExtTag": "Family friendly",
+          "discount": "231"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 4",
-          "TelcoTag": "Local mock 4",
-          "TelcoName": "Where Rebirth Demo 4",
-          "ExtTag": "Local mock 4",
-          "discount": "Local mock 4"
+          "Denomination": "Bataan 4",
+          "TelcoTag": "Top rated",
+          "TelcoName": "Phone Bill",
+          "ExtTag": "Top rated",
+          "discount": "268"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 5",
-          "TelcoTag": "Local mock 5",
-          "TelcoName": "Where Rebirth Demo 5",
-          "ExtTag": "Local mock 5",
-          "discount": "Local mock 5"
+          "Denomination": "Bataan 5",
+          "TelcoTag": "New",
+          "TelcoName": "Electricity Bill",
+          "ExtTag": "New",
+          "discount": "305"
         }
       ]
     },
     {
-      "channelName": "Where Rebirth Demo 2",
+      "channelName": "Water Bill",
       "channelItem": [
         {
           "isChecked": false,
-          "Denomination": "Local mock 1",
-          "TelcoTag": "Local mock 1",
-          "TelcoName": "Where Rebirth Demo 1",
-          "ExtTag": "Local mock 1",
-          "discount": "Local mock 1"
+          "Denomination": "Bataan 1",
+          "TelcoTag": "Popular",
+          "TelcoName": "Electricity Bill",
+          "ExtTag": "Popular",
+          "discount": "157"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 2",
-          "TelcoTag": "Local mock 2",
-          "TelcoName": "Where Rebirth Demo 2",
-          "ExtTag": "Local mock 2",
-          "discount": "Local mock 2"
+          "Denomination": "Bataan 2",
+          "TelcoTag": "Recommended",
+          "TelcoName": "Water Bill",
+          "ExtTag": "Recommended",
+          "discount": "194"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 3",
-          "TelcoTag": "Local mock 3",
-          "TelcoName": "Where Rebirth Demo 3",
-          "ExtTag": "Local mock 3",
-          "discount": "Local mock 3"
+          "Denomination": "Bataan 3",
+          "TelcoTag": "Family friendly",
+          "TelcoName": "Internet Bill",
+          "ExtTag": "Family friendly",
+          "discount": "231"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 4",
-          "TelcoTag": "Local mock 4",
-          "TelcoName": "Where Rebirth Demo 4",
-          "ExtTag": "Local mock 4",
-          "discount": "Local mock 4"
+          "Denomination": "Bataan 4",
+          "TelcoTag": "Top rated",
+          "TelcoName": "Phone Bill",
+          "ExtTag": "Top rated",
+          "discount": "268"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 5",
-          "TelcoTag": "Local mock 5",
-          "TelcoName": "Where Rebirth Demo 5",
-          "ExtTag": "Local mock 5",
-          "discount": "Local mock 5"
+          "Denomination": "Bataan 5",
+          "TelcoTag": "New",
+          "TelcoName": "Electricity Bill",
+          "ExtTag": "New",
+          "discount": "305"
         }
       ]
     },
     {
-      "channelName": "Where Rebirth Demo 3",
+      "channelName": "Internet Bill",
       "channelItem": [
         {
           "isChecked": false,
-          "Denomination": "Local mock 1",
-          "TelcoTag": "Local mock 1",
-          "TelcoName": "Where Rebirth Demo 1",
-          "ExtTag": "Local mock 1",
-          "discount": "Local mock 1"
+          "Denomination": "Bataan 1",
+          "TelcoTag": "Popular",
+          "TelcoName": "Electricity Bill",
+          "ExtTag": "Popular",
+          "discount": "157"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 2",
-          "TelcoTag": "Local mock 2",
-          "TelcoName": "Where Rebirth Demo 2",
-          "ExtTag": "Local mock 2",
-          "discount": "Local mock 2"
+          "Denomination": "Bataan 2",
+          "TelcoTag": "Recommended",
+          "TelcoName": "Water Bill",
+          "ExtTag": "Recommended",
+          "discount": "194"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 3",
-          "TelcoTag": "Local mock 3",
-          "TelcoName": "Where Rebirth Demo 3",
-          "ExtTag": "Local mock 3",
-          "discount": "Local mock 3"
+          "Denomination": "Bataan 3",
+          "TelcoTag": "Family friendly",
+          "TelcoName": "Internet Bill",
+          "ExtTag": "Family friendly",
+          "discount": "231"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 4",
-          "TelcoTag": "Local mock 4",
-          "TelcoName": "Where Rebirth Demo 4",
-          "ExtTag": "Local mock 4",
-          "discount": "Local mock 4"
+          "Denomination": "Bataan 4",
+          "TelcoTag": "Top rated",
+          "TelcoName": "Phone Bill",
+          "ExtTag": "Top rated",
+          "discount": "268"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 5",
-          "TelcoTag": "Local mock 5",
-          "TelcoName": "Where Rebirth Demo 5",
-          "ExtTag": "Local mock 5",
-          "discount": "Local mock 5"
+          "Denomination": "Bataan 5",
+          "TelcoTag": "New",
+          "TelcoName": "Electricity Bill",
+          "ExtTag": "New",
+          "discount": "305"
         }
       ]
     },
     {
-      "channelName": "Where Rebirth Demo 4",
+      "channelName": "Phone Bill",
       "channelItem": [
         {
           "isChecked": false,
-          "Denomination": "Local mock 1",
-          "TelcoTag": "Local mock 1",
-          "TelcoName": "Where Rebirth Demo 1",
-          "ExtTag": "Local mock 1",
-          "discount": "Local mock 1"
+          "Denomination": "Bataan 1",
+          "TelcoTag": "Popular",
+          "TelcoName": "Electricity Bill",
+          "ExtTag": "Popular",
+          "discount": "157"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 2",
-          "TelcoTag": "Local mock 2",
-          "TelcoName": "Where Rebirth Demo 2",
-          "ExtTag": "Local mock 2",
-          "discount": "Local mock 2"
+          "Denomination": "Bataan 2",
+          "TelcoTag": "Recommended",
+          "TelcoName": "Water Bill",
+          "ExtTag": "Recommended",
+          "discount": "194"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 3",
-          "TelcoTag": "Local mock 3",
-          "TelcoName": "Where Rebirth Demo 3",
-          "ExtTag": "Local mock 3",
-          "discount": "Local mock 3"
+          "Denomination": "Bataan 3",
+          "TelcoTag": "Family friendly",
+          "TelcoName": "Internet Bill",
+          "ExtTag": "Family friendly",
+          "discount": "231"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 4",
-          "TelcoTag": "Local mock 4",
-          "TelcoName": "Where Rebirth Demo 4",
-          "ExtTag": "Local mock 4",
-          "discount": "Local mock 4"
+          "Denomination": "Bataan 4",
+          "TelcoTag": "Top rated",
+          "TelcoName": "Phone Bill",
+          "ExtTag": "Top rated",
+          "discount": "268"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 5",
-          "TelcoTag": "Local mock 5",
-          "TelcoName": "Where Rebirth Demo 5",
-          "ExtTag": "Local mock 5",
-          "discount": "Local mock 5"
+          "Denomination": "Bataan 5",
+          "TelcoTag": "New",
+          "TelcoName": "Electricity Bill",
+          "ExtTag": "New",
+          "discount": "305"
         }
       ]
     },
     {
-      "channelName": "Where Rebirth Demo 5",
+      "channelName": "Electricity Bill",
       "channelItem": [
         {
           "isChecked": false,
-          "Denomination": "Local mock 1",
-          "TelcoTag": "Local mock 1",
-          "TelcoName": "Where Rebirth Demo 1",
-          "ExtTag": "Local mock 1",
-          "discount": "Local mock 1"
+          "Denomination": "Bataan 1",
+          "TelcoTag": "Popular",
+          "TelcoName": "Electricity Bill",
+          "ExtTag": "Popular",
+          "discount": "157"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 2",
-          "TelcoTag": "Local mock 2",
-          "TelcoName": "Where Rebirth Demo 2",
-          "ExtTag": "Local mock 2",
-          "discount": "Local mock 2"
+          "Denomination": "Bataan 2",
+          "TelcoTag": "Recommended",
+          "TelcoName": "Water Bill",
+          "ExtTag": "Recommended",
+          "discount": "194"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 3",
-          "TelcoTag": "Local mock 3",
-          "TelcoName": "Where Rebirth Demo 3",
-          "ExtTag": "Local mock 3",
-          "discount": "Local mock 3"
+          "Denomination": "Bataan 3",
+          "TelcoTag": "Family friendly",
+          "TelcoName": "Internet Bill",
+          "ExtTag": "Family friendly",
+          "discount": "231"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 4",
-          "TelcoTag": "Local mock 4",
-          "TelcoName": "Where Rebirth Demo 4",
-          "ExtTag": "Local mock 4",
-          "discount": "Local mock 4"
+          "Denomination": "Bataan 4",
+          "TelcoTag": "Top rated",
+          "TelcoName": "Phone Bill",
+          "ExtTag": "Top rated",
+          "discount": "268"
         },
         {
           "isChecked": false,
-          "Denomination": "Local mock 5",
-          "TelcoTag": "Local mock 5",
-          "TelcoName": "Where Rebirth Demo 5",
-          "ExtTag": "Local mock 5",
-          "discount": "Local mock 5"
+          "Denomination": "Bataan 5",
+          "TelcoTag": "New",
+          "TelcoName": "Electricity Bill",
+          "ExtTag": "New",
+          "discount": "305"
         }
       ]
     }

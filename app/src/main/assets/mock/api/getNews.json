@@ -3,12 +3,12 @@
   "message": "local mock",
   "data": {
     "current_page": 1,
-    "first_page_url": "https://example.com/local/1",
+    "first_page_url": "https://1bataan.com",
     "from": 1,
     "last_page": 1,
-    "last_page_url": "https://example.com/local/1",
+    "last_page_url": "https://1bataan.com",
     "next_page_url": {},
-    "path": "Local mock 1",
+    "path": "https://1bataan.com",
     "per_page": 5,
     "prev_page_url": {},
     "to": 5,
@@ -16,152 +16,122 @@
     "data": [
       {
         "id": 1,
-        "content_type": {
-          "value": 1
-        },
-        "title": "Where Rebirth Demo 1",
-        "video_time": "2026-08-04 12:00:00",
-        "video_link": "https://example.com/local/1",
+        "content_type": 1,
+        "title": "Bataan launches coastal clean-up drive",
+        "video_time": "2026-10-20 10:30:00",
+        "video_link": "https://1bataan.com",
         "publisher": {
           "id": 1,
-          "nickname": "Where Rebirth Demo 1",
-          "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "nickname": "Bataan News Desk",
+          "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_1"
         },
-        "comment_num": {
-          "value": 1
-        },
-        "read_num": {
-          "value": 1
-        },
+        "comment_num": 157,
+        "read_num": 157,
         "follow_status": 1,
         "collect_status": 1,
-        "created_at": "2026-08-04 12:00:00",
+        "created_at": "2026-10-20 10:30:00",
         "cover_images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1"
         ]
       },
       {
         "id": 2,
-        "content_type": {
-          "value": 2
-        },
-        "title": "Where Rebirth Demo 2",
-        "video_time": "2026-08-04 12:00:00",
-        "video_link": "https://example.com/local/2",
+        "content_type": 2,
+        "title": "New public market opens in Balanga",
+        "video_time": "2026-10-20 10:30:00",
+        "video_link": "https://1bataan.com",
         "publisher": {
           "id": 2,
-          "nickname": "Where Rebirth Demo 2",
-          "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "nickname": "Provincial Information Office",
+          "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_2"
         },
-        "comment_num": {
-          "value": 2
-        },
-        "read_num": {
-          "value": 2
-        },
+        "comment_num": 194,
+        "read_num": 194,
         "follow_status": 2,
         "collect_status": 2,
-        "created_at": "2026-08-04 12:00:00",
+        "created_at": "2026-10-20 10:30:00",
         "cover_images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1"
         ]
       },
       {
         "id": 3,
-        "content_type": {
-          "value": 3
-        },
-        "title": "Where Rebirth Demo 3",
-        "video_time": "2026-08-04 12:00:00",
-        "video_link": "https://example.com/local/3",
+        "content_type": 3,
+        "title": "Local students win robotics competition",
+        "video_time": "2026-10-20 10:30:00",
+        "video_link": "https://1bataan.com",
         "publisher": {
           "id": 3,
-          "nickname": "Where Rebirth Demo 3",
-          "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "nickname": "Juan Dela Cruz",
+          "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_1"
         },
-        "comment_num": {
-          "value": 3
-        },
-        "read_num": {
-          "value": 3
-        },
+        "comment_num": 231,
+        "read_num": 231,
         "follow_status": 1,
         "collect_status": 1,
-        "created_at": "2026-08-04 12:00:00",
+        "created_at": "2026-10-20 10:30:00",
         "cover_images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1"
         ]
       },
       {
         "id": 4,
-        "content_type": {
-          "value": 4
-        },
-        "title": "Where Rebirth Demo 4",
-        "video_time": "2026-08-04 12:00:00",
-        "video_link": "https://example.com/local/4",
+        "content_type": 4,
+        "title": "Free health check-up program announced",
+        "video_time": "2026-10-20 10:30:00",
+        "video_link": "https://1bataan.com",
         "publisher": {
           "id": 4,
-          "nickname": "Where Rebirth Demo 4",
-          "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "nickname": "Maria Santos",
+          "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_2"
         },
-        "comment_num": {
-          "value": 4
-        },
-        "read_num": {
-          "value": 4
-        },
+        "comment_num": 268,
+        "read_num": 268,
         "follow_status": 2,
         "collect_status": 2,
-        "created_at": "2026-08-04 12:00:00",
+        "created_at": "2026-10-20 10:30:00",
         "cover_images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1"
         ]
       },
       {
         "id": 5,
-        "content_type": {
-          "value": 5
-        },
-        "title": "Where Rebirth Demo 5",
-        "video_time": "2026-08-04 12:00:00",
-        "video_link": "https://example.com/local/5",
+        "content_type": 5,
+        "title": "Provincial tourism arrivals hit new high",
+        "video_time": "2026-10-20 10:30:00",
+        "video_link": "https://1bataan.com",
         "publisher": {
           "id": 5,
-          "nickname": "Where Rebirth Demo 5",
-          "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "nickname": "Coast Guard Bataan",
+          "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_1"
         },
-        "comment_num": {
-          "value": 5
-        },
-        "read_num": {
-          "value": 5
-        },
+        "comment_num": 305,
+        "read_num": 305,
         "follow_status": 1,
         "collect_status": 1,
-        "created_at": "2026-08-04 12:00:00",
+        "created_at": "2026-10-20 10:30:00",
         "cover_images": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1"
         ]
       }
     ]

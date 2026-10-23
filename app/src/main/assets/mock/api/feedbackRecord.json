@@ -3,12 +3,12 @@
   "message": "local mock",
   "data": {
     "current_page": 1,
-    "first_page_url": "https://example.com/local/1",
+    "first_page_url": "https://1bataan.com",
     "from": 1,
     "last_page": 1,
-    "last_page_url": "https://example.com/local/1",
+    "last_page_url": "https://1bataan.com",
     "next_page_url": {},
-    "path": "Local mock 1",
+    "path": "https://1bataan.com",
     "per_page": 5,
     "prev_page_url": {},
     "to": 5,
@@ -16,63 +16,63 @@
     "data": [
       {
         "image": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
         ],
-        "content": "Local mock 1",
-        "tel": "Local mock 1",
-        "time": "2026-08-04 12:00:00"
+        "content": "A local demo record for Where Rebirth.",
+        "tel": "Bataan 1",
+        "time": "2026-10-20 10:30:00"
       },
       {
         "image": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
         ],
-        "content": "Local mock 2",
-        "tel": "Local mock 2",
-        "time": "2026-08-04 12:00:00"
+        "content": "A local demo record for Where Rebirth.",
+        "tel": "Bataan 2",
+        "time": "2026-10-20 10:30:00"
       },
       {
         "image": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
         ],
-        "content": "Local mock 3",
-        "tel": "Local mock 3",
-        "time": "2026-08-04 12:00:00"
+        "content": "A local demo record for Where Rebirth.",
+        "tel": "Bataan 3",
+        "time": "2026-10-20 10:30:00"
       },
       {
         "image": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
         ],
-        "content": "Local mock 4",
-        "tel": "Local mock 4",
-        "time": "2026-08-04 12:00:00"
+        "content": "A local demo record for Where Rebirth.",
+        "tel": "Bataan 4",
+        "time": "2026-10-20 10:30:00"
       },
       {
         "image": [
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-          "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo"
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
         ],
-        "content": "Local mock 5",
-        "tel": "Local mock 5",
-        "time": "2026-08-04 12:00:00"
+        "content": "A local demo record for Where Rebirth.",
+        "tel": "Bataan 5",
+        "time": "2026-10-20 10:30:00"
       }
     ]
   }

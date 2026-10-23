@@ -3,12 +3,12 @@
   "message": "local mock",
   "data": {
     "current_page": 1,
-    "first_page_url": "https://example.com/local/1",
+    "first_page_url": "https://1bataan.com",
     "from": 1,
     "last_page": 1,
-    "last_page_url": "https://example.com/local/1",
+    "last_page_url": "https://1bataan.com",
     "next_page_url": {},
-    "path": "Local mock 1",
+    "path": "https://1bataan.com",
     "per_page": 5,
     "prev_page_url": {},
     "to": 5,
@@ -16,41 +16,41 @@
     "data": [
       {
         "id": 1,
-        "price": "Local mock 1",
-        "title": "Where Rebirth Demo 1",
-        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "price": "399.00",
+        "title": "Balanga",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
         "order_status": 1,
         "type": 1
       },
       {
         "id": 2,
-        "price": "Local mock 2",
-        "title": "Where Rebirth Demo 2",
-        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "price": "499.00",
+        "title": "Bataan",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
         "order_status": 2,
         "type": 2
       },
       {
         "id": 3,
-        "price": "Local mock 3",
-        "title": "Where Rebirth Demo 3",
-        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "price": "599.00",
+        "title": "Mariveles",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
         "order_status": 1,
         "type": 1
       },
       {
         "id": 4,
-        "price": "Local mock 4",
-        "title": "Where Rebirth Demo 4",
-        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "price": "699.00",
+        "title": "Dinalupihan",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
         "order_status": 2,
         "type": 2
       },
       {
         "id": 5,
-        "price": "Local mock 5",
-        "title": "Where Rebirth Demo 5",
-        "image": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
+        "price": "799.00",
+        "title": "Hermosa",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
         "order_status": 1,
         "type": 1
       }

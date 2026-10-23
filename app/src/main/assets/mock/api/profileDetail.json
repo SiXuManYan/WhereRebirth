@@ -4,18 +4,18 @@
   "data": {
     "id": 1,
     "gender": 1,
-    "first_name": "Where Rebirth Demo 1",
-    "last_name": "Where Rebirth Demo 1",
-    "city": "Local mock 1",
-    "email": "demo1@whererebirth.local",
-    "contact_number": "Local mock 1",
-    "school": "Local mock 1",
-    "major": "Local mock 1",
-    "education": "Local mock 1",
+    "first_name": "Juan",
+    "last_name": "Dela Cruz",
+    "city": "巴兰牙",
+    "email": "juan.demo@whererebirth.local",
+    "contact_number": "0917 555 0101",
+    "school": "巴丹国立大学",
+    "major": "计算机科学",
+    "education": "本科",
     "city_id": 1,
-    "birthday": "Local mock 1",
+    "birthday": "1995-05-20",
     "civil_status": 1,
-    "avatar": "android.resource://com.jiechengsheng.city/mipmap/ic_app_logo",
-    "pdf_time": "2026-08-04 12:00:00"
+    "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_2",
+    "pdf_time": "2026-10-20 10:30:00"
   }
 }

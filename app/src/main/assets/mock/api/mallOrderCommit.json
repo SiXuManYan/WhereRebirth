@@ -3,22 +3,12 @@
   "message": "local mock",
   "data": {
     "orders": [
-      {
-        "value": 1
-      },
-      {
-        "value": 2
-      },
-      {
-        "value": 3
-      },
-      {
-        "value": 4
-      },
-      {
-        "value": 5
-      }
+      1,
+      2,
+      3,
+      4,
+      5
     ],
-    "total_price": 19.90
+    "total_price": 399.0
   }
 }

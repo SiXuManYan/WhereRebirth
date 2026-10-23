@@ -22,7 +22,7 @@ import com.jiechengsheng.city.features.search.SearchAllActivity
 import com.jiechengsheng.city.frames.common.Html5Url
 import com.jiechengsheng.city.utils.Constant
 import com.jiechengsheng.city.utils.GlideUtil
-import com.jiechengsheng.city.utils.MobUtil
+import com.jiechengsheng.city.utils.ShareUtil
 import com.jiechengsheng.city.databinding.ActivityMallShopHomeBinding
 import android.view.ViewGroup
 
@@ -89,7 +89,7 @@ class MallShopHomeActivity : BaseMvpActivity<MallShopHomePresenter>(), MallShopH
 
         binding.shareIv.setOnClickListener {
             val url = String.format(Html5Url.SHARE_FACEBOOK, Html5Url.MODEL_MALL_SHOP, shopId)
-            MobUtil.shareFacebookWebPage(url, this@MallShopHomeActivity)
+            ShareUtil.shareLink(url, this@MallShopHomeActivity)
         }
 
         binding.searchLl.setOnClickListener {

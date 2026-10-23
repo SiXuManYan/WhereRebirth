@@ -6,12 +6,15 @@ import com.jiechengsheng.city.api.ErrorResponse
 import com.jiechengsheng.city.api.network.BaseMvpObserver
 import com.jiechengsheng.city.api.network.BaseMvpPresenter
 import com.jiechengsheng.city.api.network.BaseMvpView
-import com.jiechengsheng.city.api.response.UploadFileResponse
 import com.jiechengsheng.city.api.response.job.*
+import com.jiechengsheng.city.api.response.UploadFileResponse
+import java.io.File
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import java.io.File
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 
 /**
  * Created by Wangsw  2022/9/29 15:01.
@@ -60,10 +63,10 @@ class CvFormPresenter(private var view: CvFormView) : BaseMvpPresenter(view) {
 
 
             val file: File = File(currentAvatarUrlOrUriPath)
-            val requestFile = RequestBody.create(MediaType.parse("image/jpg"), file)
+            val requestFile = file.asRequestBody("image/jpg".toMediaType())
             val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
             val type = "1"
-            val description = RequestBody.create(MediaType.parse("multipart/form-data"), type)
+            val description = type.toRequestBody("multipart/form-data".toMediaType())
 
 
             requestApi(mRetrofit.uploadFile(description, body), object : BaseMvpObserver<UploadFileResponse>(view) {
