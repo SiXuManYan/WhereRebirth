@@ -4,68 +4,81 @@
   "data": [
     {
       "isSelected": false,
-      "channel_code": "200",
-      "channel_category": "Bataan 1",
-      "currency": "Bataan 1",
-      "name": "Balanga",
+      "channel_code": "gcash",
+      "channel_category": "E-Wallet",
+      "currency": "PHP",
+      "name": "GCash",
       "amount_limits": {
-        "minimum": "Bataan 1",
-        "maximum": "Bataan 1",
-        "minimum_increment": "Bataan 1"
+        "minimum": "100",
+        "maximum": "50000",
+        "minimum_increment": "1"
       },
-      "type": 1
+      "type": 0
     },
     {
       "isSelected": false,
-      "channel_code": "200",
-      "channel_category": "Bataan 2",
-      "currency": "Bataan 2",
-      "name": "Bataan",
+      "channel_code": "maya",
+      "channel_category": "E-Wallet",
+      "currency": "PHP",
+      "name": "Maya",
       "amount_limits": {
-        "minimum": "Bataan 2",
-        "maximum": "Bataan 2",
-        "minimum_increment": "Bataan 2"
+        "minimum": "100",
+        "maximum": "50000",
+        "minimum_increment": "1"
       },
-      "type": 2
+      "type": 0
     },
     {
       "isSelected": false,
-      "channel_code": "200",
-      "channel_category": "Bataan 3",
-      "currency": "Bataan 3",
-      "name": "Mariveles",
+      "channel_code": "grabpay",
+      "channel_category": "E-Wallet",
+      "currency": "PHP",
+      "name": "GrabPay",
       "amount_limits": {
-        "minimum": "Bataan 3",
-        "maximum": "Bataan 3",
-        "minimum_increment": "Bataan 3"
+        "minimum": "200",
+        "maximum": "40000",
+        "minimum_increment": "1"
       },
-      "type": 1
+      "type": 0
     },
     {
       "isSelected": false,
-      "channel_code": "200",
-      "channel_category": "Bataan 4",
-      "currency": "Bataan 4",
-      "name": "Dinalupihan",
+      "channel_code": "bpi",
+      "channel_category": "Bank Account",
+      "currency": "PHP",
+      "name": "BPI",
       "amount_limits": {
-        "minimum": "Bataan 4",
-        "maximum": "Bataan 4",
-        "minimum_increment": "Bataan 4"
+        "minimum": "100",
+        "maximum": "100000",
+        "minimum_increment": "1"
       },
-      "type": 2
+      "type": 0
     },
     {
       "isSelected": false,
-      "channel_code": "200",
-      "channel_category": "Bataan 5",
-      "currency": "Bataan 5",
-      "name": "Hermosa",
+      "channel_code": "bdo",
+      "channel_category": "Bank Account",
+      "currency": "PHP",
+      "name": "BDO",
       "amount_limits": {
-        "minimum": "Bataan 5",
-        "maximum": "Bataan 5",
-        "minimum_increment": "Bataan 5"
+        "minimum": "100",
+        "maximum": "100000",
+        "minimum_increment": "1"
       },
-      "type": 1
+      "type": 0
+    },
+    {
+      "isSelected": false,
+      "channel_code": "unionbank",
+      "channel_category": "Bank Account",
+      "currency": "PHP",
+      "name": "UnionBank",
+      "amount_limits": {
+        "minimum": "100",
+        "maximum": "100000",
+        "minimum_increment": "1"
+      },
+      "type": 0
     }
   ]
 }

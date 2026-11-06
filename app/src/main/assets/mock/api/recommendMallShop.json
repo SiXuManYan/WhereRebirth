@@ -4,136 +4,44 @@
   "data": [
     [
       {
-        "img": "SM City Bataan 1",
+        "img": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
         "goods_id": 1,
         "type": 1
       },
       {
-        "img": "SM City Bataan 2",
+        "img": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
         "goods_id": 2,
-        "type": 2
-      },
-      {
-        "img": "SM City Bataan 3",
-        "goods_id": 3,
         "type": 1
       },
       {
-        "img": "SM City Bataan 4",
-        "goods_id": 4,
-        "type": 2
-      },
+        "img": "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
+        "goods_id": 3,
+        "type": 1
+      }
+    ],
+    [
       {
-        "img": "SM City Bataan 5",
+        "img": "android.resource://com.jiechengsheng.city/drawable/mock_travel_1",
         "goods_id": 5,
         "type": 1
       }
     ],
     [
       {
-        "img": "SM City Bataan 1",
-        "goods_id": 1,
-        "type": 1
-      },
-      {
-        "img": "SM City Bataan 2",
-        "goods_id": 2,
-        "type": 2
-      },
-      {
-        "img": "SM City Bataan 3",
-        "goods_id": 3,
-        "type": 1
-      },
-      {
-        "img": "SM City Bataan 4",
+        "img": "android.resource://com.jiechengsheng.city/drawable/mock_banner_2",
         "goods_id": 4,
-        "type": 2
+        "type": 1
       },
       {
-        "img": "SM City Bataan 5",
+        "img": "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
         "goods_id": 5,
         "type": 1
       }
     ],
     [
       {
-        "img": "SM City Bataan 1",
+        "img": "android.resource://com.jiechengsheng.city/drawable/mock_banner_1",
         "goods_id": 1,
-        "type": 1
-      },
-      {
-        "img": "SM City Bataan 2",
-        "goods_id": 2,
-        "type": 2
-      },
-      {
-        "img": "SM City Bataan 3",
-        "goods_id": 3,
-        "type": 1
-      },
-      {
-        "img": "SM City Bataan 4",
-        "goods_id": 4,
-        "type": 2
-      },
-      {
-        "img": "SM City Bataan 5",
-        "goods_id": 5,
-        "type": 1
-      }
-    ],
-    [
-      {
-        "img": "SM City Bataan 1",
-        "goods_id": 1,
-        "type": 1
-      },
-      {
-        "img": "SM City Bataan 2",
-        "goods_id": 2,
-        "type": 2
-      },
-      {
-        "img": "SM City Bataan 3",
-        "goods_id": 3,
-        "type": 1
-      },
-      {
-        "img": "SM City Bataan 4",
-        "goods_id": 4,
-        "type": 2
-      },
-      {
-        "img": "SM City Bataan 5",
-        "goods_id": 5,
-        "type": 1
-      }
-    ],
-    [
-      {
-        "img": "SM City Bataan 1",
-        "goods_id": 1,
-        "type": 1
-      },
-      {
-        "img": "SM City Bataan 2",
-        "goods_id": 2,
-        "type": 2
-      },
-      {
-        "img": "SM City Bataan 3",
-        "goods_id": 3,
-        "type": 1
-      },
-      {
-        "img": "SM City Bataan 4",
-        "goods_id": 4,
-        "type": 2
-      },
-      {
-        "img": "SM City Bataan 5",
-        "goods_id": 5,
         "type": 1
       }
     ]

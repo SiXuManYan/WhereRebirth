@@ -2,109 +2,59 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "id": 1,
-    "trade_no": "SM City Bataan 1",
-    "created_at": "2026-10-20 10:30:00",
-    "remark": "Everything you need in one convenient place.",
+    "id": 2,
+    "trade_no": "WHE20261105002",
+    "created_at": "2026-11-05 09:20:00",
+    "remark": "Leave the parcel at the guardhouse, thanks.",
     "is_cancel": 1,
-    "status": 1,
-    "price": 399.0,
-    "delivery_fee": 399.0,
-    "good_price": 399.0,
-    "delivery_type": 1,
-    "delivery_times": "2026-10-20 10:30:00",
-    "take_times": "2026-10-20 10:30:00",
-    "phone": "0917 555 0101",
+    "status": 5,
+    "price": 615.0,
+    "delivery_fee": 49.0,
+    "good_price": 566.0,
+    "delivery_type": 2,
+    "delivery_times": "2026-11-06 14:00 - 16:00",
+    "take_times": "",
+    "phone": "",
     "address": {
-      "sex": 1,
-      "address": "Balanga City, Bataan",
-      "contact_name": "SM City Bataan",
-      "contact_number": "SM City Bataan 1"
+      "sex": 2,
+      "address": "22 Capitol Drive, San Jose, Balanga City, Bataan 2100",
+      "contact_name": "Maria Santos",
+      "contact_number": "0917 555 0105"
     },
     "shop": {
       "id": 1,
       "title": "SM City Bataan",
       "images": [
         "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-        "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-        "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-        "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-        "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
+        "android.resource://com.jiechengsheng.city/drawable/mock_mall_2"
       ],
       "goods": [
         {
           "id": 1,
-          "title": "SM City Bataan",
+          "title": "Portable Rechargeable Mini Fan",
           "images": [
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
             "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
           ],
           "good_num": 1,
-          "price": 399.0
+          "price": 189.0
         },
         {
           "id": 2,
-          "title": "Ayala Harbor Point",
+          "title": "Bamboo Utensil Set (6 pcs)",
           "images": [
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
+            "android.resource://com.jiechengsheng.city/drawable/mock_mall_2"
           ],
           "good_num": 2,
-          "price": 499.0
-        },
-        {
-          "id": 3,
-          "title": "Robinsons Balanga",
-          "images": [
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
-          ],
-          "good_num": 3,
-          "price": 599.0
-        },
-        {
-          "id": 4,
-          "title": "Bataan Public Market",
-          "images": [
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
-          ],
-          "good_num": 4,
-          "price": 699.0
-        },
-        {
-          "id": 5,
-          "title": "The Strip Mall",
-          "images": [
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-            "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
-          ],
-          "good_num": 5,
-          "price": 799.0
+          "price": 188.5
         }
       ],
       "mer_uuid": "demo-uuid-1",
       "mer_name": "SM City Bataan",
       "im_status": 1
     },
-    "pay_channel": "SM City Bataan 1",
-    "bank_card_account": "157",
-    "bank_card_number": "SM City Bataan 1",
+    "pay_channel": "GCash",
+    "bank_card_account": "Maria Santos",
+    "bank_card_number": "0917 555 0105",
     "aftersale_status": 1,
     "comment_status": 1
   }

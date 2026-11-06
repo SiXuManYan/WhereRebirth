@@ -7,72 +7,35 @@
     "from": 1,
     "last_page": 1,
     "last_page_url": "https://1bataan.com",
-    "next_page_url": {},
+    "next_page_url": null,
     "path": "https://1bataan.com",
-    "per_page": 5,
-    "prev_page_url": {},
-    "to": 5,
-    "total": 5,
+    "per_page": 10,
+    "prev_page_url": null,
+    "to": 3,
+    "total": 3,
     "data": [
       {
         "image": [
           "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
+          "android.resource://com.jiechengsheng.city/drawable/mock_city_2"
         ],
-        "content": "A local demo record for Where Rebirth.",
-        "tel": "Bataan 1",
-        "time": "2026-10-20 10:30:00"
+        "content": "The checkout button on the mall cart sometimes needs two taps before the order page opens. Tested on a Samsung Galaxy A54, app version 2.6.1.",
+        "tel": "0917 555 0175",
+        "time": "2026-11-03 16:40:12"
+      },
+      {
+        "image": [],
+        "content": "Please add more laundry and repair shops around Mariveles. The app is very helpful for our barangay, salamat!",
+        "tel": "0917 555 0182",
+        "time": "2026-10-27 09:15:47"
       },
       {
         "image": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
+          "android.resource://com.jiechengsheng.city/drawable/mock_news_1"
         ],
-        "content": "A local demo record for Where Rebirth.",
-        "tel": "Bataan 2",
-        "time": "2026-10-20 10:30:00"
-      },
-      {
-        "image": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
-        ],
-        "content": "A local demo record for Where Rebirth.",
-        "tel": "Bataan 3",
-        "time": "2026-10-20 10:30:00"
-      },
-      {
-        "image": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
-        ],
-        "content": "A local demo record for Where Rebirth.",
-        "tel": "Bataan 4",
-        "time": "2026-10-20 10:30:00"
-      },
-      {
-        "image": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_city_1"
-        ],
-        "content": "A local demo record for Where Rebirth.",
-        "tel": "Bataan 5",
-        "time": "2026-10-20 10:30:00"
+        "content": "Suggestion: let users save favorite hotels straight from the search results page instead of opening each hotel first.",
+        "tel": "0917 555 0193",
+        "time": "2026-10-19 20:05:33"
       }
     ]
   }

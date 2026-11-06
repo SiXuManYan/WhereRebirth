@@ -3,28 +3,43 @@
   "message": "local mock",
   "data": [
     {
-      "abbr": "Bataan 1",
-      "all": "Bataan 1",
+      "abbr": "BDO",
+      "all": "Banco de Oro (BDO)",
       "isSelected": false
     },
     {
-      "abbr": "Bataan 2",
-      "all": "Bataan 2",
+      "abbr": "BPI",
+      "all": "Bank of the Philippine Islands (BPI)",
       "isSelected": false
     },
     {
-      "abbr": "Bataan 3",
-      "all": "Bataan 3",
+      "abbr": "Metrobank",
+      "all": "Metropolitan Bank and Trust Company (Metrobank)",
       "isSelected": false
     },
     {
-      "abbr": "Bataan 4",
-      "all": "Bataan 4",
+      "abbr": "Landbank",
+      "all": "Land Bank of the Philippines (Landbank)",
       "isSelected": false
     },
     {
-      "abbr": "Bataan 5",
-      "all": "Bataan 5",
+      "abbr": "UnionBank",
+      "all": "Union Bank of the Philippines (UnionBank)",
+      "isSelected": false
+    },
+    {
+      "abbr": "RCBC",
+      "all": "Rizal Commercial Banking Corporation (RCBC)",
+      "isSelected": false
+    },
+    {
+      "abbr": "Security Bank",
+      "all": "Security Bank Corporation",
+      "isSelected": false
+    },
+    {
+      "abbr": "PNB",
+      "all": "Philippine National Bank (PNB)",
       "isSelected": false
     }
   ]

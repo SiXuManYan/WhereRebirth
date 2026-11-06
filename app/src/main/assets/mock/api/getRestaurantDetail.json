@@ -2,9 +2,9 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "id": 1,
-    "uuid": "demo-uuid-1",
-    "title": "Seaside Grill",
+    "id": "1",
+    "uuid": "rest-uuid-0001",
+    "title": "Inihaw ni Mang Rudy",
     "images": [
       "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
       "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
@@ -12,214 +12,167 @@
       "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
       "android.resource://com.jiechengsheng.city/drawable/mock_food_1"
     ],
-    "video": "Seaside Grill 1",
+    "video": "",
     "video_image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-    "grade": 4.1,
-    "comment_num": "157",
-    "per_price": "399.00",
-    "address": "Pilar, Bataan",
-    "start_time": "2026-10-20 10:30:00",
-    "end_time": "2026-10-20 10:30:00",
-    "lat": 14.6005,
-    "lng": 120.9852,
+    "grade": 4.6,
+    "comment_num": "128",
+    "per_price": "350.00",
+    "address": "121 Capitol Drive, Barangay Tenejero, Balanga City, Bataan",
+    "start_time": "10:00",
+    "end_time": "21:30",
+    "lat": 14.6765,
+    "lng": 120.596,
     "distance": "1.2 km",
-    "tel": "Seaside Grill 1",
+    "tel": "0917 555 0134",
     "collect_status": 1,
-    "take_out_status": 1,
-    "mer_uuid": "demo-uuid-1",
-    "mer_name": "Seaside Grill",
+    "take_out_status": 2,
+    "mer_uuid": "merchant-uuid-0001",
+    "mer_name": "Rudy Santos Food Ventures",
     "im_status": 1,
-    "introduction": "Seaside Grill 1",
-    "website": "Seaside Grill 1",
-    "facebook": "Seaside Grill 1",
-    "email": "demo1@whererebirth.local",
+    "introduction": "Charcoal-grilled Filipino favorites since 1998. Our liempo is marinated overnight in calamansi and soy sauce, then grilled to order over coconut husk charcoal.",
+    "website": "https://1bataan.com",
+    "facebook": "https://facebook.com/inihawnimangrudy",
+    "email": "orders@inihawnimangrudy.ph",
     "comments": [
       {
         "id": 1,
-        "user_id": 1,
+        "user_id": 11,
         "images": [
           "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_1"
+          "android.resource://com.jiechengsheng.city/drawable/mock_food_2"
         ],
-        "created_at": "2026-10-20 10:30:00",
+        "created_at": "2026-11-02 19:14:22",
         "comment_travel_type_id": 1,
-        "username": "Juan Dela Cruz",
+        "username": "Maria Santos",
         "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_1",
-        "content": "Freshly prepared local favorites served all day.",
-        "star": 4.1,
-        "star_level": 4.1,
-        "hotel_id": 1,
-        "merchant_review": "157"
+        "content": "The inihaw na liempo is smoky and juicy, and the ensaladang talong pairs perfectly with it. Come before 12 noon or the parking gets tight.",
+        "star": 5.0,
+        "star_level": 4.8,
+        "hotel_id": 0,
+        "merchant_review": "Salamat po, Maria! See you again soon."
       },
       {
         "id": 2,
-        "user_id": 2,
+        "user_id": 12,
         "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_1"
+          "android.resource://com.jiechengsheng.city/drawable/mock_food_2"
         ],
-        "created_at": "2026-10-20 10:30:00",
-        "comment_travel_type_id": 2,
-        "username": "Maria Santos",
+        "created_at": "2026-10-28 12:40:05",
+        "comment_travel_type_id": 1,
+        "username": "Juan Dela Cruz",
         "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_2",
-        "content": "Freshly prepared local favorites served all day.",
-        "star": 4.2,
+        "content": "Big servings for the price. The halo-halo Bataan is the best way to end a lunch here.",
+        "star": 4.0,
         "star_level": 4.2,
-        "hotel_id": 2,
-        "merchant_review": "194"
+        "hotel_id": 0,
+        "merchant_review": "Thank you po! Our halo-halo is made with sweetened saba from our own market stall."
       },
       {
         "id": 3,
-        "user_id": 3,
-        "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_1"
-        ],
-        "created_at": "2026-10-20 10:30:00",
-        "comment_travel_type_id": 3,
-        "username": "Where Demo",
+        "user_id": 13,
+        "images": [],
+        "created_at": "2026-10-21 18:02:51",
+        "comment_travel_type_id": 1,
+        "username": "Andrea Reyes",
         "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_1",
-        "content": "Freshly prepared local favorites served all day.",
-        "star": 4.3,
-        "star_level": 4.3,
-        "hotel_id": 3,
-        "merchant_review": "231"
-      },
-      {
-        "id": 4,
-        "user_id": 4,
-        "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_1"
-        ],
-        "created_at": "2026-10-20 10:30:00",
-        "comment_travel_type_id": 4,
-        "username": "Juan Dela Cruz",
-        "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_2",
-        "content": "Freshly prepared local favorites served all day.",
-        "star": 4.4,
-        "star_level": 4.4,
-        "hotel_id": 4,
-        "merchant_review": "268"
-      },
-      {
-        "id": 5,
-        "user_id": 5,
-        "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_food_1"
-        ],
-        "created_at": "2026-10-20 10:30:00",
-        "comment_travel_type_id": 5,
-        "username": "Maria Santos",
-        "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_1",
-        "content": "Freshly prepared local favorites served all day.",
-        "star": 4.5,
-        "star_level": 4.5,
-        "hotel_id": 5,
-        "merchant_review": "305"
+        "content": "Service was quick even on a Friday night. Kare-kare sauce was rich and the bagoong is on the side.",
+        "star": 5.0,
+        "star_level": 5.0,
+        "hotel_id": 0,
+        "merchant_review": null
       }
     ],
     "goods": [
       {
-        "id": 1,
-        "title": "Seaside Grill",
+        "id": 101,
+        "title": "Inihaw na Liempo (Good for 2)",
         "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-        "sale_num": "Seaside Grill 1",
-        "inventory": "Seaside Grill 1",
-        "price": 399.0,
-        "original_price": 399.0,
+        "sale_num": "312",
+        "inventory": "25",
+        "price": 285.0,
+        "original_price": 320.0,
         "tags": [
-          "Popular",
-          "Recommended",
-          "Family friendly",
-          "Top rated",
-          "New"
+          "Best Seller"
         ],
-        "nativeSelectCount": 157
+        "nativeSelectCount": 0
       },
       {
-        "id": 2,
-        "title": "Jollibee Balanga",
+        "id": 102,
+        "title": "Chicken Inasal (1 Whole)",
         "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
-        "sale_num": "Seaside Grill 2",
-        "inventory": "Seaside Grill 2",
-        "price": 499.0,
-        "original_price": 499.0,
+        "sale_num": "265",
+        "inventory": "18",
+        "price": 420.0,
+        "original_price": 468.0,
         "tags": [
-          "Popular",
-          "Recommended",
-          "Family friendly",
-          "Top rated",
-          "New"
+          "Grilled"
         ],
-        "nativeSelectCount": 194
+        "nativeSelectCount": 0
       },
       {
-        "id": 3,
-        "title": "Cafe Bataan",
+        "id": 103,
+        "title": "Crispy Kare-Kare",
         "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-        "sale_num": "Seaside Grill 3",
-        "inventory": "Seaside Grill 3",
-        "price": 599.0,
-        "original_price": 599.0,
+        "sale_num": "198",
+        "inventory": "12",
+        "price": 350.0,
+        "original_price": 380.0,
         "tags": [
-          "Popular",
-          "Recommended",
-          "Family friendly",
-          "Top rated",
-          "New"
+          "House Special"
         ],
-        "nativeSelectCount": 231
+        "nativeSelectCount": 0
       },
       {
-        "id": 4,
-        "title": "Mang Inasal",
+        "id": 104,
+        "title": "Sinigang na Hipon",
         "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
-        "sale_num": "Seaside Grill 4",
-        "inventory": "Seaside Grill 4",
-        "price": 699.0,
-        "original_price": 699.0,
+        "sale_num": "141",
+        "inventory": "20",
+        "price": 295.0,
+        "original_price": 295.0,
         "tags": [
-          "Popular",
-          "Recommended",
-          "Family friendly",
-          "Top rated",
-          "New"
+          "Soup"
         ],
-        "nativeSelectCount": 268
+        "nativeSelectCount": 0
       },
       {
-        "id": 5,
-        "title": "Lola\u0027s Kitchen",
+        "id": 105,
+        "title": "Bangus Sisig",
         "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-        "sale_num": "Seaside Grill 5",
-        "inventory": "Seaside Grill 5",
-        "price": 799.0,
-        "original_price": 799.0,
+        "sale_num": "176",
+        "inventory": "15",
+        "price": 220.0,
+        "original_price": 245.0,
         "tags": [
-          "Popular",
-          "Recommended",
-          "Family friendly",
-          "Top rated",
-          "New"
+          "Sizzling"
         ],
-        "nativeSelectCount": 305
+        "nativeSelectCount": 0
+      },
+      {
+        "id": 106,
+        "title": "Ensaladang Talong",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
+        "sale_num": "203",
+        "inventory": "30",
+        "price": 95.0,
+        "original_price": 110.0,
+        "tags": [
+          "Side Dish"
+        ],
+        "nativeSelectCount": 0
+      },
+      {
+        "id": 107,
+        "title": "Halo-Halo Bataan",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
+        "sale_num": "354",
+        "inventory": "40",
+        "price": 120.0,
+        "original_price": 135.0,
+        "tags": [
+          "Dessert"
+        ],
+        "nativeSelectCount": 0
       }
     ]
   }

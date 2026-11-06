@@ -3,19 +3,19 @@
   "message": "local mock",
   "data": {
     "id": 1,
-    "company_title": "Android Developer",
-    "logo": "android.resource://com.jiechengsheng.city/drawable/ic_module_job",
-    "company_type": "Full-time",
-    "company_size": "Where Tech 1",
-    "profile": "Juan Dela Cruz 1",
-    "address": "Balanga City, Bataan",
+    "company_title": "Where Tech",
+    "logo": "android.resource://com.jiechengsheng.city/drawable/mock_logo",
+    "company_type": "Information Technology",
+    "company_size": "50-100",
+    "profile": "Where Tech is a software company based in Balanga City, Bataan. Since 2016 we have built mobile and web products for local government units, schools and small businesses across the province. Our products include the 1Bataan community app, a delivery platform for partner restaurants, and school information systems used by three universities in the province.\n\nWe believe world-class software can be built outside Metro Manila. Our team of 68 engineers, designers and product managers works from our office along Capitol Drive, two blocks from the Balanga public plaza. We offer HMO coverage from day one, flexible hours, and a yearly training budget for every employee.",
+    "address": "3F Peninsula Plaza, Capitol Drive, Balanga City, Bataan",
     "images": [
       "android.resource://com.jiechengsheng.city/drawable/mock_job_1",
       "android.resource://com.jiechengsheng.city/drawable/mock_job_2",
-      "android.resource://com.jiechengsheng.city/drawable/mock_job_1",
-      "android.resource://com.jiechengsheng.city/drawable/mock_job_2",
-      "android.resource://com.jiechengsheng.city/drawable/mock_job_1"
+      "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+      "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+      "android.resource://com.jiechengsheng.city/drawable/mock_banner_2"
     ],
-    "website": "Where Tech 1"
+    "website": "https://1bataan.com"
   }
 }

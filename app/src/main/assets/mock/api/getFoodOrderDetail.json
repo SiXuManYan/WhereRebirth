@@ -3,41 +3,41 @@
   "message": "local mock",
   "data": {
     "order_data": {
-      "id": 1,
-      "trade_no": "Seaside Grill 1",
+      "id": 10001,
+      "trade_no": "WB2026110609881234",
       "phone": "0917 555 0101",
-      "start_date": "2026-10-20 10:30:00",
-      "end_date": "2026-10-20 10:30:00",
-      "created_at": "2026-10-20 10:30:00",
-      "status": 1,
-      "coupon_no": "Seaside Grill 1",
-      "coupon_expire": "Seaside Grill 1",
-      "coupon_qr_code": "200",
+      "start_date": "2026-11-06 11:19:47",
+      "end_date": "2026-12-06 21:30:00",
+      "created_at": "2026-11-06 11:19:47",
+      "status": 5,
+      "coupon_no": "4820 5517 3309",
+      "coupon_expire": "2026-12-06 21:30:00",
+      "coupon_qr_code": "android.resource://com.jiechengsheng.city/drawable/mock_logo",
       "comment_status": 1,
-      "error_reason": "Seaside Grill 1",
-      "price": 399.0,
-      "complaint_status": 1
+      "error_reason": "",
+      "price": 570.0,
+      "complaint_status": 0
     },
     "restaurant_data": {
       "id": 1,
-      "name": "Seaside Grill",
-      "mer_uuid": "demo-uuid-1",
-      "mer_name": "Seaside Grill",
+      "name": "Inihaw ni Mang Rudy",
+      "mer_uuid": "merchant-uuid-0001",
+      "mer_name": "Rudy Santos Food Ventures",
       "im_status": 1,
-      "tel": "Seaside Grill 1",
-      "price": 399.0
+      "tel": "0917 555 0134",
+      "price": 570.0
     },
     "good_data": {
-      "id": 1,
-      "good_num": 1,
-      "name": "Seaside Grill",
+      "id": 101,
+      "good_num": 2,
+      "name": "Inihaw na Liempo (Good for 2)",
       "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-      "price": 399.0
+      "price": 570.0
     },
     "payment_data": {
-      "payment_channel": "Seaside Grill 1",
-      "bank_card_account": "157",
-      "bank_card_number": "Seaside Grill 1"
+      "payment_channel": "GCash",
+      "bank_card_account": "",
+      "bank_card_number": ""
     }
   }
 }

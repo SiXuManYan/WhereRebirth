@@ -2,15 +2,15 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "price": "399.00",
-    "total_price": "399.00",
-    "cancel_time": "2026-10-20 10:30:00",
+    "price": "798.00",
+    "total_price": "798.00",
+    "cancel_time": "2026-11-19 18:00:00",
     "remit_info": {
       "id": 1,
       "user_name": "Juan Dela Cruz",
-      "account": "157",
-      "channel_category": "Bataan Bay Resort 1",
-      "name": "Bataan Bay Resort"
+      "account": "0917 555 0102",
+      "channel_category": "gcash",
+      "name": "GCash"
     }
   }
 }

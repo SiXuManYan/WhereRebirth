@@ -3,15 +3,15 @@
   "message": "local mock",
   "data": {
     "id": 1,
-    "title": "Balanga",
-    "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-    "price": "399.00",
-    "stock": 1,
+    "title": "Where Bataan Canvas Tote Bag",
+    "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+    "price": "88.00",
+    "stock": 20,
     "type": 1,
-    "start_time": "2026-10-20 10:30:00",
-    "end_time": "2026-10-20 10:30:00",
+    "start_time": "2026-11-01 00:00:00",
+    "end_time": "2026-12-31 23:59:59",
     "operation_status": 1,
     "user_integral": "100",
-    "desc": "A local demo record for Where Rebirth."
+    "desc": "Limited-edition canvas tote bag printed with the Where Bataan skyline. Redeem with your loyalty points at the Balanga service desk."
   }
 }

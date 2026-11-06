@@ -6,50 +6,48 @@
     "images": [
       "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
       "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-      "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-      "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
       "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
     ],
-    "name": "Bataan Bay Resort",
-    "hotel_room_type": "3",
-    "room_area": "3",
-    "floor": "Bataan Bay Resort 1",
-    "policy": "Bataan Bay Resort 1",
-    "shower_room": "3",
-    "facility": "Bataan Bay Resort 1",
-    "media": "Bataan Bay Resort 1",
-    "food": "Bataan Bay Resort 1",
-    "scene": "Bataan Bay Resort 1",
-    "other": "Bataan Bay Resort 1",
-    "cancel_time": "2026-10-20 10:30:00",
+    "name": "Deluxe Sea View Room",
+    "hotel_room_type": "1 Queen Bed",
+    "room_area": "32",
+    "floor": "3rd Floor",
+    "policy": "Check-in from 14:00, check-out before 12:00. Children 7 and below stay free when sharing existing beds.",
+    "shower_room": "Hot and cold rain shower",
+    "facility": "Air conditioning, 43-inch flat TV, mini fridge, in-room safe, free Wi-Fi",
+    "media": "Bluetooth speaker and USB charging ports on both nightstands",
+    "food": "Complimentary bottled water daily; breakfast set available at the poolside cafe from 6:00 AM to 10:00 AM",
+    "scene": "Full-height window facing the Balanga waterfront and Manila Bay sunset",
+    "other": "Extra bed available at ₱800 per night, subject to availability",
+    "cancel_time": "2026-11-19 18:00:00",
     "breakfast_type": 1,
     "window_type": 1,
     "wifi_type": 1,
-    "people": 1,
-    "room_num": 1,
-    "remain_room_num": 1,
+    "people": 2,
+    "room_num": 8,
+    "remain_room_num": 5,
     "is_cancel": 1,
     "price": 399.0,
     "facilities": [
       {
-        "name": "Bataan Bay Resort",
+        "name": "Free Wi-Fi",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience"
+      },
+      {
+        "name": "Breakfast Included",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_food"
+      },
+      {
+        "name": "Queen Bed",
         "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
       },
       {
-        "name": "Sea Breeze Hotel",
-        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
+        "name": "Rain Shower",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_health"
       },
       {
-        "name": "Casa Marina",
-        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
-      },
-      {
-        "name": "Mango Grove Inn",
-        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
-      },
-      {
-        "name": "The Peninsula Suites",
-        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
+        "name": "Sea View",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_travel"
       }
     ]
   }

@@ -2,16 +2,16 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "id": 1,
-    "educational_attainment": "Bataan 1",
+    "id": 21,
+    "educational_attainment": "Bataan Peninsula State University",
     "educational_level": {
-      "id": 1,
-      "educational_level": "Bataan 1",
-      "extend_title": "Balanga",
-      "nativeSelected": false
+      "id": 3,
+      "educational_level": "Bachelor's Degree",
+      "extend_title": "Course",
+      "nativeSelected": true
     },
-    "vocational_course": "Bataan 1",
-    "start_date": "2026-10-20 10:30:00",
-    "end_date": "2026-10-20 10:30:00"
+    "vocational_course": "Bachelor of Science in Computer Science",
+    "start_date": "2014",
+    "end_date": "2018"
   }
 }

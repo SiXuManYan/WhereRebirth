@@ -2,8 +2,8 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "contact_tell": "Bataan 1",
-    "contact_facebook": "Bataan 1",
-    "contact_email": "demo1@whererebirth.local"
+    "contact_tell": "0917 555 0100",
+    "contact_facebook": "https://facebook.com/1BataanOfficial",
+    "contact_email": "support@1bataan.com"
   }
 }

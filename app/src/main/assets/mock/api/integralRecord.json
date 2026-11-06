@@ -7,52 +7,36 @@
     "from": 1,
     "last_page": 1,
     "last_page_url": "https://1bataan.com",
-    "next_page_url": {},
+    "next_page_url": null,
     "path": "https://1bataan.com",
-    "per_page": 5,
-    "prev_page_url": {},
-    "to": 5,
-    "total": 5,
+    "per_page": 3,
+    "prev_page_url": null,
+    "to": 3,
+    "total": 3,
     "data": [
       {
-        "id": 1,
-        "price": "399.00",
-        "title": "Balanga",
-        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+        "id": 601,
+        "price": "88.00",
+        "title": "Where Bataan Canvas Tote Bag",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
         "order_status": 1,
         "type": 1
       },
       {
-        "id": 2,
-        "price": "499.00",
-        "title": "Bataan",
+        "id": 602,
+        "price": "120.00",
+        "title": "₱100 Electricity Bill Voucher",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+        "order_status": 2,
+        "type": 3
+      },
+      {
+        "id": 603,
+        "price": "60.00",
+        "title": "₱50 Water Bill Voucher",
         "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
         "order_status": 2,
         "type": 2
-      },
-      {
-        "id": 3,
-        "price": "599.00",
-        "title": "Mariveles",
-        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-        "order_status": 1,
-        "type": 1
-      },
-      {
-        "id": 4,
-        "price": "699.00",
-        "title": "Dinalupihan",
-        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
-        "order_status": 2,
-        "type": 2
-      },
-      {
-        "id": 5,
-        "price": "799.00",
-        "title": "Hermosa",
-        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-        "order_status": 1,
-        "type": 1
       }
     ]
   }

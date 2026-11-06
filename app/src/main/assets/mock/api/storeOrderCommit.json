@@ -4,26 +4,14 @@
   "data": {
     "orders": [
       {
-        "id": 1,
-        "trade_no": "SM City Bataan 1"
-      },
-      {
         "id": 2,
-        "trade_no": "SM City Bataan 2"
+        "trade_no": "WHE20261107001"
       },
       {
         "id": 3,
-        "trade_no": "SM City Bataan 3"
-      },
-      {
-        "id": 4,
-        "trade_no": "SM City Bataan 4"
-      },
-      {
-        "id": 5,
-        "trade_no": "SM City Bataan 5"
+        "trade_no": "WHE20261107002"
       }
     ],
-    "total_price": 399.0
+    "total_price": 615.0
   }
 }

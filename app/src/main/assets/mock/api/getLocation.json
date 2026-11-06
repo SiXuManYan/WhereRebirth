@@ -1,5 +1,5 @@
 {
   "code": 200,
   "message": "local mock",
-  "data": "Bataan 1"
+  "data": "{\"results\":[{\"address_components\":[{\"long_name\":\"Capitol Drive\",\"short_name\":\"Capitol Dr\",\"types\":[\"route\"]},{\"long_name\":\"City of Balanga\",\"short_name\":\"Balanga\",\"types\":[\"locality\",\"political\"]},{\"long_name\":\"Bataan\",\"short_name\":\"Bataan\",\"types\":[\"administrative_area_level_2\",\"political\"]},{\"long_name\":\"Central Luzon\",\"short_name\":\"Central Luzon\",\"types\":[\"administrative_area_level_1\",\"political\"]},{\"long_name\":\"Philippines\",\"short_name\":\"PH\",\"types\":[\"country\",\"political\"]},{\"long_name\":\"2100\",\"short_name\":\"2100\",\"types\":[\"postal_code\"]}],\"formatted_address\":\"Capitol Drive, City of Balanga, Bataan 2100, Philippines\",\"geometry\":{\"location\":{\"lat\":14.6668,\"lng\":120.5388},\"location_type\":\"ROOFTOP\"},\"place_id\":\"ChIJ1bataan-demo-balanga\",\"types\":[\"premise\"]}],\"status\":\"OK\"}"
 }

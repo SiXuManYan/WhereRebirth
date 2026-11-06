@@ -3,227 +3,153 @@
   "message": "local mock",
   "data": [
     {
-      "channelName": "Electricity Bill",
+      "channelName": "GLOBE",
       "channelItem": [
         {
           "isChecked": false,
-          "Denomination": "Bataan 1",
-          "TelcoTag": "Popular",
-          "TelcoName": "Electricity Bill",
-          "ExtTag": "Popular",
-          "discount": "157"
+          "Denomination": "50",
+          "TelcoTag": "Globe Regular Load",
+          "TelcoName": "Globe Telecom",
+          "ExtTag": "GLOBE_REG50",
+          "discount": ""
         },
         {
           "isChecked": false,
-          "Denomination": "Bataan 2",
-          "TelcoTag": "Recommended",
-          "TelcoName": "Water Bill",
-          "ExtTag": "Recommended",
-          "discount": "194"
+          "Denomination": "99",
+          "TelcoTag": "Globe Go+99 Unli Texts",
+          "TelcoName": "Globe Telecom",
+          "ExtTag": "GOGO99",
+          "discount": "5% OFF"
         },
         {
           "isChecked": false,
-          "Denomination": "Bataan 3",
-          "TelcoTag": "Family friendly",
-          "TelcoName": "Internet Bill",
-          "ExtTag": "Family friendly",
-          "discount": "231"
+          "Denomination": "199",
+          "TelcoTag": "GoSURF199 8GB",
+          "TelcoName": "Globe Telecom",
+          "ExtTag": "GOSURF199",
+          "discount": ""
         },
         {
           "isChecked": false,
-          "Denomination": "Bataan 4",
-          "TelcoTag": "Top rated",
-          "TelcoName": "Phone Bill",
-          "ExtTag": "Top rated",
-          "discount": "268"
+          "Denomination": "300",
+          "TelcoTag": "Globe Regular Load",
+          "TelcoName": "Globe Telecom",
+          "ExtTag": "GLOBE_REG300",
+          "discount": ""
         },
         {
           "isChecked": false,
-          "Denomination": "Bataan 5",
-          "TelcoTag": "New",
-          "TelcoName": "Electricity Bill",
-          "ExtTag": "New",
-          "discount": "305"
+          "Denomination": "500",
+          "TelcoTag": "GoSURF500 15GB",
+          "TelcoName": "Globe Telecom",
+          "ExtTag": "GOSURF500",
+          "discount": "3% OFF"
+        },
+        {
+          "isChecked": false,
+          "Denomination": "1000",
+          "TelcoTag": "Globe Regular Load",
+          "TelcoName": "Globe Telecom",
+          "ExtTag": "GLOBE_REG1000",
+          "discount": ""
         }
       ]
     },
     {
-      "channelName": "Water Bill",
+      "channelName": "SMART",
       "channelItem": [
         {
           "isChecked": false,
-          "Denomination": "Bataan 1",
-          "TelcoTag": "Popular",
-          "TelcoName": "Electricity Bill",
-          "ExtTag": "Popular",
-          "discount": "157"
+          "Denomination": "50",
+          "TelcoTag": "Smart Regular Load",
+          "TelcoName": "Smart Communications",
+          "ExtTag": "SMART_REG50",
+          "discount": ""
         },
         {
           "isChecked": false,
-          "Denomination": "Bataan 2",
-          "TelcoTag": "Recommended",
-          "TelcoName": "Water Bill",
-          "ExtTag": "Recommended",
-          "discount": "194"
+          "Denomination": "75",
+          "TelcoTag": "GigaSurf75 2GB",
+          "TelcoName": "Smart Communications",
+          "ExtTag": "GIGA75",
+          "discount": ""
         },
         {
           "isChecked": false,
-          "Denomination": "Bataan 3",
-          "TelcoTag": "Family friendly",
-          "TelcoName": "Internet Bill",
-          "ExtTag": "Family friendly",
-          "discount": "231"
+          "Denomination": "149",
+          "TelcoTag": "AllNet149 Unli Call",
+          "TelcoName": "Smart Communications",
+          "ExtTag": "ALLNET149",
+          "discount": "5% OFF"
         },
         {
           "isChecked": false,
-          "Denomination": "Bataan 4",
-          "TelcoTag": "Top rated",
-          "TelcoName": "Phone Bill",
-          "ExtTag": "Top rated",
-          "discount": "268"
+          "Denomination": "299",
+          "TelcoTag": "GigaVideo299 10GB",
+          "TelcoName": "Smart Communications",
+          "ExtTag": "GIGA299",
+          "discount": ""
         },
         {
           "isChecked": false,
-          "Denomination": "Bataan 5",
-          "TelcoTag": "New",
-          "TelcoName": "Electricity Bill",
-          "ExtTag": "New",
-          "discount": "305"
+          "Denomination": "599",
+          "TelcoTag": "GigaPower599 24GB",
+          "TelcoName": "Smart Communications",
+          "ExtTag": "GIGA599",
+          "discount": ""
+        },
+        {
+          "isChecked": false,
+          "Denomination": "1000",
+          "TelcoTag": "Smart Regular Load",
+          "TelcoName": "Smart Communications",
+          "ExtTag": "SMART_REG1000",
+          "discount": "2% OFF"
         }
       ]
     },
     {
-      "channelName": "Internet Bill",
+      "channelName": "DITO",
       "channelItem": [
         {
           "isChecked": false,
-          "Denomination": "Bataan 1",
-          "TelcoTag": "Popular",
-          "TelcoName": "Electricity Bill",
-          "ExtTag": "Popular",
-          "discount": "157"
+          "Denomination": "50",
+          "TelcoTag": "DITO Regular Load",
+          "TelcoName": "DITO Telecommunity",
+          "ExtTag": "DITO_REG50",
+          "discount": ""
         },
         {
           "isChecked": false,
-          "Denomination": "Bataan 2",
-          "TelcoTag": "Recommended",
-          "TelcoName": "Water Bill",
-          "ExtTag": "Recommended",
-          "discount": "194"
+          "Denomination": "99",
+          "TelcoTag": "DITO Level 1 Plus",
+          "TelcoName": "DITO Telecommunity",
+          "ExtTag": "DITO_LVL1",
+          "discount": "8% OFF"
         },
         {
           "isChecked": false,
-          "Denomination": "Bataan 3",
-          "TelcoTag": "Family friendly",
-          "TelcoName": "Internet Bill",
-          "ExtTag": "Family friendly",
-          "discount": "231"
+          "Denomination": "199",
+          "TelcoTag": "DITO Level 2 Plus",
+          "TelcoName": "DITO Telecommunity",
+          "ExtTag": "DITO_LVL2",
+          "discount": ""
         },
         {
           "isChecked": false,
-          "Denomination": "Bataan 4",
-          "TelcoTag": "Top rated",
-          "TelcoName": "Phone Bill",
-          "ExtTag": "Top rated",
-          "discount": "268"
+          "Denomination": "299",
+          "TelcoTag": "DITO Level 3 Plus",
+          "TelcoName": "DITO Telecommunity",
+          "ExtTag": "DITO_LVL3",
+          "discount": ""
         },
         {
           "isChecked": false,
-          "Denomination": "Bataan 5",
-          "TelcoTag": "New",
-          "TelcoName": "Electricity Bill",
-          "ExtTag": "New",
-          "discount": "305"
-        }
-      ]
-    },
-    {
-      "channelName": "Phone Bill",
-      "channelItem": [
-        {
-          "isChecked": false,
-          "Denomination": "Bataan 1",
-          "TelcoTag": "Popular",
-          "TelcoName": "Electricity Bill",
-          "ExtTag": "Popular",
-          "discount": "157"
-        },
-        {
-          "isChecked": false,
-          "Denomination": "Bataan 2",
-          "TelcoTag": "Recommended",
-          "TelcoName": "Water Bill",
-          "ExtTag": "Recommended",
-          "discount": "194"
-        },
-        {
-          "isChecked": false,
-          "Denomination": "Bataan 3",
-          "TelcoTag": "Family friendly",
-          "TelcoName": "Internet Bill",
-          "ExtTag": "Family friendly",
-          "discount": "231"
-        },
-        {
-          "isChecked": false,
-          "Denomination": "Bataan 4",
-          "TelcoTag": "Top rated",
-          "TelcoName": "Phone Bill",
-          "ExtTag": "Top rated",
-          "discount": "268"
-        },
-        {
-          "isChecked": false,
-          "Denomination": "Bataan 5",
-          "TelcoTag": "New",
-          "TelcoName": "Electricity Bill",
-          "ExtTag": "New",
-          "discount": "305"
-        }
-      ]
-    },
-    {
-      "channelName": "Electricity Bill",
-      "channelItem": [
-        {
-          "isChecked": false,
-          "Denomination": "Bataan 1",
-          "TelcoTag": "Popular",
-          "TelcoName": "Electricity Bill",
-          "ExtTag": "Popular",
-          "discount": "157"
-        },
-        {
-          "isChecked": false,
-          "Denomination": "Bataan 2",
-          "TelcoTag": "Recommended",
-          "TelcoName": "Water Bill",
-          "ExtTag": "Recommended",
-          "discount": "194"
-        },
-        {
-          "isChecked": false,
-          "Denomination": "Bataan 3",
-          "TelcoTag": "Family friendly",
-          "TelcoName": "Internet Bill",
-          "ExtTag": "Family friendly",
-          "discount": "231"
-        },
-        {
-          "isChecked": false,
-          "Denomination": "Bataan 4",
-          "TelcoTag": "Top rated",
-          "TelcoName": "Phone Bill",
-          "ExtTag": "Top rated",
-          "discount": "268"
-        },
-        {
-          "isChecked": false,
-          "Denomination": "Bataan 5",
-          "TelcoTag": "New",
-          "TelcoName": "Electricity Bill",
-          "ExtTag": "New",
-          "discount": "305"
+          "Denomination": "499",
+          "TelcoTag": "DITO Level 4 Plus",
+          "TelcoName": "DITO Telecommunity",
+          "ExtTag": "DITO_LVL4",
+          "discount": "5% OFF"
         }
       ]
     }

@@ -3,50 +3,47 @@
   "message": "local mock",
   "data": {
     "order_data": {
-      "error_reason": "Bataan Bay Resort 1",
-      "id": 1,
-      "trade_no": "Bataan Bay Resort 1",
-      "price": 399.0,
-      "order_status": 1,
-      "created_at": "2026-10-20 10:30:00",
-      "remark": "Comfortable rooms, warm Filipino hospitality and easy access to the city.",
-      "is_cancel": false,
+      "error_reason": "",
+      "id": 1001,
+      "trade_no": "HTL20261105143208885",
+      "price": 798.0,
+      "order_status": 4,
+      "created_at": "2026-11-05 14:32:08",
+      "remark": "Arriving from Manila around 8 PM, please keep the booking open for late check-in.",
+      "is_cancel": true,
       "comment_status": 1
     },
     "payment_data": {
-      "payment_channel": "Bataan Bay Resort 1",
-      "bank_card_account": "157",
-      "bank_card_number": "Bataan Bay Resort 1"
+      "payment_channel": "GCash",
+      "bank_card_account": "Where Pay Collection Account",
+      "bank_card_number": "0917 555 0106"
     },
     "hotel_data": {
       "id": 1,
       "name": "Bataan Bay Resort",
       "images": [
         "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
+        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2"
       ],
-      "address": "Balanga City, Bataan",
+      "address": "Roma Street, Balanga City, Bataan",
       "mer_uuid": "demo-uuid-1",
       "mer_name": "Bataan Bay Resort",
-      "tel": "Bataan Bay Resort 1",
+      "tel": "0917 555 0101",
       "lat": 14.6005,
       "lng": 120.9852,
       "im_status": 1
     },
     "room_data": {
-      "name": "Bataan Bay Resort",
+      "name": "Deluxe Sea View Room",
       "room_num": 1,
       "breakfast_type": 1,
       "wifi_type": 1,
-      "room_type": "3",
-      "start_date": "2026-10-20 10:30:00",
-      "end_date": "2026-10-20 10:30:00",
+      "room_type": "1 Queen Bed",
+      "start_date": "2026-11-20",
+      "end_date": "2026-11-22",
       "username": "Juan Dela Cruz",
-      "phone": "0917 555 0101",
-      "days": 1
+      "phone": "0917 555 0102",
+      "days": 2
     }
   }
 }

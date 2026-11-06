@@ -2,10 +2,11 @@
   "code": 200,
   "message": "local mock",
   "data": [
-    "Bataan 1",
-    "Bataan 2",
-    "Bataan 3",
-    "Bataan 4",
-    "Bataan 5"
+    "Bataan General Hospital",
+    "Tutorial center",
+    "Driving school",
+    "Laundry service",
+    "Veterinary clinic",
+    "Barangay hall"
   ]
 }

@@ -4,32 +4,32 @@
   "data": [
     {
       "id": 1,
-      "educational_level": "Bataan 1",
-      "extend_title": "Balanga",
+      "educational_level": "Vocational Course",
+      "extend_title": "Course",
       "nativeSelected": false
     },
     {
       "id": 2,
-      "educational_level": "Bataan 2",
-      "extend_title": "Bataan",
+      "educational_level": "Associate Degree",
+      "extend_title": "Course",
       "nativeSelected": false
     },
     {
       "id": 3,
-      "educational_level": "Bataan 3",
-      "extend_title": "Mariveles",
-      "nativeSelected": false
+      "educational_level": "Bachelor's Degree",
+      "extend_title": "Course",
+      "nativeSelected": true
     },
     {
       "id": 4,
-      "educational_level": "Bataan 4",
-      "extend_title": "Dinalupihan",
+      "educational_level": "Master's Degree",
+      "extend_title": "Field of Study",
       "nativeSelected": false
     },
     {
       "id": 5,
-      "educational_level": "Bataan 5",
-      "extend_title": "Hermosa",
+      "educational_level": "Doctorate Degree",
+      "extend_title": "Field of Study",
       "nativeSelected": false
     }
   ]

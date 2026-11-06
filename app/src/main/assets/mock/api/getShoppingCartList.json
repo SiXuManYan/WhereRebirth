@@ -7,407 +7,63 @@
     "from": 1,
     "last_page": 1,
     "last_page_url": "https://1bataan.com",
-    "next_page_url": {},
+    "next_page_url": null,
     "path": "https://1bataan.com",
-    "per_page": 5,
-    "prev_page_url": {},
-    "to": 5,
-    "total": 5,
+    "per_page": 10,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1,
     "data": [
       {
-        "restaurant_id": 1,
-        "restaurant_name": "Seaside Grill",
+        "restaurant_id": "1",
+        "restaurant_name": "Inihaw ni Mang Rudy",
         "products": [
           {
-            "contentType": 1,
+            "contentType": 0,
             "cart_id": 1,
             "good_num": 1,
             "good_data": {
-              "id": 1,
-              "title": "SM City Bataan",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-              "price": 399.0,
-              "original_price": 399.0,
-              "inventory": "SM City Bataan 1"
+              "id": 101,
+              "title": "Inihaw na Liempo (Good for 2)",
+              "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
+              "price": 285.0,
+              "original_price": 320.0,
+              "inventory": "25"
             },
             "nativeIsSelect": false
           },
           {
-            "contentType": 2,
+            "contentType": 0,
             "cart_id": 2,
             "good_num": 2,
             "good_data": {
-              "id": 2,
-              "title": "Ayala Harbor Point",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-              "price": 499.0,
-              "original_price": 499.0,
-              "inventory": "SM City Bataan 2"
+              "id": 106,
+              "title": "Ensaladang Talong",
+              "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
+              "price": 95.0,
+              "original_price": 110.0,
+              "inventory": "30"
             },
             "nativeIsSelect": false
           },
           {
-            "contentType": 3,
+            "contentType": 0,
             "cart_id": 3,
-            "good_num": 3,
+            "good_num": 1,
             "good_data": {
-              "id": 3,
-              "title": "Robinsons Balanga",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-              "price": 599.0,
-              "original_price": 599.0,
-              "inventory": "SM City Bataan 3"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 4,
-            "cart_id": 4,
-            "good_num": 4,
-            "good_data": {
-              "id": 4,
-              "title": "Bataan Public Market",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-              "price": 699.0,
-              "original_price": 699.0,
-              "inventory": "SM City Bataan 4"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 5,
-            "cart_id": 5,
-            "good_num": 5,
-            "good_data": {
-              "id": 5,
-              "title": "The Strip Mall",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-              "price": 799.0,
-              "original_price": 799.0,
-              "inventory": "SM City Bataan 5"
+              "id": 107,
+              "title": "Halo-Halo Bataan",
+              "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
+              "price": 120.0,
+              "original_price": 135.0,
+              "inventory": "40"
             },
             "nativeIsSelect": false
           }
         ],
         "nativeIsSelect": false,
-        "nativeTotalPrice": 399.0,
-        "contentType": 1
-      },
-      {
-        "restaurant_id": 2,
-        "restaurant_name": "Jollibee Balanga",
-        "products": [
-          {
-            "contentType": 1,
-            "cart_id": 1,
-            "good_num": 1,
-            "good_data": {
-              "id": 1,
-              "title": "SM City Bataan",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-              "price": 399.0,
-              "original_price": 399.0,
-              "inventory": "SM City Bataan 1"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 2,
-            "cart_id": 2,
-            "good_num": 2,
-            "good_data": {
-              "id": 2,
-              "title": "Ayala Harbor Point",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-              "price": 499.0,
-              "original_price": 499.0,
-              "inventory": "SM City Bataan 2"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 3,
-            "cart_id": 3,
-            "good_num": 3,
-            "good_data": {
-              "id": 3,
-              "title": "Robinsons Balanga",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-              "price": 599.0,
-              "original_price": 599.0,
-              "inventory": "SM City Bataan 3"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 4,
-            "cart_id": 4,
-            "good_num": 4,
-            "good_data": {
-              "id": 4,
-              "title": "Bataan Public Market",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-              "price": 699.0,
-              "original_price": 699.0,
-              "inventory": "SM City Bataan 4"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 5,
-            "cart_id": 5,
-            "good_num": 5,
-            "good_data": {
-              "id": 5,
-              "title": "The Strip Mall",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-              "price": 799.0,
-              "original_price": 799.0,
-              "inventory": "SM City Bataan 5"
-            },
-            "nativeIsSelect": false
-          }
-        ],
-        "nativeIsSelect": false,
-        "nativeTotalPrice": 499.0,
-        "contentType": 2
-      },
-      {
-        "restaurant_id": 3,
-        "restaurant_name": "Cafe Bataan",
-        "products": [
-          {
-            "contentType": 1,
-            "cart_id": 1,
-            "good_num": 1,
-            "good_data": {
-              "id": 1,
-              "title": "SM City Bataan",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-              "price": 399.0,
-              "original_price": 399.0,
-              "inventory": "SM City Bataan 1"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 2,
-            "cart_id": 2,
-            "good_num": 2,
-            "good_data": {
-              "id": 2,
-              "title": "Ayala Harbor Point",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-              "price": 499.0,
-              "original_price": 499.0,
-              "inventory": "SM City Bataan 2"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 3,
-            "cart_id": 3,
-            "good_num": 3,
-            "good_data": {
-              "id": 3,
-              "title": "Robinsons Balanga",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-              "price": 599.0,
-              "original_price": 599.0,
-              "inventory": "SM City Bataan 3"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 4,
-            "cart_id": 4,
-            "good_num": 4,
-            "good_data": {
-              "id": 4,
-              "title": "Bataan Public Market",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-              "price": 699.0,
-              "original_price": 699.0,
-              "inventory": "SM City Bataan 4"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 5,
-            "cart_id": 5,
-            "good_num": 5,
-            "good_data": {
-              "id": 5,
-              "title": "The Strip Mall",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-              "price": 799.0,
-              "original_price": 799.0,
-              "inventory": "SM City Bataan 5"
-            },
-            "nativeIsSelect": false
-          }
-        ],
-        "nativeIsSelect": false,
-        "nativeTotalPrice": 599.0,
-        "contentType": 3
-      },
-      {
-        "restaurant_id": 4,
-        "restaurant_name": "Mang Inasal",
-        "products": [
-          {
-            "contentType": 1,
-            "cart_id": 1,
-            "good_num": 1,
-            "good_data": {
-              "id": 1,
-              "title": "SM City Bataan",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-              "price": 399.0,
-              "original_price": 399.0,
-              "inventory": "SM City Bataan 1"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 2,
-            "cart_id": 2,
-            "good_num": 2,
-            "good_data": {
-              "id": 2,
-              "title": "Ayala Harbor Point",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-              "price": 499.0,
-              "original_price": 499.0,
-              "inventory": "SM City Bataan 2"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 3,
-            "cart_id": 3,
-            "good_num": 3,
-            "good_data": {
-              "id": 3,
-              "title": "Robinsons Balanga",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-              "price": 599.0,
-              "original_price": 599.0,
-              "inventory": "SM City Bataan 3"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 4,
-            "cart_id": 4,
-            "good_num": 4,
-            "good_data": {
-              "id": 4,
-              "title": "Bataan Public Market",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-              "price": 699.0,
-              "original_price": 699.0,
-              "inventory": "SM City Bataan 4"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 5,
-            "cart_id": 5,
-            "good_num": 5,
-            "good_data": {
-              "id": 5,
-              "title": "The Strip Mall",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-              "price": 799.0,
-              "original_price": 799.0,
-              "inventory": "SM City Bataan 5"
-            },
-            "nativeIsSelect": false
-          }
-        ],
-        "nativeIsSelect": false,
-        "nativeTotalPrice": 699.0,
-        "contentType": 4
-      },
-      {
-        "restaurant_id": 5,
-        "restaurant_name": "Lola\u0027s Kitchen",
-        "products": [
-          {
-            "contentType": 1,
-            "cart_id": 1,
-            "good_num": 1,
-            "good_data": {
-              "id": 1,
-              "title": "SM City Bataan",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-              "price": 399.0,
-              "original_price": 399.0,
-              "inventory": "SM City Bataan 1"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 2,
-            "cart_id": 2,
-            "good_num": 2,
-            "good_data": {
-              "id": 2,
-              "title": "Ayala Harbor Point",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-              "price": 499.0,
-              "original_price": 499.0,
-              "inventory": "SM City Bataan 2"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 3,
-            "cart_id": 3,
-            "good_num": 3,
-            "good_data": {
-              "id": 3,
-              "title": "Robinsons Balanga",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-              "price": 599.0,
-              "original_price": 599.0,
-              "inventory": "SM City Bataan 3"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 4,
-            "cart_id": 4,
-            "good_num": 4,
-            "good_data": {
-              "id": 4,
-              "title": "Bataan Public Market",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-              "price": 699.0,
-              "original_price": 699.0,
-              "inventory": "SM City Bataan 4"
-            },
-            "nativeIsSelect": false
-          },
-          {
-            "contentType": 5,
-            "cart_id": 5,
-            "good_num": 5,
-            "good_data": {
-              "id": 5,
-              "title": "The Strip Mall",
-              "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-              "price": 799.0,
-              "original_price": 799.0,
-              "inventory": "SM City Bataan 5"
-            },
-            "nativeIsSelect": false
-          }
-        ],
-        "nativeIsSelect": false,
-        "nativeTotalPrice": 799.0,
-        "contentType": 5
+        "nativeTotalPrice": null,
+        "contentType": 0
       }
     ]
   }

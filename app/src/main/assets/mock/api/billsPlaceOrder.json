@@ -3,9 +3,9 @@
   "message": "local mock",
   "data": {
     "order": {
-      "id": 1,
-      "trade_no": "Bataan 1"
+      "id": 601,
+      "trade_no": "BILL20261107094215601"
     },
-    "total_price": 399.0
+    "total_price": 1150.00
   }
 }

@@ -3,15 +3,15 @@
   "message": "local mock",
   "data": {
     "id": 1,
-    "title": "SM City Bataan",
+    "title": "Bataan Pasalubong Center",
     "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-    "logo": "android.resource://com.jiechengsheng.city/drawable/ic_module_mall",
-    "desc": "Everything you need in one convenient place.",
+    "logo": "android.resource://com.jiechengsheng.city/drawable/mock_logo",
+    "desc": "One-stop pasalubong shop along Roman Highway, Balanga. Handwoven bags, capiz keepsakes and Bataan's favorite delicacies since 2015.",
     "status": 1,
     "collect_status": 1,
-    "address": "Balanga City, Bataan",
-    "qualification": "SM City Bataan 1",
-    "nickname": "SM City Bataan",
-    "collect_count": 157
+    "address": "Roman Highway, Balanga City, Bataan",
+    "qualification": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+    "nickname": "Liza Rivera",
+    "collect_count": 358
   }
 }

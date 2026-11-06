@@ -3,279 +3,228 @@
   "message": "local mock",
   "data": [
     {
-      "BillerTag": "Popular",
-      "Description": "A local demo record for Where Rebirth.",
-      "Category": "Bataan 1",
+      "BillerTag": "MERALCO",
+      "Description": "Manila Electric Company",
+      "Category": "Electric Utility",
       "FieldDetails": [
         {
-          "Tag": "Popular",
-          "Caption": "Bataan 1",
-          "Format": "Bataan 1",
-          "Width": 1,
-          "nativeUserInput": "Juan Dela Cruz 1",
-          "nativeCache": "Bataan 1",
+          "Tag": "First Field",
+          "Caption": "10-11 Digit Account Number",
+          "Format": "Numeric",
+          "Width": 11,
+          "nativeUserInput": "",
+          "nativeCache": "",
           "lengthOver": false
         },
         {
-          "Tag": "Recommended",
-          "Caption": "Bataan 2",
-          "Format": "Bataan 2",
-          "Width": 2,
-          "nativeUserInput": "Juan Dela Cruz 2",
-          "nativeCache": "Bataan 2",
-          "lengthOver": false
-        },
-        {
-          "Tag": "Family friendly",
-          "Caption": "Bataan 3",
-          "Format": "Bataan 3",
-          "Width": 3,
-          "nativeUserInput": "Juan Dela Cruz 3",
-          "nativeCache": "Bataan 3",
-          "lengthOver": false
-        },
-        {
-          "Tag": "Top rated",
-          "Caption": "Bataan 4",
-          "Format": "Bataan 4",
-          "Width": 4,
-          "nativeUserInput": "Juan Dela Cruz 4",
-          "nativeCache": "Bataan 4",
-          "lengthOver": false
-        },
-        {
-          "Tag": "New",
-          "Caption": "Bataan 5",
-          "Format": "Bataan 5",
-          "Width": 5,
-          "nativeUserInput": "Juan Dela Cruz 5",
-          "nativeCache": "Bataan 5",
+          "Tag": "Second Field",
+          "Caption": "Customer Name",
+          "Format": "AlphaNumeric",
+          "Width": 30,
+          "nativeUserInput": "",
+          "nativeCache": "",
           "lengthOver": false
         }
       ],
-      "Remarks": "A local demo record for Where Rebirth.",
-      "Status": false,
-      "ServiceCharge": 1.0
+      "Remarks": "Payments are accepted on or before the bill due date. Accounts with a disconnection notice must be settled before 5:00 PM of the same day.",
+      "Status": true,
+      "ServiceCharge": 15.0
     },
     {
-      "BillerTag": "Recommended",
-      "Description": "A local demo record for Where Rebirth.",
-      "Category": "Bataan 2",
+      "BillerTag": "MAYNILAD",
+      "Description": "Maynilad Water Services",
+      "Category": "Water Utility",
       "FieldDetails": [
         {
-          "Tag": "Popular",
-          "Caption": "Bataan 1",
-          "Format": "Bataan 1",
-          "Width": 1,
-          "nativeUserInput": "Juan Dela Cruz 1",
-          "nativeCache": "Bataan 1",
+          "Tag": "First Field",
+          "Caption": "8 Digit Contract Number",
+          "Format": "Numeric",
+          "Width": 8,
+          "nativeUserInput": "",
+          "nativeCache": "",
           "lengthOver": false
         },
         {
-          "Tag": "Recommended",
-          "Caption": "Bataan 2",
-          "Format": "Bataan 2",
-          "Width": 2,
-          "nativeUserInput": "Juan Dela Cruz 2",
-          "nativeCache": "Bataan 2",
-          "lengthOver": false
-        },
-        {
-          "Tag": "Family friendly",
-          "Caption": "Bataan 3",
-          "Format": "Bataan 3",
-          "Width": 3,
-          "nativeUserInput": "Juan Dela Cruz 3",
-          "nativeCache": "Bataan 3",
-          "lengthOver": false
-        },
-        {
-          "Tag": "Top rated",
-          "Caption": "Bataan 4",
-          "Format": "Bataan 4",
-          "Width": 4,
-          "nativeUserInput": "Juan Dela Cruz 4",
-          "nativeCache": "Bataan 4",
-          "lengthOver": false
-        },
-        {
-          "Tag": "New",
-          "Caption": "Bataan 5",
-          "Format": "Bataan 5",
-          "Width": 5,
-          "nativeUserInput": "Juan Dela Cruz 5",
-          "nativeCache": "Bataan 5",
+          "Tag": "Second Field",
+          "Caption": "Customer Name",
+          "Format": "AlphaNumeric",
+          "Width": 30,
+          "nativeUserInput": "",
+          "nativeCache": "",
           "lengthOver": false
         }
       ],
-      "Remarks": "A local demo record for Where Rebirth.",
-      "Status": false,
-      "ServiceCharge": 2.0
+      "Remarks": "Pay on or before the due date to avoid surcharges. Reconnection requests are processed within 24 hours after a successful payment.",
+      "Status": true,
+      "ServiceCharge": 15.0
     },
     {
-      "BillerTag": "Family friendly",
-      "Description": "A local demo record for Where Rebirth.",
-      "Category": "Bataan 3",
+      "BillerTag": "BALANGA_WATER",
+      "Description": "Balanga Water District",
+      "Category": "Water Utility",
       "FieldDetails": [
         {
-          "Tag": "Popular",
-          "Caption": "Bataan 1",
-          "Format": "Bataan 1",
-          "Width": 1,
-          "nativeUserInput": "Juan Dela Cruz 1",
-          "nativeCache": "Bataan 1",
+          "Tag": "First Field",
+          "Caption": "10-11 Digit Account Number",
+          "Format": "Numeric",
+          "Width": 11,
+          "nativeUserInput": "",
+          "nativeCache": "",
           "lengthOver": false
         },
         {
-          "Tag": "Recommended",
-          "Caption": "Bataan 2",
-          "Format": "Bataan 2",
-          "Width": 2,
-          "nativeUserInput": "Juan Dela Cruz 2",
-          "nativeCache": "Bataan 2",
-          "lengthOver": false
-        },
-        {
-          "Tag": "Family friendly",
-          "Caption": "Bataan 3",
-          "Format": "Bataan 3",
-          "Width": 3,
-          "nativeUserInput": "Juan Dela Cruz 3",
-          "nativeCache": "Bataan 3",
-          "lengthOver": false
-        },
-        {
-          "Tag": "Top rated",
-          "Caption": "Bataan 4",
-          "Format": "Bataan 4",
-          "Width": 4,
-          "nativeUserInput": "Juan Dela Cruz 4",
-          "nativeCache": "Bataan 4",
-          "lengthOver": false
-        },
-        {
-          "Tag": "New",
-          "Caption": "Bataan 5",
-          "Format": "Bataan 5",
-          "Width": 5,
-          "nativeUserInput": "Juan Dela Cruz 5",
-          "nativeCache": "Bataan 5",
+          "Tag": "Second Field",
+          "Caption": "Customer Name",
+          "Format": "AlphaNumeric",
+          "Width": 30,
+          "nativeUserInput": "",
+          "nativeCache": "",
           "lengthOver": false
         }
       ],
-      "Remarks": "A local demo record for Where Rebirth.",
-      "Status": false,
-      "ServiceCharge": 3.0
+      "Remarks": "Payments can be accepted on or before due date. Due date is accepted until 4:00 PM only. After the due date and with penalty, please settle at the Balanga Water office.",
+      "Status": true,
+      "ServiceCharge": 10.0
     },
     {
-      "BillerTag": "Top rated",
-      "Description": "A local demo record for Where Rebirth.",
-      "Category": "Bataan 4",
+      "BillerTag": "BATELEC_1",
+      "Description": "Bataan Electric Cooperative I",
+      "Category": "Electric Utility",
       "FieldDetails": [
         {
-          "Tag": "Popular",
-          "Caption": "Bataan 1",
-          "Format": "Bataan 1",
-          "Width": 1,
-          "nativeUserInput": "Juan Dela Cruz 1",
-          "nativeCache": "Bataan 1",
+          "Tag": "First Field",
+          "Caption": "10 Digit Consumer Number",
+          "Format": "Numeric",
+          "Width": 10,
+          "nativeUserInput": "",
+          "nativeCache": "",
           "lengthOver": false
         },
         {
-          "Tag": "Recommended",
-          "Caption": "Bataan 2",
-          "Format": "Bataan 2",
-          "Width": 2,
-          "nativeUserInput": "Juan Dela Cruz 2",
-          "nativeCache": "Bataan 2",
-          "lengthOver": false
-        },
-        {
-          "Tag": "Family friendly",
-          "Caption": "Bataan 3",
-          "Format": "Bataan 3",
-          "Width": 3,
-          "nativeUserInput": "Juan Dela Cruz 3",
-          "nativeCache": "Bataan 3",
-          "lengthOver": false
-        },
-        {
-          "Tag": "Top rated",
-          "Caption": "Bataan 4",
-          "Format": "Bataan 4",
-          "Width": 4,
-          "nativeUserInput": "Juan Dela Cruz 4",
-          "nativeCache": "Bataan 4",
-          "lengthOver": false
-        },
-        {
-          "Tag": "New",
-          "Caption": "Bataan 5",
-          "Format": "Bataan 5",
-          "Width": 5,
-          "nativeUserInput": "Juan Dela Cruz 5",
-          "nativeCache": "Bataan 5",
+          "Tag": "Second Field",
+          "Caption": "Registered Consumer Name",
+          "Format": "AlphaNumeric",
+          "Width": 30,
+          "nativeUserInput": "",
+          "nativeCache": "",
           "lengthOver": false
         }
       ],
-      "Remarks": "A local demo record for Where Rebirth.",
-      "Status": false,
-      "ServiceCharge": 4.0
+      "Remarks": "Covers Mariveles, Limay, and Orion. Payments posted on or before the due date are exempt from the 1% monthly penalty.",
+      "Status": true,
+      "ServiceCharge": 12.0
     },
     {
-      "BillerTag": "New",
-      "Description": "A local demo record for Where Rebirth.",
-      "Category": "Bataan 5",
+      "BillerTag": "BATELEC_2",
+      "Description": "Bataan Electric Cooperative II",
+      "Category": "Electric Utility",
       "FieldDetails": [
         {
-          "Tag": "Popular",
-          "Caption": "Bataan 1",
-          "Format": "Bataan 1",
-          "Width": 1,
-          "nativeUserInput": "Juan Dela Cruz 1",
-          "nativeCache": "Bataan 1",
+          "Tag": "First Field",
+          "Caption": "10 Digit Consumer Number",
+          "Format": "Numeric",
+          "Width": 10,
+          "nativeUserInput": "",
+          "nativeCache": "",
           "lengthOver": false
         },
         {
-          "Tag": "Recommended",
-          "Caption": "Bataan 2",
-          "Format": "Bataan 2",
-          "Width": 2,
-          "nativeUserInput": "Juan Dela Cruz 2",
-          "nativeCache": "Bataan 2",
-          "lengthOver": false
-        },
-        {
-          "Tag": "Family friendly",
-          "Caption": "Bataan 3",
-          "Format": "Bataan 3",
-          "Width": 3,
-          "nativeUserInput": "Juan Dela Cruz 3",
-          "nativeCache": "Bataan 3",
-          "lengthOver": false
-        },
-        {
-          "Tag": "Top rated",
-          "Caption": "Bataan 4",
-          "Format": "Bataan 4",
-          "Width": 4,
-          "nativeUserInput": "Juan Dela Cruz 4",
-          "nativeCache": "Bataan 4",
-          "lengthOver": false
-        },
-        {
-          "Tag": "New",
-          "Caption": "Bataan 5",
-          "Format": "Bataan 5",
-          "Width": 5,
-          "nativeUserInput": "Juan Dela Cruz 5",
-          "nativeCache": "Bataan 5",
+          "Tag": "Second Field",
+          "Caption": "Registered Consumer Name",
+          "Format": "AlphaNumeric",
+          "Width": 30,
+          "nativeUserInput": "",
+          "nativeCache": "",
           "lengthOver": false
         }
       ],
-      "Remarks": "A local demo record for Where Rebirth.",
-      "Status": false,
-      "ServiceCharge": 5.0
+      "Remarks": "Serves Balanga, Pilar, Orion, and Morong. Settle disconnected accounts at any BATELEC II branch to restore service the same day.",
+      "Status": true,
+      "ServiceCharge": 12.0
+    },
+    {
+      "BillerTag": "CONVERGE",
+      "Description": "Converge ICT FiberX",
+      "Category": "Internet Utility",
+      "FieldDetails": [
+        {
+          "Tag": "First Field",
+          "Caption": "13 Digit Account Number",
+          "Format": "Numeric",
+          "Width": 13,
+          "nativeUserInput": "",
+          "nativeCache": "",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Second Field",
+          "Caption": "Subscriber Full Name",
+          "Format": "AlphaNumeric",
+          "Width": 30,
+          "nativeUserInput": "",
+          "nativeCache": "",
+          "lengthOver": false
+        }
+      ],
+      "Remarks": "FiberX and PureFiber subscribers may pay monthly dues anytime. Plans are restored within 2 hours after payment confirmation.",
+      "Status": true,
+      "ServiceCharge": 15.0
+    },
+    {
+      "BillerTag": "PLDT",
+      "Description": "PLDT Home Fiber",
+      "Category": "Internet Utility",
+      "FieldDetails": [
+        {
+          "Tag": "First Field",
+          "Caption": "10 Digit Account Number",
+          "Format": "Numeric",
+          "Width": 10,
+          "nativeUserInput": "",
+          "nativeCache": "",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Second Field",
+          "Caption": "Account Name",
+          "Format": "AlphaNumeric",
+          "Width": 30,
+          "nativeUserInput": "",
+          "nativeCache": "",
+          "lengthOver": false
+        }
+      ],
+      "Remarks": "Payments are posted within 2 hours. For disconnected Fibr lines, settle the full balance including the ₱200 reconnection fee.",
+      "Status": true,
+      "ServiceCharge": 15.0
+    },
+    {
+      "BillerTag": "SKYBROADBAND",
+      "Description": "SKY Broadband Bataan",
+      "Category": "Internet Utility",
+      "FieldDetails": [
+        {
+          "Tag": "First Field",
+          "Caption": "12 Digit SKY Account Number",
+          "Format": "Numeric",
+          "Width": 12,
+          "nativeUserInput": "",
+          "nativeCache": "",
+          "lengthOver": false
+        },
+        {
+          "Tag": "Second Field",
+          "Caption": "Subscriber Name",
+          "Format": "AlphaNumeric",
+          "Width": 30,
+          "nativeUserInput": "",
+          "nativeCache": "",
+          "lengthOver": false
+        }
+      ],
+      "Remarks": "Accepts payments for SKY Fiber and cable bills. Statements of account are released every 5th of the month.",
+      "Status": true,
+      "ServiceCharge": 15.0
     }
   ]
 }

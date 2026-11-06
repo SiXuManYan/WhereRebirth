@@ -2,14 +2,14 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "id": 1,
-    "title": "Seaside Grill",
+    "id": 101,
+    "title": "Inihaw na Liempo (Good for 2)",
     "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-    "sale_num": "Seaside Grill 1",
-    "price": 399.0,
-    "original_price": 399.0,
-    "meals": "Seaside Grill 1",
-    "rule": "Seaside Grill 1",
-    "inventory": "Seaside Grill 1"
+    "sale_num": "312",
+    "price": 285.0,
+    "original_price": 320.0,
+    "meals": "Half-kilo pork belly marinated overnight in calamansi, soy sauce and lemongrass, grilled over coconut husk charcoal. Served with garlic rice, atchara and spiced vinegar dip.",
+    "rule": "Price is good for 2-3 persons. Available for dine-in and takeaway. Full payment is required before queueing; unused vouchers are refundable within the validity period.",
+    "inventory": "25"
   }
 }

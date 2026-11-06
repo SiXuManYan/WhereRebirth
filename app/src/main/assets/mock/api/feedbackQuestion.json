@@ -3,29 +3,44 @@
   "message": "local mock",
   "data": [
     {
-      "id": 1,
-      "name": "Balanga",
-      "website": "Bataan 1"
+      "id": 101,
+      "name": "How do I reset my password?",
+      "website": "data:text/html;charset=utf-8,%3C%21DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2Cinitial-scale%3D1%22%3E%3Cstyle%3Ebody%7Bfont-family%3Asans-serif%3Bmargin%3A0%3Bpadding%3A20px%3Bbackground%3A%23fff%3Bcolor%3A%23222%7Dh2%7Bfont-size%3A19px%3Bmargin%3A0%200%206px%7D.meta%7Bcolor%3A%238a8a8a%3Bfont-size%3A13px%3Bmargin%3A0%200%2016px%7Dp%7Bfont-size%3A15px%3Bline-height%3A1.65%3Bmargin%3A0%200%2012px%7D%3C%2Fstyle%3E%3C%2Fhead%3E%3Cbody%3E%3Ch2%3EHow%20do%20I%20reset%20my%20password%3F%3C%2Fh2%3E%3Cdiv%20class%3D%22meta%22%3E1Bataan%20Help%20Center%20%26middot%3B%20Updated%20November%202026%3C%2Fdiv%3E%3Cp%3EOn%20the%20login%20page%2C%20tap%20Forgot%20password%20and%20enter%20the%20mobile%20number%20registered%20with%20your%201Bataan%20account.%3C%2Fp%3E%3Cp%3EWe%20will%20send%20a%206-digit%20verification%20code%20by%20SMS.%20Enter%20the%20code%2C%20set%20a%20new%20password%2C%20and%20sign%20in%20again.%20The%20code%20is%20valid%20for%2010%20minutes.%3C%2Fp%3E%3Cp%3EStill%20locked%20out%3F%20Call%20our%20support%20line%20at%200917%20555%200100%20%28Mon-Sat%2C%209%3A00-18%3A00%29.%3C%2Fp%3E%3C%2Fbody%3E%3C%2Fhtml%3E"
     },
     {
-      "id": 2,
-      "name": "Bataan",
-      "website": "Bataan 2"
+      "id": 102,
+      "name": "What payment methods are accepted?",
+      "website": "data:text/html;charset=utf-8,%3C%21DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2Cinitial-scale%3D1%22%3E%3Cstyle%3Ebody%7Bfont-family%3Asans-serif%3Bmargin%3A0%3Bpadding%3A20px%3Bbackground%3A%23fff%3Bcolor%3A%23222%7Dh2%7Bfont-size%3A19px%3Bmargin%3A0%200%206px%7D.meta%7Bcolor%3A%238a8a8a%3Bfont-size%3A13px%3Bmargin%3A0%200%2016px%7Dp%7Bfont-size%3A15px%3Bline-height%3A1.65%3Bmargin%3A0%200%2012px%7D%3C%2Fstyle%3E%3C%2Fhead%3E%3Cbody%3E%3Ch2%3EWhat%20payment%20methods%20are%20accepted%3F%3C%2Fh2%3E%3Cdiv%20class%3D%22meta%22%3E1Bataan%20Help%20Center%20%26middot%3B%20Updated%20November%202026%3C%2Fdiv%3E%3Cp%3E1Bataan%20accepts%20GCash%2C%20Maya%2C%20bank%20transfer%2C%20over-the-counter%20payments%20at%20partner%20remittance%20centers%2C%20and%20cash%20on%20delivery%20for%20select%20merchants.%3C%2Fp%3E%3Cp%3EWallet%20payments%20are%20confirmed%20instantly.%20Over-the-counter%20payments%20take%20up%20to%2030%20minutes%20to%20appear%20in%20your%20order%20status.%3C%2Fp%3E%3Cp%3EAll%20amounts%20are%20shown%20in%20Philippine%20pesos%20%28PHP%29.%3C%2Fp%3E%3C%2Fbody%3E%3C%2Fhtml%3E"
     },
     {
-      "id": 3,
-      "name": "Mariveles",
-      "website": "Bataan 3"
+      "id": 103,
+      "name": "How do I cancel a hotel booking?",
+      "website": "data:text/html;charset=utf-8,%3C%21DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2Cinitial-scale%3D1%22%3E%3Cstyle%3Ebody%7Bfont-family%3Asans-serif%3Bmargin%3A0%3Bpadding%3A20px%3Bbackground%3A%23fff%3Bcolor%3A%23222%7Dh2%7Bfont-size%3A19px%3Bmargin%3A0%200%206px%7D.meta%7Bcolor%3A%238a8a8a%3Bfont-size%3A13px%3Bmargin%3A0%200%2016px%7Dp%7Bfont-size%3A15px%3Bline-height%3A1.65%3Bmargin%3A0%200%2012px%7D%3C%2Fstyle%3E%3C%2Fhead%3E%3Cbody%3E%3Ch2%3EHow%20do%20I%20cancel%20a%20hotel%20booking%3F%3C%2Fh2%3E%3Cdiv%20class%3D%22meta%22%3E1Bataan%20Help%20Center%20%26middot%3B%20Updated%20November%202026%3C%2Fdiv%3E%3Cp%3EGo%20to%20My%20Orders%2C%20open%20the%20hotel%20order%2C%20and%20tap%20Cancel%20order.%20Free%20cancellation%20applies%20up%20to%2024%20hours%20before%20the%20check-in%20date.%3C%2Fp%3E%3Cp%3ECancellations%20within%2024%20hours%20of%20check-in%20may%20be%20charged%20one%20night%2C%20unless%20the%20resort%20policy%20states%20otherwise.%20The%20policy%20is%20shown%20on%20every%20room%20card.%3C%2Fp%3E%3Cp%3EApproved%20refunds%20are%20returned%20to%20the%20original%20payment%20method%20within%203-5%20banking%20days.%3C%2Fp%3E%3C%2Fbody%3E%3C%2Fhtml%3E"
     },
     {
-      "id": 4,
-      "name": "Dinalupihan",
-      "website": "Bataan 4"
+      "id": 104,
+      "name": "When will my refund be processed?",
+      "website": "data:text/html;charset=utf-8,%3C%21DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2Cinitial-scale%3D1%22%3E%3Cstyle%3Ebody%7Bfont-family%3Asans-serif%3Bmargin%3A0%3Bpadding%3A20px%3Bbackground%3A%23fff%3Bcolor%3A%23222%7Dh2%7Bfont-size%3A19px%3Bmargin%3A0%200%206px%7D.meta%7Bcolor%3A%238a8a8a%3Bfont-size%3A13px%3Bmargin%3A0%200%2016px%7Dp%7Bfont-size%3A15px%3Bline-height%3A1.65%3Bmargin%3A0%200%2012px%7D%3C%2Fstyle%3E%3C%2Fhead%3E%3Cbody%3E%3Ch2%3EWhen%20will%20my%20refund%20be%20processed%3F%3C%2Fh2%3E%3Cdiv%20class%3D%22meta%22%3E1Bataan%20Help%20Center%20%26middot%3B%20Updated%20November%202026%3C%2Fdiv%3E%3Cp%3EAfter%20a%20refund%20is%20approved%20by%20the%20merchant%2C%20it%20enters%20processing%20on%20the%20same%20day%20for%20e-wallets%20and%20within%201-2%20days%20for%20bank%20payments.%3C%2Fp%3E%3Cp%3EE-wallet%20refunds%20usually%20arrive%20within%2024%20hours%3B%20bank%20and%20card%20refunds%20take%203-5%20banking%20days%20depending%20on%20your%20bank.%3C%2Fp%3E%3Cp%3EYou%20can%20track%20the%20status%20under%20My%20Orders%20%3E%20Refund%2FAfter-sales.%3C%2Fp%3E%3C%2Fbody%3E%3C%2Fhtml%3E"
     },
     {
-      "id": 5,
-      "name": "Hermosa",
-      "website": "Bataan 5"
+      "id": 105,
+      "name": "How do I redeem a coupon?",
+      "website": "data:text/html;charset=utf-8,%3C%21DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2Cinitial-scale%3D1%22%3E%3Cstyle%3Ebody%7Bfont-family%3Asans-serif%3Bmargin%3A0%3Bpadding%3A20px%3Bbackground%3A%23fff%3Bcolor%3A%23222%7Dh2%7Bfont-size%3A19px%3Bmargin%3A0%200%206px%7D.meta%7Bcolor%3A%238a8a8a%3Bfont-size%3A13px%3Bmargin%3A0%200%2016px%7Dp%7Bfont-size%3A15px%3Bline-height%3A1.65%3Bmargin%3A0%200%2012px%7D%3C%2Fstyle%3E%3C%2Fhead%3E%3Cbody%3E%3Ch2%3EHow%20do%20I%20redeem%20a%20coupon%3F%3C%2Fh2%3E%3Cdiv%20class%3D%22meta%22%3E1Bataan%20Help%20Center%20%26middot%3B%20Updated%20November%202026%3C%2Fdiv%3E%3Cp%3ECollect%20coupons%20from%20the%20Coupon%20Center%20on%20the%20home%20page%2C%20or%20from%20a%20store%20or%20resort%20page%20marked%20with%20a%20coupon%20tag.%3C%2Fp%3E%3Cp%3EAt%20checkout%2C%20open%20the%20coupon%20list%20and%20pick%20one%20that%20meets%20the%20order%20requirement.%20One%20coupon%20applies%20per%20order.%3C%2Fp%3E%3Cp%3EExpired%20or%20used%20coupons%20are%20moved%20to%20the%20bottom%20of%20the%20list%20automatically.%3C%2Fp%3E%3C%2Fbody%3E%3C%2Fhtml%3E"
+    },
+    {
+      "id": 106,
+      "name": "Why can't I find a hotel or restaurant?",
+      "website": "data:text/html;charset=utf-8,%3C%21DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2Cinitial-scale%3D1%22%3E%3Cstyle%3Ebody%7Bfont-family%3Asans-serif%3Bmargin%3A0%3Bpadding%3A20px%3Bbackground%3A%23fff%3Bcolor%3A%23222%7Dh2%7Bfont-size%3A19px%3Bmargin%3A0%200%206px%7D.meta%7Bcolor%3A%238a8a8a%3Bfont-size%3A13px%3Bmargin%3A0%200%2016px%7Dp%7Bfont-size%3A15px%3Bline-height%3A1.65%3Bmargin%3A0%200%2012px%7D%3C%2Fstyle%3E%3C%2Fhead%3E%3Cbody%3E%3Ch2%3EWhy%20can%27t%20I%20find%20a%20hotel%20or%20restaurant%3F%3C%2Fh2%3E%3Cdiv%20class%3D%22meta%22%3E1Bataan%20Help%20Center%20%26middot%3B%20Updated%20November%202026%3C%2Fdiv%3E%3Cp%3ECheck%20the%20city%20filter%20at%20the%20top%20of%20the%20search%20page%20-%20it%20may%20be%20set%20to%20another%20town%20such%20as%20Mariveles%20while%20the%20place%20you%20want%20is%20in%20Balanga.%3C%2Fp%3E%3Cp%3EClear%20the%20keyword%20and%20browse%20by%20module%20instead%2C%20or%20try%20a%20shorter%20keyword%20such%20as%20resort%20instead%20of%20the%20full%20business%20name.%3C%2Fp%3E%3Cp%3EA%20business%20that%20recently%20opened%20may%20not%20be%20listed%20yet.%20Merchants%20can%20send%20their%20details%20through%20Business%20%26%20Partnership.%3C%2Fp%3E%3C%2Fbody%3E%3C%2Fhtml%3E"
+    },
+    {
+      "id": 107,
+      "name": "How do I apply for jobs on 1Bataan?",
+      "website": "data:text/html;charset=utf-8,%3C%21DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2Cinitial-scale%3D1%22%3E%3Cstyle%3Ebody%7Bfont-family%3Asans-serif%3Bmargin%3A0%3Bpadding%3A20px%3Bbackground%3A%23fff%3Bcolor%3A%23222%7Dh2%7Bfont-size%3A19px%3Bmargin%3A0%200%206px%7D.meta%7Bcolor%3A%238a8a8a%3Bfont-size%3A13px%3Bmargin%3A0%200%2016px%7Dp%7Bfont-size%3A15px%3Bline-height%3A1.65%3Bmargin%3A0%200%2012px%7D%3C%2Fstyle%3E%3C%2Fhead%3E%3Cbody%3E%3Ch2%3EHow%20do%20I%20apply%20for%20jobs%20on%201Bataan%3F%3C%2Fh2%3E%3Cdiv%20class%3D%22meta%22%3E1Bataan%20Help%20Center%20%26middot%3B%20Updated%20November%202026%3C%2Fdiv%3E%3Cp%3EComplete%20your%20resume%20once%20under%20Jobs%20%3E%20My%20Resume%20-%20education%2C%20experience%2C%20and%20a%20contact%20number%20employers%20can%20reach.%3C%2Fp%3E%3Cp%3EOpen%20a%20job%20card%20and%20tap%20Apply%20now.%20You%20can%20track%20interviews%20under%20My%20Applications%3B%20companies%20usually%20respond%20within%203%20working%20days.%3C%2Fp%3E%3C%2Fbody%3E%3C%2Fhtml%3E"
+    },
+    {
+      "id": 108,
+      "name": "How do I list my business on 1Bataan?",
+      "website": "data:text/html;charset=utf-8,%3C%21DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2Cinitial-scale%3D1%22%3E%3Cstyle%3Ebody%7Bfont-family%3Asans-serif%3Bmargin%3A0%3Bpadding%3A20px%3Bbackground%3A%23fff%3Bcolor%3A%23222%7Dh2%7Bfont-size%3A19px%3Bmargin%3A0%200%206px%7D.meta%7Bcolor%3A%238a8a8a%3Bfont-size%3A13px%3Bmargin%3A0%200%2016px%7Dp%7Bfont-size%3A15px%3Bline-height%3A1.65%3Bmargin%3A0%200%2012px%7D%3C%2Fstyle%3E%3C%2Fhead%3E%3Cbody%3E%3Ch2%3EHow%20do%20I%20list%20my%20business%20on%201Bataan%3F%3C%2Fh2%3E%3Cdiv%20class%3D%22meta%22%3E1Bataan%20Help%20Center%20%26middot%3B%20Updated%20November%202026%3C%2Fdiv%3E%3Cp%3EGo%20to%20Mine%20%3E%20Merchant%20Settled%20and%20fill%20in%20the%20application%20form%3A%20contact%20details%2C%20business%20type%2C%20area%2C%20and%20one%20or%20two%20photos%20of%20your%20business%20permit.%3C%2Fp%3E%3Cp%3EApplications%20are%20reviewed%20within%202-3%20working%20days.%20Once%20approved%2C%20your%20store%20page%20goes%20live%20and%20you%20can%20upload%20goods%20or%20services.%3C%2Fp%3E%3Cp%3EQuestions%3F%20Email%20partners%401bataan.com%20with%20your%20business%20name%20and%20town.%3C%2Fp%3E%3C%2Fbody%3E%3C%2Fhtml%3E"
     }
   ]
 }

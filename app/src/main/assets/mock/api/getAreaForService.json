@@ -3,48 +3,111 @@
   "message": "local mock",
   "data": [
     {
-      "id": 1,
-      "name": "Balanga",
-      "pinyin": "Bataan 1",
-      "isHot": false,
-      "lat": 14.6005,
-      "lng": 120.9852,
+      "id": "1",
+      "name": "Balanga City",
+      "pinyin": "Balanga",
+      "isHot": true,
+      "lat": 14.6371,
+      "lng": 120.536,
       "nativeIsSelected": false
     },
     {
-      "id": 2,
-      "name": "Bataan",
-      "pinyin": "Bataan 2",
-      "isHot": false,
-      "lat": 14.601500000000001,
-      "lng": 120.9862,
-      "nativeIsSelected": false
-    },
-    {
-      "id": 3,
+      "id": "2",
       "name": "Mariveles",
-      "pinyin": "Bataan 3",
-      "isHot": false,
-      "lat": 14.602500000000001,
-      "lng": 120.9872,
+      "pinyin": "Mariveles",
+      "isHot": true,
+      "lat": 14.4354,
+      "lng": 120.5876,
       "nativeIsSelected": false
     },
     {
-      "id": 4,
+      "id": "3",
+      "name": "Morong",
+      "pinyin": "Morong",
+      "isHot": true,
+      "lat": 14.6759,
+      "lng": 120.2717,
+      "nativeIsSelected": false
+    },
+    {
+      "id": "4",
       "name": "Dinalupihan",
-      "pinyin": "Bataan 4",
+      "pinyin": "Dinalupihan",
       "isHot": false,
-      "lat": 14.6035,
-      "lng": 120.9882,
+      "lat": 14.7868,
+      "lng": 120.4591,
       "nativeIsSelected": false
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Hermosa",
-      "pinyin": "Bataan 5",
+      "pinyin": "Hermosa",
       "isHot": false,
-      "lat": 14.604500000000002,
-      "lng": 120.9892,
+      "lat": 14.7747,
+      "lng": 120.5035,
+      "nativeIsSelected": false
+    },
+    {
+      "id": "6",
+      "name": "Orani",
+      "pinyin": "Orani",
+      "isHot": false,
+      "lat": 14.8003,
+      "lng": 120.5351,
+      "nativeIsSelected": false
+    },
+    {
+      "id": "7",
+      "name": "Samal",
+      "pinyin": "Samal",
+      "isHot": false,
+      "lat": 14.7668,
+      "lng": 120.5222,
+      "nativeIsSelected": false
+    },
+    {
+      "id": "8",
+      "name": "Abucay",
+      "pinyin": "Abucay",
+      "isHot": false,
+      "lat": 14.7297,
+      "lng": 120.4822,
+      "nativeIsSelected": false
+    },
+    {
+      "id": "9",
+      "name": "Bagac",
+      "pinyin": "Bagac",
+      "isHot": false,
+      "lat": 14.5909,
+      "lng": 120.399,
+      "nativeIsSelected": false
+    },
+    {
+      "id": "10",
+      "name": "Pilar",
+      "pinyin": "Pilar",
+      "isHot": false,
+      "lat": 14.6601,
+      "lng": 120.5161,
+      "nativeIsSelected": false
+    },
+    {
+      "id": "11",
+      "name": "Orion",
+      "pinyin": "Orion",
+      "isHot": false,
+      "lat": 14.6246,
+      "lng": 120.5785,
+      "nativeIsSelected": false
+    },
+    {
+      "id": "12",
+      "name": "Limay",
+      "pinyin": "Limay",
+      "isHot": false,
+      "lat": 14.5444,
+      "lng": 120.595,
       "nativeIsSelected": false
     }
   ]

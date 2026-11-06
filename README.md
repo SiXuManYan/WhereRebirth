@@ -45,8 +45,10 @@ Overloaded Retrofit methods use a parameter-type suffix in the filename to preve
 ### Validate fixtures
 
 ```bash
-./gradlew :app:testDevDebugUnitTest --tests "com.jiechengsheng.city.api.ValidateApiMocksTest"
+./gradlew :app:testDevDebugUnitTest --tests "com.jiechengsheng.city.api.ValidateApiMocksTest" --rerun-tasks
 ```
+
+`--rerun-tasks` matters: Gradle does not track `src/main/assets` as a test input, so after hand-editing a fixture the task can report `UP-TO-DATE` and skip validation entirely, returning a stale pass. Always force the re-run when fixtures changed.
 
 ### Regenerate all fixtures
 

@@ -3,9 +3,9 @@
   "message": "local mock",
   "data": {
     "order": {
-      "id": 1,
-      "trade_no": "Bataan Bay Resort 1"
+      "id": 1001,
+      "trade_no": "HTL20261105143208885"
     },
-    "total_price": 399.0
+    "total_price": 798.0
   }
 }

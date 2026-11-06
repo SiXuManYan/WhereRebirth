@@ -4,28 +4,28 @@
   "data": [
     {
       "id": 1,
-      "name": "Balanga",
-      "website": "Bataan 1"
+      "name": "Account & Sign-in",
+      "website": ""
     },
     {
       "id": 2,
-      "name": "Bataan",
-      "website": "Bataan 2"
+      "name": "Orders & Payment",
+      "website": ""
     },
     {
       "id": 3,
-      "name": "Mariveles",
-      "website": "Bataan 3"
+      "name": "Bookings & Refunds",
+      "website": ""
     },
     {
       "id": 4,
-      "name": "Dinalupihan",
-      "website": "Bataan 4"
+      "name": "App Experience",
+      "website": ""
     },
     {
       "id": 5,
-      "name": "Hermosa",
-      "website": "Bataan 5"
+      "name": "Business & Partnership",
+      "website": ""
     }
   ]
 }

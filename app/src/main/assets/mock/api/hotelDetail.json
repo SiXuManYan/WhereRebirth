@@ -8,17 +8,17 @@
     "address": "Balanga City, Bataan",
     "lat": 14.6005,
     "lng": 120.9852,
-    "tel": "Bataan Bay Resort 1",
+    "tel": "0917 555 0101",
     "grade": 4.1,
     "comment_counts": 157,
     "policy": {
-      "check_in_time": "2026-10-20 10:30:00",
-      "check_out_time": "2026-10-20 10:30:00",
-      "children": "Bataan Bay Resort 1",
-      "pet": "Bataan Bay Resort 1",
-      "hint": "Bataan Bay Resort 1",
-      "payment": "Bataan Bay Resort 1",
-      "breadfast": "157",
+      "check_in_time": "14:00",
+      "check_out_time": "12:00",
+      "children": "Children of all ages are welcome. Kids 7 years old and below stay free of charge when sharing existing beds.",
+      "pet": "Pets are not allowed inside the resort.",
+      "hint": "A valid government-issued ID is required upon check-in. Early check-in is subject to room availability.",
+      "payment": "We accept GCash, Maya, bank transfer and cash on site.",
+      "breadfast": "Breakfast is served daily from 6:00 AM to 10:00 AM at the poolside cafe.",
       "service_desc": "Comfortable rooms, warm Filipino hospitality and easy access to the city."
     },
     "collect_status": 1,
@@ -34,27 +34,27 @@
     ],
     "facilities": [
       {
-        "name": "Bataan Bay Resort",
-        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
+        "name": "Free Wi-Fi",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_convenience"
       },
       {
-        "name": "Sea Breeze Hotel",
-        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
+        "name": "Outdoor Swimming Pool",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_yellow"
       },
       {
-        "name": "Casa Marina",
-        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
+        "name": "Poolside Restaurant",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_food"
       },
       {
-        "name": "Mango Grove Inn",
-        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
+        "name": "Wellness Spa",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_health"
       },
       {
-        "name": "The Peninsula Suites",
-        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_hotel"
+        "name": "Island Tour Desk",
+        "icon": "android.resource://com.jiechengsheng.city/drawable/ic_module_travel"
       }
     ],
-    "video": "Bataan Bay Resort 1",
+    "video": "",
     "video_image": "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
     "star_level": "4",
     "uuid": "demo-uuid-1",
@@ -65,100 +65,78 @@
         "user_id": 1,
         "images": [
           "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
+          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2"
         ],
-        "created_at": "2026-10-20 10:30:00",
+        "created_at": "2026-11-02 09:14:00",
         "comment_travel_type_id": 1,
         "username": "Juan Dela Cruz",
         "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_1",
-        "content": "Comfortable rooms, warm Filipino hospitality and easy access to the city.",
-        "star": 4.1,
-        "star_level": 4.1,
+        "content": "The sea view from our Deluxe Room was stunning, especially at sunrise. Staff at the front desk were warm and check-in only took a few minutes.",
+        "star": 4.5,
+        "star_level": 4.5,
         "hotel_id": 1,
-        "merchant_review": "157"
+        "merchant_review": "Thank you for staying with us, Juan! We look forward to welcoming you back to Bataan Bay Resort."
       },
       {
         "id": 2,
         "user_id": 2,
         "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
           "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
           "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
         ],
-        "created_at": "2026-10-20 10:30:00",
-        "comment_travel_type_id": 2,
+        "created_at": "2026-10-28 19:47:00",
+        "comment_travel_type_id": 1,
         "username": "Maria Santos",
         "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_2",
-        "content": "Comfortable rooms, warm Filipino hospitality and easy access to the city.",
-        "star": 4.2,
-        "star_level": 4.2,
-        "hotel_id": 2,
-        "merchant_review": "194"
+        "content": "Breakfast by the pool was a highlight — fresh mango, tapsilog and good coffee. The pool area could use a few more loungers on weekends.",
+        "star": 4.1,
+        "star_level": 4.1,
+        "hotel_id": 1,
+        "merchant_review": null
       },
       {
         "id": 3,
         "user_id": 3,
-        "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
-        ],
-        "created_at": "2026-10-20 10:30:00",
-        "comment_travel_type_id": 3,
-        "username": "Where Demo",
+        "images": [],
+        "created_at": "2026-10-21 15:05:00",
+        "comment_travel_type_id": 1,
+        "username": "Pedro Reyes",
         "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_1",
-        "content": "Comfortable rooms, warm Filipino hospitality and easy access to the city.",
+        "content": "Great location along the Balanga waterfront, walking distance to the plaza and the public market. Rooms are clean and the aircon is strong.",
         "star": 4.3,
         "star_level": 4.3,
-        "hotel_id": 3,
-        "merchant_review": "231"
+        "hotel_id": 1,
+        "merchant_review": "Salamat po! We're glad the location worked well for your trip."
       },
       {
         "id": 4,
         "user_id": 4,
         "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
           "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
         ],
-        "created_at": "2026-10-20 10:30:00",
-        "comment_travel_type_id": 4,
-        "username": "Juan Dela Cruz",
+        "created_at": "2026-10-15 11:32:00",
+        "comment_travel_type_id": 1,
+        "username": "Angelica Lim",
         "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_2",
-        "content": "Comfortable rooms, warm Filipino hospitality and easy access to the city.",
-        "star": 4.4,
-        "star_level": 4.4,
-        "hotel_id": 4,
-        "merchant_review": "268"
+        "content": "Booked two nights for a work trip. Reliable free Wi-Fi and a quiet room, so I could take calls without issues. Will book again.",
+        "star": 4.0,
+        "star_level": 4.0,
+        "hotel_id": 1,
+        "merchant_review": null
       },
       {
         "id": 5,
         "user_id": 5,
-        "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
-        ],
-        "created_at": "2026-10-20 10:30:00",
-        "comment_travel_type_id": 5,
-        "username": "Maria Santos",
+        "images": [],
+        "created_at": "2026-10-09 08:21:00",
+        "comment_travel_type_id": 1,
+        "username": "Roberto Garcia",
         "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_1",
-        "content": "Comfortable rooms, warm Filipino hospitality and easy access to the city.",
-        "star": 4.5,
-        "star_level": 4.5,
-        "hotel_id": 5,
-        "merchant_review": "305"
+        "content": "The island hopping tour desk arranged our Morong sandbar trip with no hassle. Shower pressure in the bathroom was a bit weak, everything else was fine.",
+        "star": 3.8,
+        "star_level": 3.8,
+        "hotel_id": 1,
+        "merchant_review": "Thank you for the feedback, Roberto. We have shared the shower concern with our maintenance team."
       }
     ]
   }

@@ -7,47 +7,47 @@
     "from": 1,
     "last_page": 1,
     "last_page_url": "https://1bataan.com",
-    "next_page_url": {},
+    "next_page_url": null,
     "path": "https://1bataan.com",
     "per_page": 5,
-    "prev_page_url": {},
+    "prev_page_url": null,
     "to": 5,
     "total": 5,
     "data": [
       {
         "id": 1,
-        "title": "Balanga",
-        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-        "price": "399.00",
-        "show_status": 1
+        "title": "Where Bataan Canvas Tote Bag",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+        "price": "88.00",
+        "show_status": 0
       },
       {
         "id": 2,
-        "title": "Bataan",
-        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
-        "price": "499.00",
-        "show_status": 2
+        "title": "₱100 Electricity Bill Voucher",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+        "price": "120.00",
+        "show_status": 0
       },
       {
         "id": 3,
-        "title": "Mariveles",
-        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-        "price": "599.00",
-        "show_status": 1
+        "title": "₱50 Water Bill Voucher",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+        "price": "60.00",
+        "show_status": 0
       },
       {
         "id": 4,
-        "title": "Dinalupihan",
-        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
-        "price": "699.00",
-        "show_status": 2
+        "title": "1GB Mobile Data Top-up",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+        "price": "80.00",
+        "show_status": 1
       },
       {
         "id": 5,
-        "title": "Hermosa",
-        "image": "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
-        "price": "799.00",
-        "show_status": 1
+        "title": "Bataan Souvenir Mug",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
+        "price": "150.00",
+        "show_status": 2
       }
     ]
   }

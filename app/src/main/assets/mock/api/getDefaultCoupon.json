@@ -2,37 +2,22 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "shop_total_coupon": "SM City Bataan 1",
+    "shop_total_coupon": "140",
     "shop_coupon": [
       {
-        "coupon_id": 1,
-        "money": "SM City Bataan 1",
+        "coupon_id": "503",
+        "money": "80",
         "shop_id": 1
       },
       {
-        "coupon_id": 2,
-        "money": "SM City Bataan 2",
+        "coupon_id": "504",
+        "money": "60",
         "shop_id": 2
-      },
-      {
-        "coupon_id": 3,
-        "money": "SM City Bataan 3",
-        "shop_id": 3
-      },
-      {
-        "coupon_id": 4,
-        "money": "SM City Bataan 4",
-        "shop_id": 4
-      },
-      {
-        "coupon_id": 5,
-        "money": "SM City Bataan 5",
-        "shop_id": 5
       }
     ],
     "order_coupon": {
-      "coupon_id": 1,
-      "money": "SM City Bataan 1"
+      "coupon_id": "501",
+      "money": "100"
     }
   }
 }

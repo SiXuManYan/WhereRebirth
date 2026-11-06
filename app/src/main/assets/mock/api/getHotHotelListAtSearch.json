@@ -2,10 +2,11 @@
   "code": 200,
   "message": "local mock",
   "data": [
-    "Bataan Bay Resort 1",
-    "Bataan Bay Resort 2",
-    "Bataan Bay Resort 3",
-    "Bataan Bay Resort 4",
-    "Bataan Bay Resort 5"
+    "Bataan Bay Resort",
+    "Sea Breeze Hotel",
+    "Casa Marina",
+    "Mango Grove Inn",
+    "The Peninsula Suites",
+    "Morong beachfront"
   ]
 }

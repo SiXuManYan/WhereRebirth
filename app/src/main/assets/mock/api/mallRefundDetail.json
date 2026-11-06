@@ -3,139 +3,39 @@
   "message": "local mock",
   "data": {
     "id": 1,
-    "status": 1,
+    "status": 4,
     "shop": {
-      "contact_cell_phone": "0917 555 0101",
-      "contact_name": "SM City Bataan",
-      "address": "Balanga City, Bataan"
+      "contact_cell_phone": "0917 555 0102",
+      "contact_name": "Carla Reyes",
+      "address": "2F SM City Bataan, Roman Highway, Balanga City, Bataan 2100"
     },
     "goods": [
       {
         "order_id": 1,
-        "good_id": 1,
-        "good_title": "SM City Bataan",
-        "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-        "good_num": 1,
-        "good_price": "399.00",
-        "good_specs": {
-          "key_1": "SM City Bataan 1",
-          "key_2": "SM City Bataan 2",
-          "key_3": "SM City Bataan 3",
-          "key_4": "SM City Bataan 4",
-          "key_5": "SM City Bataan 5"
-        },
-        "created_at": "2026-10-20 10:30:00",
-        "delete_status": 1,
-        "good_status": 1,
-        "specs_id": 1,
-        "status": 1,
-        "order_good_status": 1,
-        "refund_id": 1,
-        "refund_money": "SM City Bataan 1"
-      },
-      {
-        "order_id": 2,
-        "good_id": 2,
-        "good_title": "Ayala Harbor Point",
-        "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-        "good_num": 2,
-        "good_price": "499.00",
-        "good_specs": {
-          "key_1": "SM City Bataan 1",
-          "key_2": "SM City Bataan 2",
-          "key_3": "SM City Bataan 3",
-          "key_4": "SM City Bataan 4",
-          "key_5": "SM City Bataan 5"
-        },
-        "created_at": "2026-10-20 10:30:00",
-        "delete_status": 2,
-        "good_status": 2,
-        "specs_id": 2,
-        "status": 2,
-        "order_good_status": 2,
-        "refund_id": 2,
-        "refund_money": "SM City Bataan 2"
-      },
-      {
-        "order_id": 3,
-        "good_id": 3,
-        "good_title": "Robinsons Balanga",
-        "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-        "good_num": 3,
-        "good_price": "599.00",
-        "good_specs": {
-          "key_1": "SM City Bataan 1",
-          "key_2": "SM City Bataan 2",
-          "key_3": "SM City Bataan 3",
-          "key_4": "SM City Bataan 4",
-          "key_5": "SM City Bataan 5"
-        },
-        "created_at": "2026-10-20 10:30:00",
-        "delete_status": 1,
-        "good_status": 1,
-        "specs_id": 3,
-        "status": 1,
-        "order_good_status": 1,
-        "refund_id": 3,
-        "refund_money": "SM City Bataan 3"
-      },
-      {
-        "order_id": 4,
         "good_id": 4,
-        "good_title": "Bataan Public Market",
+        "good_title": "Capiz Shell Night Lamp",
         "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-        "good_num": 4,
-        "good_price": "699.00",
+        "good_num": 1,
+        "good_price": "450.00",
         "good_specs": {
-          "key_1": "SM City Bataan 1",
-          "key_2": "SM City Bataan 2",
-          "key_3": "SM City Bataan 3",
-          "key_4": "SM City Bataan 4",
-          "key_5": "SM City Bataan 5"
+          "Shade": "White Capiz"
         },
-        "created_at": "2026-10-20 10:30:00",
-        "delete_status": 2,
-        "good_status": 2,
-        "specs_id": 4,
-        "status": 2,
-        "order_good_status": 2,
-        "refund_id": 4,
-        "refund_money": "SM City Bataan 4"
-      },
-      {
-        "order_id": 5,
-        "good_id": 5,
-        "good_title": "The Strip Mall",
-        "good_image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-        "good_num": 5,
-        "good_price": "799.00",
-        "good_specs": {
-          "key_1": "SM City Bataan 1",
-          "key_2": "SM City Bataan 2",
-          "key_3": "SM City Bataan 3",
-          "key_4": "SM City Bataan 4",
-          "key_5": "SM City Bataan 5"
-        },
-        "created_at": "2026-10-20 10:30:00",
-        "delete_status": 1,
+        "created_at": "2026-11-05 16:42:10",
+        "delete_status": 0,
         "good_status": 1,
-        "specs_id": 5,
-        "status": 1,
+        "specs_id": 41,
+        "status": 4,
         "order_good_status": 1,
-        "refund_id": 5,
-        "refund_money": "SM City Bataan 5"
+        "refund_id": 301,
+        "refund_money": "450.00"
       }
     ],
-    "refund_price": 399.0,
-    "refund_time": "2026-10-20 10:30:00",
-    "cancel_reason": "SM City Bataan 1",
-    "trade_no": "SM City Bataan 1",
+    "refund_price": 450.0,
+    "refund_time": "2026-11-06 10:05:00",
+    "cancel_reason": "The capiz shade arrived shattered. Requesting a full refund.",
+    "trade_no": "WHRF2026110600301",
     "cancel_images": [
-      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-      "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-      "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_2"
     ]
   }
 }

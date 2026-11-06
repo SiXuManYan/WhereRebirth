@@ -2,15 +2,15 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "price": "399.00",
-    "total_price": "399.00",
-    "cancel_time": "2026-10-20 10:30:00",
+    "price": "1150.00",
+    "total_price": "1150.00",
+    "cancel_time": "2026-11-07 16:05:40",
     "remit_info": {
-      "id": 1,
-      "user_name": "Juan Dela Cruz",
-      "account": "157",
-      "channel_category": "Bataan 1",
-      "name": "Electricity Bill"
+      "id": 7,
+      "user_name": "Maria Lourdes Santos",
+      "account": "0917 555 0142",
+      "channel_category": "E-Wallet",
+      "name": "GCash"
     }
   }
 }

@@ -2,90 +2,30 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "id": 1,
-    "status": 1,
+    "id": 2,
+    "status": 11,
     "shop": {
-      "contact_cell_phone": "0917 555 0101",
-      "contact_name": "SM City Bataan",
-      "address": "Balanga City, Bataan"
+      "contact_cell_phone": "0917 555 0102",
+      "contact_name": "Carla Reyes",
+      "address": "2F SM City Bataan, Roman Highway, Balanga City, Bataan 2100"
     },
     "goods": [
       {
-        "id": 1,
-        "title": "SM City Bataan",
+        "id": 2,
+        "title": "Bamboo Utensil Set (6 pcs)",
         "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2"
         ],
         "good_num": 1,
-        "price": 399.0
-      },
-      {
-        "id": 2,
-        "title": "Ayala Harbor Point",
-        "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
-        ],
-        "good_num": 2,
-        "price": 499.0
-      },
-      {
-        "id": 3,
-        "title": "Robinsons Balanga",
-        "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
-        ],
-        "good_num": 3,
-        "price": 599.0
-      },
-      {
-        "id": 4,
-        "title": "Bataan Public Market",
-        "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
-        ],
-        "good_num": 4,
-        "price": 699.0
-      },
-      {
-        "id": 5,
-        "title": "The Strip Mall",
-        "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
-        ],
-        "good_num": 5,
-        "price": 799.0
+        "price": 188.5
       }
     ],
-    "refund_price": 399.0,
-    "cancel_time": "2026-10-20 10:30:00",
-    "cancel_reason": "SM City Bataan 1",
-    "trade_no": 1.0,
+    "refund_price": 188.5,
+    "cancel_time": "2026-11-06 10:05:00",
+    "cancel_reason": "One of the bamboo spoons arrived with a crack on the handle.",
+    "trade_no": 611062.0,
     "cancel_images": [
-      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-      "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-      "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
+      "android.resource://com.jiechengsheng.city/drawable/mock_mall_2"
     ]
   }
 }

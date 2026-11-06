@@ -3,101 +3,95 @@
   "message": "local mock",
   "data": {
     "id": 1,
-    "restaurant_name": "Seaside Grill",
+    "restaurant_name": "Inihaw ni Mang Rudy",
     "take_out_image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-    "delivery_time": 1,
-    "delivery_cost": 399.0,
-    "packing_charges": 1.0,
-    "tel": "Seaside Grill 1",
-    "mer_uuid": "demo-uuid-1",
-    "mer_name": "Seaside Grill",
+    "delivery_time": 35,
+    "delivery_cost": 49.0,
+    "packing_charges": 15.0,
+    "tel": "0917 555 0134",
+    "mer_uuid": "merchant-uuid-0001",
+    "mer_name": "Rudy Santos Food Ventures",
     "collect_status": 1,
     "im_status": 1,
     "goods": [
       {
-        "id": 1,
-        "title": "Seaside Grill",
-        "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-        "sale_num": "Seaside Grill 1",
-        "inventory": "Seaside Grill 1",
-        "price": 399.0,
-        "original_price": 399.0,
-        "tags": [
-          "Popular",
-          "Recommended",
-          "Family friendly",
-          "Top rated",
-          "New"
-        ],
-        "nativeSelectCount": 157
-      },
-      {
-        "id": 2,
-        "title": "Jollibee Balanga",
+        "id": 201,
+        "title": "Bilao Inihaw Special (Good for 4-5)",
         "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
-        "sale_num": "Seaside Grill 2",
-        "inventory": "Seaside Grill 2",
-        "price": 499.0,
-        "original_price": 499.0,
+        "sale_num": "189",
+        "inventory": "10",
+        "price": 888.0,
+        "original_price": 950.0,
         "tags": [
-          "Popular",
-          "Recommended",
-          "Family friendly",
-          "Top rated",
-          "New"
+          "Best Seller",
+          "Family Size"
         ],
-        "nativeSelectCount": 194
+        "nativeSelectCount": 0
       },
       {
-        "id": 3,
-        "title": "Cafe Bataan",
+        "id": 202,
+        "title": "Pork BBQ (5 Sticks)",
         "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-        "sale_num": "Seaside Grill 3",
-        "inventory": "Seaside Grill 3",
-        "price": 599.0,
-        "original_price": 599.0,
+        "sale_num": "267",
+        "inventory": "35",
+        "price": 130.0,
+        "original_price": 145.0,
         "tags": [
-          "Popular",
-          "Recommended",
-          "Family friendly",
-          "Top rated",
-          "New"
+          "Best Seller"
         ],
-        "nativeSelectCount": 231
+        "nativeSelectCount": 0
       },
       {
-        "id": 4,
-        "title": "Mang Inasal",
+        "id": 203,
+        "title": "Pancit Bihon Guisado",
         "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
-        "sale_num": "Seaside Grill 4",
-        "inventory": "Seaside Grill 4",
-        "price": 699.0,
-        "original_price": 699.0,
+        "sale_num": "154",
+        "inventory": "22",
+        "price": 180.0,
+        "original_price": 199.0,
         "tags": [
-          "Popular",
-          "Recommended",
-          "Family friendly",
-          "Top rated",
-          "New"
+          "Party Trays"
         ],
-        "nativeSelectCount": 268
+        "nativeSelectCount": 0
       },
       {
-        "id": 5,
-        "title": "Lola\u0027s Kitchen",
+        "id": 204,
+        "title": "Lumpiang Shanghai (12 pcs)",
         "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
-        "sale_num": "Seaside Grill 5",
-        "inventory": "Seaside Grill 5",
-        "price": 799.0,
-        "original_price": 799.0,
+        "sale_num": "121",
+        "inventory": "28",
+        "price": 145.0,
+        "original_price": 160.0,
         "tags": [
-          "Popular",
-          "Recommended",
-          "Family friendly",
-          "Top rated",
           "New"
         ],
-        "nativeSelectCount": 305
+        "nativeSelectCount": 0
+      },
+      {
+        "id": 205,
+        "title": "Grilled Tilapia",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_2",
+        "sale_num": "98",
+        "inventory": "14",
+        "price": 210.0,
+        "original_price": 230.0,
+        "tags": [
+          "Fresh Catch"
+        ],
+        "nativeSelectCount": 0
+      },
+      {
+        "id": 206,
+        "title": "Leche Flan (Slice)",
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_food_1",
+        "sale_num": "240",
+        "inventory": "26",
+        "price": 75.0,
+        "original_price": 85.0,
+        "tags": [
+          "Dessert"
+        ],
+        "nativeSelectCount": 0
       }
     ]
   }

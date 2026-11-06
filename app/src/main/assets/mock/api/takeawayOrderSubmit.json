@@ -3,8 +3,8 @@
   "message": "local mock",
   "data": {
     "order": {
-      "id": 1,
-      "trade_no": "Seaside Grill 1"
+      "id": 20001,
+      "trade_no": "WB2026110609882060"
     }
   }
 }

@@ -6,36 +6,27 @@
       "id": 1,
       "images": [
         "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
+        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2"
       ],
-      "name": "Bataan Bay Resort",
-      "hotel_room_type": "3",
+      "name": "Deluxe King Room",
+      "hotel_room_type": "King Bed",
       "breakfast_type": 1,
-      "room_area": "3",
-      "room_num": 1,
-      "remain_room_num": 1,
+      "room_area": "28",
+      "room_num": 6,
+      "remain_room_num": 3,
       "price": 399.0,
-      "original_cost": 399.0,
+      "original_cost": 450.0,
       "is_cancel": 1,
-      "people": 1,
+      "people": 2,
       "tags": [
         {
-          "zh_cn_name": "Bataan Bay Resort"
+          "zh_cn_name": "Free Wi-Fi"
         },
         {
-          "zh_cn_name": "Sea Breeze Hotel"
+          "zh_cn_name": "Sea-view Balcony"
         },
         {
-          "zh_cn_name": "Casa Marina"
-        },
-        {
-          "zh_cn_name": "Mango Grove Inn"
-        },
-        {
-          "zh_cn_name": "The Peninsula Suites"
+          "zh_cn_name": "King Bed"
         }
       ],
       "room_show_status": 1
@@ -43,75 +34,57 @@
     {
       "id": 2,
       "images": [
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
         "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
         "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
       ],
-      "name": "Sea Breeze Hotel",
-      "hotel_room_type": "3",
-      "breakfast_type": 2,
-      "room_area": "3",
-      "room_num": 2,
-      "remain_room_num": 2,
+      "name": "Premier Twin Room",
+      "hotel_room_type": "Twin Beds",
+      "breakfast_type": 1,
+      "room_area": "32",
+      "room_num": 8,
+      "remain_room_num": 5,
       "price": 499.0,
-      "original_cost": 499.0,
-      "is_cancel": 2,
+      "original_cost": 550.0,
+      "is_cancel": 1,
       "people": 2,
       "tags": [
         {
-          "zh_cn_name": "Bataan Bay Resort"
+          "zh_cn_name": "Two Twin Beds"
         },
         {
-          "zh_cn_name": "Sea Breeze Hotel"
+          "zh_cn_name": "City View"
         },
         {
-          "zh_cn_name": "Casa Marina"
-        },
-        {
-          "zh_cn_name": "Mango Grove Inn"
-        },
-        {
-          "zh_cn_name": "The Peninsula Suites"
+          "zh_cn_name": "Breakfast Included"
         }
       ],
-      "room_show_status": 2
+      "room_show_status": 1
     },
     {
       "id": 3,
       "images": [
         "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
+        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2"
       ],
-      "name": "Casa Marina",
-      "hotel_room_type": "3",
-      "breakfast_type": 3,
-      "room_area": "3",
-      "room_num": 3,
-      "remain_room_num": 3,
-      "price": 599.0,
-      "original_cost": 599.0,
-      "is_cancel": 3,
-      "people": 3,
+      "name": "Family Suite",
+      "hotel_room_type": "Suite",
+      "breakfast_type": 2,
+      "room_area": "55",
+      "room_num": 4,
+      "remain_room_num": 2,
+      "price": 899.0,
+      "original_cost": 999.0,
+      "is_cancel": 1,
+      "people": 4,
       "tags": [
         {
-          "zh_cn_name": "Bataan Bay Resort"
+          "zh_cn_name": "Two Bedrooms"
         },
         {
-          "zh_cn_name": "Sea Breeze Hotel"
+          "zh_cn_name": "Separate Living Room"
         },
         {
-          "zh_cn_name": "Casa Marina"
-        },
-        {
-          "zh_cn_name": "Mango Grove Inn"
-        },
-        {
-          "zh_cn_name": "The Peninsula Suites"
+          "zh_cn_name": "Good for Families"
         }
       ],
       "room_show_status": 1
@@ -119,75 +92,56 @@
     {
       "id": 4,
       "images": [
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
         "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
         "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
       ],
-      "name": "Mango Grove Inn",
-      "hotel_room_type": "3",
-      "breakfast_type": 4,
-      "room_area": "3",
-      "room_num": 4,
-      "remain_room_num": 4,
-      "price": 699.0,
-      "original_cost": 699.0,
-      "is_cancel": 4,
-      "people": 4,
+      "name": "Ocean View Suite",
+      "hotel_room_type": "Suite",
+      "breakfast_type": 1,
+      "room_area": "48",
+      "room_num": 2,
+      "remain_room_num": 1,
+      "price": 1299.0,
+      "original_cost": 1499.0,
+      "is_cancel": 2,
+      "people": 2,
       "tags": [
         {
-          "zh_cn_name": "Bataan Bay Resort"
+          "zh_cn_name": "Panoramic Sea View"
         },
         {
-          "zh_cn_name": "Sea Breeze Hotel"
+          "zh_cn_name": "Bathtub"
         },
         {
-          "zh_cn_name": "Casa Marina"
-        },
-        {
-          "zh_cn_name": "Mango Grove Inn"
-        },
-        {
-          "zh_cn_name": "The Peninsula Suites"
+          "zh_cn_name": "Minibar"
         }
       ],
-      "room_show_status": 2
+      "room_show_status": 1
     },
     {
       "id": 5,
       "images": [
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1",
-        "android.resource://com.jiechengsheng.city/drawable/mock_hotel_2",
         "android.resource://com.jiechengsheng.city/drawable/mock_hotel_1"
       ],
-      "name": "The Peninsula Suites",
-      "hotel_room_type": "3",
-      "breakfast_type": 5,
-      "room_area": "3",
-      "room_num": 5,
-      "remain_room_num": 5,
-      "price": 799.0,
-      "original_cost": 799.0,
-      "is_cancel": 5,
-      "people": 5,
+      "name": "Garden Villa",
+      "hotel_room_type": "Villa",
+      "breakfast_type": 2,
+      "room_area": "65",
+      "room_num": 2,
+      "remain_room_num": 2,
+      "price": 1599.0,
+      "original_cost": 1799.0,
+      "is_cancel": 2,
+      "people": 4,
       "tags": [
         {
-          "zh_cn_name": "Bataan Bay Resort"
+          "zh_cn_name": "Private Garden"
         },
         {
-          "zh_cn_name": "Sea Breeze Hotel"
+          "zh_cn_name": "Outdoor Shower"
         },
         {
-          "zh_cn_name": "Casa Marina"
-        },
-        {
-          "zh_cn_name": "Mango Grove Inn"
-        },
-        {
-          "zh_cn_name": "The Peninsula Suites"
+          "zh_cn_name": "Private Pool"
         }
       ],
       "room_show_status": 1

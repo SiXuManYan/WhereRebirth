@@ -3,49 +3,40 @@
   "message": "local mock",
   "data": [
     {
-      "id": 1,
+      "id": "1",
       "sex": 1,
-      "address": "Bataan, Philippines",
-      "contact_name": "Balanga",
-      "contact_number": "Bataan 1",
+      "address": "Block 4 Lot 12, Don Manuel Banzon Ave., Balanga City, Bataan 2100",
+      "contact_name": "Juan Dela Cruz",
+      "contact_number": "0917 555 0104",
       "city_name": "Balanga",
       "city_id": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "sex": 2,
-      "address": "Bataan, Philippines",
-      "contact_name": "Bataan",
-      "contact_number": "Bataan 2",
-      "city_name": "Bataan",
+      "address": "22 Capitol Drive, San Jose, Balanga City, Bataan 2100",
+      "contact_name": "Maria Santos",
+      "contact_number": "0917 555 0105",
+      "city_name": "Balanga",
+      "city_id": 1
+    },
+    {
+      "id": "3",
+      "sex": 1,
+      "address": "Purok 3, Brgy. Biaan, Mariveles, Bataan 2103",
+      "contact_name": "Pedro Ramirez",
+      "contact_number": "0917 555 0106",
+      "city_name": "Mariveles",
       "city_id": 2
     },
     {
-      "id": 3,
-      "sex": 3,
-      "address": "Bataan, Philippines",
-      "contact_name": "Mariveles",
-      "contact_number": "Bataan 3",
-      "city_name": "Mariveles",
+      "id": "4",
+      "sex": 2,
+      "address": "88 Morong Star Beach Rd., Brgy. Nagbalayong, Morong, Bataan 2108",
+      "contact_name": "Ana Lopez",
+      "contact_number": "0917 555 0107",
+      "city_name": "Morong",
       "city_id": 3
-    },
-    {
-      "id": 4,
-      "sex": 4,
-      "address": "Bataan, Philippines",
-      "contact_name": "Dinalupihan",
-      "contact_number": "Bataan 4",
-      "city_name": "Dinalupihan",
-      "city_id": 4
-    },
-    {
-      "id": 5,
-      "sex": 5,
-      "address": "Bataan, Philippines",
-      "contact_name": "Hermosa",
-      "contact_number": "Bataan 5",
-      "city_name": "Hermosa",
-      "city_id": 5
     }
   ]
 }

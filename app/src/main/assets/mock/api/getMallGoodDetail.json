@@ -3,224 +3,57 @@
   "message": "local mock",
   "data": {
     "id": 1,
-    "title": "SM City Bataan",
-    "main_image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+    "title": "Handwoven Abaca Tote Bag",
+    "main_image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
     "sub_images": [
-      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
       "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
       "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-      "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-      "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
+      "android.resource://com.jiechengsheng.city/drawable/mock_banner_1"
     ],
-    "stock": 1,
-    "sold": 1,
+    "stock": 36,
+    "sold": 326,
     "category_id": 1,
-    "desc": "Everything you need in one convenient place.",
+    "desc": "<p>Handwoven in Bataan from natural abaca fiber by weavers in Bagac. Each tote is sturdy enough for market runs and beach days, with an inner pocket and genuine leather straps.</p><p><img src=\"android.resource://com.jiechengsheng.city/drawable/mock_mall_2\"></p><p>Care: wipe with a dry cloth, keep away from direct sunlight. Ships from our Balanga showroom within 24 hours.</p>",
     "attribute_list": [
       {
-        "key": "SM City Bataan 1",
+        "key": "Color",
         "value": [
           {
-            "key": "SM City Bataan 1",
-            "name": "SM City Bataan",
-            "nativeIsSelected": 1,
+            "key": "Color",
+            "name": "Natural Brown",
+            "nativeIsSelected": 0,
             "nativeSelected": false,
             "nativeEnable": false
           },
           {
-            "key": "SM City Bataan 2",
-            "name": "Ayala Harbor Point",
-            "nativeIsSelected": 2,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 3",
-            "name": "Robinsons Balanga",
-            "nativeIsSelected": 3,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 4",
-            "name": "Bataan Public Market",
-            "nativeIsSelected": 4,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 5",
-            "name": "The Strip Mall",
-            "nativeIsSelected": 5,
+            "key": "Color",
+            "name": "Navy Blue",
+            "nativeIsSelected": 0,
             "nativeSelected": false,
             "nativeEnable": false
           }
         ],
-        "nativeSelectedValue": "SM City Bataan 1"
+        "nativeSelectedValue": ""
       },
       {
-        "key": "SM City Bataan 2",
+        "key": "Size",
         "value": [
           {
-            "key": "SM City Bataan 1",
-            "name": "SM City Bataan",
-            "nativeIsSelected": 1,
+            "key": "Size",
+            "name": "Medium",
+            "nativeIsSelected": 0,
             "nativeSelected": false,
             "nativeEnable": false
           },
           {
-            "key": "SM City Bataan 2",
-            "name": "Ayala Harbor Point",
-            "nativeIsSelected": 2,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 3",
-            "name": "Robinsons Balanga",
-            "nativeIsSelected": 3,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 4",
-            "name": "Bataan Public Market",
-            "nativeIsSelected": 4,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 5",
-            "name": "The Strip Mall",
-            "nativeIsSelected": 5,
+            "key": "Size",
+            "name": "Large",
+            "nativeIsSelected": 0,
             "nativeSelected": false,
             "nativeEnable": false
           }
         ],
-        "nativeSelectedValue": "SM City Bataan 2"
-      },
-      {
-        "key": "SM City Bataan 3",
-        "value": [
-          {
-            "key": "SM City Bataan 1",
-            "name": "SM City Bataan",
-            "nativeIsSelected": 1,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 2",
-            "name": "Ayala Harbor Point",
-            "nativeIsSelected": 2,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 3",
-            "name": "Robinsons Balanga",
-            "nativeIsSelected": 3,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 4",
-            "name": "Bataan Public Market",
-            "nativeIsSelected": 4,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 5",
-            "name": "The Strip Mall",
-            "nativeIsSelected": 5,
-            "nativeSelected": false,
-            "nativeEnable": false
-          }
-        ],
-        "nativeSelectedValue": "SM City Bataan 3"
-      },
-      {
-        "key": "SM City Bataan 4",
-        "value": [
-          {
-            "key": "SM City Bataan 1",
-            "name": "SM City Bataan",
-            "nativeIsSelected": 1,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 2",
-            "name": "Ayala Harbor Point",
-            "nativeIsSelected": 2,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 3",
-            "name": "Robinsons Balanga",
-            "nativeIsSelected": 3,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 4",
-            "name": "Bataan Public Market",
-            "nativeIsSelected": 4,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 5",
-            "name": "The Strip Mall",
-            "nativeIsSelected": 5,
-            "nativeSelected": false,
-            "nativeEnable": false
-          }
-        ],
-        "nativeSelectedValue": "SM City Bataan 4"
-      },
-      {
-        "key": "SM City Bataan 5",
-        "value": [
-          {
-            "key": "SM City Bataan 1",
-            "name": "SM City Bataan",
-            "nativeIsSelected": 1,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 2",
-            "name": "Ayala Harbor Point",
-            "nativeIsSelected": 2,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 3",
-            "name": "Robinsons Balanga",
-            "nativeIsSelected": 3,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 4",
-            "name": "Bataan Public Market",
-            "nativeIsSelected": 4,
-            "nativeSelected": false,
-            "nativeEnable": false
-          },
-          {
-            "key": "SM City Bataan 5",
-            "name": "The Strip Mall",
-            "nativeIsSelected": 5,
-            "nativeSelected": false,
-            "nativeEnable": false
-          }
-        ],
-        "nativeSelectedValue": "SM City Bataan 5"
+        "nativeSelectedValue": ""
       }
     ],
     "specs": [
@@ -228,233 +61,118 @@
         "id": 1,
         "goods_id": 1,
         "specs_id": 1,
-        "price": 399.0,
-        "stock": 1,
-        "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+        "price": 449.0,
+        "stock": 12,
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
         "specs": {
-          "key_1": "SM City Bataan 1",
-          "key_2": "SM City Bataan 2",
-          "key_3": "SM City Bataan 3",
-          "key_4": "SM City Bataan 4",
-          "key_5": "SM City Bataan 5"
+          "Color": "Natural Brown",
+          "Size": "Medium"
         },
-        "original_cost": 399.0,
-        "nativeSpecsValues": [
-          "SM City Bataan 1",
-          "SM City Bataan 2",
-          "SM City Bataan 3",
-          "SM City Bataan 4",
-          "SM City Bataan 5"
-        ]
+        "original_cost": 599.0,
+        "nativeSpecsValues": []
       },
       {
         "id": 2,
-        "goods_id": 2,
+        "goods_id": 1,
         "specs_id": 2,
-        "price": 499.0,
-        "stock": 2,
+        "price": 529.0,
+        "stock": 8,
         "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
         "specs": {
-          "key_1": "SM City Bataan 1",
-          "key_2": "SM City Bataan 2",
-          "key_3": "SM City Bataan 3",
-          "key_4": "SM City Bataan 4",
-          "key_5": "SM City Bataan 5"
+          "Color": "Natural Brown",
+          "Size": "Large"
         },
-        "original_cost": 499.0,
-        "nativeSpecsValues": [
-          "SM City Bataan 1",
-          "SM City Bataan 2",
-          "SM City Bataan 3",
-          "SM City Bataan 4",
-          "SM City Bataan 5"
-        ]
+        "original_cost": 599.0,
+        "nativeSpecsValues": []
       },
       {
         "id": 3,
-        "goods_id": 3,
+        "goods_id": 1,
         "specs_id": 3,
-        "price": 599.0,
-        "stock": 3,
-        "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
+        "price": 469.0,
+        "stock": 10,
+        "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
         "specs": {
-          "key_1": "SM City Bataan 1",
-          "key_2": "SM City Bataan 2",
-          "key_3": "SM City Bataan 3",
-          "key_4": "SM City Bataan 4",
-          "key_5": "SM City Bataan 5"
+          "Color": "Navy Blue",
+          "Size": "Medium"
         },
         "original_cost": 599.0,
-        "nativeSpecsValues": [
-          "SM City Bataan 1",
-          "SM City Bataan 2",
-          "SM City Bataan 3",
-          "SM City Bataan 4",
-          "SM City Bataan 5"
-        ]
+        "nativeSpecsValues": []
       },
       {
         "id": 4,
-        "goods_id": 4,
+        "goods_id": 1,
         "specs_id": 4,
-        "price": 699.0,
-        "stock": 4,
+        "price": 549.0,
+        "stock": 6,
         "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
         "specs": {
-          "key_1": "SM City Bataan 1",
-          "key_2": "SM City Bataan 2",
-          "key_3": "SM City Bataan 3",
-          "key_4": "SM City Bataan 4",
-          "key_5": "SM City Bataan 5"
+          "Color": "Navy Blue",
+          "Size": "Large"
         },
-        "original_cost": 699.0,
-        "nativeSpecsValues": [
-          "SM City Bataan 1",
-          "SM City Bataan 2",
-          "SM City Bataan 3",
-          "SM City Bataan 4",
-          "SM City Bataan 5"
-        ]
-      },
-      {
-        "id": 5,
-        "goods_id": 5,
-        "specs_id": 5,
-        "price": 799.0,
-        "stock": 5,
-        "image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-        "specs": {
-          "key_1": "SM City Bataan 1",
-          "key_2": "SM City Bataan 2",
-          "key_3": "SM City Bataan 3",
-          "key_4": "SM City Bataan 4",
-          "key_5": "SM City Bataan 5"
-        },
-        "original_cost": 799.0,
-        "nativeSpecsValues": [
-          "SM City Bataan 1",
-          "SM City Bataan 2",
-          "SM City Bataan 3",
-          "SM City Bataan 4",
-          "SM City Bataan 5"
-        ]
+        "original_cost": 599.0,
+        "nativeSpecsValues": []
       }
     ],
     "shop_id": 1,
-    "shop_name": "SM City Bataan",
+    "shop_name": "Bataan Pasalubong Center",
     "collect_status": 1,
-    "delivery_fee": 399.0,
-    "website": "SM City Bataan 1",
-    "mer_name": "SM City Bataan",
-    "mer_uuid": "demo-uuid-1",
+    "delivery_fee": 50.0,
+    "website": "https://bataanpasalubong.com",
+    "mer_name": "Bataan Pasalubong Center",
+    "mer_uuid": "mer-bataan-pasalubong-001",
     "im_status": 1,
-    "count": 157,
+    "count": 128,
     "comments": [
       {
         "id": 1,
         "user_id": 1,
         "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
+          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2"
         ],
-        "created_at": "2026-10-20 10:30:00",
+        "created_at": "2026-10-28 14:22:00",
         "comment_travel_type_id": 1,
-        "username": "Juan Dela Cruz",
+        "username": "Maria Santos",
         "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_1",
-        "content": "Everything you need in one convenient place.",
-        "star": 4.1,
-        "star_level": 4.1,
+        "content": "The weave is tight and the straps feel strong. Brought it to the Balanga public market and got so many compliments.",
+        "star": 5.0,
+        "star_level": 5.0,
         "hotel_id": 1,
-        "merchant_review": "157"
+        "merchant_review": "Thank you, Maria! Enjoy your abaca tote."
       },
       {
         "id": 2,
         "user_id": 2,
-        "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
-        ],
-        "created_at": "2026-10-20 10:30:00",
-        "comment_travel_type_id": 2,
-        "username": "Maria Santos",
+        "images": [],
+        "created_at": "2026-10-25 09:10:00",
+        "comment_travel_type_id": 1,
+        "username": "Juan Dela Cruz",
         "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_2",
-        "content": "Everything you need in one convenient place.",
-        "star": 4.2,
-        "star_level": 4.2,
+        "content": "Bought the Large in Navy Blue as a gift. Delivery to Mariveles took two days, packaging was neat.",
+        "star": 4.0,
+        "star_level": 4.0,
         "hotel_id": 2,
-        "merchant_review": "194"
+        "merchant_review": null
       },
       {
         "id": 3,
         "user_id": 3,
-        "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
-        ],
-        "created_at": "2026-10-20 10:30:00",
-        "comment_travel_type_id": 3,
-        "username": "Where Demo",
+        "images": [],
+        "created_at": "2026-10-21 18:47:00",
+        "comment_travel_type_id": 1,
+        "username": "Andrea Reyes",
         "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_1",
-        "content": "Everything you need in one convenient place.",
-        "star": 4.3,
-        "star_level": 4.3,
+        "content": "Great pasalubong idea. Price is fair for handwoven quality, and the inner pocket is a nice touch.",
+        "star": 5.0,
+        "star_level": 5.0,
         "hotel_id": 3,
-        "merchant_review": "231"
-      },
-      {
-        "id": 4,
-        "user_id": 4,
-        "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
-        ],
-        "created_at": "2026-10-20 10:30:00",
-        "comment_travel_type_id": 4,
-        "username": "Juan Dela Cruz",
-        "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_2",
-        "content": "Everything you need in one convenient place.",
-        "star": 4.4,
-        "star_level": 4.4,
-        "hotel_id": 4,
-        "merchant_review": "268"
-      },
-      {
-        "id": 5,
-        "user_id": 5,
-        "images": [
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_2",
-          "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
-        ],
-        "created_at": "2026-10-20 10:30:00",
-        "comment_travel_type_id": 5,
-        "username": "Maria Santos",
-        "avatar": "android.resource://com.jiechengsheng.city/drawable/mock_avatar_1",
-        "content": "Everything you need in one convenient place.",
-        "star": 4.5,
-        "star_level": 4.5,
-        "hotel_id": 5,
-        "merchant_review": "305"
+        "merchant_review": "Salamat po! See you again at our Roman Highway showroom."
       }
     ],
-    "price": 399.0,
-    "original_cost": 399.0,
-    "estimated_delivery_fee": "399.00",
-    "video": "SM City Bataan 1",
-    "video_image": "android.resource://com.jiechengsheng.city/drawable/mock_mall_1"
+    "price": 449.0,
+    "original_cost": 599.0,
+    "estimated_delivery_fee": "50.00",
+    "video": null,
+    "video_image": null
   }
 }

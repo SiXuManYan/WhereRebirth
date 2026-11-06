@@ -5,37 +5,23 @@
     {
       "id": 1,
       "user_name": "Juan Dela Cruz",
-      "account": "157",
-      "channel_category": "Bataan 1",
-      "name": "Balanga"
+      "account": "0917 555 0132",
+      "channel_category": "E-Wallet",
+      "name": "GCash"
     },
     {
       "id": 2,
-      "user_name": "Maria Santos",
-      "account": "194",
-      "channel_category": "Bataan 2",
-      "name": "Bataan"
+      "user_name": "Juan Dela Cruz",
+      "account": "0917 555 0187",
+      "channel_category": "E-Wallet",
+      "name": "Maya"
     },
     {
       "id": 3,
-      "user_name": "Where Demo",
-      "account": "231",
-      "channel_category": "Bataan 3",
-      "name": "Mariveles"
-    },
-    {
-      "id": 4,
-      "user_name": "Juan Dela Cruz",
-      "account": "268",
-      "channel_category": "Bataan 4",
-      "name": "Dinalupihan"
-    },
-    {
-      "id": 5,
       "user_name": "Maria Santos",
-      "account": "305",
-      "channel_category": "Bataan 5",
-      "name": "Hermosa"
+      "account": "8891 2345 66",
+      "channel_category": "Bank Account",
+      "name": "BPI"
     }
   ]
 }

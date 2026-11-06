@@ -2,33 +2,43 @@
   "code": 200,
   "message": "local mock",
   "data": {
-    "sign_days": "Bataan 1",
-    "total_sign_days": "Bataan 1",
+    "sign_days": "6",
+    "total_sign_days": "45",
     "data": [
       {
         "sign_status": 1,
-        "date": "2026-10-20 10:30:00",
-        "integral": 1
-      },
-      {
-        "sign_status": 2,
-        "date": "2026-10-20 10:30:00",
-        "integral": 2
+        "date": "2026-11-01",
+        "integral": 10
       },
       {
         "sign_status": 1,
-        "date": "2026-10-20 10:30:00",
-        "integral": 3
-      },
-      {
-        "sign_status": 2,
-        "date": "2026-10-20 10:30:00",
-        "integral": 4
+        "date": "2026-11-02",
+        "integral": 10
       },
       {
         "sign_status": 1,
-        "date": "2026-10-20 10:30:00",
-        "integral": 5
+        "date": "2026-11-03",
+        "integral": 15
+      },
+      {
+        "sign_status": 1,
+        "date": "2026-11-04",
+        "integral": 15
+      },
+      {
+        "sign_status": 1,
+        "date": "2026-11-05",
+        "integral": 20
+      },
+      {
+        "sign_status": 1,
+        "date": "2026-11-06",
+        "integral": 20
+      },
+      {
+        "sign_status": 2,
+        "date": "2026-11-07",
+        "integral": 50
       }
     ]
   }

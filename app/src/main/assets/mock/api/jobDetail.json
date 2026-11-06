@@ -3,35 +3,35 @@
   "message": "local mock",
   "data": {
     "id": 1,
-    "company": "Where Tech 1",
+    "company": "Where Tech",
     "job_title": "Android Developer",
-    "salary": "Where Tech 1",
-    "city": "Where Tech 1",
-    "created_at": "2026-10-20 10:30:00",
-    "job_desc": "Join a growing team and build your career with us.",
-    "company_desc": "Join a growing team and build your career with us.",
+    "salary": "₱25,000 - ₱35,000",
+    "city": "Balanga City, Bataan",
+    "created_at": "2026-10-20",
+    "job_desc": "Where Tech is looking for an Android Developer to join our product team in Balanga. You will build and maintain the apps used by thousands of Bataan residents every day, from local news to food delivery.",
+    "company_desc": "Where Tech is a software company in Balanga City building mobile and web products for local businesses across Bataan.",
     "is_send": false,
-    "is_complete": false,
-    "is_complete_pdf": false,
-    "duty": "Where Tech 1",
-    "requirement": "Where Tech 1",
+    "is_complete": true,
+    "is_complete_pdf": true,
+    "duty": "• Develop and maintain the company's Android apps written in Kotlin\n• Work with designers and backend engineers to ship new features every sprint\n• Review code and mentor junior developers\n• Monitor app performance and fix crashes reported by users",
+    "requirement": "• Bachelor's degree in Computer Science or a related field\n• At least 2 years of hands-on Android development experience\n• Solid knowledge of Kotlin, Java and the Android SDK\n• Familiar with Retrofit, Room and MVVM architecture\n• Willing to work on-site in Balanga City, Bataan",
     "is_collect": false,
     "company_info": {
       "id": 1,
-      "company_title": "Android Developer",
-      "logo": "android.resource://com.jiechengsheng.city/drawable/ic_module_job",
-      "company_type": "Full-time",
-      "company_size": "Where Tech 1",
-      "profile": "Juan Dela Cruz 1",
-      "address": "Balanga City, Bataan",
+      "company_title": "Where Tech",
+      "logo": "android.resource://com.jiechengsheng.city/drawable/mock_logo",
+      "company_type": "Information Technology",
+      "company_size": "50-100",
+      "profile": "Where Tech is a software company based in Balanga City, Bataan. Since 2016 we have built mobile and web products for local government units, schools and small businesses across the province. Our team of 68 engineers and designers works from our office along Capitol Drive, two blocks from the Balanga public plaza.",
+      "address": "3F Peninsula Plaza, Capitol Drive, Balanga City, Bataan",
       "images": [
         "android.resource://com.jiechengsheng.city/drawable/mock_job_1",
         "android.resource://com.jiechengsheng.city/drawable/mock_job_2",
-        "android.resource://com.jiechengsheng.city/drawable/mock_job_1",
-        "android.resource://com.jiechengsheng.city/drawable/mock_job_2",
-        "android.resource://com.jiechengsheng.city/drawable/mock_job_1"
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_1",
+        "android.resource://com.jiechengsheng.city/drawable/mock_city_2",
+        "android.resource://com.jiechengsheng.city/drawable/mock_banner_2"
       ],
-      "website": "Where Tech 1"
+      "website": "https://1bataan.com"
     }
   }
 }
